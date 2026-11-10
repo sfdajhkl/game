@@ -8,7 +8,7 @@ Unity에서 바로 플레이 (Windows)
 2. Unity Hub에서 Unity 6.3 LTS(권장 6000.3.28f1)와 활성 라이선스를 확인합니다.
    에디터에서 플레이할 때는 Windows Build Support 모듈이 필요하지 않습니다.
 3. 이 프로젝트가 이미 열려 있다면 작업을 저장하고 에디터 창을 닫습니다.
-4. Play-In-Unity.cmd를 실행합니다. 패키지 복구 후 Unity가 열리고,
+4. Play-In-Unity.cmd를 실행합니다. 필요한 패키지를 확인한 뒤 Unity가 열리고,
    게임 씬과 한글 폰트를 준비한 다음 Play 모드로 자동 진입합니다.
    첫 실행에는 패키지 다운로드와 에셋 임포트 시간이 필요합니다.
 5. 다음부터는 에디터의 Arvito > Play Game(F5)으로 다시 실행할 수 있습니다.
@@ -24,7 +24,8 @@ Unity에서 바로 플레이 (Windows)
 4. Build-Playtest.cmd를 더블클릭합니다.
    GitHub에서 받은 game-main 폴더에도 실행 파일이 있으며 Unity/Arvito로 연결됩니다.
    첫 실행은 Unity 패키지 다운로드, 씬/한글 폰트 생성, 빌드 때문에 시간이 걸립니다.
-   먼저 Input System 1.20.1, URP 17.3.0으로 맞추고 collab-proxy를 제거하는 자동 복구가 실행됩니다.
+   최신 저장소는 Input System 1.20.1, URP 17.3.0을 요청하며 collab-proxy를 제외합니다.
+   이전 버전의 사본에만 별도 자동 복구가 실행됩니다.
 5. 성공하면 Builds 폴더가 열립니다.
    Windows/Arvito.exe — 즉시 실행하는 게임
    Arvito-Windows.zip — 폴더 전체를 묶은 이동용 게임
@@ -43,14 +44,16 @@ Build-Playtest.cmd -UnityPath "D:\Unity\6000.3.28f1\Editor\Unity.exe"
 
 Unity 6.3 패키지 복구
 - ReservedCFE/Input System 또는 ObjectInfo/PlasticSCM 컴파일 오류는 이전 템플릿의 패키지 호환 문제입니다.
-- Build-Playtest.cmd가 임시 빈 프로젝트에서 Unity Package Manager API로 복구한 뒤 게임을 빌드합니다.
+- 최신 main을 Pull하면 호환 버전이 기본으로 적용되며, Unity가 패키지를 다시 해석합니다.
+- 이전 사본은 Build-Playtest.cmd가 임시 빈 프로젝트에서 Unity Package Manager API로 복구합니다.
 - 기존 패키지 파일은 Builds/PackageBackup-*에 보관합니다.
 - 복구 실패 로그: Builds/package-repair-create.log, Builds/package-repair.log.
-- Play-In-Unity.cmd와 Build-Playtest.cmd가 모두 패키지 복구를 먼저 처리합니다.
+- Play-In-Unity.cmd와 Build-Playtest.cmd는 복구가 필요한 이전 사본도 처리합니다.
+- Library/PackageCache 안의 C# 파일을 직접 수정하지 않습니다.
 
 Unity 에디터에서 직접 실행
-1. 처음에는 Play-In-Unity.cmd를 사용해 호환 패키지를 준비합니다.
-2. 이후 Unity Hub → Add → Add project from disk → 이 폴더 선택으로도 열 수 있습니다.
+1. 최신 main을 Pull합니다. 기존 프로젝트가 열려 있다면 저장 후 닫고 다시 엽니다.
+2. Unity Hub → Add → Add project from disk → 이 폴더 선택으로 열 수 있습니다.
 3. Arvito → Play Game(F5)으로 게임 씬을 열고 실행합니다.
 4. Prepare Project, Open Game Scene, Build Windows 메뉴도 제공합니다.
 
