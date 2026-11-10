@@ -38,7 +38,43 @@ static class Program
         Check("weekly mortality increases with age", () => { Assert(Game.WeeklyRisk(39) == 0); for (int age = 40; age < 100; age++) Assert(Game.WeeklyRisk(age + 1) >= Game.WeeklyRisk(age)); });
         Check("long time jump equals individual weeks", () => { var a = New(91); var b = New(91); a.State.weeks = b.State.weeks = 44 * 52; a.AdvanceTime(104); for (int i = 0; i < 104 && b.State.mode != "ended"; i++) b.AdvanceTime(1); Assert(a.State.weeks == b.State.weeks && a.State.rng == b.State.rng); });
         Check("death interrupts long event before rewards", () => { var g = New(87); g.State.weeks = 90 * 52; g.State.eventId = "quiet_years"; g.Choose(0); Assert(g.State.mode == "ended" && g.State.gold == 24); });
-        Check("earlier choices unlock the reunion", () => { var g = New(); g.State.weeks = 104; Assert(!g.AvailableEvents().Any(e => e.id == "reunion")); g.State.flags.Add("saved_child"); Assert(g.AvailableEvents().Any(e => e.id == "reunion")); });
+        Check("reunion waits two years after a late child rescue, including after loading", () => {
+            var g = New(); g.State.weeks = 1040; g.State.eventId = "lost_child";
+            Assert(!g.AvailableEvents().Any(e => e.id == "reunion")); g.Choose(0); int rescuedAt = g.State.weeks;
+            Assert(!g.AvailableEvents().Any(e => e.id == "reunion"));
+            g = new Game(data, Decode(Encode(g.State))); Assert(Game.Valid(g.State, data));
+            g.State.weeks = rescuedAt + 103; Assert(!g.AvailableEvents().Any(e => e.id == "reunion"));
+            g.State.weeks++; Assert(g.AvailableEvents().Any(e => e.id == "reunion"));
+        });
+        Check("old saves recover rescue timing from the journal or conservatively wait", () => {
+            var g = New(); g.State.weeks = 1040; g.State.eventId = "lost_child"; g.Choose(0); int rescuedAt = g.State.weeks;
+            g.State.weeks += 104; g.State.flagWeeks = null; Assert(Game.Valid(g.State, data));
+            var restored = new Game(data, Decode(Encode(g.State)));
+            Assert(Game.Count(restored.State.flagWeeks, "saved_child") == rescuedAt && restored.AvailableEvents().Any(e => e.id == "reunion"));
+            g.State.journal.Clear(); restored = new Game(data, Decode(Encode(g.State)));
+            Assert(!restored.AvailableEvents().Any(e => e.id == "reunion"));
+            restored.State.weeks += 104; Assert(restored.AvailableEvents().Any(e => e.id == "reunion"));
+        });
+        Check("lethal event failure ends life before level-up rewards", () => {
+            var g = New(22); g.State.eventId = "bridge"; g.State.hero.hp = 1; g.State.hero.xp = 40;
+            Assert(g.Choose(0)); Assert(g.State.mode == "ended" && g.State.ending.cause == "wounds" && g.State.hero.hp == 0);
+            Assert(g.State.hero.level == 1 && g.State.hero.xp == 40 && Game.Valid(g.State, data));
+            var before = Encode(g.State); g.Apply(new Effects { fullHeal = true, xp = 100 }); Assert(Encode(g.State) == before);
+        });
+        Check("full recovery reaches maximum after level-up and never revives companions", () => {
+            var g = New(); g.Apply(new Effects { recruit = "mira" }); var m = g.Actor("mira"); m.hp = 0;
+            g.State.fallen.Add("mira"); g.State.formation.Remove("mira");
+            g.State.hero.maxHp = 114; g.State.hero.hp = 1; g.State.hero.level = 20; g.State.hero.xp = 890;
+            g.State.eventId = "mentor"; g.Choose(1);
+            Assert(g.State.hero.level == 21 && g.State.hero.hp == 118 && g.State.hero.hp == g.State.hero.maxHp);
+            Assert(g.State.outcome.changes.Contains("일행 완전 회복") && m.hp == 0 && g.Party.Count == 1);
+        });
+        Check("numeric full-heal effects in old pending combat saves remain supported", () => {
+            var g = New(); g.State.hero.maxHp = 114; g.State.hero.hp = 1;
+            g.StartCombat(new[] { "wolf" }, new Outcome { title = "old save", effects = new Effects { heal = 99 } });
+            var restored = new Game(data, Decode(Encode(g.State))); restored.Apply(restored.State.combat.pending.effects);
+            Assert(restored.State.hero.hp == 114);
+        });
         Check("weapon switch retains learned skill", () => { var g = New(); g.Apply(new Effects { weapon = "staff", skill = "rally" }); g.Equip("staff"); Assert(g.Skills(g.State.hero).Contains("ember") && g.Skills(g.State.hero).Contains("rally") && !g.Skills(g.State.hero).Contains("slash")); });
         Check("rank, target and energy gates reject invalid turns", () => { var g = Battle(); g.State.combat.active = "hero"; g.State.hero.weapon = "bow"; var before = Encode(g.State); Assert(!g.Act("shot", "enemy_0") && before == Encode(g.State)); g.State.hero.weapon = "sword"; Assert(!g.Act("slash", "mira")); g.State.combat.active = "mira"; g.Actor("mira").energy = 0; Assert(!g.Act("pin", "enemy_0")); });
         Check("position swap consumes a turn", () => { var g = Battle(); g.State.combat.active = "hero"; g.State.combat.queue = new System.Collections.Generic.List<string> { "mira" }; Assert(g.Act("move", "mira")); Assert(g.State.formation[0] == "mira" && g.State.combat.active == "mira"); });

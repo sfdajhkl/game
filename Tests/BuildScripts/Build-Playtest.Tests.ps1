@@ -23,8 +23,9 @@ function Start-Process {
     $mockState.LogPath = $ArgumentList[[Array]::IndexOf($ArgumentList, '-logFile') + 1].Trim('"')
     $mockState.WorkingDirectory = $WorkingDirectory
     $mockState.BuildPath = $env:ARVITO_BUILD_PATH
+    $mockState | Add-Member -MemberType NoteProperty -Name Arguments -Value $ArgumentList -Force
     [IO.File]::WriteAllText($mockState.LogPath, $mockState.Message)
-    if ($mockState.ExitCode -eq 0) {
+    if ($mockState.ExitCode -eq 0 -and $ArgumentList -contains '-batchmode') {
         New-Item -ItemType Directory -Force -Path (Split-Path -Parent $mockState.BuildPath) | Out-Null
         [IO.File]::WriteAllText($mockState.BuildPath, 'Mock player marker, never executed or distributed.')
     }
@@ -110,7 +111,29 @@ try {
     $message = Read-BuildError $fakeEditor
     Assert-True ($message -match 'without a readable exit code') 'An unknown exit code was treated as success with an older player present.'
     Write-Host 'PASS unknown exit code blocks packaging even when an older player exists'
-    Write-Host '6 launcher regression checks passed. Actual Unity on Windows was not executed.'
+
+    $mockState.ExitCode = 0
+    $launches = $mockState.Launches
+    $waited = $mockState.Waited
+    & $fakeEditor -UnityPath $fakeEditor -PlayInEditor | Out-Null
+    Assert-True ($mockState.Launches -eq $launches + 1 -and $mockState.Waited -eq $waited) 'Editor play did not launch interactively or blocked waiting for exit.'
+    Assert-True ($mockState.Arguments -notcontains '-batchmode' -and $mockState.Arguments -notcontains '-quit' -and $mockState.Arguments -notcontains '-nographics') 'Editor play was launched headlessly or told to quit.'
+    Assert-True ($mockState.Arguments -contains 'Arvito.Editor.ProjectSetup.PlayGame') 'Editor play did not invoke game preparation and Play Mode.'
+    Assert-True ($mockState.LogPath -eq (Join-Path $fixture 'Builds/unity-play.log').Replace('\', '/')) 'Editor play has no dedicated log.'
+    Write-Host 'PASS editor play prepares the game without building, packaging, quitting or blocking'
+
+    $launches = $mockState.Launches
+    $heldLock = [IO.File]::Open($lock, [IO.FileMode]::Open, [IO.FileAccess]::ReadWrite, [IO.FileShare]::None)
+    try {
+        $message = ''
+        try { & $fakeEditor -UnityPath $fakeEditor -PlayInEditor | Out-Null }
+        catch { $message = $_.Exception.Message }
+    }
+    finally { $heldLock.Dispose() }
+    Assert-True ($mockState.Launches -eq $launches -and $message -match 'Arvito > Play Game') 'Editor play ignored an active project lock or omitted the existing-Editor instructions.'
+    Assert-True ([IO.File]::ReadAllText($lock) -eq 'preserve this lock file') 'Editor play modified the active project lock.'
+    Write-Host 'PASS editor play preserves an open project and points to its Play Game menu'
+    Write-Host '8 launcher regression checks passed. Actual Unity on Windows was not executed.'
 }
 finally {
     $env:ARVITO_BUILD_PATH = $oldBuildPath

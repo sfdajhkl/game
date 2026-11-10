@@ -67,6 +67,7 @@ namespace Arvito.Core
     [Serializable] public class Effects
     {
         public int gold, rations, potions, rep, bond, xp, hp, heal, stress;
+        public bool fullHeal;
         public string flag, weapon, skill, recruit, stat;
     }
     [Serializable] public class Need { public int gold, rations; public bool partySpace; public string flag; }
@@ -87,7 +88,7 @@ namespace Arvito.Core
     {
         public string id, title, chapter, place, art, tag, requiredFlag, excludedFallen;
         public bool once;
-        public int minWeeks, minLevel;
+        public int minWeeks, minLevel, minFlagWeeks;
         public string[] text = Array.Empty<string>();
         public Choice[] choices = Array.Empty<Choice>();
     }
@@ -124,6 +125,7 @@ namespace Arvito.Core
         public List<Actor> companions = new List<Actor>();
         public List<string> formation = new List<string> { "hero" }, fallen = new List<string>(), inventory = new List<string> { "sword" }, flags = new List<string>(), recent = new List<string>();
         public List<Counter> seen = new List<Counter>();
+        public List<Counter> flagWeeks = new List<Counter>();
         public List<JournalEntry> journal = new List<JournalEntry>();
         public Outcome outcome;
         public Combat combat;

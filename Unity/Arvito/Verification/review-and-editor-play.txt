@@ -1,0 +1,36 @@
+ARVITO review fixes and Unity Editor play — 2026-11-10
+
+Changes
+- Lethal story damage ends the life before XP/level-up or healing rewards.
+- Reunion requires 104 weeks after the child was rescued, using saved flag timestamps.
+  Version-1 saves recover the timestamp from the journal where possible; otherwise
+  they conservatively begin the wait at the loaded week's value.
+- Full recovery is explicit and fills the post-level-up maximum HP of living allies.
+  Numeric 99/999 effects in pending outcomes from old saves are still supported.
+- Play-In-Unity.cmd reuses package repair and opens the interactive Editor with
+  Arvito.Editor.ProjectSetup.PlayGame. No player build or installer is required.
+- Arvito > Play Game (F5) prepares/opens the scene and enters Play Mode. Normal
+  Play also starts the prepared game scene through playModeStartScene.
+
+Passed in this session
+- 28 C# core checks (.NET 8.0.427), including 30 seeded opening battles.
+- 8 launcher, 5 package-repair and 4 progress checks (PowerShell 7.6.9 on Linux).
+  Unity/UPM/Windows launches are mocked; the progress suite uses a real child process.
+- All 8 Tools PowerShell scripts parsed successfully.
+- Player and Editor C# compiled against the installed Unity 6000.3.28f1 engine,
+  Editor, uGUI, TMP and Input System reference assemblies.
+- git diff --check.
+
+Actual Editor attempt
+Unity 6000.3.28f1 -batchmode -nographics -quit
+  -projectPath Unity/Arvito -executeMethod Arvito.Editor.ProjectSetup.Prepare
+exited 198 before project import with:
+  No valid Unity Editor license found. Please activate your license.
+
+Not verified here
+- Native UPM resolution, asset import, generated scene/font assets, Play Mode UI/input.
+- Windows Editor execution, Windows player build, IExpress install/uninstall.
+
+On a Windows PC with activated Unity 6.3 LTS, extract the complete project and run
+Play-In-Unity.cmd. The first run resolves the existing package compatibility repair,
+imports assets and prepares the scene/font before requesting Play Mode.
