@@ -55,9 +55,11 @@ try {
     Assert-True $plan.NeedsRepair 'Old template was not identified.'
     Assert-True ($plan.Versions['com.unity.inputsystem'] -eq '1.20.1' -and $plan.Versions['com.unity.render-pipelines.universal'] -eq '17.3.0') 'Wrong compatible versions requested.'
     Assert-True (-not $plan.Versions.ContainsKey('com.unity.collab-proxy')) 'Collab was retained.'
+    Assert-True ($plan.Versions['com.unity.2d.animation'] -eq '13.0.6') 'Incompatible Animation package was retained.'
+    Assert-True ($plan.Versions['com.unity.2d.psdimporter'] -eq '12.0.2' -and $plan.Versions['com.unity.2d.aseprite'] -eq '3.0.2') '2D Common importer companions were not upgraded.'
     $old = $before | ConvertFrom-Json
     foreach ($p in $old.dependencies.PSObject.Properties) {
-        if ($p.Name -notin @('com.unity.inputsystem','com.unity.render-pipelines.universal','com.unity.collab-proxy')) { Assert-True ($plan.Versions[$p.Name] -eq $p.Value) 'An unrelated dependency was changed.' }
+        if ($p.Name -notin @('com.unity.inputsystem','com.unity.render-pipelines.universal','com.unity.collab-proxy','com.unity.2d.animation','com.unity.2d.psdimporter','com.unity.2d.aseprite')) { Assert-True ($plan.Versions[$p.Name] -eq $p.Value) 'An unrelated dependency was changed.' }
     }
     Assert-True ([IO.File]::ReadAllText($manifest) -ceq $before) 'Planning modified the target manifest.'
     Write-Host 'PASS repair plan targets the known failures and preserves unrelated requests without writing manifest'
@@ -76,6 +78,25 @@ try {
     Assert-True ($mock.Calls -eq $calls) 'Already repaired requests launched another Editor.'
     Write-Host 'PASS compatible request set skips repeat repair'
 
+    # A user who ran the previous repair still has Animation 10.x. Repair must
+    # run again even when Input System/URP are fixed and collab is already gone.
+    $partial = Make-Target 'previous-repair'
+    $partialData = Get-Content -LiteralPath (Join-Path $partial 'Packages/manifest.json') -Raw | ConvertFrom-Json
+    $partialData.dependencies.PSObject.Properties.Remove('com.unity.collab-proxy')
+    $partialData.dependencies.'com.unity.inputsystem' = '1.20.1'
+    $partialData.dependencies.'com.unity.render-pipelines.universal' = '17.3.0'
+    $partialData | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath (Join-Path $partial 'Packages/manifest.json')
+    Assert-True (Get-ArvitoPackagePlan $partial).NeedsRepair 'Previous incomplete repair was incorrectly skipped.'
+    & $repair -ProjectPath $partial -UnityPath $PSCommandPath
+    Assert-True (-not (Get-ArvitoPackagePlan $partial).NeedsRepair) 'Previous incomplete repair was not completed.'
+    Write-Host 'PASS previously repaired projects receive the missing 2D package upgrade'
+
+    $minimal = Make-Target 'minimal'
+    Set-Content -LiteralPath (Join-Path $minimal 'Packages/manifest.json') -Value '{"dependencies":{"com.unity.inputsystem":"1.20.1","com.unity.render-pipelines.universal":"17.3.0"}}'
+    $minimalPlan = Get-ArvitoPackagePlan $minimal
+    Assert-True (-not $minimalPlan.NeedsRepair -and $minimalPlan.Versions.Count -eq 2) 'Optional 2D packages were added to a project without them.'
+    Write-Host 'PASS projects without optional 2D tools keep their existing dependency set'
+
     foreach ($mode in @('failure','bad-version')) {
         $target = Make-Target $mode
         $original = [IO.File]::ReadAllText((Join-Path $target 'Packages/manifest.json'))
@@ -87,7 +108,7 @@ try {
         Assert-True ([IO.File]::ReadAllText((Join-Path $target 'Packages/packages-lock.json')) -ceq '{"old":"lock bytes"}') 'Failed repair modified the original lock.'
         Write-Host ('PASS ' + $mode + ' leaves original package files untouched')
     }
-    Write-Host '5 package repair checks passed. Unity/UPM were mocked; actual Windows repair is not executed here.'
+    Write-Host '7 package repair checks passed. Unity/UPM were mocked; actual Windows repair is not executed here.'
 }
 finally {
     $env:ARVITO_PACKAGE_REPAIR_RECIPE = $oldRecipe

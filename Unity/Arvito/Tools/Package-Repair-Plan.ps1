@@ -21,6 +21,19 @@ function Get-ArvitoPackagePlan([string]$ProjectPath) {
     if (-not $packages.ContainsKey('com.unity.render-pipelines.universal') -or $packages['com.unity.render-pipelines.universal'] -ne '17.3.0') {
         $packages['com.unity.render-pipelines.universal'] = '17.3.0'; $needsRepair = $true
     }
+    # Animation 10.x contains USS selectors rejected by Unity 6.3. Upgrade its
+    # installed importer companions too: they share the 2D Common dependency.
+    # Do not introduce optional 2D tools into projects that do not use them.
+    $twoDVersions = @{
+        'com.unity.2d.animation' = '13.0.6'
+        'com.unity.2d.psdimporter' = '12.0.2'
+        'com.unity.2d.aseprite' = '3.0.2'
+    }
+    foreach ($name in $twoDVersions.Keys) {
+        if ($packages.ContainsKey($name) -and $packages[$name] -ne $twoDVersions[$name]) {
+            $packages[$name] = $twoDVersions[$name]; $needsRepair = $true
+        }
+    }
     $requests = @($packages.Keys | Sort-Object | ForEach-Object { $_ + '@' + $packages[$_] })
     return [pscustomobject]@{ NeedsRepair = [bool]$needsRepair; Requests = $requests; Versions = $packages }
 }

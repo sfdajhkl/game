@@ -8,6 +8,15 @@
 
 게임 규칙과 네이티브 uGUI 화면, 자동 저장, Unity 에디터 설정 및 Windows 빌드/설치 패키징 스크립트를 작성했습니다. **현재 클라우드에 활성 Unity 라이선스가 없어 에디터 실행과 Windows EXE 빌드는 완료하지 못했습니다.** 소스 ZIP은 설치 파일이 아닙니다.
 
+## Unity 에디터에서 바로 플레이
+
+1. 이 프로젝트가 Unity에서 열려 있다면 작업을 저장하고 닫습니다. Unity Hub는 켜두어도 됩니다.
+2. 저장소 최상위의 **`Open-Arvito.cmd`**를 더블클릭합니다. `Unity/Arvito/Open-Arvito.cmd`도 같습니다.
+3. 필요한 패키지 복구가 끝나면 Unity에서 게임 씬을 엽니다. 최초 임포트와 한글 폰트 생성이 끝날 때까지 기다린 뒤 상단 **Play**를 누릅니다.
+4. 씬이 열리지 않았다면 `Arvito > Open Game Scene`을 선택합니다.
+
+이 경로는 Windows EXE/설치 파일을 빌드하지 않습니다. Unity를 다른 위치에 설치했다면 `Open-Arvito.cmd -UnityPath "D:\Unity\6000.3.28f1\Editor\Unity.exe"`로 지정합니다. Unity 6.3 에디터와 활성 라이선스가 필요합니다.
+
 ## 로그인된 Windows PC에서 플레이테스트 빌드
 
 1. `Unity/Arvito` 폴더 또는 프로젝트 ZIP을 압축 해제합니다.
@@ -29,9 +38,9 @@
 
 빌드 중에는 Unity 로그를 실시간으로 표시하고, 5초마다 경과 시간·최근 로그에서 확인한 작업 단계·새 로그가 없는 시간을 보여줍니다. ZIP과 설치 파일을 만들 때도 단계가 표시됩니다. 이미 실행 중인 빌드는 `Watch-Build.cmd`를 별도 창에서 실행해 확인할 수 있습니다. 로그를 찾지 못하면 파일 선택 창에서 `Arvito/Builds/unity-build.log`를 선택하세요. 보기 창을 닫아도 별도 창에서 실행 중인 빌드는 계속됩니다.
 
-처음 빌드할 때는 Unity 6.3과 맞지 않는 템플릿 패키지를 자동 복구합니다. Input System은 `1.20.1`, URP는 `17.3.0`으로 맞추고 `com.unity.collab-proxy`를 제거합니다. 임시 빈 프로젝트에서 Unity `Client.AddAndRemove` API로 구성과 잠금을 생성한 뒤 원본에 적용합니다. 기존 파일은 `Builds/PackageBackup-*`에 보관합니다. 원본 manifest를 직접 편집하거나 PackageCache 소스를 수정하지 않습니다. 첫 복구에는 추가 다운로드 시간이 걸릴 수 있습니다.
+`Open-Arvito.cmd`와 `Build-Playtest.cmd`는 Unity 6.3과 맞지 않는 템플릿 패키지를 자동 복구합니다. Input System은 `1.20.1`, URP는 `17.3.0`으로 맞추고 `com.unity.collab-proxy`를 제거합니다. 설치된 2D Animation은 `13.0.6`, PSD Importer는 `12.0.2`, Aseprite Importer는 `3.0.2`로 맞춰 Unity 6.3의 UI 스타일 및 공통 2D 의존성과 맞춥니다. 해당 2D 도구가 없는 프로젝트에는 추가하지 않습니다. 임시 빈 프로젝트에서 Unity `Client.AddAndRemove` API로 구성과 잠금을 생성한 뒤 원본에 적용합니다. 기존 파일은 `Builds/PackageBackup-*`에 보관합니다. 원본 manifest를 직접 편집하거나 PackageCache 소스를 수정하지 않습니다. 첫 복구에는 추가 다운로드 시간이 걸릴 수 있습니다.
 
-복구 로그는 `Builds/package-repair-create.log`, `Builds/package-repair.log`입니다. 사용자 PC에서 복구한 이후에는 같은 작업을 반복하지 않습니다. Unity 에디터로 직접 플레이하려면 첫 빌드의 패키지 복구를 먼저 마치세요.
+복구 로그는 `Builds/package-repair-create.log`, `Builds/package-repair.log`입니다. 모든 대상 버전이 맞으면 복구를 반복하지 않습니다. 이전 복구로 Input System/URP만 바뀐 프로젝트도 누락된 2D 패키지를 다시 복구합니다. Unity 에디터로 직접 플레이할 때는 `Open-Arvito.cmd`를 사용하세요.
 
 에디터에서는 Unity Hub로 프로젝트를 추가하고 `Arvito > Prepare Project`, `Open Game Scene`, Play 순서로 실행합니다. 처음 열면 준비 작업을 자동으로 시도합니다. `Arvito > Build Windows` 메뉴도 제공합니다.
 

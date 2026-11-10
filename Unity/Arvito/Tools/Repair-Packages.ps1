@@ -18,7 +18,8 @@ New-Item -ItemType Directory -Path $scratch | Out-Null
 $oldRecipe = $env:ARVITO_PACKAGE_REPAIR_RECIPE
 $finished = $false
 try {
-    Write-Host '[Arvito Packages] Updating Input System to 1.20.1 and URP to 17.3.0; removing collab-proxy.'
+    Write-Host '[Arvito Packages] Resolving Unity 6.3 Input System, URP and installed 2D tools; removing collab-proxy.'
+    Write-Host ('[Arvito Packages] Requests: ' + ($plan.Requests -join ', '))
     Write-Host '[Arvito Packages] Creating an empty temporary project for the Unity Package Manager...'
     $createLog = Join-Path $builds 'package-repair-create.log'
     $state = New-ArvitoLogState $createLog -WaitForChange

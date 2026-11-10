@@ -20,6 +20,12 @@ function Start-Process {
     $mockState.Launches++
     $mockState.Blocking = [bool]$Wait
     $mockState.Project = $ArgumentList[[Array]::IndexOf($ArgumentList, '-projectPath') + 1].Trim('"')
+    if ($ArgumentList -notcontains '-batchmode') {
+        Assert-True ($ArgumentList -notcontains '-quit' -and $ArgumentList -notcontains '-buildTarget') 'Editor launch tried to quit or build.'
+        Assert-True ($ArgumentList -contains 'Arvito.Editor.ProjectSetup.OpenScene') 'Editor launch did not select the game scene.'
+        $mockState.WorkingDirectory = $WorkingDirectory
+        return [pscustomobject]@{ ExitCode = $null; HasExited = $false }
+    }
     $mockState.LogPath = $ArgumentList[[Array]::IndexOf($ArgumentList, '-logFile') + 1].Trim('"')
     $mockState.WorkingDirectory = $WorkingDirectory
     $mockState.BuildPath = $env:ARVITO_BUILD_PATH
@@ -110,7 +116,23 @@ try {
     $message = Read-BuildError $fakeEditor
     Assert-True ($message -match 'without a readable exit code') 'An unknown exit code was treated as success with an older player present.'
     Write-Host 'PASS unknown exit code blocks packaging even when an older player exists'
-    Write-Host '6 launcher regression checks passed. Actual Unity on Windows was not executed.'
+    $previousLaunches = $mockState.Launches
+    $previousWaits = $mockState.Waited
+    # Packaging helper still throws: editor mode must return without calling it.
+    & (Join-Path $fixture 'Tools/Build-Playtest.ps1') -UnityPath $fakeEditor -OpenEditor
+    Assert-True ($mockState.Launches -eq $previousLaunches + 1 -and $mockState.Waited -eq $previousWaits) 'Editor mode built or waited for the interactive Editor to exit.'
+    Assert-True ($mockState.Project -eq $fixture.Replace('\', '/') -and $mockState.WorkingDirectory -eq $fixture) 'Editor opened the wrong project.'
+    Assert-True ([IO.File]::ReadAllText($oldPlayer) -eq 'Old mock player marker; never executed or distributed.') 'Editor mode modified a player build.'
+    Write-Host 'PASS editor mode opens the game scene without building, packaging or waiting for Editor exit'
+
+    # If repair fails, no interactive Editor should be launched.
+    Set-Content -LiteralPath (Join-Path $fixture 'Tools/Repair-Packages.ps1') -Value "throw 'Simulated repair failure.'"
+    $previousLaunches = $mockState.Launches
+    $failure = ''
+    try { & (Join-Path $fixture 'Tools/Build-Playtest.ps1') -UnityPath $fakeEditor -OpenEditor } catch { $failure = $_.Exception.Message }
+    Assert-True ($failure -eq 'Simulated repair failure.' -and $mockState.Launches -eq $previousLaunches) 'Editor launched after package repair failed.'
+    Write-Host 'PASS failed package repair prevents interactive Editor launch'
+    Write-Host '8 launcher regression checks passed. Actual Unity on Windows was not executed.'
 }
 finally {
     $env:ARVITO_BUILD_PATH = $oldBuildPath
