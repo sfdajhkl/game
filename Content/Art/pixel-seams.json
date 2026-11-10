@@ -1,0 +1,40 @@
+{
+  "bowstrings": [
+    {
+      "id": "mira",
+      "from": [
+        49,
+        21
+      ],
+      "to": [
+        33,
+        55
+      ],
+      "color": "D"
+    },
+    {
+      "id": "archer",
+      "from": [
+        49,
+        15
+      ],
+      "to": [
+        41,
+        43
+      ],
+      "color": "D"
+    },
+    {
+      "id": "archer_female",
+      "from": [
+        48,
+        14
+      ],
+      "to": [
+        40,
+        55
+      ],
+      "color": "D"
+    }
+  ]
+}

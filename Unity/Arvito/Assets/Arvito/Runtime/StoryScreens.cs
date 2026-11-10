@@ -9,6 +9,7 @@ namespace Arvito.Runtime
 {
     public sealed partial class GameApp
     {
+        bool newLifeFemale;
         void TitleScreen()
         {
             var picture = Ui.Node("Landscape", page); picture.anchorMin = new Vector2(.39f, 0); picture.anchorMax = Vector2.one; picture.offsetMin = picture.offsetMax = Vector2.zero;
@@ -31,6 +32,7 @@ namespace Arvito.Runtime
         }
         void NewLifeDialog()
         {
+            newLifeFemale=false;
             var stack = Dialog("새로운 이름, 새로운 길", game == null ? "당신은 열여섯 살입니다.\n어떤 이름으로 첫 페이지를 열까요?" : "현재 삶은 별도 기록 파일로 보관합니다.\n새 인물은 열여섯 살부터 시작합니다.");
             var field = Ui.Card(stack, "Name input", Ui.Ink); Ui.Height(field, 64); Ui.Border(field);
             nameInput = field.gameObject.AddComponent<TMP_InputField>(); nameInput.targetGraphic = field.GetComponent<UnityEngine.UI.Image>(); nameInput.characterLimit = 12;
@@ -39,6 +41,14 @@ namespace Arvito.Runtime
             var placeholder = Ui.Text(area, "모험가의 이름", 24, Ui.Muted, TextAlignmentOptions.MidlineLeft); Ui.Fill(placeholder.rectTransform);
             nameInput.textViewport = area; nameInput.textComponent = text; nameInput.placeholder = placeholder; nameInput.contentType = TMP_InputField.ContentType.Standard; nameInput.lineType = TMP_InputField.LineType.SingleLine;
             nameInput.text = "여행자"; nameInput.onSubmit.AddListener(_ => StartLife());
+            var portrait=Ui.Node("Hero appearance preview",stack);Ui.Height(portrait,128);
+            var portraitImage=portrait.gameObject.AddComponent<PixelArtImage>();BattlerArt.Apply(portraitImage,"hero");
+            UnityEngine.UI.Button appearanceButton=null;
+            appearanceButton=Ui.Button(stack,"외형: 남성형  →  여성형으로 변경",()=>{
+                newLifeFemale=!newLifeFemale;
+                BattlerArt.Apply(portraitImage,Appearance.Sprite("hero",newLifeFemale));
+                appearanceButton.GetComponentInChildren<TextMeshProUGUI>().text=newLifeFemale ? "외형: 여성형  →  남성형으로 변경" : "외형: 남성형  →  여성형으로 변경";
+            },46);
             Ui.Text(stack, "직업은 정해져 있지 않습니다.\n손에 든 무기와 배운 기술이 당신의 길을 만듭니다.", 16, Ui.Muted);
             Ui.Button(stack, "첫 페이지를 펼친다", StartLife, 58, true, true); Ui.Button(stack, "돌아가기", CloseDialog);
             nameInput.ActivateInputField();
@@ -57,7 +67,7 @@ namespace Arvito.Runtime
             }
             catch (IOException) { Notify("이전 기록을 보관하지 못했습니다. 저장 공간을 확인해 주세요."); return; }
             catch (UnauthorizedAccessException) { Notify("기록 폴더에 쓸 수 없습니다. 접근 권한을 확인해 주세요."); return; }
-            game = Game.New(data, name, BitConverter.ToUInt32(Guid.NewGuid().ToByteArray(), 0)); title = false; tab = "journey"; selectedSkill = selectedTarget = lastActor = null;
+            game = Game.New(data, name, BitConverter.ToUInt32(Guid.NewGuid().ToByteArray(), 0),newLifeFemale); title = false; tab = "journey"; selectedSkill = selectedTarget = lastActor = null;
             CloseDialog(); Save(); Render();
         }
         RectTransform Chapter(string eyebrow, string heading, string illustration = null)
@@ -129,10 +139,12 @@ namespace Arvito.Runtime
             foreach (var a in game.Party)
             {
                 string id = a.id;
-                var portrait=Ui.Node("Party illustration",stack);Ui.Height(portrait,170);BattlerArt.Portrait(portrait,id);
+                var portrait=Ui.Node("Party illustration",stack);Ui.Height(portrait,170);BattlerArt.Portrait(portrait,Appearance.Sprite(a));
                 Ui.Text(stack, game.Rank(id).ToString("00") + "   " + Ui.Safe(a.name), 26, Ui.Gold);
                 Ui.Text(stack, a.id == "hero" ? "한 가지 직업으로 정해지지 않은 모험가. 당신의 선택이 앞으로의 이야기를 만듭니다." : a.story, 19);
                 Ui.Text(stack, data.Weapon(a.weapon).name + "  ·  체력 " + a.hp + "/" + a.maxHp + "  ·  긴장 " + a.stress, 16, Ui.Muted);
+                if (Appearance.HasFemaleVariant(id))
+                    Ui.Button(stack,a.femaleAppearance ? "외형: 여성형  →  남성형으로 변경" : "외형: 남성형  →  여성형으로 변경",()=>Change(()=>game.SetFemaleAppearance(id,!a.femaleAppearance)),44);
                 var row = Ui.Node("Formation buttons", stack); Ui.Height(row, 48);
                 var left = Ui.Button(row, "전열로 이동", () => Change(() => game.Reorder(id, -1)), 48, game.Rank(id) > 1 && game.State.mode != "combat" && game.State.mode != "ended");
                 var l = (RectTransform)left.transform; l.anchorMin = Vector2.zero; l.anchorMax = new Vector2(.49f, 1); l.offsetMin = l.offsetMax = Vector2.zero;

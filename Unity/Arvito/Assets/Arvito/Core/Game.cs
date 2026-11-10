@@ -34,12 +34,12 @@ namespace Arvito.Core
         static int Round(double v) => (int)Math.Round(v, MidpointRounding.AwayFromZero);
         public List<Actor> Party => State.formation.Select(id => id == "hero" ? State.hero : State.companions.Find(a => a.id == id)).Where(a => a != null && a.hp > 0).ToList();
         public StoryEvent Event => Data.Event(State.eventId);
-        public static Game New(Catalog data, string name, uint seed)
+        public static Game New(Catalog data, string name, uint seed, bool femaleAppearance = false)
         {
             name = string.IsNullOrWhiteSpace(name) ? "여행자" : name.Trim();
             if (name.Length > 12) name = name.Substring(0, 12);
             var s = new GameState { rng = seed == 0 ? 1u : seed, startedAt = DateTime.UtcNow.ToString("O"), hero = new Actor {
-                id = "hero", name = name, subtitle = "이름 없는 모험가", weapon = "sword", portrait = "hero", maxHp = 38, hp = 38, speed = 3, power = 1
+                id = "hero", name = name, subtitle = "이름 없는 모험가", weapon = "sword", portrait = "hero", femaleAppearance = femaleAppearance, maxHp = 38, hp = 38, speed = 3, power = 1
             }};
             var g = new Game(data, s); s.vitality = .8 + g.Random() * .4;
             var starts = data.regions.Where(r => r.minStage == 0).ToList();
@@ -51,6 +51,12 @@ namespace Arvito.Core
         {
             unchecked { uint x = State.rng; x ^= x << 13; x ^= x >> 17; x ^= x << 5; State.rng = x; }
             return State.rng / 4294967296.0;
+        }
+        public bool SetFemaleAppearance(string actorId, bool female)
+        {
+            var actor=Party.Find(a=>a.id==actorId);
+            if (actor==null || !Appearance.HasFemaleVariant(actorId)) return false;
+            actor.femaleAppearance=female;return true;
         }
         int Roll(int a, int b) => a + (int)Math.Floor(Random() * (b - a + 1));
         public static double AnnualRisk(double age, double vitality = 1) => age < 40 ? 0 : Math.Min(.98, .0015 * Math.Exp((age - 40) / 8) / vitality);
@@ -198,6 +204,10 @@ namespace Arvito.Core
         {
             State.mode = "combat"; State.outcome = null;
             State.combat = new Combat { pending = pending, log = new List<string> { "일행이 진형을 갖춥니다." }, enemies = types.Select((t, i) => Data.enemies.First(e => e.id == t).Copy("enemy_" + i)).ToList() };
+            for (int i=0;i<State.combat.enemies.Count;i++)
+            {
+                var enemy=State.combat.enemies[i];enemy.femaleAppearance=Appearance.EnemyFemale(enemy.type,State.rng,i);
+            }
             foreach (var a in Party) { a.energy = 4; a.status = new Conditions(); } AdvanceTurn();
         }
         void NewRound()

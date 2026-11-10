@@ -51,10 +51,13 @@ while True:
 assert required<=reachable,('orphaned quest chains',required-reachable)
 art=root/'Unity/Arvito/Assets/Resources/Arvito/Art/characters.png'
 png=art.read_bytes();assert png[:8]==b'\x89PNG\r\n\x1a\n'
-width,height=struct.unpack('>II',png[16:24]);assert (width,height)==(256,256) and png[25]==6
-slots=dict((name,int(index)) for name,index in re.findall(r'\["([a-z]+)"\]=(\d+)',(root/'Unity/Arvito/Assets/Arvito/Runtime/BattlerArt.cs').read_text()))
-assert set(slots)==known['enemies']|known['companions']|{'hero'}
-assert sorted(slots.values())==list(range(15)) and Path(str(art)+'.meta').exists()
+width,height=struct.unpack('>II',png[16:24]);assert (width,height)==(256,384) and png[25]==6
+slots=dict((name,int(index)) for name,index in re.findall(r'\["([a-z_]+)"\]=(\d+)',(root/'Unity/Arvito/Assets/Arvito/Runtime/BattlerArt.cs').read_text()))
+variants={name+'_female' for name in ('hero','elian','borin','bandit','archer','cultist')}
+assert set(slots)==known['enemies']|known['companions']|{'hero'}|variants
+assert sorted(slots.values())==list(range(15))+list(range(16,22)) and Path(str(art)+'.meta').exists()
+pixel_source=json.loads((root/'Content/Art/characters.json').read_text())
+assert {s['id']:s['slot'] for s in pixel_source['sprites']}==slots
 for r in regions.values():assert set(r['routes'])<=regions.keys(),r['id']
 for stage in range(3):
     allowed={r['id'] for r in regions.values() if r['minStage']<=stage}
@@ -69,4 +72,4 @@ for stage in range(3):
         assert len(free)>=2,('exhausted local pool',region,stage)
 subprocess.run([sys.executable,str(root/'scripts/export-story-content.py'),'--check'],check=True)
 subprocess.run(['node',str(root/'scripts/export-pixel-art.mjs'),'--check'],check=True)
-print(f'PASS: 500 distinct scenes, {choices} choices, {battles} combat options, {gates} equipment gates; all 95 quest arcs and 10 regional routes are reachable; 15 native pixel sprites mapped to RGBA atlas.')
+print(f'PASS: 500 distinct scenes, {choices} choices, {battles} combat options, {gates} equipment gates; all 95 quest arcs and 10 regional routes are reachable; 21 native pixel sprites mapped to RGBA atlas.')
