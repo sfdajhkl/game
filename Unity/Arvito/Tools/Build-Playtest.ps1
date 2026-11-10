@@ -50,6 +50,8 @@ $unityArgs = @('-batchmode', '-nographics', '-quit', '-buildTarget', 'Win64', '-
     '-executeMethod', 'Arvito.Editor.ProjectSetup.BuildWindows', '-logFile', ('"{0}"' -f $log.Replace('\', '/')))
 $logState = New-ArvitoLogState $log -WaitForChange
 $process = Start-Process -FilePath $UnityPath -ArgumentList $unityArgs -WorkingDirectory $project -PassThru
+# Cache the handle while Unity is alive so Windows PowerShell retains its exit code.
+try { $null = $process.Handle } catch [InvalidOperationException] { }
 $exitCode = Wait-ArvitoUnityBuild $process $logState
 if ($exitCode -ne 0 -or -not (Test-Path -LiteralPath $env:ARVITO_BUILD_PATH)) {
     $logText = ''

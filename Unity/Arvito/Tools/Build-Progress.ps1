@@ -83,6 +83,7 @@ function Wait-ArvitoUnityBuild($Process, $LogState) {
         }
         $Process.WaitForExit()
         foreach ($line in @(Read-ArvitoLog $LogState -Final)) { Write-Host $line }
+        if ($null -eq $Process.ExitCode) { throw 'Unity exited without a readable exit code. Check the build log; packaging was not started.' }
         Write-Host "[Arvito] Unity exited with code $($Process.ExitCode). Elapsed $($timer.Elapsed.ToString('hh\:mm\:ss'))."
         return [int]$Process.ExitCode
     }

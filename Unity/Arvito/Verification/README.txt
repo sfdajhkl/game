@@ -61,6 +61,7 @@ Live build progress (2026-11-10):
 - The process is waited after exit, final output is drained, and the real exit
   code still prevents packaging on failure. The monitor never kills Unity.
 - Watch-Build.cmd can watch an existing build log in a separate window.
-- 5 mocked launcher checks and 4 progress checks passed. The latter include a real
+- 6 mocked launcher checks and 4 progress checks passed. The latter include a real
   non-Unity child process, verifying output before exit and the final error/code.
+- A null process exit code is treated as an error even if an older player exists.
 - PowerShell parsing passed; actual Unity/Windows rendering/build remains untested.

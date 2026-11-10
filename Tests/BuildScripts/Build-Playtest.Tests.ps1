@@ -98,7 +98,16 @@ try {
     Assert-True ($message -match '^Arvito Unity project not found') 'The incomplete project was not explained.'
     Assert-True (-not (Test-Path -LiteralPath (Join-Path $invalidRoot 'Builds'))) 'An invalid project created build output.'
     Write-Host 'PASS missing Unity project is rejected before launching or creating build output'
-    Write-Host '5 launcher regression checks passed. Actual Unity on Windows was not executed.'
+    # Windows PowerShell can occasionally expose a null process exit code. An old
+    # player must never make that look like a successful new build.
+    $mockState.ExitCode = $null
+    $oldPlayer = Join-Path $fixture 'Builds/Windows/Arvito.exe'
+    New-Item -ItemType Directory -Force -Path (Split-Path -Parent $oldPlayer) | Out-Null
+    [IO.File]::WriteAllText($oldPlayer, 'Old mock player marker; never executed or distributed.')
+    $message = Read-BuildError $fakeEditor
+    Assert-True ($message -match 'without a readable exit code') 'An unknown exit code was treated as success with an older player present.'
+    Write-Host 'PASS unknown exit code blocks packaging even when an older player exists'
+    Write-Host '6 launcher regression checks passed. Actual Unity on Windows was not executed.'
 }
 finally {
     $env:ARVITO_BUILD_PATH = $oldBuildPath
