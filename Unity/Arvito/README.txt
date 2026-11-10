@@ -20,6 +20,13 @@ ARVITO / 아르비토 — Unity C# PC 프로젝트
 Unity를 다른 폴더에 설치했다면 명령 프롬프트에서:
 Build-Playtest.cmd -UnityPath "D:\Unity\6000.3.28f1\Editor\Unity.exe"
 
+빌드 진행 상황 보기
+- Unity 로그가 실시간으로 표시됩니다. 5초마다 경과 시간, 최근 작업 단계, 새 로그가 없는 시간을 표시합니다.
+- ZIP과 설치 프로그램을 만들 때도 단계가 표시됩니다.
+- 이미 실행 중인 빌드는 Watch-Build.cmd를 별도 창에서 실행해 확인할 수 있습니다.
+  로그를 찾지 못하면 파일 선택 창에서 이 프로젝트의 Builds/unity-build.log를 선택합니다.
+- 보기 창의 Ctrl+C는 로그 보기만 종료합니다. 별도 창에서 진행 중인 빌드는 계속됩니다.
+
 Unity 에디터에서 직접 실행
 1. Unity Hub → Add → Add project from disk → 이 폴더 선택.
 2. 첫 임포트가 끝나면 Arvito 메뉴가 생깁니다.

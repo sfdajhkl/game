@@ -7,6 +7,7 @@ foreach ($required in @('Arvito.exe', 'UnityPlayer.dll', 'Arvito_Data')) {
     if (-not (Test-Path -LiteralPath (Join-Path $PlayerFolder $required))) { throw "Missing built player file: $required" }
 }
 $zip = Join-Path $OutputFolder 'Arvito-Windows.zip'
+Write-Host '[Arvito] Creating the portable game ZIP...'
 Compress-Archive -Path (Join-Path $PlayerFolder '*') -DestinationPath $zip -Force -CompressionLevel Optimal
 $iexpress = Join-Path $env:SystemRoot 'System32\iexpress.exe'
 if (-not (Test-Path -LiteralPath $iexpress)) { throw "Windows IExpress is unavailable. The portable game is available at $zip" }
@@ -56,6 +57,7 @@ SourceFiles0=$stage\
 "@
     $sedPath = Join-Path $stage 'Arvito.sed'
     [IO.File]::WriteAllText($sedPath, $sed, [Text.Encoding]::Default)
+    Write-Host '[Arvito] Creating the Windows installer...'
     $package = Start-Process -FilePath $iexpress -ArgumentList @('/N', '/Q', ('"{0}"' -f $sedPath)) -Wait -PassThru
     if ($package.ExitCode -ne 0 -or -not (Test-Path -LiteralPath $setup)) { throw "IExpress packaging failed. Portable game remains at $zip" }
     Copy-Item -LiteralPath $setup -Destination (Join-Path $OutputFolder 'Arvito-Setup.exe') -Force

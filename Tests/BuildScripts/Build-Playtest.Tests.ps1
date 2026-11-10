@@ -3,17 +3,19 @@ $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $fixture = Join-Path ([IO.Path]::GetTempPath()) ('arvito-launch-check-' + [guid]::NewGuid().ToString('N'))
 $oldBuildPath = $env:ARVITO_BUILD_PATH
-$mockState = [pscustomobject]@{ Launches = 0; Message = 'Simulated compilation error.'; ExitCode = 17; Project = ''; WorkingDirectory = ''; BuildPath = ''; LogPath = '' }
+$mockState = [pscustomobject]@{ Launches = 0; Message = 'Simulated compilation error.'; ExitCode = 17; Project = ''; WorkingDirectory = ''; BuildPath = ''; LogPath = ''; Waited = 0; Blocking = $false }
 function Assert-True([bool]$Condition, [string]$Message) { if (-not $Condition) { throw $Message } }
 function New-TestProject([string]$Path) {
     foreach ($folder in @('Assets', 'Packages', 'ProjectSettings', 'Tools')) { New-Item -ItemType Directory -Force -Path (Join-Path $Path $folder) | Out-Null }
     Set-Content -LiteralPath (Join-Path $Path 'ProjectSettings/ProjectVersion.txt') -Value 'm_EditorVersion: 6000.3.23f1'
     Set-Content -LiteralPath (Join-Path $Path 'Packages/manifest.json') -Value '{"dependencies":{}}'
+    Copy-Item -LiteralPath (Join-Path $root 'Unity/Arvito/Tools/Build-Progress.ps1') -Destination (Join-Path $Path 'Tools/Build-Progress.ps1')
 }
 function Start-Process {
     param([string]$FilePath, [string[]]$ArgumentList, [string]$WorkingDirectory, [switch]$Wait, [switch]$PassThru)
     if ($FilePath -eq 'explorer.exe') { return }
     $mockState.Launches++
+    $mockState.Blocking = [bool]$Wait
     $mockState.Project = $ArgumentList[[Array]::IndexOf($ArgumentList, '-projectPath') + 1].Trim('"')
     $mockState.LogPath = $ArgumentList[[Array]::IndexOf($ArgumentList, '-logFile') + 1].Trim('"')
     $mockState.WorkingDirectory = $WorkingDirectory
@@ -23,7 +25,10 @@ function Start-Process {
         New-Item -ItemType Directory -Force -Path (Split-Path -Parent $mockState.BuildPath) | Out-Null
         [IO.File]::WriteAllText($mockState.BuildPath, 'Mock player marker, never executed or distributed.')
     }
-    return [pscustomobject]@{ ExitCode = $mockState.ExitCode }
+    $process = [pscustomobject]@{ ExitCode = $mockState.ExitCode; HasExited = $true }
+    $process | Add-Member -MemberType ScriptMethod -Name Refresh -Value { }
+    $process | Add-Member -MemberType ScriptMethod -Name WaitForExit -Value { $mockState.Waited++ }
+    return $process
 }
 function Read-BuildError([string]$EditorPath, [string]$Launcher = '') {
     if (-not $Launcher) { $Launcher = Join-Path $fixture 'Tools/Build-Playtest.ps1' }
@@ -42,6 +47,7 @@ try {
     [IO.File]::WriteAllText($lock, 'preserve this lock file')
     $message = Read-BuildError $fakeEditor
     Assert-True ($mockState.Launches -eq 1) 'A leftover lock file incorrectly prevented Unity launch.'
+    Assert-True (-not $mockState.Blocking -and $mockState.Waited -eq 1) 'Progress launch blocked or skipped waiting for the exit code.'
     Assert-True ($message -match '^Unity build failed') 'The actual simulated Unity failure was hidden.'
     Assert-True ($mockState.Project -eq $fixture.Replace('\', '/') -and $mockState.WorkingDirectory -eq $fixture) 'Direct project launch used an incorrect project path or working directory.'
     Assert-True ([IO.File]::ReadAllText($lock) -eq 'preserve this lock file') 'The lock file was modified.'

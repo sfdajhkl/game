@@ -27,6 +27,8 @@
 
 실행 화면의 `Project:`는 `game-main/Unity/Arvito`여야 합니다. 빌드 스크립트는 `Assets`, `Packages/manifest.json`, `ProjectSettings/ProjectVersion.txt`가 있는 폴더를 확인하고, 그 폴더를 작업 경로와 Unity의 `-projectPath`로 지정합니다. 저장소 루트의 `Tools`에 이전 수정 파일을 풀어둔 경우에도 하위 Unity 프로젝트를 찾습니다.
 
+빌드 중에는 Unity 로그를 실시간으로 표시하고, 5초마다 경과 시간·최근 로그에서 확인한 작업 단계·새 로그가 없는 시간을 보여줍니다. ZIP과 설치 파일을 만들 때도 단계가 표시됩니다. 이미 실행 중인 빌드는 `Watch-Build.cmd`를 별도 창에서 실행해 확인할 수 있습니다. 로그를 찾지 못하면 파일 선택 창에서 `Arvito/Builds/unity-build.log`를 선택하세요. 보기 창을 닫아도 별도 창에서 실행 중인 빌드는 계속됩니다.
+
 에디터에서는 Unity Hub로 프로젝트를 추가하고 `Arvito > Prepare Project`, `Open Game Scene`, Play 순서로 실행합니다. 처음 열면 준비 작업을 자동으로 시도합니다. `Arvito > Build Windows` 메뉴도 제공합니다.
 
 ## 게임 규칙

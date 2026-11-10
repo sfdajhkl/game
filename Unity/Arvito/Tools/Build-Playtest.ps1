@@ -17,6 +17,11 @@ $packageScript = Join-Path $project 'Tools/Package-Playtest.ps1'
 if (-not (Test-Path -LiteralPath $packageScript -PathType Leaf)) {
     throw "The project is incomplete: missing $packageScript. Extract the complete project ZIP again."
 }
+$progressScript = Join-Path $project 'Tools/Build-Progress.ps1'
+if (-not (Test-Path -LiteralPath $progressScript -PathType Leaf)) {
+    throw "The project is incomplete: missing $progressScript. Extract the complete project ZIP again."
+}
+. $progressScript
 $version = '6000.3.28f1'
 $builds = Join-Path $project 'Builds'
 $player = Join-Path $builds 'Windows'
@@ -43,8 +48,10 @@ $env:ARVITO_BUILD_PATH = Join-Path $player 'Arvito.exe'
 $log = Join-Path $builds 'unity-build.log'
 $unityArgs = @('-batchmode', '-nographics', '-quit', '-buildTarget', 'Win64', '-projectPath', ('"{0}"' -f $project.Replace('\', '/')),
     '-executeMethod', 'Arvito.Editor.ProjectSetup.BuildWindows', '-logFile', ('"{0}"' -f $log.Replace('\', '/')))
-$process = Start-Process -FilePath $UnityPath -ArgumentList $unityArgs -WorkingDirectory $project -Wait -PassThru
-if ($process.ExitCode -ne 0 -or -not (Test-Path -LiteralPath $env:ARVITO_BUILD_PATH)) {
+$logState = New-ArvitoLogState $log -WaitForChange
+$process = Start-Process -FilePath $UnityPath -ArgumentList $unityArgs -WorkingDirectory $project -PassThru
+$exitCode = Wait-ArvitoUnityBuild $process $logState
+if ($exitCode -ne 0 -or -not (Test-Path -LiteralPath $env:ARVITO_BUILD_PATH)) {
     $logText = ''
     if (Test-Path -LiteralPath $log) {
         $logText = Get-Content -LiteralPath $log -Raw
@@ -55,6 +62,7 @@ if ($process.ExitCode -ne 0 -or -not (Test-Path -LiteralPath $env:ARVITO_BUILD_P
     }
     throw "Unity build failed. Read the error above and $log"
 }
+Write-Host '[Arvito] Packaging the portable ZIP and Windows installer...'
 & $packageScript -PlayerFolder $player -OutputFolder $builds
 Write-Host ''
 Write-Host 'Created Builds\Arvito-Setup.exe and Builds\Arvito-Windows.zip'

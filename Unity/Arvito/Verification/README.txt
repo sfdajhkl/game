@@ -52,3 +52,15 @@ Project path correction (2026-11-10):
 - 5 mocked launcher checks passed, including nested project discovery with spaces
   and non-ASCII names, output/log/package placement, and invalid-project rejection.
 - PowerShell syntax checks passed. Actual Unity on Windows remains untested here.
+
+Live build progress (2026-11-10):
+- Unity starts without a blocking -Wait; logs stream concurrently and elapsed time,
+  latest observed stage and quiet time are printed every 5 seconds.
+- Log reads share access with the writer, keep UTF-8 decoder/partial-line state,
+  skip unchanged previous-run output and restart after truncation.
+- The process is waited after exit, final output is drained, and the real exit
+  code still prevents packaging on failure. The monitor never kills Unity.
+- Watch-Build.cmd can watch an existing build log in a separate window.
+- 5 mocked launcher checks and 4 progress checks passed. The latter include a real
+  non-Unity child process, verifying output before exit and the final error/code.
+- PowerShell parsing passed; actual Unity/Windows rendering/build remains untested.
