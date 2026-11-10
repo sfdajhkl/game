@@ -1,4 +1,4 @@
-param([string]$UnityPath)
+param([string]$UnityPath, [switch]$OpenEditor)
 $ErrorActionPreference = 'Stop'
 $launcherRoot = Split-Path -Parent $PSScriptRoot
 $project = $null
@@ -14,7 +14,7 @@ if (-not $project) {
     throw 'Arvito Unity project not found. Extract the complete project ZIP, then run Build-Playtest.cmd from game-main or Unity/Arvito. Assets, Packages/manifest.json and ProjectSettings/ProjectVersion.txt must exist.'
 }
 $packageScript = Join-Path $project 'Tools/Package-Playtest.ps1'
-if (-not (Test-Path -LiteralPath $packageScript -PathType Leaf)) {
+if (-not $OpenEditor -and -not (Test-Path -LiteralPath $packageScript -PathType Leaf)) {
     throw "The project is incomplete: missing $packageScript. Extract the complete project ZIP again."
 }
 $progressScript = Join-Path $project 'Tools/Build-Progress.ps1'
@@ -42,6 +42,15 @@ if (-not $UnityPath -or -not (Test-Path -LiteralPath $UnityPath)) {
 $repairScript = Join-Path $project 'Tools/Repair-Packages.ps1'
 if (-not (Test-Path -LiteralPath $repairScript -PathType Leaf)) { throw 'Package repair tools are missing. Apply the complete build-tools update or download the full project again.' }
 & $repairScript -ProjectPath $project -UnityPath $UnityPath
+if ($OpenEditor) {
+    Write-Host "Unity: $UnityPath"
+    Write-Host "Project: $project"
+    Write-Host '[Arvito] Opening the game scene in Unity. Wait for import, then press Play.'
+    $editorArgs = @('-projectPath', ('"{0}"' -f $project.Replace('\', '/')),
+        '-executeMethod', 'Arvito.Editor.ProjectSetup.OpenScene')
+    $null = Start-Process -FilePath $UnityPath -ArgumentList $editorArgs -WorkingDirectory $project -PassThru
+    return
+}
 # Unity owns project locking. A lock file can remain after an interrupted session;
 # its presence alone must not prevent Unity from opening the project again.
 Write-Host "Unity: $UnityPath"

@@ -11,7 +11,7 @@ ARVITO / 아르비토 — Unity C# PC 프로젝트
 4. Build-Playtest.cmd를 더블클릭합니다.
    GitHub에서 받은 game-main 폴더에도 실행 파일이 있으며 Unity/Arvito로 연결됩니다.
    첫 실행은 Unity 패키지 다운로드, 씬/한글 폰트 생성, 빌드 때문에 시간이 걸립니다.
-   먼저 Input System 1.20.1, URP 17.3.0으로 맞추고 collab-proxy를 제거하는 자동 복구가 실행됩니다.
+   먼저 Input System 1.20.1, URP 17.3.0과 설치된 2D 도구를 Unity 6.3용으로 맞추고 collab-proxy를 제거합니다.
 5. 성공하면 Builds 폴더가 열립니다.
    Windows/Arvito.exe — 즉시 실행하는 게임
    Arvito-Windows.zip — 폴더 전체를 묶은 이동용 게임
@@ -33,14 +33,16 @@ Unity 6.3 패키지 복구
 - Build-Playtest.cmd가 임시 빈 프로젝트에서 Unity Package Manager API로 복구한 뒤 게임을 빌드합니다.
 - 기존 패키지 파일은 Builds/PackageBackup-*에 보관합니다.
 - 복구 실패 로그: Builds/package-repair-create.log, Builds/package-repair.log.
-- 첫 에디터 플레이 전에 Build-Playtest.cmd로 패키지 복구를 마칩니다.
+- 에디터 플레이에는 Open-Arvito.cmd를 사용합니다. 패키지 복구 후 게임 씬을 열며 EXE를 빌드하지 않습니다.
+- 설치된 2D Animation 13.0.6, PSD Importer 12.0.2, Aseprite Importer 3.0.2로 맞춥니다.
+- 이전 복구로 Input System/URP만 바뀐 경우에도 누락된 2D 도구를 복구합니다.
 
 Unity 에디터에서 직접 실행
-1. Unity Hub → Add → Add project from disk → 이 폴더 선택.
-2. 첫 임포트가 끝나면 Arvito 메뉴가 생깁니다.
-3. Arvito → Prepare Project, Open Game Scene, Play.
-   Prepare Project는 보통 첫 임포트 시 자동 실행됩니다.
-4. Arvito → Build Windows로도 게임을 만들 수 있습니다.
+1. 이 프로젝트의 Unity 창을 저장 후 닫고 Open-Arvito.cmd를 더블클릭합니다.
+   저장소 최상위 또는 Unity/Arvito 폴더에 있습니다. Unity Hub는 켜두어도 됩니다.
+2. 패키지 복구가 완료되면 에디터가 열립니다. 최초 임포트와 씬/한글 폰트 생성이 끝날 때까지 기다립니다.
+3. 게임 씬이 열리면 상단 Play를 누릅니다. 필요하면 Arvito → Open Game Scene을 선택합니다.
+4. 다른 Unity 설치 위치는 Open-Arvito.cmd -UnityPath "D:\Unity\6000.3.28f1\Editor\Unity.exe"로 지정합니다.
 
 프로젝트가 이미 열려 있다는 오류가 나오면
 - 이 프로젝트의 Unity 에디터 창에서 작업을 저장하고 창을 닫은 뒤 다시 실행합니다.
