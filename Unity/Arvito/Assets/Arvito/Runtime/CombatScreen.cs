@@ -36,9 +36,7 @@ namespace Arvito.Runtime
                 var slot=BattlePanel(row,enemy.name,(float)i/enemies.Count+.008f,0,(float)(i+1)/enemies.Count-.008f,1);
                 var imageHost=BattlePanel(slot,"Battler image frame",.08f,.24f,.92f,.99f);
                 var imageArea=Ui.Node("Battler image",imageHost);Ui.Fill(imageArea);
-                var enemyImage=imageArea.gameObject.AddComponent<UnityEngine.UI.RawImage>(); BattlerArt.Apply(enemyImage,enemy.type);
-                // A square rect preserves pixel proportions at every window aspect ratio.
-                var fit=imageArea.gameObject.AddComponent<UnityEngine.UI.AspectRatioFitter>(); fit.aspectMode=UnityEngine.UI.AspectRatioFitter.AspectMode.FitInParent; fit.aspectRatio=1;
+                var enemyImage=imageArea.gameObject.AddComponent<PixelArtImage>(); BattlerArt.Apply(enemyImage,enemy.type);
                 var plate=Ui.Button(slot,(selected?"▶ ":"")+enemy.name+"\n<size=13>체력 "+enemy.hp+" / "+enemy.maxHp+
                     (enemy.status.bleed>0?"   출혈":"")+(enemy.status.stun>0?"   기절":"")+"</size>",()=>{selectedTarget=id;Render();},58,legal,selected);
                 var pr=(RectTransform)plate.transform; pr.anchorMin=new Vector2(.04f,0);pr.anchorMax=new Vector2(.96f,.23f);pr.offsetMin=pr.offsetMax=Vector2.zero;

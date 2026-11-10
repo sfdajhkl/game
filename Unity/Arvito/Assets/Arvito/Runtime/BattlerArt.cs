@@ -14,7 +14,7 @@ namespace Arvito.Runtime
             ["wolf"]=8,["slime"]=9,["boar"]=10,["spider"]=11,
             ["wisp"]=12,["warden"]=13,["dragon"]=14
         };
-        public static void Apply(UnityEngine.UI.RawImage image, string id)
+        public static void Apply(PixelArtImage image, string id)
         {
             if (atlas == null) atlas = Resources.Load<Texture2D>("Arvito/Art/characters");
             if (atlas != null && slots.TryGetValue(id, out int slot))
@@ -28,8 +28,7 @@ namespace Arvito.Runtime
         public static void Portrait(Transform parent, string id)
         {
             var rt=Ui.Node("Character portrait",parent);Ui.Fill(rt);
-            Apply(rt.gameObject.AddComponent<UnityEngine.UI.RawImage>(),id);
-            var fit=rt.gameObject.AddComponent<UnityEngine.UI.AspectRatioFitter>();fit.aspectMode=UnityEngine.UI.AspectRatioFitter.AspectMode.FitInParent;fit.aspectRatio=1;
+            Apply(rt.gameObject.AddComponent<PixelArtImage>(),id);
         }
         static readonly Dictionary<string, Texture2D> cache = new Dictionary<string, Texture2D>();
         static readonly Dictionary<char, Color32> colors = new Dictionary<char, Color32> {
