@@ -1,0 +1,12 @@
+{
+  "name": "dawn-chronicle",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/engine.test.mjs",
+    "dev": "python3 -m http.server 4173 --directory web --bind 0.0.0.0",
+    "test:ui": "node tests/ui.mjs"
+  },
+  "devDependencies": { "playwright": "1.58.2" }
+}

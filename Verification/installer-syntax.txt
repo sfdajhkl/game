@@ -1,0 +1,5 @@
+PASS PowerShell syntax: Build-Playtest.ps1
+PASS PowerShell syntax: Package-Playtest.ps1
+PASS PowerShell syntax: Install.ps1
+PASS PowerShell syntax: Uninstall.ps1
+Syntax only. Windows installation and IExpress packaging have not been executed.

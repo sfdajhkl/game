@@ -1,0 +1,6 @@
+{
+  "name": "Arvito.Core",
+  "rootNamespace": "Arvito.Core",
+  "references": [],
+  "noEngineReferences": true
+}

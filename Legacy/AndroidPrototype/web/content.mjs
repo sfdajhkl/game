@@ -1,0 +1,121 @@
+export const WEAPONS = {
+  sword: {name:'낡은 철검', type:'검', icon:'sword', power:5, speed:1, rarity:'일반', desc:'무딘 칼날에도 첫 모험의 무게가 실린다.', skills:['slash','shield']},
+  bow: {name:'물푸레나무 활', type:'활', icon:'bow', power:5, speed:3, rarity:'고급', desc:'뒷줄에서 적의 후열을 노리는 사냥꾼의 활.', skills:['shot','pin']},
+  staff: {name:'푸른 잔불 지팡이', type:'지팡이', icon:'spark', power:6, speed:0, rarity:'고급', desc:'후열에서 불꽃을 다루고 상처를 봉합한다.', skills:['ember','mend']},
+  dagger: {name:'은빛 단검', type:'단검', icon:'sword', power:4, speed:5, rarity:'고급', desc:'빠른 찌르기로 앞줄에 출혈을 남긴다.', skills:['stab','feint']},
+  axe: {name:'산지기의 도끼', type:'도끼', icon:'axe', power:8, speed:-1, rarity:'고급', desc:'무겁지만 강하다. 앞줄에서 적을 기절시킨다.', skills:['cleave','bash']},
+  spear: {name:'황동 장창', type:'창', icon:'sword', power:6, speed:2, rarity:'고급', desc:'중열에서도 적의 앞줄에 닿는 긴 무기.', skills:['thrust','pin']},
+  dawn: {name:'여명의 검', type:'검', icon:'sun', power:11, speed:3, rarity:'유물', desc:'지켜낸 약속이 별빛처럼 칼날 위에 남는다.', skills:['slash','radiance','shield']}
+};
+
+export const SKILLS = {
+  slash:{name:'가르기',desc:'앞줄의 적을 벤다.',icon:'sword',from:[1,2],to:[1,2],power:1,accuracy:95,cost:0},
+  shield:{name:'검의 수비',desc:'다음 자신의 차례까지 받는 피해 65% 감소. 기력 +1.',icon:'shield',from:[1,2,3,4],target:'self',guard:true,cost:0},
+  shot:{name:'조준 사격',desc:'어느 열의 적이든 겨눈다.',icon:'bow',from:[2,3,4],to:[1,2,3,4],power:1.05,accuracy:95,cost:0},
+  pin:{name:'발 묶기',desc:'피해를 주고 75% 확률로 한 차례 기절시킨다.',icon:'target',from:[2,3,4],to:[1,2,3],power:.65,accuracy:90,cost:1,stun:75},
+  ember:{name:'불씨 화살',desc:'후열의 적까지 닿는 마법. 방어를 무시한다.',icon:'flame',from:[2,3,4],to:[1,2,3,4],power:1.15,accuracy:95,cost:0,magic:true},
+  mend:{name:'상처 봉합',desc:'아군 한 명의 체력을 10~14 회복하고 출혈을 지운다.',icon:'heart',from:[2,3,4],target:'ally',heal:12,cost:2},
+  stab:{name:'깊은 찌르기',desc:'앞줄에 출혈을 남긴다. 3차례 동안 체력 -2.',icon:'sword',from:[1,2],to:[1,2],power:.8,accuracy:95,cost:0,bleed:3},
+  feint:{name:'빈틈 찌르기',desc:'빠르게 치고 빠진다. 자신에게 방어 부여.',icon:'wind',from:[1,2,3],to:[1,2,3],power:1.1,accuracy:90,cost:1,guard:true},
+  cleave:{name:'내려찍기',desc:'앞줄에 강력한 일격을 가한다.',icon:'axe',from:[1,2],to:[1,2],power:1.2,accuracy:85,cost:0},
+  bash:{name:'충격타',desc:'65% 확률로 한 차례 기절시킨다.',icon:'star',from:[1,2],to:[1,2],power:.8,accuracy:90,cost:1,stun:65},
+  thrust:{name:'길게 찌르기',desc:'중열에서 적의 전열을 공격한다.',icon:'sword',from:[1,2,3],to:[1,2],power:1,accuracy:95,cost:0},
+  radiance:{name:'새벽의 일격',desc:'모든 열에 닿는 빛. 높은 피해를 준다.',icon:'sun',from:[1,2,3,4],to:[1,2,3,4],power:1.6,accuracy:100,cost:2,magic:true},
+  rally:{name:'마음 다잡기',desc:'아군 한 명의 긴장을 18 낮추고 기력을 1 회복한다.',icon:'leaf',from:[1,2,3,4],target:'ally',calm:18,cost:1},
+  focus:{name:'숨 고르기',desc:'자신의 기력 +2, 긴장 -6. 차례를 소모한다.',icon:'wind',from:[1,2,3,4],target:'self',focus:true,cost:0},
+  guard:{name:'방어',desc:'다음 자신의 차례까지 받는 피해 65% 감소. 기력 +1.',icon:'shield',from:[1,2,3,4],target:'self',guard:true,cost:0},
+  potion:{name:'회복약',desc:'아군 체력 18 회복, 출혈 제거. 회복약 1개 소모.',icon:'potion',from:[1,2,3,4],target:'ally',heal:18,cost:0,item:'potions'},
+  move:{name:'자리 바꾸기',desc:'선택한 동료와 자리를 교대한다. 차례를 소모한다.',icon:'swap',from:[1,2,3,4],target:'otherAlly',move:true,cost:0}
+};
+
+export const COMPANIONS = {
+ mira:{id:'mira',name:'미라',subtitle:'숲길의 길잡이',weapon:'bow',maxHp:28,speed:5,power:1,portrait:'ranger',skills:['rally'],story:'발목에 붕대를 감은 사냥꾼. 당신이 내민 손을 기억한다.'},
+ elian:{id:'elian',name:'엘리안',subtitle:'떠도는 수련자',weapon:'staff',maxHp:26,speed:2,power:1,portrait:'mage',skills:['rally'],story:'사원보다 길 위에 구할 사람이 많다고 믿는다.'},
+ borin:{id:'borin',name:'보린',subtitle:'산맥의 방패',weapon:'axe',maxHp:42,speed:1,power:2,portrait:'knight',skills:[],story:'무뚝뚝한 전직 호위병. 지킬 이유를 다시 찾고 있다.'}
+};
+
+export const ENEMIES = {
+ wolf:{name:'굶주린 늑대',portrait:'wolf',maxHp:16,power:4,speed:4,armor:0,attack:'물어뜯기',bleed:true},
+ bandit:{name:'길목의 도적',portrait:'bandit',maxHp:23,power:6,speed:3,armor:1,attack:'녹슨 칼날'},
+ archer:{name:'도적 궁수',portrait:'archer',maxHp:17,power:5,speed:5,armor:0,attack:'불길한 화살',ranged:true},
+ skeleton:{name:'깨어난 망자',portrait:'skeleton',maxHp:25,power:7,speed:2,armor:2,attack:'묘지의 검'},
+ cultist:{name:'잿빛 사제',portrait:'mage',maxHp:23,power:7,speed:4,armor:0,attack:'마음의 균열',ranged:true,stress:10},
+ warden:{name:'폐허의 파수꾼',portrait:'knight',maxHp:75,power:11,speed:2,armor:3,attack:'무너지는 철퇴'},
+ dragon:{name:'잿빛 날개의 주인',portrait:'dragon',maxHp:140,power:14,speed:5,armor:3,attack:'재의 숨결',ranged:true,stress:12}
+};
+
+const c=(label,weeks,body,effects={},extra={})=>({label,weeks,body,effects,...extra});
+export const EVENTS = {
+ departure:{title:'아직 쓰이지 않은 길',chapter:'첫 번째 발걸음',place:'브린 마을 외곽',art:'village',tag:'만남',once:true,
+ text:['열여섯의 봄. 주머니에는 동전 몇 닢, 허리에는 아버지가 쓰던 낡은 검. 당신의 이름을 아는 사람은 이 작은 마을에만 있다.','다리 건너 숲길에서 누군가 손을 흔든다. 발목을 다친 사냥꾼이다. “먼 길 가는 거라면… 잠깐만 도와줄래?”'],
+ choices:[c('사냥꾼에게 손을 내민다',1,'미라는 당신의 어깨에 기대 마을로 돌아왔다. 며칠 뒤, 활을 멘 그녀가 약속 장소에 나타났다. “이번에는 내가 네 길을 지켜줄게.”',{recruit:'mira',flag:'helped_mira',rep:1},{hint:'동료 영입 · 미라',next:'first_hunt'}),c('약초를 구해 치료해 준다',2,'약초를 고르고 상처를 씻는 동안, 당신은 다친 사람을 돌보는 법을 배웠다. 미라는 여행에 동행하겠다고 말한다.',{recruit:'mira',skill:'mend',flag:'helped_mira'},{hint:'동료 영입 · 상처 봉합 습득',next:'first_hunt'})]},
+ first_hunt:{title:'숲길에 드리운 이빨',chapter:'첫 번째 시련',place:'브린 숲길',art:'forest',tag:'전투',once:true,
+ text:['길 한복판에 찢어진 짐자루가 놓여 있다. 나뭇잎 사이에서 두 쌍의 눈동자가 번뜩인다.','미라가 한 걸음 뒤로 물러서며 활시위를 당긴다. “네가 앞을 맡아. 뒤는 내가 볼게.”'],
+ choices:[c('전열을 갖추고 맞선다',1,'늑대들이 물러났다. 처음으로 누군가와 등을 맞대고 살아남았다.',{gold:16,xp:20,rations:1},{hint:'늑대 2마리 · 턴제 전투',battle:['wolf','wolf'],next:'crossroads'}),c('먹을 것을 던지고 우회한다',3,'허기를 달랜 늑대들은 더는 쫓아오지 않았다. 멀리 돌아가는 길도 살아남는 방법이다.',{rations:-1,xp:8},{hint:'식량 1 소모 · 안전한 우회',need:{rations:1},next:'crossroads'})]},
+ crossroads:{title:'손에 쥐는 가능성',chapter:'이름 없는 모험가',place:'세 갈래 교역로',art:'village',tag:'장비',once:true,
+ text:['노점상이 빛바랜 천 위에 무기를 펼쳐 놓는다. “직업? 그런 걸 먼저 정할 필요 있나. 손에 맞는 걸 찾으면 되는 거지.”','지난 길에서 거둔 전리품을 내놓자, 그는 무기 하나를 골라 보라고 한다.'],
+ choices:[c('활의 균형을 살핀다',1,'시위를 당기자 세상이 가느다란 선 하나로 좁혀졌다. 멀리서 길을 여는 법을 배울 수 있을 것 같다.',{weapon:'bow',xp:8},{hint:'물푸레나무 활 획득'}),c('지팡이의 불씨에 손을 댄다',1,'손끝에 닿은 불씨가 꺼지지 않는다. 당신을 기다렸다는 듯 푸른 빛이 피어오른다.',{weapon:'staff',xp:8},{hint:'푸른 잔불 지팡이 획득'}),c('무거운 도끼를 들어 본다',1,'묵직한 무게가 어깨를 누른다. 하지만 휘두르는 순간, 이 무게가 당신을 지켜 주리라는 걸 알았다.',{weapon:'axe',xp:8},{hint:'산지기의 도끼 획득'})]},
+ lost_child:{title:'안개 속의 작은 목소리',place:'이끼 숲',art:'forest',tag:'선택',once:true,
+ text:['숲의 안개 속에서 울음소리가 들린다. 손에 작은 나무 말을 쥔 아이가 뿌리 사이에 웅크려 있다.','시장에 가던 마차를 놓쳤다고 한다. 일행을 찾아주려면 예정된 길을 벗어나야 한다.'],
+ choices:[c('아이의 가족을 찾아준다',4,'네 번째 마을에서 아이의 어머니를 찾았다. 그녀는 울며 당신의 이름을 몇 번이고 되뇌었다.',{flag:'saved_child',rep:2,xp:15,gold:8},{hint:'평판 상승 · 인연이 남습니다'}),c('순찰대에 아이를 맡긴다',1,'당신은 길목의 순찰대에 아이를 맡겼다. 아이는 나무 말을 들어 작별 인사를 했다.',{rep:1,xp:6},{hint:'평판 소폭 상승'})]},
+ reunion:{title:'돌아온 나무 말',place:'도시의 작은 상점',art:'village',tag:'인연',once:true,requires:s=>s.flags.saved_child&&s.weeks>=104,
+ text:['“그때 숲에서 저를 찾아주셨죠?” 상점의 점원이 낡은 나무 말을 꺼내 놓는다.','세월은 얼굴을 바꾸었지만, 감사의 마음까지 지우지는 못했다. 그는 오래 보관한 물건을 당신 앞에 놓는다.'],
+ choices:[c('그날의 이야기를 나눈다',2,'따뜻한 차와 긴 대화. 헤어질 때 그는 은빛 단검과 여행 자금을 쥐여 주었다. “이번에는 제가 도울 차례예요.”',{weapon:'dagger',gold:45,stress:-15,flag:'reunion',xp:20},{hint:'은빛 단검 · 45골드'}),c('물건 대신 이 도시의 소문을 듣는다',1,'상인은 북쪽 유적의 숨겨진 통로를 알려주었다. 이름 없이 행했던 친절이 오래된 문 하나를 열었다.',{flag:'ruin_clue',rep:2,stress:-10},{hint:'유적의 단서 획득'})]},
+ shrine:{title:'빈 사원에 남은 사람',place:'새벽빛 사원',art:'ruins',tag:'동료',once:true,requires:s=>!s.fallen.includes('elian'),
+ text:['버려진 사원에서 한 수련자가 여행자들의 상처를 돌보고 있다. 촛불은 거의 다 타들어 갔다.','“신의 대답을 기다렸지만, 문을 두드리는 건 언제나 사람이더군요.” 엘리안이 조용히 웃는다.'],
+ choices:[c('함께 길 위의 사람들을 돕자고 한다',4,'엘리안은 마지막 촛불을 끄고 지팡이를 챙겼다. “그럼 제 기도도 길 위에서 이어가죠.”',{recruit:'elian',rep:1},{hint:'동료 영입 · 치유와 마법',need:{partySpace:true}}),c('상처를 돌보는 법을 배운다',8,'매듭을 묶고, 약초를 빻고, 작은 빛을 다루는 법을 배웠다. 누군가를 살리는 기술이 손에 남았다.',{skill:'mend',stat:'wit',heal:99,xp:25},{hint:'상처 봉합 습득 · 지혜 +1'})]},
+ shieldbearer:{title:'방패를 내려놓은 사내',place:'산기슭 여관',art:'camp',tag:'동료',once:true,requires:s=>s.weeks>=26&&!s.fallen.includes('borin'),
+ text:['불가에 앉은 보린의 갑옷에는 오래된 칼자국이 남아 있다. 그가 지키던 상단은 돌아오지 못했다.','“또 누군가를 지킬 수 있을까.” 그의 시선이 식어가는 잔에 머문다.'],
+ choices:[c('다음 길은 함께 걷자고 말한다',2,'긴 침묵 뒤에 보린이 일어섰다. “이번엔 마지막까지 서 있겠네.”',{recruit:'borin',stress:-8},{hint:'동료 영입 · 강인한 전열',need:{partySpace:true}}),c('그의 곁에서 이야기를 들어준다',1,'당신은 해결할 수 없는 과거를 고치려 하지 않았다. 그저 함께 밤을 지샜다. 아침이 되자 두 사람 모두 조금 가벼워졌다.',{skill:'rally',rep:1,stress:-15},{hint:'마음 다잡기 습득'})]},
+ bandit_road:{title:'통행료라는 이름의 칼',place:'검은 돌 고개',art:'battle',tag:'위험',minWeeks:12,
+ text:['넘어진 나무가 고갯길을 막고 있다. 그 뒤에서 칼을 찬 무리와 궁수가 모습을 드러낸다.','“목숨은 비싸고, 통행료는 싸지.” 웃고 있지만 그들의 손은 무기에서 떠나지 않는다.'],
+ choices:[c('무기로 길을 연다',2,'고갯길에 다시 여행자들의 발소리가 돌아왔다. 빼앗긴 동전 일부를 주인에게 돌려주었다.',{gold:28,xp:30,rep:1},{hint:'도적 · 후열 궁수와 전투',battle:['bandit','archer']}),c('말로 시간을 벌어 샛길을 찾는다',3,'떠들썩한 흥정이 이어지는 사이, 당신은 나무 사이의 옛길을 찾아냈다.',{xp:20},{hint:'민첩 판정',check:{stat:'agility',dc:8},failure:{body:'궁수가 움직임을 눈치챘다. 서둘러 달아나며 동전과 체력을 잃었다.',effects:{gold:-12,hp:-7,stress:10}}}),c('통행료를 지불한다',1,'굴욕은 남았지만 모두가 무사하다. 때로는 살아서 다음 날을 보는 것이 승리다.',{gold:-15,stress:4},{hint:'15골드 소모',need:{gold:15}})]},
+ old_ruin:{title:'닫힌 문에 새겨진 별',place:'별무리 유적',art:'ruins',tag:'탐사',once:true,minWeeks:40,
+ text:['무너진 탑의 지하에서 별자리 문양이 새겨진 문을 발견했다. 틈새로 차가운 바람이 흐른다.','벽면의 문장은 오래된 경고다. “지키는 자를 넘어선 이에게 새벽이 열리리라.”'],
+ choices:[c('문양을 해독한다',8,'별의 순서를 따라 돌을 누르자 문이 열렸다. 안쪽에는 여명의 검과 파수꾼의 기록이 기다리고 있었다.',{flag:'ruin_clue',xp:35,gold:20},{hint:'지혜 판정 · 유적의 단서',check:{stat:'wit',dc:9},failure:{body:'잘못 누른 돌에서 검은 연기가 솟아났다. 기침하며 물러났지만 문양 일부를 기록할 수 있었다.',effects:{hp:-8,stress:12,xp:12}}}),c('옛 통로를 따라 들어간다',4,'오래전에 들은 이야기가 맞았다. 허물어진 벽 너머에서 파수꾼의 비밀을 찾아냈다.',{flag:'ruin_clue',xp:35,gold:30},{hint:'유적의 단서 필요',need:{flag:'ruin_clue'}}),c('문양을 베껴 두고 떠난다',2,'풀리지 않은 수수께끼도 여행의 일부다. 기록은 언젠가 다시 빛을 볼 것이다.',{xp:12,stat:'wit'},{hint:'지혜 +1'})]},
+ warden:{title:'천 년의 파수',place:'별무리 유적 깊은 곳',art:'ruins',tag:'중요 전투',once:true,requires:s=>s.flags.ruin_clue&&s.hero.level>=3,
+ text:['먼지 속에서 강철의 거인이 일어선다. 목소리가 아니라 돌이 갈리는 소리가 울린다.','“무엇을 위해 검을 들었는가.” 당신의 뒤에는 지금까지 함께 걸어온 사람들이 있다.'],
+ choices:[c('내 곁의 사람들을 위해',4,'파수꾼이 무릎을 꿇었다. “그 답을 기다렸다.” 꺼져 가는 눈빛 속에서 여명의 검이 당신을 향해 내려왔다.',{weapon:'dawn',flag:'warden_defeated',xp:80,rep:3,gold:70},{hint:'강력한 파수꾼 · 승리 시 유물',battle:['warden','skeleton']}),c('아직 준비되지 않았다',2,'거인은 당신을 막지 않았다. 지킬 것이 있다는 건, 때로 돌아설 줄 안다는 뜻이다.',{stress:-5},{hint:'수련 후 다시 도전',repeat:true})]},
+ dragon:{title:'재가 내리는 하늘',place:'북쪽의 불탄 성채',art:'battle',tag:'전설 전투',once:true,requires:s=>s.flags.warden_defeated&&s.hero.level>=5,
+ text:['하늘에서 눈처럼 재가 내린다. 성채 위에 드리운 날개는 마을 하나를 덮을 만큼 거대하다.','도망친 사람들의 마지막 줄이 성문을 지난다. 당신은 이곳에 남을 이유를 이미 알고 있다.'],
+ choices:[c('일행과 함께 날개의 주인에게 맞선다',8,'새벽이 밝자 재가 그쳤다. 당신의 이름이 노래가 되었다. 그러나 삶은 전설 뒤에도 계속된다.',{flag:'dragon_defeated',xp:150,gold:180,rep:6},{hint:'최상급 위험 · 준비 권장',battle:['dragon','cultist']}),c('사람들의 피난을 돕는다',13,'당신은 용을 쓰러뜨리지 않았다. 대신 수십 명이 다음 계절을 보았다. 그들에게는 그것으로 충분했다.',{rep:3,xp:30,rations:2},{hint:'평판 +3 · 다음에 다시 도전',repeat:true})]},
+ caravan:{title:'느리게 가는 사람들',place:'남쪽 교역로',art:'village',tag:'여정',
+ text:['상단의 마차는 느리다. 그러나 마차 옆에서 듣는 이야기는 어느 술집보다 풍성하다.','상단주는 다음 도시까지 함께 걸어줄 사람을 찾고 있다. 짧은 호위와 긴 계절 계약, 어느 쪽도 가능하다.'],
+ choices:[c('짧은 호위를 맡는다',4,'비가 오고 해가 뜨는 동안, 마차는 무사히 목적지에 닿았다. 정당한 품삯이 손에 남았다.',{gold:22,xp:12},{hint:'22골드 · 경험'}),c('한 계절 동안 동행한다',13,'세 개의 마을과 두 개의 강을 지났다. 길 위에서 배운 것은 검술만이 아니었다.',{gold:55,xp:30,rations:2,stress:-8},{hint:'55골드 · 식량 2'}),c('장기 호위 계약을 맺는다',52,'사계절의 길이 하나의 기억이 되었다. 이름 모를 별자리를 배웠고, 떠나는 사람에게 손을 흔드는 법도 익혔다.',{gold:100,xp:65,stat:'strength',stress:-12},{hint:'1년 경과 · 힘 +1'})]},
+ mentor:{title:'검보다 오래 남는 것',place:'외딴 수련장',art:'forest',tag:'수련',
+ text:['늙은 모험가는 낡은 나뭇가지를 들고도 당신의 자세를 무너뜨린다. “무기를 바꿔도 몸에 남는 것이 있어야지.”','그가 수련장의 문을 열어 둔다. 배움에는 시간이 든다.'],
+ choices:[c('한 계절, 몸을 단련한다',13,'같은 동작을 수천 번 반복했다. 어느 날, 바람보다 먼저 몸이 움직였다.',{stat:'strength',xp:40,heal:10},{hint:'힘 +1 · 경험 40'}),c('한 해 동안 기술을 연마한다',52,'긴 겨울을 넘기며 강함보다 침착함을 배웠다. 동료의 흔들리는 마음을 붙잡는 말도 익혔다.',{stat:'agility',skill:'rally',xp:90,heal:99,stress:-25},{hint:'민첩 +1 · 마음 다잡기 습득'}),c('지금은 조언만 새긴다',1,'“살아서 돌아오게. 다음 이야기가 궁금하니.” 당신은 그 말을 오래 기억하기로 했다.',{xp:6,stress:-5},{hint:'긴장 -5'})]},
+ smith:{title:'불꽃 앞의 선택',place:'대장장이의 작업실',art:'village',tag:'거래',
+ text:['망치가 모루를 두드릴 때마다 불꽃이 흩어진다. 대장장이가 당신의 손에 남은 굳은살을 살핀다.','“남들이 부르는 이름보다, 네가 쥘 무기가 중요하지.”'],
+ choices:[c('황동 장창을 산다',1,'장창의 무게중심은 손바닥 바로 앞에 있다. 한 걸음 뒤에서도 동료를 지킬 수 있다.',{gold:-30,weapon:'spear'},{hint:'30골드 · 황동 장창',need:{gold:30}}),c('은빛 단검을 산다',1,'칼날이 촛불을 얇게 가른다. 무거운 갑옷 사이의 틈이 눈에 들어오기 시작한다.',{gold:-25,weapon:'dagger'},{hint:'25골드 · 은빛 단검',need:{gold:25}}),c('작업을 도우며 품삯을 받는다',4,'손에 물집이 잡혔지만, 불 앞에서 버틴 시간은 헛되지 않았다.',{gold:18,xp:12},{hint:'18골드 획득'})]},
+ spring:{title:'이름 모를 꽃의 계절',place:'햇살 드는 숲길',art:'forest',tag:'쉼',
+ text:['어제까지 앙상했던 가지에 꽃이 피었다. 무슨 꽃인지 아는 이는 없지만, 모두 잠깐 걸음을 멈춘다.','급한 일이 없는 날도 모험의 일부다.'],
+ choices:[c('느린 걸음으로 풍경을 담는다',2,'이 풍경을 오래 기억하고 싶었다. 아무것도 얻지 않은 것 같은 날, 마음은 가장 많이 채워졌다.',{heal:12,stress:-18,xp:5},{hint:'일행 체력 +12 · 긴장 -18'}),c('약초와 먹을 것을 모은다',4,'풀 사이에 숨은 작은 풍요를 찾았다. 일행의 주머니가 조금 무거워졌다.',{rations:3,potions:1,xp:8},{hint:'식량 3 · 회복약 1'})]},
+ winter:{title:'창밖으로 쌓이는 겨울',place:'산골의 작은 여관',art:'camp',tag:'계절',
+ text:['폭설이 고갯길을 막았다. 여관 주인은 장작 패는 일을 도와주면 머물러도 좋다고 한다.','벽난로 주위에서 동료들의 몰랐던 이야기가 하나씩 흘러나온다.'],
+ choices:[c('겨울 동안 머물며 몸을 추스른다',26,'봄이 왔을 때 상처는 아물었고, 동료들은 이름을 부르기 전에도 서로를 알아보게 되었다.',{heal:999,stress:-50,xp:20,gold:15,bond:1},{hint:'반년 경과 · 완전 회복 · 유대 +1'}),c('눈이 멎으면 길을 나선다',4,'짧은 휴식도 충분히 따뜻했다. 주인이 싸 준 빵을 품고 다시 길에 섰다.',{heal:18,stress:-15,rations:2},{hint:'일행 체력 +18 · 식량 2'})]},
+ whisper:{title:'늪 아래의 속삭임',place:'잊힌 묘지',art:'ruins',tag:'전투',minWeeks:26,
+ text:['쓰러진 묘비 사이에서 푸른 불이 일렁인다. 사라진 마을 사람들의 이름이 밤바람에 섞여 들린다.','무덤가의 잿빛 사제가 고개를 든다. 그 뒤로 뼈 부딪치는 소리가 이어진다.'],
+ choices:[c('망자들을 잠재운다',3,'불빛이 하나씩 사라졌다. 이름을 불러주자 길 잃은 영혼들이 마침내 눈을 감았다.',{gold:38,xp:40,rep:2},{hint:'망자와 잿빛 사제 · 정신 피해 주의',battle:['skeleton','cultist']}),c('주변 마을에 위험을 알린다',2,'당장 저주를 풀지는 못했지만, 더는 아무도 그 늪으로 향하지 않았다.',{gold:8,rep:1,xp:10},{hint:'평판 +1'})]},
+ bridge:{title:'강을 건너는 값',place:'무너진 돌다리',art:'village',tag:'판정',
+ text:['홍수로 다리가 끊겼다. 강 건너에는 장터로 향하지 못한 농부들이 서 있다.','빠른 방법은 위험하고, 안전한 방법에는 품이 든다.'],
+ choices:[c('밧줄을 걸고 임시 다리를 놓는다',3,'당신이 건 밧줄을 따라 사람들이 강을 건넜다. 마지막 수레가 지나자 박수가 쏟아졌다.',{gold:20,rep:2,xp:20},{hint:'힘 판정',check:{stat:'strength',dc:8},failure:{body:'급류는 예상보다 거셌다. 밧줄을 놓치며 상처를 입었지만, 강가 사람들의 도움으로 빠져나왔다.',effects:{hp:-8,xp:8,stress:6}}}),c('배를 고치는 일을 돕는다',6,'천천히 고친 배는 강을 건넜다. 다음 사람도, 그다음 사람도 건널 수 있게 되었다.',{gold:12,rep:1,xp:12},{hint:'안전한 해결 · 12골드'})]},
+ scholar:{title:'별을 읽는 사람',place:'무너진 관측소',art:'ruins',tag:'배움',
+ text:['천장이 없는 관측소에서 학자는 별자리를 그린다. “지붕은 무너졌지만 하늘은 더 잘 보이지.”','당신이 지나온 길과 그가 읽어 온 기록이 놀랍도록 닮아 있다.'],
+ choices:[c('기록을 함께 연구한다',26,'별의 이름뿐 아니라 사라진 왕국의 언어를 배웠다. 모르는 것을 대하는 태도도 달라졌다.',{stat:'wit',xp:45,flag:'ruin_clue'},{hint:'지혜 +1 · 유적의 단서'}),c('마법의 기초를 배운다',52,'불씨를 꺼뜨리지 않는 데 한 계절, 상처를 어루만지는 데 세 계절이 걸렸다. 마침내 지팡이가 당신에게 응답했다.',{weapon:'staff',skill:'mend',stat:'wit',xp:70},{hint:'지팡이 · 상처 봉합 · 지혜 +1'}),c('별 이야기를 듣고 떠난다',1,'이제 밤하늘을 올려다볼 때 길을 잃지 않을 것이다.',{stress:-8,xp:5},{hint:'긴장 -8'})]},
+ homecoming:{title:'돌아갈 곳이 있다는 것',place:'브린 마을',art:'village',tag:'세월',minWeeks:104,
+ text:['익숙한 지붕 아래 낯선 얼굴이 늘었다. 당신이 기억하는 아이들은 자랐고, 늘 앉아 있던 자리에 보이지 않는 사람도 있다.','마을은 당신이 떠난 자리를 비워 두지 않았다. 그래도 문은 열려 있다.'],
+ choices:[c('한 해 동안 머물며 마을을 돕는다',52,'씨를 뿌리고, 지붕을 고치고, 겨울을 보냈다. 모험 밖에도 삶이 있다는 것을 배웠다.',{heal:999,stress:-99,gold:45,rep:1,xp:40,bond:1},{hint:'1년 경과 · 완전 회복'}),c('몇 해 동안 조용한 삶을 산다',156,'세 번의 봄이 지났다. 평범한 날들은 소리 없이 당신을 단단하게 만들었다. 어느 아침, 다시 여행 가방을 꺼냈다.',{heal:999,stress:-99,gold:90,stat:'will',xp:90,bond:2},{hint:'3년 경과 · 의지 +1 · 유대 +2'}),c('잠깐 안부를 묻고 떠난다',2,'떠나는 당신의 등 뒤로 이름을 부르는 목소리가 들렸다. 돌아올 이유 하나가 더 생겼다.',{heal:10,stress:-12,rations:2},{hint:'체력 +10 · 식량 2'})]},
+ veteran:{title:'당신의 이야기를 듣는 눈',place:'작은 마을의 수련장',art:'village',tag:'세월',requires:s=>s.weeks>=52*20,
+ text:['어린 여행자가 낡은 검을 들고 찾아온다. 한때의 당신과 같은 눈빛이다.','“모험가가 되려면 무엇부터 해야 하나요?” 쉽게 대답할 수 없는 질문 앞에 오래 서 있었다.'],
+ choices:[c('몇 해 동안 다음 세대를 가르친다',208,'당신의 기술은 다른 손에서 새롭게 피어났다. 떠나는 제자들의 뒷모습에서 오래전의 자신을 보았다.',{rep:4,gold:100,xp:100,heal:999,stress:-99,flag:'mentor',stat:'will'},{hint:'4년 경과 · 스승의 흔적'}),c('함께 짧은 여행을 한다',13,'답을 말하는 대신 길을 보여주었다. 아이는 돌아올 때 스스로의 질문을 갖고 있었다.',{rep:2,xp:30,stress:-15},{hint:'평판 +2'})]},
+ quiet_years:{title:'느리게 흐르는 강처럼',place:'강가의 작은 집',art:'camp',tag:'세월',requires:s=>s.weeks>=52*30,
+ text:['멀리 떠나지 않아도 계절은 찾아온다. 강가의 의자에 앉아 지나간 이름들을 떠올린다.','아직 끝나지 않은 이야기가 있는지, 조용히 자신에게 묻는다.'],
+ choices:[c('다섯 해 동안 삶을 돌본다',260,'꽃이 다섯 번 피고 졌다. 몸에는 세월이 쌓였지만 마음에는 빈자리가 줄었다. 다시 길을 떠날 수도 있을 것이다.',{heal:999,stress:-99,gold:70,xp:60,bond:2},{hint:'5년 경과 · 노화 확률 적용'}),c('다시 짧은 여행을 준비한다',8,'배낭은 예전보다 가벼웠다. 무엇이 필요한지 이제는 알고 있으니까.',{heal:25,stress:-20,rations:3},{hint:'일행 회복 · 식량 3'})]},
+ market:{title:'길 위의 작은 장터',place:'행상인 야영지',art:'camp',tag:'보급',
+ text:['색색의 천막 아래에서 약초 냄새와 빵 굽는 냄새가 뒤섞인다. 행상인이 빈 물병을 채워준다.','“다음 마을까지는 꽤 멀어요. 준비는 충분한가요?”'],
+ choices:[c('식량과 회복약을 보충한다',1,'묵직해진 배낭이 든든하다. 행상인은 길에서 조심해야 할 곳까지 알려주었다.',{gold:-18,rations:3,potions:2},{hint:'18골드 · 식량 3 · 회복약 2',need:{gold:18}}),c('장터 일을 돕고 식량을 얻는다',2,'천막을 세우고 짐을 날랐다. 저녁에는 모두 같은 불가에서 빵을 나눴다.',{rations:2,gold:6,stress:-6},{hint:'식량 2 · 6골드'})]}
+};
+
+export const STAT_NAMES={strength:'힘',agility:'민첩',wit:'지혜',will:'의지'};
+export const ART_NOTES=[['village','출발 마을'],['forest','숲길'],['ruins','오래된 유적'],['camp','야영지'],['battle','전투 배경']];

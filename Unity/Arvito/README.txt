@@ -1,0 +1,51 @@
+ARVITO / 아르비토 — Unity C# PC 프로젝트
+
+이 압축 파일은 Unity 프로젝트입니다. 이미 빌드된 게임이나 설치 파일은 아닙니다.
+현재 클라우드에는 Unity 라이선스가 없어 플레이어 빌드와 화면 실행 검증을 하지 못했습니다.
+
+로그인된 Windows PC에서 게임 만들기
+1. ZIP을 폴더에 모두 압축 해제합니다.
+2. Unity Hub에서 Unity 6.3 LTS(권장 6000.3.28f1)가 설치되어 있는지 확인합니다.
+   라이선스가 활성화되어 있어야 합니다. Personal 대상이면 무료 Personal을 사용할 수 있습니다.
+3. 이 프로젝트가 Unity에서 열려 있다면 닫습니다.
+4. Build-Playtest.cmd를 더블클릭합니다.
+   첫 실행은 Unity 패키지 다운로드, 씬/한글 폰트 생성, 빌드 때문에 시간이 걸립니다.
+5. 성공하면 Builds 폴더가 열립니다.
+   Windows/Arvito.exe — 즉시 실행하는 게임
+   Arvito-Windows.zip — 폴더 전체를 묶은 이동용 게임
+   Arvito-Setup.exe — Windows 기본 IExpress로 만든 테스트 설치 프로그램
+   unity-build.log — 실패 원인을 확인할 빌드 로그
+
+Unity를 다른 폴더에 설치했다면 명령 프롬프트에서:
+Build-Playtest.cmd -UnityPath "D:\Unity\6000.3.28f1\Editor\Unity.exe"
+
+Unity 에디터에서 직접 실행
+1. Unity Hub → Add → Add project from disk → 이 폴더 선택.
+2. 첫 임포트가 끝나면 Arvito 메뉴가 생깁니다.
+3. Arvito → Prepare Project, Open Game Scene, Play.
+   Prepare Project는 보통 첫 임포트 시 자동 실행됩니다.
+4. Arvito → Build Windows로도 게임을 만들 수 있습니다.
+
+조작
+마우스로 선택. 1~9 선택지/기술, Enter 다음 사건/행동 확정.
+E 여정, C 일행, I 소지품, J 연대기, Esc 설정, F11 전체 화면.
+전투에서는 기술을 고르고 적 또는 아군 대상을 지정한 뒤 행동을 확정합니다.
+모든 아군을 직접 조작합니다. 무기마다 사용할 수 있는 위치가 다릅니다.
+
+저장
+행동마다 자동 저장하며 전투 순서와 난수도 보관합니다.
+Windows: %USERPROFILE%\AppData\LocalLow\Arvito\아르비토\arvito-save.json
+새 생을 시작하면 이전 생은 같은 폴더의 Lives에 JSON으로 보관합니다.
+설치 프로그램은 %LOCALAPPDATA%\Programs\Arvito에 설치하며 관리자 권한이 필요하지 않습니다.
+제거해도 LocalLow의 저장 파일은 유지합니다.
+
+현재 내용
+16세 시작, 사건별 최소 1주, 노화 확률, 23개 사건, 3명 영입/최대 4명 일행,
+7종 무기, 17개 기술, 위치 기반 턴제 전투, 영구 동료 사망, 후속 사건, 생애 결말.
+삽화는 마을/숲/유적/야영/전투의 다섯 장만 사용합니다.
+한글 폰트: Noto Serif KR (SIL OFL 1.1), Assets/Resources/Arvito/Fonts 참고.
+
+검증 범위
+C# 규칙 검사와 Unity 참조 라이브러리에 대한 컴파일을 수행했습니다.
+Unity 에디터 임포트/실행, Windows 플레이, IExpress 설치/제거는 아직 실행 검증하지 못했습니다.
+빌드 실패 시 Builds/unity-build.log를 보내 주면 그 오류를 기준으로 수정할 수 있습니다.

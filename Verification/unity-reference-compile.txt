@@ -1,0 +1,3 @@
+PASS: player C# source compiled against Unity reference assemblies.
+PASS: editor C# source compiled against Unity reference assemblies.
+Editor asset import, rendering and player build still require a licensed Unity Editor.

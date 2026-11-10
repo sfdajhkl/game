@@ -1,0 +1,25 @@
+PASS catalog: 23 events, 7 weapons, 3 companions, 17 skills
+PASS starts at sixteen with no fixed class
+PASS recruitment and authored follow-up
+PASS resource gate does not mutate time or RNG
+PASS duplicate recruitment / maximum party / tank joins front
+PASS weekly mortality increases with age
+PASS long time jump equals individual weeks
+PASS death interrupts long event before rewards
+PASS earlier choices unlock the reunion
+PASS weapon switch retains learned skill
+PASS rank, target and energy gates reject invalid turns
+PASS position swap consumes a turn
+PASS potion consumes one item and cures bleed
+PASS repeated choice cannot duplicate rewards
+PASS 30 seeded first battles reach victory and next event
+PASS battle save preserves next actor and RNG
+PASS broken combat snapshots are rejected
+PASS bleed can end the hero's life
+PASS companion death is permanent and closes formation
+PASS stun / guard expire at actor turn
+PASS stress breakdown loses one turn
+PASS retreat has cost and no victory reward
+PASS camp heals, spends supplies and advances time
+PASS atomic save and corrupted-primary backup recovery
+24 C# checks passed.
