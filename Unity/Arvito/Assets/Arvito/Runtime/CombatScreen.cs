@@ -8,76 +8,94 @@ namespace Arvito.Runtime
 {
     public sealed partial class GameApp
     {
+        static RectTransform BattlePanel(Transform parent, string name, float x0, float y0, float x1, float y1, Color? color = null)
+        {
+            var rt = color.HasValue ? Ui.Card(parent,name,color) : Ui.Node(name,parent);
+            rt.anchorMin=new Vector2(x0,y0); rt.anchorMax=new Vector2(x1,y1); rt.offsetMin=rt.offsetMax=Vector2.zero; return rt;
+        }
         void CombatScreen()
         {
-            var combat = game.State.combat; var active = game.Actor(combat.active);
-            if (lastActor != active.id) { selectedSkill = selectedTarget = null; lastActor = active.id; }
-            if (string.IsNullOrEmpty(selectedSkill) || game.SkillLock(selectedSkill) != "")
-                selectedSkill = game.Skills(active).FirstOrDefault(id => data.Skill(id).power > 0 && game.SkillLock(id) == "") ?? "guard";
-            if (!game.Targets(selectedSkill).Contains(selectedTarget)) selectedTarget = game.Targets(selectedSkill).FirstOrDefault();
+            var combat=game.State.combat; var active=game.State.hero;
+            if (lastActor!=active.id) { selectedSkill=selectedTarget=null; lastActor=active.id; }
+            if (string.IsNullOrEmpty(selectedSkill)||game.SkillLock(selectedSkill)!="")
+                selectedSkill=game.Skills(active).FirstOrDefault(id=>data.Skill(id).power>0&&game.SkillLock(id)=="")??"guard";
+            if (!game.Targets(selectedSkill).Contains(selectedTarget)) selectedTarget=game.Targets(selectedSkill).FirstOrDefault();
+            var targets=game.Targets(selectedSkill); var chosen=data.Skill(selectedSkill);
 
-            // Keep the battlefield and execute button visible while skills and details scroll independently.
-            var arena = Ui.Node("Battlefield", main); Ui.Fill(arena); arena.anchorMin = new Vector2(0, 1); arena.offsetMin = new Vector2(0, -282);
-            Ui.FixedText(arena, "ROUND " + combat.round.ToString("00") + "   /   " + game.Event.place, 0, 0, 700, 25, 14, Ui.Gold);
-            var artPanel = Ui.Node("Battle panorama", arena); Ui.Fill(artPanel, 0, 0, 35, 125);
-            var raw = artPanel.gameObject.AddComponent<UnityEngine.UI.RawImage>(); raw.texture = art["battle"]; raw.raycastTarget = false; artPanel.gameObject.AddComponent<ArtCrop>();
-            Ui.FixedText(arena, "적의 진형   <size=12>전열 → 후열 · 대상을 클릭하세요</size>", 0, 166, 700, 24, 15, Ui.Gold);
-            var targets = game.Targets(selectedSkill);
-            var enemies = combat.enemies.Where(e => e.hp > 0).ToList();
-            var enemyRow = Ui.Node("Enemy formation", arena); Ui.Fill(enemyRow, 0, 0, 197, 0);
-            for (int i = 0; i < enemies.Count; i++)
+            // Front-view battlefield: enemy battlers share a baseline above the party HUD.
+            var arena=BattlePanel(main,"Front-view battlefield",0,.46f,1,1);
+            var backdrop=arena.gameObject.AddComponent<UnityEngine.UI.RawImage>();
+            backdrop.texture=art[game.Event.art??"battle"]; backdrop.raycastTarget=false; arena.gameObject.AddComponent<ArtCrop>();
+            var shade=Ui.Card(arena,"Battle shade",new Color(.02f,.04f,.05f,.35f)); Ui.Fill(shade); shade.GetComponent<UnityEngine.UI.Image>().raycastTarget=false;
+            Ui.FixedText(arena,"ROUND "+combat.round.ToString("00")+"    /    "+game.RegionName+"    /    "+game.Event.title,20,12,1250,32,19,Ui.Paper);
+            var enemies=combat.enemies.Where(e=>e.hp>0).ToList();
+            var row=BattlePanel(arena,"Enemy battlers",.06f,.04f,.94f,.88f);
+            for(int i=0;i<enemies.Count;i++)
             {
-                var enemy = enemies[i]; string id = enemy.id; bool legal = targets.Contains(id);
-                string conditions = (enemy.status.bleed > 0 ? " · 출혈 " + enemy.status.bleed : "") + (enemy.status.stun > 0 ? " · 기절" : "");
-                var button = Ui.Button(enemyRow, (i + 1) + "열  " + enemy.name + "\n<size=12>체력 " + enemy.hp + "/" + enemy.maxHp + " · 방어 " + enemy.armor + conditions + "</size>", () => { selectedTarget = id; Render(); }, 85, legal, selectedTarget == id);
-                var rt = (RectTransform)button.transform; rt.anchorMin = new Vector2((float)i / enemies.Count, 0); rt.anchorMax = new Vector2((float)(i + 1) / enemies.Count, 1); rt.offsetMin = new Vector2(i == 0 ? 0 : 5, 0); rt.offsetMax = new Vector2(i == enemies.Count - 1 ? 0 : -5, 0);
+                var enemy=enemies[i]; string id=enemy.id; bool legal=targets.Contains(id), selected=id==selectedTarget;
+                var slot=BattlePanel(row,enemy.name,(float)i/enemies.Count+.008f,0,(float)(i+1)/enemies.Count-.008f,1);
+                var imageHost=BattlePanel(slot,"Battler image frame",.08f,.24f,.92f,.99f);
+                var imageArea=Ui.Node("Battler image",imageHost);Ui.Fill(imageArea);
+                var enemyImage=imageArea.gameObject.AddComponent<UnityEngine.UI.RawImage>(); enemyImage.texture=BattlerArt.Get(enemy.portrait); enemyImage.raycastTarget=false;
+                // A square rect preserves pixel proportions at every window aspect ratio.
+                var fit=imageArea.gameObject.AddComponent<UnityEngine.UI.AspectRatioFitter>(); fit.aspectMode=UnityEngine.UI.AspectRatioFitter.AspectMode.FitInParent; fit.aspectRatio=1;
+                var plate=Ui.Button(slot,(selected?"▶ ":"")+enemy.name+"\n<size=13>체력 "+enemy.hp+" / "+enemy.maxHp+
+                    (enemy.status.bleed>0?"   출혈":"")+(enemy.status.stun>0?"   기절":"")+"</size>",()=>{selectedTarget=id;Render();},58,legal,selected);
+                var pr=(RectTransform)plate.transform; pr.anchorMin=new Vector2(.04f,0);pr.anchorMax=new Vector2(.96f,.23f);pr.offsetMin=pr.offsetMax=Vector2.zero;
+                // The entire visible battler is clickable; ally-target skills disable enemy selection.
+                var hit=slot.gameObject.AddComponent<UnityEngine.UI.Image>();hit.color=new Color(1,1,1,.002f);
+                var button=slot.gameObject.AddComponent<UnityEngine.UI.Button>();button.targetGraphic=hit;button.interactable=legal;button.transition=UnityEngine.UI.Selectable.Transition.None;
+                button.onClick.AddListener(()=>{selectedTarget=id;Render();});
             }
-            var commandArea = Ui.Node("Commands", main); Ui.Fill(commandArea, 0, 0, 305);
-            var turnLabel = Ui.Text(commandArea, Ui.Safe(active.name) + "의 차례   <size=14>" + game.Rank(active.id) + "열 · 기력 " + active.energy + "/5</size>", 23, Ui.Gold);
-            Ui.Fill(turnLabel.rectTransform); turnLabel.rectTransform.anchorMin = new Vector2(0, 1); turnLabel.rectTransform.offsetMin = new Vector2(0, -36);
-            var skillPanel = Ui.Node("Skills", commandArea); Ui.Fill(skillPanel, 0, 12, 50, 54); skillPanel.anchorMax = new Vector2(.46f, 1);
-            var stack = Ui.Scroll(skillPanel, "Skills scroll"); stack.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing = 10;
-            var skills = game.Skills(active);
-            for (int index = 0; index < skills.Count; index++)
+
+            var party=BattlePanel(main,"Party status",0,.32f,1,.44f);
+            var members=game.Party;
+            for(int i=0;i<members.Count;i++)
             {
-                    string id = skills[index]; var sk = data.Skill(id); string locked = game.SkillLock(id);
-                    Action select = () => { selectedSkill = id; selectedTarget = game.Targets(id).FirstOrDefault(); Render(); };
-                    shortcuts.Add(locked == "" ? select : null);
-                    string hint = locked != "" ? locked : sk.cost > 0 ? "기력 " + sk.cost + " 소모" : "기력 소모 없음";
-                    Ui.Button(stack, (index + 1) + "  " + sk.name + "\n<size=12>" + hint + "</size>", select, 58 * Ui.TextScale, locked == "", selectedSkill == id);
+                var a=members[i];var card=BattlePanel(party,a.id,(float)i/members.Count+.004f,0,(float)(i+1)/members.Count-.004f,1,Ui.Panel);Ui.Border(card,a.id=="hero"?Ui.Gold:Ui.Line);
+                var name=Ui.Text(card,Ui.Safe(a.name)+"   <size=12>"+(a.id=="hero"?"직접 조작":"자동 행동")+"</size>",19,a.id=="hero"?Ui.Gold:Ui.Paper);
+                name.textWrappingMode=TextWrappingModes.NoWrap;name.enableAutoSizing=true;name.fontSizeMin=12;name.fontSizeMax=19*Ui.TextScale;
+                Ui.Fill(name.rectTransform,14,10,8,50);
+                var status=Ui.Text(card,"체력 "+a.hp+" / "+a.maxHp+"     기력 "+a.energy+" / 5\n<size=12>긴장 "+a.stress+"   "+game.Rank(a.id)+"열</size>",15,Ui.Paper);
+                Ui.Fill(status.rectTransform,14,10,38,6);
+                var track=BattlePanel(card,"HP track",.04f,.035f,.96f,.075f,Ui.Line);
+                BattlePanel(track,"HP",0,0,(float)a.hp/a.maxHp,1,a.hp<a.maxHp*.3f?Ui.Red:Ui.Green);
             }
-            var detailPanel = Ui.Card(commandArea, "Selected technique"); Ui.Fill(detailPanel, 12, 0, 50, 54); detailPanel.anchorMin = new Vector2(.46f, 0);
-            var detailViewport = Ui.Node("Details", detailPanel); Ui.Fill(detailViewport, 15, 15, 15, 84);
-            var details = Ui.Scroll(detailViewport, "Technique scroll");
-            var chosen = data.Skill(selectedSkill);
-            Ui.Text(details, chosen.name, 22, Ui.Gold);
-            Ui.Text(details, chosen.desc + "\n<size=13>사용 위치 " + string.Join("·", chosen.from) + "열" + (chosen.power > 0 ? "   /   대상 " + string.Join("·", chosen.to) + "열\n명중 " + chosen.accuracy + "%" : "") + "</size>", 17, Ui.Muted);
-            if (chosen.target == "ally" || chosen.target == "otherAlly" || chosen.target == "self")
+            var commands=BattlePanel(main,"Battle commands",0,0,.25f,.30f,Ui.Panel);Ui.Border(commands);
+            var skillHost=Ui.Node("Technique list",commands);Ui.Fill(skillHost,12,12,36,12);
+            Ui.FixedText(commands,"명령  ·  "+Ui.Safe(active.name),14,4,300,28,19,Ui.Gold);
+            var list=Ui.Scroll(skillHost,"Technique scroll");list.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=7;
+            var skills=game.Skills(active);
+            for(int i=0;i<skills.Count;i++)
             {
-                foreach (string id in targets)
-                {
-                    var ally = game.Actor(id); string targetId = id;
-                    Ui.Button(details, Ui.Safe(ally.name) + "   " + ally.hp + "/" + ally.maxHp + "   긴장 " + ally.stress, () => { selectedTarget = targetId; Render(); }, 45, true, selectedTarget == id);
-                }
+                string id=skills[i];var skill=data.Skill(id);string locked=game.SkillLock(id);
+                Action select=()=>{selectedSkill=id;selectedTarget=game.Targets(id).FirstOrDefault();Render();};
+                shortcuts.Add(locked==""?select:null);
+                Ui.Button(list,(i+1)+"  "+skill.name+"   <size=12>"+(locked!=""?locked:skill.cost>0?"기력 "+skill.cost:"")+"</size>",select,43*Ui.TextScale,locked=="",selectedSkill==id);
             }
-            string targetName = game.Actor(selectedTarget)?.name ?? combat.enemies.FirstOrDefault(e => e.id == selectedTarget)?.name ?? "대상 선택";
-            enterAction = () =>
-            {
-                string skill = selectedSkill, target = selectedTarget;
-                Change(() => { if (game.Act(skill, target)) { selectedSkill = selectedTarget = lastActor = null; } });
-            };
-            var execute = Ui.Button(detailPanel, chosen.name + " → " + Ui.Safe(targetName) + "\n<size=12>Enter · 행동 확정</size>", enterAction, 60, game.SkillLock(selectedSkill) == "" && targets.Contains(selectedTarget), true);
-            var er = (RectTransform)execute.transform; er.anchorMin = Vector2.zero; er.anchorMax = new Vector2(1, 0); er.offsetMin = new Vector2(15, 15); er.offsetMax = new Vector2(-15, 75);
-            Ui.Text(details, "다가오는 차례\n" + string.Join(" → ", combat.queue.Take(5).Select(id => game.Actor(id)?.name ?? combat.enemies.FirstOrDefault(e => e.id == id && e.hp > 0)?.name).Where(n => n != null)), 13, Ui.Muted);
-            Ui.Text(details, "최근 전투 기록", 16, Ui.Gold);
-            Ui.Text(details, string.Join("\n", combat.log.Skip(Math.Max(0, combat.log.Count - 5))), 14);
-            var retreat = Ui.Button(commandArea, "퇴각한다  ·  골드 20%와 긴장 +12", () =>
-            {
-                var d = Dialog("다음 장을 위해 물러서다", "전투 보상은 얻지 못합니다. 골드의 20%를 잃고 일행의 긴장이 12 오릅니다.\n\n지금까지 함께 살아남은 동료들은 당신과 함께합니다.");
-                Ui.Button(d, "함께 퇴각한다", () => { CloseDialog(); Change(() => game.Flee()); }, 54, true, true);
-                Ui.Button(d, "전투를 계속한다", CloseDialog);
-            }, 48);
-            var rr = (RectTransform)retreat.transform; rr.anchorMin = Vector2.zero; rr.anchorMax = new Vector2(1, 0); rr.offsetMin = Vector2.zero; rr.offsetMax = new Vector2(0, 42);
+            var detail=BattlePanel(main,"Command details",.265f,0,.555f,.30f,Ui.Panel);Ui.Border(detail);
+            var detailHost=Ui.Node("Detail viewport",detail);Ui.Fill(detailHost,14,14,10,66);
+            var info=Ui.Scroll(detailHost,"Detail scroll");info.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=8;
+            Ui.Text(info,chosen.name,21,Ui.Gold);Ui.Text(info,chosen.desc,16);
+            Ui.Text(info,"사용 위치 "+string.Join("·",chosen.from)+"열"+(chosen.power>0?"  /  명중 "+chosen.accuracy+"%":""),12,Ui.Muted);
+            if(chosen.target=="ally"||chosen.target=="otherAlly"||chosen.target=="self")
+                foreach(string id in targets)
+                { var ally=game.Actor(id);string target=id;Ui.Button(info,Ui.Safe(ally.name)+"  "+ally.hp+"/"+ally.maxHp,()=>{selectedTarget=target;Render();},38,true,selectedTarget==id); }
+            string targetName=game.Actor(selectedTarget)?.name??combat.enemies.FirstOrDefault(e=>e.id==selectedTarget)?.name??"대상 선택";
+            enterAction=()=>{string skill=selectedSkill,target=selectedTarget;Change(()=>{if(game.Act(skill,target))selectedSkill=selectedTarget=lastActor=null;});};
+            var execute=Ui.Button(detail,chosen.name+" → "+Ui.Safe(targetName)+"\n<size=12>Enter · 행동 확정</size>",enterAction,54,game.SkillLock(selectedSkill)==""&&targets.Contains(selectedTarget),true);
+            var er=(RectTransform)execute.transform;er.anchorMin=Vector2.zero;er.anchorMax=new Vector2(1,0);er.offsetMin=new Vector2(12,10);er.offsetMax=new Vector2(-12,62);
+
+            var logPanel=BattlePanel(main,"Battle messages",.57f,0,1,.30f,Ui.Panel);Ui.Border(logPanel);
+            var logHost=Ui.Node("Message viewport",logPanel);Ui.Fill(logHost,16,16,10,52);
+            var log=Ui.Scroll(logHost,"Battle log scroll");log.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=7;
+            Ui.Text(log,"전투 기록  <size=12>동료는 스스로 판단합니다</size>",18,Ui.Gold);
+            Ui.Text(log,string.Join("\n",combat.log.Skip(Math.Max(0,combat.log.Count-5))),15);
+            var retreat=Ui.Button(logPanel,"퇴각  ·  골드 20% / 긴장 +12",()=>{
+                var d=Dialog("살아남아 다음 길로","전투 보상을 포기하고 골드 20%를 잃습니다. 살아 있는 일행은 함께 퇴각합니다.");
+                Ui.Button(d,"함께 물러난다",()=>{CloseDialog();Change(()=>game.Flee());},50,true,true);Ui.Button(d,"계속 싸운다",CloseDialog);
+            },36);
+            var rr=(RectTransform)retreat.transform;rr.anchorMin=Vector2.zero;rr.anchorMax=new Vector2(1,0);rr.offsetMin=new Vector2(12,8);rr.offsetMax=new Vector2(-12,44);
         }
     }
 }

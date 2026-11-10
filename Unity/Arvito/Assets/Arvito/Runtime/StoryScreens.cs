@@ -70,7 +70,7 @@ namespace Arvito.Runtime
         }
         void StoryScreen()
         {
-            var e = game.Event; var stack = Chapter(e.chapter + "   /   " + e.place, e.title, e.art);
+            var e = game.Event; var stack = Chapter(game.RegionName + "   /   " + game.StageName + "\n" + e.place, e.title, e.art);
             foreach (var paragraph in e.text) Ui.Text(stack, paragraph, 21);
             Ui.Text(stack, "당신은 어떤 길을 택할까?", 14, Ui.Gold);
             for (int i = 0; i < e.choices.Length; i++)
@@ -84,6 +84,17 @@ namespace Arvito.Runtime
                 Ui.Button(stack, "<color=#D0AF71>" + (i + 1).ToString("00") + "</color>   " + c.label + "\n<size=13><color=#A4AE99>        " + detail + "</color></size>", action, 84 * Ui.TextScale, locked == "");
             }
             Ui.Text(stack, "선택 뒤 시간이 흐릅니다. 사건에 따라 몇 주에서 몇 년이 걸릴 수 있습니다.", 12, Ui.Muted);
+        }
+        void TravelDialog()
+        {
+            var stack = Dialog("이 땅을 떠나 다른 길로", "현재 위치: " + game.RegionName + "\n" + game.StageName + "\n\n이동에는 2주와 식량 1개가 듭니다. 식량이 없으면 6골드를 냅니다.");
+            foreach (var region in game.Routes())
+            {
+                string id = region.id;
+                Ui.Text(stack, region.description, 16, Ui.Muted);
+                Ui.Button(stack, region.name + "으로", () => { CloseDialog(); string message = ""; Change(() => message = game.Travel(id)); Notify(message); }, 50, game.State.rations > 0 || game.State.gold >= 6);
+            }
+            Ui.Button(stack, "지금의 길에 머문다", CloseDialog);
         }
         void OutcomeScreen()
         {
@@ -114,7 +125,7 @@ namespace Arvito.Runtime
         void PartyScreen()
         {
             var stack = Chapter("COMPANIONS   /   우연에서 인연으로", "함께 걷는 길");
-            Ui.Text(stack, "앞에 있는 사람이 전열입니다. 전투 기술은 위치에 따라 달라집니다.\n최대 네 명이 함께하며, 쓰러진 동료는 돌아오지 못합니다.", 18, Ui.Muted);
+            Ui.Text(stack, "앞에 있는 사람이 전열입니다. 주인공만 직접 조작하고 동료는 자동으로 행동합니다.\n최대 네 명이 함께하며, 쓰러진 동료는 돌아오지 못합니다.", 18, Ui.Muted);
             foreach (var a in game.Party)
             {
                 string id = a.id;

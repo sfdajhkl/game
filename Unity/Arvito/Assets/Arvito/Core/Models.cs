@@ -11,6 +11,7 @@ namespace Arvito.Core
         public Actor[] companions = Array.Empty<Actor>();
         public Enemy[] enemies = Array.Empty<Enemy>();
         public StoryEvent[] events = Array.Empty<StoryEvent>();
+        public Region[] regions = Array.Empty<Region>();
         public Weapon Weapon(string id) => weapons.First(w => w.id == id);
         public Skill Skill(string id) => skills.First(s => s.id == id);
         public StoryEvent Event(string id) => events.First(e => e.id == id);
@@ -20,8 +21,20 @@ namespace Arvito.Core
             foreach (var w in weapons) w.skills = w.skills ?? Array.Empty<string>();
             foreach (var a in companions) a.skills = a.skills ?? new List<string>();
             foreach (var s in skills) { s.from = s.from ?? Array.Empty<int>(); s.to = s.to ?? Array.Empty<int>(); if (s.accuracy == 0) s.accuracy = 100; }
-            foreach (var e in events) foreach (var c in e.choices) { c.effects = c.effects ?? new Effects(); if (c.failure != null) c.failure.effects = c.failure.effects ?? new Effects(); }
+            foreach (var e in events)
+            {
+                e.regions = e.regions ?? Array.Empty<string>();
+                e.text = e.text ?? Array.Empty<string>();
+                if (e.stageWeights == null || e.stageWeights.Length != 3) e.stageWeights = new[] { 10, 10, 10 };
+                foreach (var c in e.choices) { c.effects = c.effects ?? new Effects(); if (c.failure != null) c.failure.effects = c.failure.effects ?? new Effects(); }
+            }
         }
+    }
+    [Serializable] public class Region
+    {
+        public string id, name, description, art;
+        public int minStage;
+        public string[] routes = Array.Empty<string>();
     }
     [Serializable] public class Weapon
     {
@@ -68,9 +81,9 @@ namespace Arvito.Core
     {
         public int gold, rations, potions, rep, bond, xp, hp, heal, stress;
         public bool fullHeal;
-        public string flag, weapon, skill, recruit, stat;
+        public string flag, weapon, skill, recruit, stat, region;
     }
-    [Serializable] public class Need { public int gold, rations; public bool partySpace; public string flag; }
+    [Serializable] public class Need { public int gold, rations, rep; public bool partySpace; public string flag, weapon; }
     [Serializable] public class Check { public string stat; public int dc; }
     [Serializable] public class Failure { public string body; public Effects effects = new Effects(); }
     [Serializable] public class Choice
@@ -87,8 +100,11 @@ namespace Arvito.Core
     [Serializable] public class StoryEvent
     {
         public string id, title, chapter, place, art, tag, requiredFlag, excludedFallen;
+        public string excludedFlag, requiredWeapon;
         public bool once;
-        public int minWeeks, minLevel, minFlagWeeks;
+        public int minWeeks, minLevel, minFlagWeeks, minStage, minRep, minParty;
+        public string[] regions = Array.Empty<string>();
+        public int[] stageWeights = new[] { 10, 10, 10 };
         public string[] text = Array.Empty<string>();
         public Choice[] choices = Array.Empty<Choice>();
     }
@@ -121,6 +137,7 @@ namespace Arvito.Core
         public int weeks, gold = 24, rations = 4, potions = 3, rep, bond, events, victories;
         public double vitality = 1;
         public string mode = "story", eventId = "departure", startedAt;
+        public string region;
         public Actor hero;
         public List<Actor> companions = new List<Actor>();
         public List<string> formation = new List<string> { "hero" }, fallen = new List<string>(), inventory = new List<string> { "sword" }, flags = new List<string>(), recent = new List<string>();

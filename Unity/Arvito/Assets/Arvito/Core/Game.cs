@@ -5,7 +5,7 @@ using System.Linq;
 namespace Arvito.Core
 {
     /// <summary>Deterministic game rules. No Unity dependency; shared by the player and C# checks.</summary>
-    public sealed class Game
+    public sealed partial class Game
     {
         public Catalog Data { get; }
         public GameState State { get; private set; }
@@ -24,6 +24,8 @@ namespace Arvito.Core
                     .OrderBy(j => j.week).FirstOrDefault();
                 CountSet(state.flagWeeks, e.requiredFlag, entry?.week ?? state.weeks);
             }
+            if (string.IsNullOrEmpty(state.region)) state.region = data.events.FirstOrDefault(e => e.id == state.eventId)?.regions.FirstOrDefault() ?? data.regions.FirstOrDefault()?.id;
+            ResumeCombat();
         }
         public int Age => 16 + State.weeks / 52;
         public string AgeLabel => Age + "세 " + State.weeks % 52 + "주";
@@ -40,7 +42,10 @@ namespace Arvito.Core
                 id = "hero", name = name, subtitle = "이름 없는 모험가", weapon = "sword", portrait = "hero", maxHp = 38, hp = 38, speed = 3, power = 1
             }};
             var g = new Game(data, s); s.vitality = .8 + g.Random() * .4;
-            g.Record("첫 장", "열여섯의 봄, 당신은 브린 마을을 떠났다.", "birth"); return g;
+            var starts = data.regions.Where(r => r.minStage == 0).ToList();
+            if (starts.Count > 0) s.region = starts[g.Roll(0, starts.Count - 1)].id;
+            s.eventId = g.DrawEvent();
+            g.Record("첫 장", "열여섯의 봄, " + g.RegionName + "에서 당신의 이야기가 시작되었다.", "birth"); return g;
         }
         public double Random()
         {
@@ -78,6 +83,8 @@ namespace Arvito.Core
             var n = choice.need; if (n == null) return "";
             if (n.gold > State.gold) return n.gold + "골드 필요";
             if (n.rations > State.rations) return "식량이 부족합니다";
+            if (n.rep > State.rep) return "평판 " + n.rep + " 필요";
+            if (!string.IsNullOrEmpty(n.weapon) && !State.inventory.Contains(n.weapon)) return Data.Weapon(n.weapon).name + " 필요";
             if (n.partySpace && Party.Count >= 4) return "일행은 최대 4명입니다";
             if (!string.IsNullOrEmpty(n.flag) && !State.flags.Contains(n.flag)) return "단서가 필요합니다";
             return "";
@@ -97,6 +104,7 @@ namespace Arvito.Core
             Adjust(ref s.gold, e.gold, "골드", changes); Adjust(ref s.rations, e.rations, "식량", changes); Adjust(ref s.potions, e.potions, "회복약", changes);
             Adjust(ref s.rep, e.rep, "평판", changes); Adjust(ref s.bond, e.bond, "유대", changes);
             if (!string.IsNullOrEmpty(e.flag) && !s.flags.Contains(e.flag)) { s.flags.Add(e.flag); CountSet(s.flagWeeks, e.flag, s.weeks); }
+            if (!string.IsNullOrEmpty(e.region) && Data.regions.Any(r => r.id == e.region)) { s.region = e.region; changes.Add(RegionName + " 도착"); }
             if (!string.IsNullOrEmpty(e.weapon)) { if (!s.inventory.Contains(e.weapon)) { s.inventory.Add(e.weapon); changes.Add(Data.Weapon(e.weapon).name + " 획득"); } else { s.gold += 12; changes.Add("중복 장비 판매 +12골드"); } }
             if (!string.IsNullOrEmpty(e.skill) && !s.hero.skills.Contains(e.skill)) { s.hero.skills.Add(e.skill); changes.Add(Data.Skill(e.skill).name + " 습득"); }
             if (!string.IsNullOrEmpty(e.recruit) && !s.companions.Any(a => a.id == e.recruit) && !s.fallen.Contains(e.recruit) && Party.Count < 4)
@@ -134,16 +142,14 @@ namespace Arvito.Core
         public List<StoryEvent> AvailableEvents()
         {
             var s = State;
-            return Data.events.Where(e => e.id != "departure" && e.id != "first_hunt" && e.id != "crossroads" && (!e.once || Count(s.seen, e.id) == 0) && s.weeks >= e.minWeeks && s.hero.level >= e.minLevel && (string.IsNullOrEmpty(e.requiredFlag) || s.flags.Contains(e.requiredFlag)) && (e.minFlagWeeks <= 0 || s.flagWeeks.Any(c => c.id == e.requiredFlag && s.weeks - c.value >= e.minFlagWeeks)) && (string.IsNullOrEmpty(e.excludedFallen) || !s.fallen.Contains(e.excludedFallen)) && !s.recent.Contains(e.id)).ToList();
+            return Data.events.Where(e => Eligible(e) && !s.recent.Contains(e.id)).ToList();
         }
         public bool Continue()
         {
-            var s = State; if (s.mode != "outcome") return false; var next = s.outcome.next;
-            s.recent.Add(s.eventId); if (s.recent.Count > 5) s.recent.RemoveAt(0);
-            var candidates = AvailableEvents();
-            var followups = candidates.Where(e => new[] { "reunion", "warden", "dragon", "shrine", "shieldbearer" }.Contains(e.id)).ToList();
-            if (followups.Count > 0 && Random() < .65) candidates = followups;
-            s.eventId = !string.IsNullOrEmpty(next) ? next : candidates.Count == 0 ? "spring" : candidates[Roll(0, candidates.Count - 1)].id;
+            var s = State; if (s.mode != "outcome") return false;
+            s.recent.Add(s.eventId); if (s.recent.Count > 12) s.recent.RemoveAt(0);
+            // Old saves may contain a forced next event. All transitions now use the world pool.
+            s.eventId = DrawEvent();
             s.mode = "story"; s.outcome = null; return true;
         }
         public string Camp()
@@ -166,7 +172,7 @@ namespace Arvito.Core
         }
         public Actor Actor(string id) => Party.Find(a => a.id == id);
         public int Rank(string id) => Party.FindIndex(a => a.id == id) + 1;
-        public List<string> Skills(Actor a) => Data.Weapon(a.weapon).skills.Concat(a.skills).Concat(new[] { "guard", "focus", "potion", "move" }).Distinct().ToList();
+        public List<string> Skills(Actor a) => Data.Weapon(a.weapon).skills.Concat(a.skills).Concat(new[] { "strike", "guard", "focus", "potion", "move" }).Distinct().ToList();
         public List<string> Targets(string skillId, string actorId = null)
         {
             var c = State.combat; if (c == null) return new List<string>();
@@ -249,13 +255,20 @@ namespace Arvito.Core
                 if (status.stun > 0) { status.stun--; Log(name + " · 기절로 차례를 넘깁니다."); continue; }
                 if (ally != null && ally.stress >= 100) { ally.stress = 65; Log(name + " · 압도된 마음. 한 차례를 잃습니다."); continue; }
                 if (enemy != null) { EnemyAction(enemy); continue; }
-                c.active = id; return;
+                c.active = id;
+                if (id != "hero") { CompanionAction(ally); c.active = null; continue; }
+                return;
             }
             if (State.mode == "combat") throw new InvalidOperationException("전투 턴 진행 한도 초과");
         }
         public bool Act(string skillId, string targetId)
         {
-            if (State.mode != "combat" || string.IsNullOrEmpty(skillId) || SkillLock(skillId) != "" || !Targets(skillId).Contains(targetId)) return false;
+            if (State.mode != "combat" || State.combat.active != "hero" || string.IsNullOrEmpty(skillId) || SkillLock(skillId) != "" || !Targets(skillId).Contains(targetId)) return false;
+            ResolveAction(skillId, targetId);
+            State.combat.active = null; if (!CheckDeaths()) AdvanceTurn(); return true;
+        }
+        void ResolveAction(string skillId, string targetId)
+        {
             var c = State.combat; var a = Actor(c.active); var sk = Data.Skill(skillId); var ally = Actor(targetId); var enemy = c.enemies.Find(e => e.id == targetId);
             a.energy -= sk.cost; if (sk.item == "potions") State.potions--;
             if (sk.move)
@@ -283,7 +296,6 @@ namespace Arvito.Core
                 if (a.id == "hero") CountSet(a.mastery, a.weapon, Count(a.mastery, a.weapon) + 1);
             }
             if (sk.guard) { a.status.guard = true; if (sk.power == 0) a.energy = Math.Min(5, a.energy + 1); Log(a.name + " · 다음 차례까지 피해 65% 감소"); }
-            c.active = null; if (!CheckDeaths()) AdvanceTurn(); return true;
         }
         public bool Flee()
         {
@@ -300,6 +312,7 @@ namespace Arvito.Core
             {
                 if (s == null || s.version != 1 || s.rng == 0 || s.weeks < 0 || s.hero == null || s.hero.id != "hero" || !data.events.Any(e => e.id == s.eventId)) return false;
                 if (!new[] { "story", "combat", "outcome", "ended" }.Contains(s.mode) || double.IsNaN(s.vitality) || s.vitality <= 0) return false;
+                if (!string.IsNullOrEmpty(s.region) && !data.regions.Any(r => r.id == s.region)) return false;
                 if (s.formation.Count < 1 || s.formation.Count > 4 || s.formation.Distinct().Count() != s.formation.Count || !s.formation.Contains("hero")) return false;
                 var actors = new[] { s.hero }.Concat(s.companions).ToList();
                 if (actors.Select(a => a.id).Distinct().Count() != actors.Count || s.companions.Any(a => !data.companions.Any(c => c.id == a.id))) return false;

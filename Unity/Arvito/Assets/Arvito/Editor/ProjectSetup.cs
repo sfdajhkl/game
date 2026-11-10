@@ -71,7 +71,8 @@ namespace Arvito.Editor
         {
             var catalog = JsonUtility.FromJson<Catalog>(File.ReadAllText("Assets/Resources/Arvito/catalog.json")); catalog.Normalize();
             var original = Game.New(catalog, "저장 검사", 42);
-            original.Choose(0); original.Continue(); original.Choose(0);
+            original.Apply(new Effects { recruit = "mira" });
+            original.State.region = "forest"; original.State.eventId = "first_hunt"; original.Choose(0);
             if (original.State.mode != "combat") throw new InvalidDataException("Opening event did not reach combat.");
             var restored = new Game(catalog, JsonUtility.FromJson<GameState>(JsonUtility.ToJson(original.State)));
             if (!Game.Valid(restored.State, catalog)) throw new InvalidDataException("Unity could not restore the combat save.");
