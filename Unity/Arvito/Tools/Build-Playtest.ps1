@@ -18,9 +18,8 @@ if (-not $UnityPath) {
 if (-not $UnityPath -or -not (Test-Path -LiteralPath $UnityPath)) {
     throw "Unity 6.3 LTS was not found. Install $version with Unity Hub, or run: .\Build-Playtest.cmd -UnityPath <path-to-Unity.exe>"
 }
-if (Test-Path -LiteralPath (Join-Path $project 'Temp\UnityLockfile')) {
-    throw 'Close this project in Unity before running the build script.'
-}
+# Unity owns project locking. A lock file can remain after an interrupted session;
+# its presence alone must not prevent Unity from opening the project again.
 Write-Host "Unity: $UnityPath"
 Write-Host 'Building Arvito for Windows. Initial package import can take several minutes.'
 $env:ARVITO_BUILD_PATH = Join-Path $player 'Arvito.exe'
@@ -29,8 +28,15 @@ $unityArgs = @('-batchmode', '-nographics', '-quit', '-buildTarget', 'Win64', '-
     '-executeMethod', 'Arvito.Editor.ProjectSetup.BuildWindows', '-logFile', ('"{0}"' -f $log))
 $process = Start-Process -FilePath $UnityPath -ArgumentList $unityArgs -Wait -PassThru
 if ($process.ExitCode -ne 0 -or -not (Test-Path -LiteralPath $env:ARVITO_BUILD_PATH)) {
-    if (Test-Path -LiteralPath $log) { Get-Content -LiteralPath $log -Tail 35 }
-    throw "Unity build failed. Check your Unity Hub license and $log"
+    $logText = ''
+    if (Test-Path -LiteralPath $log) {
+        $logText = Get-Content -LiteralPath $log -Raw
+        Get-Content -LiteralPath $log -Tail 35
+    }
+    if ($logText -match 'another Unity instance|Multiple Unity instances cannot open') {
+        throw 'This project is already open in Unity. Save your work, close this project''s Unity Editor window, and run Build-Playtest.cmd again. Unity Hub may stay open. To play in the Editor, use Arvito > Open Game Scene, then Play.'
+    }
+    throw "Unity build failed. Read the error above and $log"
 }
 & (Join-Path $PSScriptRoot 'Package-Playtest.ps1') -PlayerFolder $player -OutputFolder $builds
 Write-Host ''

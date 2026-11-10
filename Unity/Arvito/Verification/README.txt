@@ -32,3 +32,12 @@ scene and font assets on first licensed import, and configures Windows settings.
 Build on a Windows PC with activated Unity 6.3 LTS by running Build-Playtest.cmd.
 The script produces the player first, then a ZIP and IExpress installer only after
 successful Unity build. Any build errors remain in Builds/unity-build.log.
+
+Launcher correction (2026-11-10):
+- Removed the early abort based only on Temp/UnityLockfile existence. Unity now
+  determines whether another Editor owns the project; no lock is removed.
+- 3 dependency-free PowerShell regression checks passed with a mocked launcher:
+  leftover lock permits launch, Unity's active-project error produces actionable
+  guidance without packaging, and missing Editor reports a prelaunch error.
+- PowerShell parsing passed. Actual Windows Unity locking remains untested.
+- Run: pwsh -NoProfile -File Tests/BuildScripts/Build-Playtest.Tests.ps1
