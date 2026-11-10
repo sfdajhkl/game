@@ -39,6 +39,9 @@ if (-not $UnityPath) {
 if (-not $UnityPath -or -not (Test-Path -LiteralPath $UnityPath)) {
     throw "Unity 6.3 LTS was not found. Install $version with Unity Hub, or run: .\Build-Playtest.cmd -UnityPath <path-to-Unity.exe>"
 }
+$repairScript = Join-Path $project 'Tools/Repair-Packages.ps1'
+if (-not (Test-Path -LiteralPath $repairScript -PathType Leaf)) { throw 'Package repair tools are missing. Apply the complete build-tools update or download the full project again.' }
+& $repairScript -ProjectPath $project -UnityPath $UnityPath
 # Unity owns project locking. A lock file can remain after an interrupted session;
 # its presence alone must not prevent Unity from opening the project again.
 Write-Host "Unity: $UnityPath"

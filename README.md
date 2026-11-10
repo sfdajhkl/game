@@ -29,6 +29,10 @@
 
 빌드 중에는 Unity 로그를 실시간으로 표시하고, 5초마다 경과 시간·최근 로그에서 확인한 작업 단계·새 로그가 없는 시간을 보여줍니다. ZIP과 설치 파일을 만들 때도 단계가 표시됩니다. 이미 실행 중인 빌드는 `Watch-Build.cmd`를 별도 창에서 실행해 확인할 수 있습니다. 로그를 찾지 못하면 파일 선택 창에서 `Arvito/Builds/unity-build.log`를 선택하세요. 보기 창을 닫아도 별도 창에서 실행 중인 빌드는 계속됩니다.
 
+처음 빌드할 때는 Unity 6.3과 맞지 않는 템플릿 패키지를 자동 복구합니다. Input System은 `1.20.1`, URP는 `17.3.0`으로 맞추고 `com.unity.collab-proxy`를 제거합니다. 임시 빈 프로젝트에서 Unity `Client.AddAndRemove` API로 구성과 잠금을 생성한 뒤 원본에 적용합니다. 기존 파일은 `Builds/PackageBackup-*`에 보관합니다. 원본 manifest를 직접 편집하거나 PackageCache 소스를 수정하지 않습니다. 첫 복구에는 추가 다운로드 시간이 걸릴 수 있습니다.
+
+복구 로그는 `Builds/package-repair-create.log`, `Builds/package-repair.log`입니다. 사용자 PC에서 복구한 이후에는 같은 작업을 반복하지 않습니다. Unity 에디터로 직접 플레이하려면 첫 빌드의 패키지 복구를 먼저 마치세요.
+
 에디터에서는 Unity Hub로 프로젝트를 추가하고 `Arvito > Prepare Project`, `Open Game Scene`, Play 순서로 실행합니다. 처음 열면 준비 작업을 자동으로 시도합니다. `Arvito > Build Windows` 메뉴도 제공합니다.
 
 ## 게임 규칙

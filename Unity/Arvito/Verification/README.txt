@@ -65,3 +65,20 @@ Live build progress (2026-11-10):
   non-Unity child process, verifying output before exit and the final error/code.
 - A null process exit code is treated as an error even if an older player exists.
 - PowerShell parsing passed; actual Unity/Windows rendering/build remains untested.
+
+Unity 6.3 dependency repair (2026-11-10):
+- User's real Windows log identified old Input System1.12.0 referencing removed
+  BuildTarget.ReservedCFE, and collab-proxy2.6.0 ObjectInfo ambiguity.
+- Verified official Input System1.20.1 metadata (unity6000.0 minimum) and actual
+  plugin-control source replacing that enum with (BuildTarget)49. Installed Unity
+  6000.3 bundles URP17.3.0. collab-proxy is not needed by the game.
+- Before compilation, the launcher now resolves those changes through Unity's
+  asynchronous Client API in a disposable empty project, preserving other root
+  requests, then validates/applies Client-generated manifest+lock with backups.
+- The original source manifest remains the template's manifest until this repair
+  runs on the user's licensed Editor. No manifest was hand-edited in this workspace.
+- Bootstrap C# compiled against real Unity6.3 reference DLLs. PowerShell parsed.
+- 5 mocked repair checks cover targeted changes, backup/apply, idempotence and
+  preserving original files on failure/wrong resolution. 6 launcher checks passed.
+- Native -createProject, UPM resolution and Windows game build require validation
+  on the user's licensed Editor; those operations were not executed here.

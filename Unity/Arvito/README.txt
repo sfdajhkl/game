@@ -11,6 +11,7 @@ ARVITO / 아르비토 — Unity C# PC 프로젝트
 4. Build-Playtest.cmd를 더블클릭합니다.
    GitHub에서 받은 game-main 폴더에도 실행 파일이 있으며 Unity/Arvito로 연결됩니다.
    첫 실행은 Unity 패키지 다운로드, 씬/한글 폰트 생성, 빌드 때문에 시간이 걸립니다.
+   먼저 Input System 1.20.1, URP 17.3.0으로 맞추고 collab-proxy를 제거하는 자동 복구가 실행됩니다.
 5. 성공하면 Builds 폴더가 열립니다.
    Windows/Arvito.exe — 즉시 실행하는 게임
    Arvito-Windows.zip — 폴더 전체를 묶은 이동용 게임
@@ -26,6 +27,13 @@ Build-Playtest.cmd -UnityPath "D:\Unity\6000.3.28f1\Editor\Unity.exe"
 - 이미 실행 중인 빌드는 Watch-Build.cmd를 별도 창에서 실행해 확인할 수 있습니다.
   로그를 찾지 못하면 파일 선택 창에서 이 프로젝트의 Builds/unity-build.log를 선택합니다.
 - 보기 창의 Ctrl+C는 로그 보기만 종료합니다. 별도 창에서 진행 중인 빌드는 계속됩니다.
+
+Unity 6.3 패키지 복구
+- ReservedCFE/Input System 또는 ObjectInfo/PlasticSCM 컴파일 오류는 이전 템플릿의 패키지 호환 문제입니다.
+- Build-Playtest.cmd가 임시 빈 프로젝트에서 Unity Package Manager API로 복구한 뒤 게임을 빌드합니다.
+- 기존 패키지 파일은 Builds/PackageBackup-*에 보관합니다.
+- 복구 실패 로그: Builds/package-repair-create.log, Builds/package-repair.log.
+- 첫 에디터 플레이 전에 Build-Playtest.cmd로 패키지 복구를 마칩니다.
 
 Unity 에디터에서 직접 실행
 1. Unity Hub → Add → Add project from disk → 이 폴더 선택.

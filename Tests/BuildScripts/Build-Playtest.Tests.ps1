@@ -8,8 +8,11 @@ function Assert-True([bool]$Condition, [string]$Message) { if (-not $Condition) 
 function New-TestProject([string]$Path) {
     foreach ($folder in @('Assets', 'Packages', 'ProjectSettings', 'Tools')) { New-Item -ItemType Directory -Force -Path (Join-Path $Path $folder) | Out-Null }
     Set-Content -LiteralPath (Join-Path $Path 'ProjectSettings/ProjectVersion.txt') -Value 'm_EditorVersion: 6000.3.23f1'
-    Set-Content -LiteralPath (Join-Path $Path 'Packages/manifest.json') -Value '{"dependencies":{}}'
+    Set-Content -LiteralPath (Join-Path $Path 'Packages/manifest.json') -Value '{"dependencies":{"com.unity.inputsystem":"1.20.1","com.unity.render-pipelines.universal":"17.3.0"}}'
     Copy-Item -LiteralPath (Join-Path $root 'Unity/Arvito/Tools/Build-Progress.ps1') -Destination (Join-Path $Path 'Tools/Build-Progress.ps1')
+    foreach ($name in @('Package-Repair-Plan.ps1', 'Repair-Packages.ps1', 'PackageRepair.cs')) {
+        Copy-Item -LiteralPath (Join-Path $root ('Unity/Arvito/Tools/' + $name)) -Destination (Join-Path $Path ('Tools/' + $name))
+    }
 }
 function Start-Process {
     param([string]$FilePath, [string[]]$ArgumentList, [string]$WorkingDirectory, [switch]$Wait, [switch]$PassThru)

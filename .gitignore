@@ -23,3 +23,4 @@ Unity/**/Builds/
 Legacy/**/build/
 Legacy/**/local.properties
 Legacy/**/web/art/*.b64
+Unity/**/Packages/*.repair-tmp

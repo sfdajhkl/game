@@ -21,6 +21,7 @@ for name in ['UnityEngine.UI.dll', 'Unity.TextMeshPro.dll', 'Unity.InputSystem.d
     if not matches: raise SystemExit('Missing real Unity reference: ' + name)
     refs.append(matches[0])
 sources = list((root / 'Unity/Arvito/Assets/Arvito').rglob('*.cs'))
+sources += list((root / 'Unity/Arvito/Tools').glob('PackageRepair.cs'))
 for mode in ['player', 'editor']:
     defines = 'UNITY_STANDALONE_WIN,ENABLE_INPUT_SYSTEM,UNITY_6000_0_OR_NEWER'
     if mode == 'editor': defines += ',UNITY_EDITOR'
