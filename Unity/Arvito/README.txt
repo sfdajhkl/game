@@ -9,6 +9,7 @@ ARVITO / 아르비토 — Unity C# PC 프로젝트
    라이선스가 활성화되어 있어야 합니다. Personal 대상이면 무료 Personal을 사용할 수 있습니다.
 3. 이 프로젝트가 Unity에서 열려 있다면 닫습니다.
 4. Build-Playtest.cmd를 더블클릭합니다.
+   GitHub에서 받은 game-main 폴더에도 실행 파일이 있으며 Unity/Arvito로 연결됩니다.
    첫 실행은 Unity 패키지 다운로드, 씬/한글 폰트 생성, 빌드 때문에 시간이 걸립니다.
 5. 성공하면 Builds 폴더가 열립니다.
    Windows/Arvito.exe — 즉시 실행하는 게임
@@ -32,6 +33,12 @@ Unity 에디터에서 직접 실행
 - 에디터에서 바로 플레이하려면 Arvito → Open Game Scene → 상단 Play를 누릅니다.
 - 최신 빌드 스크립트는 남아 있는 잠금 파일만으로 중단하지 않고 Unity가 실행 여부를 판단합니다.
 - Unity 실행 전에 실패했다면 콘솔에 나온 오류를 확인합니다. 이때 빌드 로그가 없을 수 있습니다.
+
+프로젝트 경로 오류가 나오면
+- 실행 화면의 Project: 경로가 game-main/Unity/Arvito인지 확인합니다.
+- 최신 스크립트는 저장소 루트와 Unity 프로젝트 폴더에서 실행하는 경우를 모두 처리합니다.
+- Assets, Packages/manifest.json, ProjectSettings/ProjectVersion.txt가 없으면 실행 전에 안내합니다.
+- Builds 폴더는 실제 Unity 프로젝트인 Unity/Arvito 아래에 생성됩니다.
 
 조작
 마우스로 선택. 1~9 선택지/기술, Enter 다음 사건/행동 확정.

@@ -41,3 +41,14 @@ Launcher correction (2026-11-10):
   guidance without packaging, and missing Editor reports a prelaunch error.
 - PowerShell parsing passed. Actual Windows Unity locking remains untested.
 - Run: pwsh -NoProfile -File Tests/BuildScripts/Build-Playtest.Tests.ps1
+
+Project path correction (2026-11-10):
+- User log showed a valid Unity Personal license and repository root game-main
+  passed to -projectPath rather than the nested Unity/Arvito project.
+- Launcher now validates project markers, resolves the project or repository-root
+  layout, uses an absolute forward-slash -projectPath and the project as its
+  WorkingDirectory, and invokes packaging from the resolved project's Tools.
+- Added a repository-root Build-Playtest.cmd forwarding to Unity/Arvito.
+- 5 mocked launcher checks passed, including nested project discovery with spaces
+  and non-ASCII names, output/log/package placement, and invalid-project rejection.
+- PowerShell syntax checks passed. Actual Unity on Windows remains untested here.

@@ -3,21 +3,37 @@ $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $fixture = Join-Path ([IO.Path]::GetTempPath()) ('arvito-launch-check-' + [guid]::NewGuid().ToString('N'))
 $oldBuildPath = $env:ARVITO_BUILD_PATH
-$mockState = [pscustomobject]@{ Launches = 0; Message = 'Simulated compilation error.' }
+$mockState = [pscustomobject]@{ Launches = 0; Message = 'Simulated compilation error.'; ExitCode = 17; Project = ''; WorkingDirectory = ''; BuildPath = ''; LogPath = '' }
 function Assert-True([bool]$Condition, [string]$Message) { if (-not $Condition) { throw $Message } }
-function Start-Process {
-    param([string]$FilePath, [string[]]$ArgumentList, [switch]$Wait, [switch]$PassThru)
-    $mockState.Launches++
-    [IO.File]::WriteAllText((Join-Path $fixture 'Builds/unity-build.log'), $mockState.Message)
-    return [pscustomobject]@{ ExitCode = 17 }
+function New-TestProject([string]$Path) {
+    foreach ($folder in @('Assets', 'Packages', 'ProjectSettings', 'Tools')) { New-Item -ItemType Directory -Force -Path (Join-Path $Path $folder) | Out-Null }
+    Set-Content -LiteralPath (Join-Path $Path 'ProjectSettings/ProjectVersion.txt') -Value 'm_EditorVersion: 6000.3.23f1'
+    Set-Content -LiteralPath (Join-Path $Path 'Packages/manifest.json') -Value '{"dependencies":{}}'
 }
-function Read-BuildError([string]$EditorPath) {
-    try { & (Join-Path $fixture 'Tools/Build-Playtest.ps1') -UnityPath $EditorPath | Out-Null }
+function Start-Process {
+    param([string]$FilePath, [string[]]$ArgumentList, [string]$WorkingDirectory, [switch]$Wait, [switch]$PassThru)
+    if ($FilePath -eq 'explorer.exe') { return }
+    $mockState.Launches++
+    $mockState.Project = $ArgumentList[[Array]::IndexOf($ArgumentList, '-projectPath') + 1].Trim('"')
+    $mockState.LogPath = $ArgumentList[[Array]::IndexOf($ArgumentList, '-logFile') + 1].Trim('"')
+    $mockState.WorkingDirectory = $WorkingDirectory
+    $mockState.BuildPath = $env:ARVITO_BUILD_PATH
+    [IO.File]::WriteAllText($mockState.LogPath, $mockState.Message)
+    if ($mockState.ExitCode -eq 0) {
+        New-Item -ItemType Directory -Force -Path (Split-Path -Parent $mockState.BuildPath) | Out-Null
+        [IO.File]::WriteAllText($mockState.BuildPath, 'Mock player marker, never executed or distributed.')
+    }
+    return [pscustomobject]@{ ExitCode = $mockState.ExitCode }
+}
+function Read-BuildError([string]$EditorPath, [string]$Launcher = '') {
+    if (-not $Launcher) { $Launcher = Join-Path $fixture 'Tools/Build-Playtest.ps1' }
+    try { & $Launcher -UnityPath $EditorPath | Out-Null }
     catch { return $_.Exception.Message }
     throw 'Expected the simulated Unity build to fail.'
 }
 try {
     New-Item -ItemType Directory -Path (Join-Path $fixture 'Tools'), (Join-Path $fixture 'Temp') | Out-Null
+    New-TestProject $fixture
     Copy-Item -LiteralPath (Join-Path $root 'Unity/Arvito/Tools/Build-Playtest.ps1') -Destination (Join-Path $fixture 'Tools/Build-Playtest.ps1')
     Set-Content -LiteralPath (Join-Path $fixture 'Tools/Package-Playtest.ps1') -Value "throw 'Packaging must not run after Unity fails.'"
     # An existing path satisfies discovery; the mock above intercepts every launch.
@@ -27,6 +43,7 @@ try {
     $message = Read-BuildError $fakeEditor
     Assert-True ($mockState.Launches -eq 1) 'A leftover lock file incorrectly prevented Unity launch.'
     Assert-True ($message -match '^Unity build failed') 'The actual simulated Unity failure was hidden.'
+    Assert-True ($mockState.Project -eq $fixture.Replace('\', '/') -and $mockState.WorkingDirectory -eq $fixture) 'Direct project launch used an incorrect project path or working directory.'
     Assert-True ([IO.File]::ReadAllText($lock) -eq 'preserve this lock file') 'The lock file was modified.'
     Write-Host 'PASS leftover lock file allows Unity launch and remains untouched'
 
@@ -45,7 +62,37 @@ try {
     Assert-True ($message -match 'Unity 6.3 LTS was not found') 'The prelaunch error was hidden.'
     Assert-True ($message -notmatch 'unity-build.log') 'A prelaunch error required a nonexistent log.'
     Write-Host 'PASS missing Editor reports a prelaunch error without requiring a build log'
-    Write-Host '3 launcher regression checks passed. Actual Unity locking on Windows was not executed.'
+
+    # Reproduce the user extracting the update under game-main/Tools. Include spaces
+    # and non-ASCII characters without requiring a BOM for Windows PowerShell 5.1.
+    $repository = Join-Path $fixture ('repo with spaces ' + [char]0xD55C + [char]0xAE00)
+    $nestedProject = Join-Path $repository 'Unity/Arvito'
+    New-TestProject $nestedProject
+    New-Item -ItemType Directory -Path (Join-Path $repository 'Tools') | Out-Null
+    $misplacedLauncher = Join-Path $repository 'Tools/Build-Playtest.ps1'
+    Copy-Item -LiteralPath $fakeEditor -Destination $misplacedLauncher
+    Set-Content -LiteralPath (Join-Path $repository 'Tools/Package-Playtest.ps1') -Value "throw 'The repository-root packaging helper must not run.'"
+    Set-Content -LiteralPath (Join-Path $nestedProject 'Tools/Package-Playtest.ps1') -Value 'Set-Content -LiteralPath (Join-Path $PSScriptRoot "packaged.txt") -Value "called"'
+    $mockState.ExitCode = 0
+    & $misplacedLauncher -UnityPath $fakeEditor | Out-Null
+    Assert-True ($mockState.Launches -eq 3) 'The repository-root launcher did not start Unity.'
+    Assert-True ($mockState.Project -eq $nestedProject.Replace('\', '/')) 'Unity received the repository root instead of the nested project.'
+    Assert-True ($mockState.WorkingDirectory -eq $nestedProject) 'Unity working directory was not the resolved project.'
+    Assert-True ($mockState.BuildPath -eq (Join-Path $nestedProject 'Builds/Windows/Arvito.exe')) 'The player output was written outside the resolved project.'
+    Assert-True ($mockState.LogPath -eq (Join-Path $nestedProject 'Builds/unity-build.log').Replace('\', '/')) 'The Unity log path was outside the resolved project.'
+    Assert-True (Test-Path -LiteralPath (Join-Path $nestedProject 'Tools/packaged.txt')) 'The resolved project packaging helper was not invoked.'
+    Write-Host 'PASS misplaced launcher resolves nested Unity project, paths and packaging with spaces and non-ASCII names'
+
+    $invalidRoot = Join-Path $fixture 'not-a-project'
+    New-Item -ItemType Directory -Path (Join-Path $invalidRoot 'Tools'), (Join-Path $invalidRoot 'Assets') | Out-Null
+    $invalidLauncher = Join-Path $invalidRoot 'Tools/Build-Playtest.ps1'
+    Copy-Item -LiteralPath $fakeEditor -Destination $invalidLauncher
+    $message = Read-BuildError $fakeEditor $invalidLauncher
+    Assert-True ($mockState.Launches -eq 3) 'An invalid Unity project launched the Editor.'
+    Assert-True ($message -match '^Arvito Unity project not found') 'The incomplete project was not explained.'
+    Assert-True (-not (Test-Path -LiteralPath (Join-Path $invalidRoot 'Builds'))) 'An invalid project created build output.'
+    Write-Host 'PASS missing Unity project is rejected before launching or creating build output'
+    Write-Host '5 launcher regression checks passed. Actual Unity on Windows was not executed.'
 }
 finally {
     $env:ARVITO_BUILD_PATH = $oldBuildPath

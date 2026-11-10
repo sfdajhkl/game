@@ -12,7 +12,7 @@
 
 1. `Unity/Arvito` 폴더 또는 프로젝트 ZIP을 압축 해제합니다.
 2. Unity Hub에서 **Unity 6.3 LTS**, 권장 **6000.3.28f1**, 라이선스 활성화를 확인합니다.
-3. 이 프로젝트가 Unity에서 열려 있다면 닫고 **`Build-Playtest.cmd`**를 실행합니다.
+3. 이 프로젝트가 Unity에서 열려 있다면 닫고, 압축 푼 **`game-main/Build-Playtest.cmd`**를 실행합니다. `Unity/Arvito/Build-Playtest.cmd`로도 실행할 수 있습니다.
 4. 처음에는 패키지를 다운로드하고 씬과 한글 글꼴을 생성합니다.
 5. 성공 시 `Builds` 폴더에 다음 파일이 생깁니다.
 
@@ -24,6 +24,8 @@
 | `unity-build.log` | Unity 빌드 오류 진단 |
 
 다른 위치에 설치한 Unity는 `Build-Playtest.cmd -UnityPath "D:\Unity\6000.3.28f1\Editor\Unity.exe"`로 지정합니다. 설치는 `%LOCALAPPDATA%\Programs\Arvito`를 사용하고 관리자 권한을 요구하지 않습니다. Unity 빌드 실패를 감지하면 설치 파일을 만들지 않습니다.
+
+실행 화면의 `Project:`는 `game-main/Unity/Arvito`여야 합니다. 빌드 스크립트는 `Assets`, `Packages/manifest.json`, `ProjectSettings/ProjectVersion.txt`가 있는 폴더를 확인하고, 그 폴더를 작업 경로와 Unity의 `-projectPath`로 지정합니다. 저장소 루트의 `Tools`에 이전 수정 파일을 풀어둔 경우에도 하위 Unity 프로젝트를 찾습니다.
 
 에디터에서는 Unity Hub로 프로젝트를 추가하고 `Arvito > Prepare Project`, `Open Game Scene`, Play 순서로 실행합니다. 처음 열면 준비 작업을 자동으로 시도합니다. `Arvito > Build Windows` 메뉴도 제공합니다.
 

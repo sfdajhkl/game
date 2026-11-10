@@ -1,6 +1,22 @@
 param([string]$UnityPath)
 $ErrorActionPreference = 'Stop'
-$project = Split-Path -Parent $PSScriptRoot
+$launcherRoot = Split-Path -Parent $PSScriptRoot
+$project = $null
+foreach ($candidate in @($launcherRoot, (Join-Path $launcherRoot 'Unity/Arvito'))) {
+    if ((Test-Path -LiteralPath (Join-Path $candidate 'Assets') -PathType Container) -and
+        (Test-Path -LiteralPath (Join-Path $candidate 'ProjectSettings/ProjectVersion.txt') -PathType Leaf) -and
+        (Test-Path -LiteralPath (Join-Path $candidate 'Packages/manifest.json') -PathType Leaf)) {
+        $project = [IO.Path]::GetFullPath((Get-Item -LiteralPath $candidate).FullName)
+        break
+    }
+}
+if (-not $project) {
+    throw 'Arvito Unity project not found. Extract the complete project ZIP, then run Build-Playtest.cmd from game-main or Unity/Arvito. Assets, Packages/manifest.json and ProjectSettings/ProjectVersion.txt must exist.'
+}
+$packageScript = Join-Path $project 'Tools/Package-Playtest.ps1'
+if (-not (Test-Path -LiteralPath $packageScript -PathType Leaf)) {
+    throw "The project is incomplete: missing $packageScript. Extract the complete project ZIP again."
+}
 $version = '6000.3.28f1'
 $builds = Join-Path $project 'Builds'
 $player = Join-Path $builds 'Windows'
@@ -21,12 +37,13 @@ if (-not $UnityPath -or -not (Test-Path -LiteralPath $UnityPath)) {
 # Unity owns project locking. A lock file can remain after an interrupted session;
 # its presence alone must not prevent Unity from opening the project again.
 Write-Host "Unity: $UnityPath"
+Write-Host "Project: $project"
 Write-Host 'Building Arvito for Windows. Initial package import can take several minutes.'
 $env:ARVITO_BUILD_PATH = Join-Path $player 'Arvito.exe'
 $log = Join-Path $builds 'unity-build.log'
-$unityArgs = @('-batchmode', '-nographics', '-quit', '-buildTarget', 'Win64', '-projectPath', ('"{0}"' -f $project),
-    '-executeMethod', 'Arvito.Editor.ProjectSetup.BuildWindows', '-logFile', ('"{0}"' -f $log))
-$process = Start-Process -FilePath $UnityPath -ArgumentList $unityArgs -Wait -PassThru
+$unityArgs = @('-batchmode', '-nographics', '-quit', '-buildTarget', 'Win64', '-projectPath', ('"{0}"' -f $project.Replace('\', '/')),
+    '-executeMethod', 'Arvito.Editor.ProjectSetup.BuildWindows', '-logFile', ('"{0}"' -f $log.Replace('\', '/')))
+$process = Start-Process -FilePath $UnityPath -ArgumentList $unityArgs -WorkingDirectory $project -Wait -PassThru
 if ($process.ExitCode -ne 0 -or -not (Test-Path -LiteralPath $env:ARVITO_BUILD_PATH)) {
     $logText = ''
     if (Test-Path -LiteralPath $log) {
@@ -38,7 +55,7 @@ if ($process.ExitCode -ne 0 -or -not (Test-Path -LiteralPath $env:ARVITO_BUILD_P
     }
     throw "Unity build failed. Read the error above and $log"
 }
-& (Join-Path $PSScriptRoot 'Package-Playtest.ps1') -PlayerFolder $player -OutputFolder $builds
+& $packageScript -PlayerFolder $player -OutputFolder $builds
 Write-Host ''
 Write-Host 'Created Builds\Arvito-Setup.exe and Builds\Arvito-Windows.zip'
 Write-Host 'For an immediate playtest, open Builds\Windows\Arvito.exe.'
