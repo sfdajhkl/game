@@ -86,8 +86,9 @@ namespace Arvito.Editor
             {
                 var importer = (TextureImporter)AssetImporter.GetAtPath("Assets/Resources/Arvito/Art/" + id + ".png");
                 importer.textureType = TextureImporterType.Default; importer.filterMode = FilterMode.Point; importer.wrapMode = TextureWrapMode.Clamp; importer.mipmapEnabled = false;
-                if (id == "characters") importer.npotScale = TextureImporterNPOTScale.None;
-                importer.textureCompression = TextureImporterCompression.Uncompressed; importer.maxTextureSize = 2048; importer.SaveAndReimport();
+                importer.textureCompression = TextureImporterCompression.Uncompressed; importer.maxTextureSize = 2048;
+                if (id == "characters") PixelCharacterImporter.Configure(importer);
+                importer.SaveAndReimport();
             }
             if (AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(FontPath) == null)
             {

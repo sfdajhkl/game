@@ -1,0 +1,38 @@
+ARVITO restrained cartoon battlers and native pixels — 2026-11-10
+
+Changed
+- Fifteen full-body fantasy characters with adult proportions, angular shapes,
+  subdued colors and fewer surface details. Original Arvito designs.
+- Actual 64x64 raster per character, 4x4 atlas of 256x256 RGBA pixels.
+  Shared 32-color palette; at most 16 opaque colors per character; binary alpha;
+  at least 2 transparent pixels of padding; unused sixteenth cell fully empty.
+- Editable indexed pixel grid and deterministic, dependency-free Node exporter.
+- PixelArtImage builds its quad on integer physical screen coordinates and
+  scales each texel by the same whole number on both axes. This works independently
+  of the existing fractional CanvasScaler and updates on window resize.
+- Dedicated texture importer enforces Point/no mipmaps/no compression on normal
+  asset imports, including existing projects that do not rerun Prepare Project.
+
+Validated
+- Eight .NET pixel geometry checks, including eight desktop resolutions,
+  fractional canvas coordinates, resize, small portraits and fallback textures.
+- Pixel grid validates native dimensions, palette, binary alpha and clear padding;
+  exported PNG exactly matches source. PNG decoded independently to confirm these
+  properties and the empty slot. Final atlas visually inspected at 4x Point scale.
+- Player and Editor C# source compiled against Unity 6000.3.28f1 reference DLLs.
+- Existing content checker passes: 500 scenes, 1,317 choices, 95 quest arcs,
+  10 regions and 15 mapped character sprites.
+- git diff --check.
+
+Limits
+- No native Unity import/rendering/Play Mode or Windows player build was run:
+  the cloud Editor has no active license. Geometry/API checks and the atlas
+  preview are not in-game rendering tests.
+- Very small portrait frames retain the 64px source at 1x instead of downsampling;
+  they may extend slightly beyond their frame at small window sizes.
+
+Commands
+node scripts/export-pixel-art.mjs --check
+python3 scripts/check-pixel-layout.py --dotnet /path/to/dotnet
+python3 scripts/check-story-content.py
+python3 scripts/check-unity-source.py --editor-data /path/to/Editor/Data --dotnet /path/to/dotnet
