@@ -65,6 +65,13 @@ namespace Arvito.Runtime
             var rt = Node("Pixel illustration", parent); Height(rt, height); var raw = rt.gameObject.AddComponent<UnityEngine.UI.RawImage>(); raw.texture = texture; raw.raycastTarget = false;
             rt.gameObject.AddComponent<ArtCrop>(); Border(rt);
         }
+        public static void EventIllustration(Transform parent, Texture texture)
+        {
+            var frame = Card(parent, "Event illustration frame", Ink); Height(frame, 400); Border(frame);
+            var picture = Node("Event illustration", frame); Fill(picture, 2, 2, 2, 2);
+            var raw = picture.gameObject.AddComponent<PixelArtImage>();
+            raw.texture = texture; raw.raycastTarget = false;
+        }
         public static void Bar(Transform parent, float x, float y, float width, float ratio, Color color)
         {
             var track = Card(parent, "Meter", Ink); Box(track, x, y, width, 5);

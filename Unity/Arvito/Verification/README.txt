@@ -1,5 +1,9 @@
 Arvito Unity C# PC migration — 2026-11-10
 
+Latest artwork update: event-illustrations.txt records 500 distinct event images,
+their Unity UI/import integration, 9 pixel geometry checks and static C# compilation.
+The older five-background count below describes the initial migration.
+
 Passed:
 - 24 C# rule checks in .NET 8 (core-checks.txt).
   Includes 30 seeded first-battle simulations, positional/target/resource gates,

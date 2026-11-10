@@ -1,0 +1,392 @@
+{
+  "1": {
+    "sourceSha256": "b200d8e27b8f1b38031b0dcdc0c4bde62ba029c5732d1a1a2c7f994aeb6d7df1",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "no fixed player party",
+      "natural varied anatomy; human eyes omitted"
+    ],
+    "status": "reviewed"
+  },
+  "2": {
+    "sourceSha256": "9246aa5194fae6034eaf9756a37fac2e945b5c75133fe06017d684cbbba79974",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "no fixed player party",
+      "natural varied anatomy; human eyes omitted"
+    ],
+    "status": "reviewed"
+  },
+  "3": {
+    "sourceSha256": "f6bc5f72ee026ad1344a09f0dc1fa04dceb76ec376c3b9599356afedba2a3dc1",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "no fixed player party",
+      "natural varied anatomy; human eyes omitted"
+    ],
+    "status": "reviewed-with-repairs",
+    "repairIds": [
+      "q006_offer"
+    ],
+    "repairSources": [
+      "repair-1"
+    ]
+  },
+  "4": {
+    "sourceSha256": "76c033f2e71bf532f2e8a4775859ffa0656ea5cd618c5e9a06ac5c4aea441b67",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ],
+    "status": "reviewed"
+  },
+  "6": {
+    "sourceSha256": "fb2a54283e15ecc2bf3189749a534a6f0abb313750d9de70ec39bfaa6bc6262c",
+    "status": "reviewed-with-repairs",
+    "repairIds": [
+      "q013_bargain",
+      "q015_offer",
+      "q015_bargain"
+    ],
+    "repairSources": [
+      "repair-1"
+    ]
+  },
+  "5": {
+    "sourceSha256": "ea37924ba7ee4d3cf11ffa867695deb763af3dafdcd6d73eb3dfd7eb52867abd",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ],
+    "status": "reviewed"
+  },
+  "7": {
+    "sourceSha256": "32ae6d30ad0f6d934a57fe6b215be6f3cdacbf994ee71a6b9d220f31f766be98",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ],
+    "status": "reviewed"
+  },
+  "8": {
+    "sourceSha256": "b761526047286d787c24d8f4bc46e5094ca2113c26fba54dedb533c70722f694",
+    "status": "reviewed-with-repairs",
+    "repairIds": [
+      "q020_offer"
+    ],
+    "repairSources": [
+      "repair-1"
+    ]
+  },
+  "10": {
+    "sourceSha256": "44bc12b27eb51adf27ee26f72ea1eb1d3b22d17016a483ec5f72eef79b0eabda",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ],
+    "status": "reviewed"
+  },
+  "9": {
+    "sourceSha256": "05b156b01f62fa41e1085dc20821e36a49421c6c1537009a338599f229a455e7",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ],
+    "status": "reviewed"
+  },
+  "11": {
+    "sourceSha256": "7aa3aa91e6e6c5e4b8f1a6fd6750d2bd5904f0ffba33f7aa739da9bb365f9cb7",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ],
+    "status": "reviewed"
+  },
+  "12": {
+    "sourceSha256": "d0ddb3a59360905057e61489083cca9fa9facc465dfd103a58bb353951f00408",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ],
+    "status": "reviewed"
+  },
+  "14": {
+    "sourceSha256": "d56e725ccbfd82df9931e4babfd1b89577ce9990cab92aa490bf0f4bdead1c25",
+    "status": "reviewed",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ]
+  },
+  "15": {
+    "sourceSha256": "9877fe6f14fec0c3edd3e9e82e86b7c93c4936e1be7c20d0a4a740a09e631f91",
+    "status": "reviewed-with-repairs",
+    "repairIds": [
+      "q042_trail",
+      "q042_bargain",
+      "q043_trail",
+      "q044_trail"
+    ],
+    "repairSources": [
+      "repair-1"
+    ]
+  },
+  "13": {
+    "sourceSha256": "eef718743220c9453bfb06d4b4c3473836d0ac9777d0b889ee66ed6aad764ac5",
+    "status": "reviewed-with-repairs",
+    "repairIds": [
+      "q036_trail"
+    ],
+    "repairSources": [
+      "repair-1"
+    ]
+  },
+  "16": {
+    "sourceSha256": "79436acca8e90baa1ac93bf0eea23881f789c6b031bd111bb28430c48699b718",
+    "status": "reviewed-with-repairs",
+    "repairIds": [
+      "q045_trail"
+    ],
+    "repairSources": [
+      "repair-1"
+    ]
+  },
+  "17": {
+    "sourceSha256": "f726182546b5d26a4631570f2a234214ecce5333dfbc2b268abe499357299450",
+    "status": "reviewed",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ]
+  },
+  "18": {
+    "sourceSha256": "077adb2974f3034878eb4536402b47e975581ae1912f7db037c7ffbc6f8c8372",
+    "status": "reviewed-with-repairs",
+    "repairIds": [
+      "q053_bargain"
+    ],
+    "repairSources": [
+      "repair-1"
+    ]
+  },
+  "19": {
+    "sourceSha256": "aca69a744dc84f0d13948930d6c029df34534aeda57ce3c857933a9412f0af21",
+    "status": "reviewed-with-repairs",
+    "repairIds": [
+      "q055_offer",
+      "q055_echo_a",
+      "q056_offer"
+    ],
+    "repairSources": [
+      "repair-1"
+    ]
+  },
+  "20": {
+    "sourceSha256": "2fe8727b28043325cbeb761a86d81e1dab50a586e80e0c3f13f3d19c33fca6e1",
+    "status": "reviewed",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted",
+      "native pixel preview inspected"
+    ]
+  },
+  "21": {
+    "sourceSha256": "88b0f9b5aefbeac7a4cfecf8ef38f13c8b03b5da0ff4e8936bf3eed0a4ec8eec",
+    "status": "reviewed-with-repairs",
+    "repairIds": [
+      "q062_offer",
+      "q062_bargain"
+    ],
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "natural varied anatomy; human eyes omitted"
+    ],
+    "note": "Queued specific extra-cast or premature rescue corrections; remaining panels reviewed.",
+    "repairSources": [
+      "repair-1",
+      "repair-2"
+    ]
+  },
+  "22": {
+    "sourceSha256": "d11439d385161179bf7d3ea83abd1983fe44958efa2f5450e05e0bc74e49fe28",
+    "status": "reviewed-with-repairs",
+    "repairIds": [
+      "q064_offer",
+      "q065_offer"
+    ],
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "natural varied anatomy; human eyes omitted"
+    ],
+    "note": "Queued specific extra-cast or premature rescue corrections; remaining panels reviewed.",
+    "repairSources": [
+      "repair-2"
+    ]
+  },
+  "23": {
+    "sourceSha256": "a8efc73a9c06e2bbb344149ea04565cf6ece51a19e2c1a7e9f51db86ecccd0c3",
+    "status": "reviewed-with-repairs",
+    "repairIds": [
+      "q069_offer"
+    ],
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "natural varied anatomy; human eyes omitted"
+    ],
+    "note": "Queued specific extra-cast or premature rescue corrections; remaining panels reviewed.",
+    "repairSources": [
+      "repair-2"
+    ]
+  },
+  "24": {
+    "sourceSha256": "bf15e4414536dc693b32e1f3b4ab61c5352947c7906957c537b711de58fb2827",
+    "status": "reviewed-with-repairs",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ],
+    "repairIds": [
+      "q073_offer"
+    ],
+    "repairSources": [
+      "repair-2"
+    ]
+  },
+  "28": {
+    "sourceSha256": "800a8bcb92b220fdc67d1ed4dda5b5e3e1712293e0e61f6a0fbb6a28c00b298c",
+    "status": "reviewed",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ]
+  },
+  "25": {
+    "sourceSha256": "00d4efe148196dbfec23c4de6b0b38f8a213f7baa4ce37a234ac8221820209e1",
+    "status": "reviewed",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ]
+  },
+  "29": {
+    "sourceSha256": "d4e5358a8aea9d8ae5375423b8d0a17dada9951cf142d183a2e5f8f110a94881",
+    "status": "reviewed-with-repairs",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ],
+    "repairIds": [
+      "q089_offer"
+    ],
+    "repairSources": [
+      "repair-2"
+    ]
+  },
+  "26": {
+    "sourceSha256": "54d88a7c7429e8096ef2d654742ec483f57d138ecec73b354bc6f2a99cf65962",
+    "status": "reviewed",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ]
+  },
+  "27": {
+    "sourceSha256": "cfb088a6cddd007733b682b6c1e7736e6e97f2e4f570ae8336585e3152c88aec",
+    "status": "reviewed",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ]
+  },
+  "31": {
+    "sourceSha256": "0bfae2ae2499615f81db61ff06f4726170740866f3dc2cd3df5b9fa30ceadfc2",
+    "status": "reviewed",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ]
+  },
+  "30": {
+    "sourceSha256": "d599ae87ee703c03621f3ce1a77b43fb81fb480e176a906fb98c66e275320ab0",
+    "status": "reviewed",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and phase",
+      "only fixed local NPCs, no player party",
+      "natural varied anatomy; human eyes omitted"
+    ]
+  },
+  "32": {
+    "sourceSha256": "4cc0042c90841b74eed9b364c4ffce95d5bbc1e96fa64d6a585446462a44d4c3",
+    "status": "reviewed",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and unresolved/resolved phase",
+      "fixed local NPC cast only; no player party",
+      "natural varied adult anatomy; minimal faces",
+      "flat cartoon materials, no photographic object rendering"
+    ]
+  },
+  "repair-1": {
+    "sourceSha256": "986340cfb03d46569d3e7695437babcc416098f036e1d9c070f49ba8c4ace2ed",
+    "status": "reviewed",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and unresolved/resolved phase",
+      "fixed local NPC cast only; no player party",
+      "natural varied adult anatomy; minimal faces",
+      "flat cartoon materials, no photographic object rendering"
+    ]
+  },
+  "repair-2": {
+    "sourceSha256": "c61c02ebec574f703e816d7168b69e842dcece445d4f95c34e5995a9653a132e",
+    "status": "reviewed",
+    "checked": [
+      "scene order and boundaries",
+      "event objects and unresolved/resolved phase",
+      "fixed local NPC cast only; no player party",
+      "natural varied adult anatomy; minimal faces",
+      "flat cartoon materials, no photographic object rendering"
+    ]
+  }
+}

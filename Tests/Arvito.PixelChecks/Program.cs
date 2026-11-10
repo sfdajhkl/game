@@ -61,6 +61,16 @@ static class Program
                 foreach(int count in coverage) Assert(count==f.scale);
             }
         });
+        Check("event illustrations keep the full 3:2 raster at desktop canvas scales",()=>{
+            foreach(var size in new[]{(1024,768),(1280,720),(1366,768),(1440,900),(1920,1080),(2560,1440),(3440,1440),(3840,2160)})
+            {
+                float canvasScale=(float)Math.Sqrt(size.Item1/1440.0*size.Item2/900.0);
+                float width=700*canvasScale, height=396*canvasScale;
+                var f=PixelArtGeometry.Fit(10.25f,12.75f,10.25f+width,12.75f+height,192,128);
+                Assert(f.scale>=1 && f.width==192*f.scale && f.height==128*f.scale);
+                Assert(f.x>=10.25f && f.y>=12.75f && f.x+f.width<=10.25f+width && f.y+f.height<=12.75f+height);
+            }
+        });
         Console.WriteLine(passed+" pixel layout checks passed (geometry only; native Unity rendering requires Play Mode).");
     }
 }

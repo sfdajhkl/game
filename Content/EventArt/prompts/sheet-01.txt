@@ -1,0 +1,46 @@
+Create a production contact sheet of SIXTEEN separate 3:2 fantasy RPG event illustrations, arranged in an EXACT 4-column by 4-row grid, total canvas 1536 x 1024. Every cell is exactly 384 x 256. No margins, no gutters, no borders, no labels, no numbers, no lettering, no UI. Images must end exactly at the cell edges and never continue into neighboring cells. Follow the row/column assignments exactly.
+
+Match the reference's ORIGINAL restrained fantasy cartoon illustration style: naturally rounded human anatomy with modest angular accents, relaxed continuous outlines, mature but approachable proportions, quiet human storytelling, muted earth/olive/slate/cream palette and grounded medieval fantasy. Preserve the original level of softness. Do not exaggerate square jaws, triangular noses, heavy black outlines, bulky fists, blocky musculature, rugged caricatures or aggressive faces. Do not make the characters more angular than the reference. Vary age and build naturally without caricature. Each panel must read as a carefully composed hand-placed 192 x 128 pixel picture enlarged exactly 2x: square consistent 2x2 pixel blocks, clean coherent clusters, limited flat colors (around 24-32), sparse detail and purposeful continuous contours.
+
+HUMAN BODY PROPORTIONS: avoid the shared short, round barrel-shaped torso and stubby limbs. Give most working adults a lean natural torso, visible waist, narrower hips, longer forearms and legs, and a relatively small head (roughly 6-7 heads tall when standing). Maintain natural curved anatomy and modest line weight, not faceted geometry. Distinct silhouettes by role: hunters/archers lean and athletic; scholars/elders slender with slightly stooped posture; warriors broad in the shoulders with a defined waist; smiths strong in the back and forearms without a round belly; merchants may be heavier but not every NPC. Children are naturally smaller, not chibi. Vary women and men, age, build and stance among local NPCs. Clothing hangs on a body rather than inflating into a round sack. No uniformly bulky hands, balloon sleeves, thick cylinders for legs or oversized round heads.
+
+HUMAN EYES ARE OMITTED, without changing the face shape: no little eye dots, pupils, eye whites, eyelid lines or eyelashes. Leave that small area the same natural skin tone or existing soft facial shade, not a dark horizontal bar. No blindfolds, sunglasses, eye bands or large empty masks. Keep the original nose, mouth, cheek, hair, beard and natural head proportions. Emotion comes from the original mouth shape, head tilt and posture. Animal/monster eyes may remain minimal. Use scene-appropriate mouth shapes and posture: worried or grieving NPCs must not smile; injured and threatened people look guarded or tired. Do not give every person a friendly smile.
+
+ALL OBJECT CLOSEUPS use the SAME flat outlined cartoon style as the people. Glass uses a few solid translucent shapes; metal uses two or three broad tones; stone uses simple broad blocks. No macro-photography, realistic rusty grain, rope fuzz, sand grains, reflective rendering or photographic texture under a pixel filter. Simplify materials rather than stippling them.
+
+No smooth brushwork, photographic detail, anti-aliasing, dithering, tiny decorative texture, gradients, noisy speckles, shiny ornate armor, anime eyes or chibi proportions. Large areas of calm negative space and clear focal objects. Use subtle appropriate daylight, weather or lamplight; not every scene brown or dark.
+
+CRITICAL COMPOSITION: The viewer is the unseen traveler. NEVER depict the playable hero or their companions, even as backs, silhouettes, shadows, hands, held weapons, reflections, or an anonymous adventurous party. Only fixed local event NPCs, animals and enemies described for a scene may appear. When a hook mentions just ONE local NPC, show that person ALONE, addressing the unseen viewer; never add a second traveler as their conversation partner. In negotiations every visible person must have an obvious local trade or community role, not look like an adventurer avatar. Do not depict a portrait or statue with a predefined likeness of the playable hero; show inscriptions or an unfinished plinth instead. Do not copy the shrine's healers into unrelated panels. Depict the event before its choice except explicit aftermath scenes. All visible writing must be abstract marks, not legible words. Each panel is a complete single scene, not a split scene.
+
+SCENES, read left to right within each row:
+ROW 1 COLUMN 1: Across a small wooden bridge, the female hunter Mira sits beside a tree with an injured ankle, raising one hand to ask the unseen viewer for help. No other adventurer.
+
+ROW 1 COLUMN 2: Two hungry wolves watch a torn provision sack on a moonlit forest road. Low view down the empty road, one wolf emerging from undergrowth.
+
+ROW 1 COLUMN 3: A roadside merchant behind a faded cloth displaying a modest sword, wooden bow, staff and axe. Welcoming gesture toward the unseen customer; simple functional weapons.
+
+ROW 1 COLUMN 4: A lost small child crouches between huge tree roots in fog, clutching a tiny wooden toy horse. The toy and worried posture are the focal point.
+
+ROW 2 COLUMN 1: An adult shop assistant presents a worn wooden toy horse on a shop counter, quietly grateful. Seen from the customer side, no customer visible.
+
+ROW 2 COLUMN 2: Borin, a mature bearded veteran in scarred practical armor, sits alone by a campfire, staring into a cold cup. His battered shield rests unused beside him.
+
+ROW 2 COLUMN 3: A fallen tree blocks a mountain road. Two rough bandits and a bow-carrying bandit confront the unseen viewer from behind the trunk. Bowstring continuous.
+
+ROW 2 COLUMN 4: Below a collapsed tower, an immense closed stone door carries a simple carved constellation. A narrow cold blue slit contrasts with warm dusty stone. No people.
+
+ROW 3 COLUMN 1: An ancient massive iron-and-stone guardian rises amid dust in a ruined hall, facing the unseen viewer. Simple heavy angular silhouette, tiny dim eye lights. No adventurers.
+
+ROW 3 COLUMN 2: A colossal muted red dragon spreads its wings over a stone citadel as ash falls. Tiny ordinary civilians retreat through a distant gate. No hero or party.
+
+ROW 3 COLUMN 3: A slow caravan of two covered wooden merchant wagons on a broad winding road. An older merchant walks beside the lead wagon and a mule. No adventuring escorts.
+
+ROW 3 COLUMN 4: An elderly fencing teacher stands alone in an open practice yard holding a plain wooden branch. Wooden training dummy and practice posts nearby. No student avatar.
+
+ROW 4 COLUMN 1: A broad-shouldered blacksmith working a glowing iron blade on an anvil in a modest stone forge. Warm ember highlights, large simple shapes, no customer visible.
+
+ROW 4 COLUMN 2: An unexpectedly flowering branch over an empty country path, a few pale blossoms against bare trees and subdued green spring grass. Quiet observational still life.
+
+ROW 4 COLUMN 3: From inside an empty rustic inn, a window shows deep snow blocking a mountain pass. A fire, stacked split logs, empty stools and steaming kettle; no party members.
+
+ROW 4 COLUMN 4: A grey-robed grave priest turns toward the unseen viewer in a wet marsh graveyard. Faint blue will-o-wisps above leaning gravestones and two old skeletons in the shadows.
