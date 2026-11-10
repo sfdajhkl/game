@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Validate authored content references, conditional reachability and world routes."""
 import json
+import re
+import struct
 from pathlib import Path
 import subprocess
 import sys
@@ -47,6 +49,12 @@ while True:
                 if fx.get('flag'):reachable.add(fx['flag'])
     if len(reachable)==before:break
 assert required<=reachable,('orphaned quest chains',required-reachable)
+art=root/'Unity/Arvito/Assets/Resources/Arvito/Art/characters.png'
+png=art.read_bytes();assert png[:8]==b'\x89PNG\r\n\x1a\n'
+width,height=struct.unpack('>II',png[16:24]);assert width==height and width>=1024 and png[25]==6
+slots=dict((name,int(index)) for name,index in re.findall(r'\["([a-z]+)"\]=(\d+)',(root/'Unity/Arvito/Assets/Arvito/Runtime/BattlerArt.cs').read_text()))
+assert set(slots)==known['enemies']|known['companions']|{'hero'}
+assert sorted(slots.values())==list(range(15)) and Path(str(art)+'.meta').exists()
 for r in regions.values():assert set(r['routes'])<=regions.keys(),r['id']
 for stage in range(3):
     allowed={r['id'] for r in regions.values() if r['minStage']<=stage}
@@ -60,4 +68,4 @@ for stage in range(3):
         free=[e for e in events if not e.get('once') and not e.get('requiredFlag') and e.get('minStage',0)<=stage and e['stageWeights'][stage]>0 and (not e['regions'] or region in e['regions'])]
         assert len(free)>=2,('exhausted local pool',region,stage)
 subprocess.run([sys.executable,str(root/'scripts/export-story-content.py'),'--check'],check=True)
-print(f'PASS: 500 distinct scenes, {choices} choices, {battles} combat options, {gates} equipment gates; all 95 quest arcs and 10 regional routes are reachable.')
+print(f'PASS: 500 distinct scenes, {choices} choices, {battles} combat options, {gates} equipment gates; all 95 quest arcs and 10 regional routes are reachable; 15 character illustrations mapped to RGBA atlas.')

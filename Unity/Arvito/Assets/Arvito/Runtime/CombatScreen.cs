@@ -36,7 +36,7 @@ namespace Arvito.Runtime
                 var slot=BattlePanel(row,enemy.name,(float)i/enemies.Count+.008f,0,(float)(i+1)/enemies.Count-.008f,1);
                 var imageHost=BattlePanel(slot,"Battler image frame",.08f,.24f,.92f,.99f);
                 var imageArea=Ui.Node("Battler image",imageHost);Ui.Fill(imageArea);
-                var enemyImage=imageArea.gameObject.AddComponent<UnityEngine.UI.RawImage>(); enemyImage.texture=BattlerArt.Get(enemy.portrait); enemyImage.raycastTarget=false;
+                var enemyImage=imageArea.gameObject.AddComponent<UnityEngine.UI.RawImage>(); BattlerArt.Apply(enemyImage,enemy.type);
                 // A square rect preserves pixel proportions at every window aspect ratio.
                 var fit=imageArea.gameObject.AddComponent<UnityEngine.UI.AspectRatioFitter>(); fit.aspectMode=UnityEngine.UI.AspectRatioFitter.AspectMode.FitInParent; fit.aspectRatio=1;
                 var plate=Ui.Button(slot,(selected?"▶ ":"")+enemy.name+"\n<size=13>체력 "+enemy.hp+" / "+enemy.maxHp+
@@ -53,12 +53,13 @@ namespace Arvito.Runtime
             for(int i=0;i<members.Count;i++)
             {
                 var a=members[i];var card=BattlePanel(party,a.id,(float)i/members.Count+.004f,0,(float)(i+1)/members.Count-.004f,1,Ui.Panel);Ui.Border(card,a.id=="hero"?Ui.Gold:Ui.Line);
-                var name=Ui.Text(card,Ui.Safe(a.name)+"   <size=12>"+(a.id=="hero"?"직접 조작":"자동 행동")+"</size>",19,a.id=="hero"?Ui.Gold:Ui.Paper);
+                var portrait=Ui.Node("Party portrait",card);Ui.Box(portrait,6,6,76,76);BattlerArt.Portrait(portrait,a.id);
+                var name=Ui.Text(card,Ui.Safe(a.name)+"   <size=11>"+(a.id=="hero"?"주인공":"자동 행동")+"</size>",19,a.id=="hero"?Ui.Gold:Ui.Paper);
                 name.textWrappingMode=TextWrappingModes.NoWrap;name.enableAutoSizing=true;name.fontSizeMin=12;name.fontSizeMax=19*Ui.TextScale;
-                Ui.Fill(name.rectTransform,14,10,8,50);
+                Ui.Fill(name.rectTransform,94,10,8,50);
                 var status=Ui.Text(card,"체력 "+a.hp+" / "+a.maxHp+"     기력 "+a.energy+" / 5\n<size=12>긴장 "+a.stress+"   "+game.Rank(a.id)+"열</size>",15,Ui.Paper);
-                Ui.Fill(status.rectTransform,14,10,38,6);
-                var track=BattlePanel(card,"HP track",.04f,.035f,.96f,.075f,Ui.Line);
+                Ui.Fill(status.rectTransform,94,10,38,6);
+                var track=BattlePanel(card,"HP track",0,.035f,1,.075f,Ui.Line);track.offsetMin=new Vector2(94,0);track.offsetMax=new Vector2(-14,0);
                 BattlePanel(track,"HP",0,0,(float)a.hp/a.maxHp,1,a.hp<a.maxHp*.3f?Ui.Red:Ui.Green);
             }
             var commands=BattlePanel(main,"Battle commands",0,0,.25f,.30f,Ui.Panel);Ui.Border(commands);

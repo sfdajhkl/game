@@ -129,6 +129,7 @@ namespace Arvito.Runtime
             foreach (var a in game.Party)
             {
                 string id = a.id;
+                var portrait=Ui.Node("Party illustration",stack);Ui.Height(portrait,170);BattlerArt.Portrait(portrait,id);
                 Ui.Text(stack, game.Rank(id).ToString("00") + "   " + Ui.Safe(a.name), 26, Ui.Gold);
                 Ui.Text(stack, a.id == "hero" ? "한 가지 직업으로 정해지지 않은 모험가. 당신의 선택이 앞으로의 이야기를 만듭니다." : a.story, 19);
                 Ui.Text(stack, data.Weapon(a.weapon).name + "  ·  체력 " + a.hp + "/" + a.maxHp + "  ·  긴장 " + a.stress, 16, Ui.Muted);

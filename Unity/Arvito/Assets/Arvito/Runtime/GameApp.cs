@@ -138,11 +138,12 @@ namespace Arvito.Runtime
             Ui.Text(stack, "함께 걷는 사람들", 18, Ui.Gold); Ui.Text(stack, "전열  →  후열    /    " + game.Party.Count + "명", 12, Ui.Muted);
             foreach (var a in game.Party)
             {
-                var card = Ui.Card(stack, a.id, Ui.Raised); Ui.Height(card, 138); Ui.Border(card, game.State.combat?.active == a.id ? Ui.Gold : Ui.Line);
+                var card = Ui.Card(stack, a.id, Ui.Raised); Ui.Height(card, 164); Ui.Border(card, game.State.combat?.active == a.id ? Ui.Gold : Ui.Line);
                 Ui.FixedText(card, game.Rank(a.id).ToString("00") + "   " + Ui.Safe(a.name), 12, 10, 210, 25, 18, a.id == "hero" ? Ui.Gold : Ui.Paper);
-                Ui.FixedText(card, data.Weapon(a.weapon).name, 12, 39, 210, 21, 13, Ui.Muted);
-                Ui.FixedText(card, "체력   " + a.hp + " / " + a.maxHp, 12, 66, 210, 20, 12); Ui.Bar(card, 12, 91, 198, (float)a.hp / a.maxHp, Ui.Green);
-                Ui.FixedText(card, "긴장 " + a.stress + "   ·   기력 " + a.energy + " / 5" + (a.status.bleed > 0 ? "   출혈" : ""), 12, 104, 210, 20, 11, a.stress >= 70 ? Ui.Red : Ui.Muted);
+                var portrait=Ui.Node("Party portrait",card);Ui.Box(portrait,8,36,88,112);BattlerArt.Portrait(portrait,a.id);
+                Ui.FixedText(card, data.Weapon(a.weapon).name, 104, 40, 128, 35, 12, Ui.Muted);
+                Ui.FixedText(card, "체력 " + a.hp + " / " + a.maxHp, 104, 80, 128, 20, 12); Ui.Bar(card, 104, 104, 120, (float)a.hp / a.maxHp, Ui.Green);
+                Ui.FixedText(card, "긴장 " + a.stress + "\n기력 " + a.energy + " / 5" + (a.status.bleed > 0 ? "   출혈" : ""), 104, 116, 128, 36, 11, a.stress >= 70 ? Ui.Red : Ui.Muted);
             }
             if (game.Party.Count == 1) Ui.Text(stack, "어떤 만남은\n선택 하나에서 시작됩니다.", 13, Ui.Muted);
             Ui.Text(stack, "평판  " + game.State.rep + "     유대  " + game.State.bond, 13, Ui.Gold);

@@ -7,6 +7,30 @@ namespace Arvito.Runtime
     /// <summary>Original front-view pixel battlers, cached once per enemy type.</summary>
     public static class BattlerArt
     {
+        static Texture2D atlas;
+        static readonly Dictionary<string, int> slots = new Dictionary<string, int> {
+            ["hero"]=0,["mira"]=1,["elian"]=2,["borin"]=3,
+            ["bandit"]=4,["archer"]=5,["skeleton"]=6,["cultist"]=7,
+            ["wolf"]=8,["slime"]=9,["boar"]=10,["spider"]=11,
+            ["wisp"]=12,["warden"]=13,["dragon"]=14
+        };
+        public static void Apply(UnityEngine.UI.RawImage image, string id)
+        {
+            if (atlas == null) atlas = Resources.Load<Texture2D>("Arvito/Art/characters");
+            if (atlas != null && slots.TryGetValue(id, out int slot))
+            {
+                atlas.filterMode = FilterMode.Point; atlas.wrapMode = TextureWrapMode.Clamp;
+                image.texture = atlas; image.uvRect = new Rect(slot % 4 * .25f, (3-slot/4)*.25f, .25f, .25f);
+            }
+            else { image.texture = Get(id); image.uvRect = new Rect(0,0,1,1); }
+            image.raycastTarget = false;
+        }
+        public static void Portrait(Transform parent, string id)
+        {
+            var rt=Ui.Node("Character portrait",parent);Ui.Fill(rt);
+            Apply(rt.gameObject.AddComponent<UnityEngine.UI.RawImage>(),id);
+            var fit=rt.gameObject.AddComponent<UnityEngine.UI.AspectRatioFitter>();fit.aspectMode=UnityEngine.UI.AspectRatioFitter.AspectMode.FitInParent;fit.aspectRatio=1;
+        }
         static readonly Dictionary<string, Texture2D> cache = new Dictionary<string, Texture2D>();
         static readonly Dictionary<char, Color32> colors = new Dictionary<char, Color32> {
             ['X']=new Color32(17,24,30,255), ['s']=new Color32(43,58,73,255), ['b']=new Color32(95,122,137,255),
