@@ -101,7 +101,7 @@ namespace Arvito.Runtime
             else if (game.State.mode == "ended") EndingScreen();
             else if (game.State.mode == "outcome") OutcomeScreen();
             else StoryScreen();
-            Sidebar();
+            if (aside != null) Sidebar();
         }
         void Shell()
         {
@@ -109,14 +109,20 @@ namespace Arvito.Runtime
             Ui.FixedText(header, "A R V I T O", 28, 13, 205, 30, 26, Ui.Gold);
             Ui.FixedText(header, "아르비토  ·  한 사람의 일대기", 30, 43, 220, 22, 11, Ui.Muted);
             Ui.FixedText(header, Ui.Safe(game.State.hero.name) + "의 여정", 252, 14, 285, 26, 21);
-            Ui.FixedText(header, game.AgeLabel + "   /   " + Season() + "   /   성장 " + game.State.hero.level, 252, 44, 440, 20, 13, Ui.Muted);
+            Ui.FixedText(header, game.AgeLabel + "   /   " + game.RegionName + "   /   성장 " + game.State.hero.level, 252, 44, 490, 20, 13, Ui.Muted);
             var controls = Ui.Node("Header controls", header); controls.anchorMin = controls.anchorMax = new Vector2(1, 1); controls.pivot = new Vector2(1, 1); controls.anchoredPosition = new Vector2(-24, -20); controls.sizeDelta = new Vector2(340, 40);
             Ui.FixedText(controls, "G  " + game.State.gold + "     식량 " + game.State.rations + "     약 " + game.State.potions, 0, 0, 255, 40, 15, Ui.Gold);
             var settings = Ui.Button(controls, "설정", Settings, 40); Ui.Box((RectTransform)settings.transform, 264, 0, 76, 40);
+            if (game.State.mode == "combat" && tab == "journey")
+            {
+                main = Ui.Node("Battle main", page); Ui.Fill(main, 24, 24, 96, 30); aside = null; return;
+            }
             var rail = Ui.Card(page, "Navigation"); Ui.Fill(rail, 0, 0, 79, 40); rail.anchorMax = new Vector2(0, 1); rail.offsetMax = new Vector2(204, -79);
             Ui.FixedText(rail, "TRAVELER'S BOOK", 24, 26, 170, 26, 11, Ui.Gold);
             var nav = Ui.Stack(rail, "Navigation items", 0, 12); Ui.Fill(nav, 20, 20, 75, 180);
             Nav(nav, "01   여정", "journey", "E"); Nav(nav, "02   일행", "party", "C"); Nav(nav, "03   소지품", "inventory", "I"); Nav(nav, "04   연대기", "journal", "J");
+            var travel = Ui.Button(rail, "다른 지역으로", TravelDialog, 46, game.State.mode == "story");
+            var tr = (RectTransform)travel.transform; tr.anchorMin = new Vector2(0, 0); tr.anchorMax = new Vector2(1, 0); tr.offsetMin = new Vector2(20, 138); tr.offsetMax = new Vector2(-20, 184);
             var camp = Ui.Button(rail, "불가에서 쉬기", CampDialog, 50, game.State.mode == "story"); var campRt = (RectTransform)camp.transform; campRt.anchorMin = new Vector2(0, 0); campRt.anchorMax = new Vector2(1, 0); campRt.offsetMin = new Vector2(20, 76); campRt.offsetMax = new Vector2(-20, 126);
             var note = Ui.Text(rail, "한 주의 쉼도\n당신의 삶에 남습니다.", 12, Ui.Muted); Ui.Fill(note.rectTransform, 25, 15); note.rectTransform.anchorMax = new Vector2(1, 0); note.rectTransform.offsetMin = new Vector2(25, 15); note.rectTransform.offsetMax = new Vector2(-15, 62);
             main = Ui.Node("Main", page); Ui.Fill(main, 228, 316, 100, 60);
@@ -132,11 +138,12 @@ namespace Arvito.Runtime
             Ui.Text(stack, "함께 걷는 사람들", 18, Ui.Gold); Ui.Text(stack, "전열  →  후열    /    " + game.Party.Count + "명", 12, Ui.Muted);
             foreach (var a in game.Party)
             {
-                var card = Ui.Card(stack, a.id, Ui.Raised); Ui.Height(card, 138); Ui.Border(card, game.State.combat?.active == a.id ? Ui.Gold : Ui.Line);
+                var card = Ui.Card(stack, a.id, Ui.Raised); Ui.Height(card, 164); Ui.Border(card, game.State.combat?.active == a.id ? Ui.Gold : Ui.Line);
                 Ui.FixedText(card, game.Rank(a.id).ToString("00") + "   " + Ui.Safe(a.name), 12, 10, 210, 25, 18, a.id == "hero" ? Ui.Gold : Ui.Paper);
-                Ui.FixedText(card, data.Weapon(a.weapon).name, 12, 39, 210, 21, 13, Ui.Muted);
-                Ui.FixedText(card, "체력   " + a.hp + " / " + a.maxHp, 12, 66, 210, 20, 12); Ui.Bar(card, 12, 91, 198, (float)a.hp / a.maxHp, Ui.Green);
-                Ui.FixedText(card, "긴장 " + a.stress + "   ·   기력 " + a.energy + " / 5" + (a.status.bleed > 0 ? "   출혈" : ""), 12, 104, 210, 20, 11, a.stress >= 70 ? Ui.Red : Ui.Muted);
+                var portrait=Ui.Node("Party portrait",card);Ui.Box(portrait,8,36,88,112);BattlerArt.Portrait(portrait,a.id);
+                Ui.FixedText(card, data.Weapon(a.weapon).name, 104, 40, 128, 35, 12, Ui.Muted);
+                Ui.FixedText(card, "체력 " + a.hp + " / " + a.maxHp, 104, 80, 128, 20, 12); Ui.Bar(card, 104, 104, 120, (float)a.hp / a.maxHp, Ui.Green);
+                Ui.FixedText(card, "긴장 " + a.stress + "\n기력 " + a.energy + " / 5" + (a.status.bleed > 0 ? "   출혈" : ""), 104, 116, 128, 36, 11, a.stress >= 70 ? Ui.Red : Ui.Muted);
             }
             if (game.Party.Count == 1) Ui.Text(stack, "어떤 만남은\n선택 하나에서 시작됩니다.", 13, Ui.Muted);
             Ui.Text(stack, "평판  " + game.State.rep + "     유대  " + game.State.bond, 13, Ui.Gold);

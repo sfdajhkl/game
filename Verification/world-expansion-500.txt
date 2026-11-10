@@ -1,0 +1,40 @@
+ARVITO randomized world, 500 scenes, companion AI, front-view battle — 2026-11-10
+
+Implemented
+- Weighted random events from the first scene. Five random starting regions,
+  ten traversable regions, early/middle/late progression, regional pools,
+  quest/elapsed-time/equipment/reputation/party conditions.
+- No forced opening sequence or fixed 65% follow-up lottery. Recent twelve
+  scenes are avoided and frequently completed repeatable scenes lose weight.
+- Exactly 500 scenes, 1,317 choices: 23 original events, 95 original five-scene
+  quest arcs (475 mutually branching scenes), and two repeatable roaming events.
+- 24 equipment-gated choices and 33 combat options. New slime, boar, spider and
+  wisp enemies; fifteen original fantasy pixel character illustrations (eleven
+  enemies and four allies) in a transparent atlas, selected by normalized UVs.
+- Hero-only player commands. Companions choose healing, stress support, attacks,
+  repositioning and defense automatically. Legacy companion turns resume on load.
+- Full-width front-view battlefield, enemy line, party status, hero skill and
+  target panels, and battle messages. Allied illustrations in combat status,
+  journey sidebar and party screen. Travel dialog and region/stage labels.
+
+Validated
+- 39 C# core checks, including 400 varied starts, 30 seeded hero-only battles,
+  region/phase/flag gates, travel, legacy saves, AI healing, and execution of
+  all 1,317 authored choices into valid game/save states.
+- Content validator checks 500 unique titles/IDs, all asset references,
+  all quest-condition reachability, ten regional route graphs at each stage,
+  nonempty repeatable pools and deterministic export synchronization.
+- Player and Editor C# compiled against actual Unity 6000.3.28f1 reference DLLs.
+- Fantasy atlas visually inspected; the fifteen mapped cells and transparency
+  were checked. Its unmodified generated source is included in Resources. The
+  eleven small fallback patterns also fit their textures. No PackageCache source
+  was edited.
+- git diff --check.
+
+Not verified
+Native Unity import/Play Mode rendering and input, Windows player and installer.
+This cloud machine has no active Unity Editor license. Static compilation and
+the battler contact sheet are not claims of a successful native game launch.
+
+Source and reference descriptions: Content/README.md, Content/quests.tsv,
+Content/base-catalog.json, scripts/export-story-content.py.
