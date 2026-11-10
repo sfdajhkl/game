@@ -3,6 +3,19 @@ ARVITO / 아르비토 — Unity C# PC 프로젝트
 이 압축 파일은 Unity 프로젝트입니다. 이미 빌드된 게임이나 설치 파일은 아닙니다.
 현재 클라우드에는 Unity 라이선스가 없어 플레이어 빌드와 화면 실행 검증을 하지 못했습니다.
 
+Unity에서 바로 플레이 (Windows)
+1. ZIP을 폴더에 모두 압축 해제합니다.
+2. Unity Hub에서 Unity 6.3 LTS(권장 6000.3.28f1)와 활성 라이선스를 확인합니다.
+   에디터에서 플레이할 때는 Windows Build Support 모듈이 필요하지 않습니다.
+3. 이 프로젝트가 이미 열려 있다면 작업을 저장하고 에디터 창을 닫습니다.
+4. Play-In-Unity.cmd를 실행합니다. 패키지 복구 후 Unity가 열리고,
+   게임 씬과 한글 폰트를 준비한 다음 Play 모드로 자동 진입합니다.
+   첫 실행에는 패키지 다운로드와 에셋 임포트 시간이 필요합니다.
+5. 다음부터는 에디터의 Arvito > Play Game(F5)으로 다시 실행할 수 있습니다.
+   실행 로그: Builds/unity-play.log
+
+다른 설치 위치: Play-In-Unity.cmd -UnityPath "D:\Unity\6000.3.28f1\Editor\Unity.exe"
+
 로그인된 Windows PC에서 게임 만들기
 1. ZIP을 폴더에 모두 압축 해제합니다.
 2. Unity Hub에서 Unity 6.3 LTS(권장 6000.3.28f1)가 설치되어 있는지 확인합니다.
@@ -33,19 +46,19 @@ Unity 6.3 패키지 복구
 - Build-Playtest.cmd가 임시 빈 프로젝트에서 Unity Package Manager API로 복구한 뒤 게임을 빌드합니다.
 - 기존 패키지 파일은 Builds/PackageBackup-*에 보관합니다.
 - 복구 실패 로그: Builds/package-repair-create.log, Builds/package-repair.log.
-- 첫 에디터 플레이 전에 Build-Playtest.cmd로 패키지 복구를 마칩니다.
+- Play-In-Unity.cmd와 Build-Playtest.cmd가 모두 패키지 복구를 먼저 처리합니다.
 
 Unity 에디터에서 직접 실행
-1. Unity Hub → Add → Add project from disk → 이 폴더 선택.
-2. 첫 임포트가 끝나면 Arvito 메뉴가 생깁니다.
-3. Arvito → Prepare Project, Open Game Scene, Play.
-   Prepare Project는 보통 첫 임포트 시 자동 실행됩니다.
-4. Arvito → Build Windows로도 게임을 만들 수 있습니다.
+1. 처음에는 Play-In-Unity.cmd를 사용해 호환 패키지를 준비합니다.
+2. 이후 Unity Hub → Add → Add project from disk → 이 폴더 선택으로도 열 수 있습니다.
+3. Arvito → Play Game(F5)으로 게임 씬을 열고 실행합니다.
+4. Prepare Project, Open Game Scene, Build Windows 메뉴도 제공합니다.
 
 프로젝트가 이미 열려 있다는 오류가 나오면
 - 이 프로젝트의 Unity 에디터 창에서 작업을 저장하고 창을 닫은 뒤 다시 실행합니다.
   Unity Hub는 켜두어도 됩니다.
 - 에디터에서 바로 플레이하려면 Arvito → Open Game Scene → 상단 Play를 누릅니다.
+- 또는 Arvito → Play Game(F5)을 사용합니다.
 - 최신 빌드 스크립트는 남아 있는 잠금 파일만으로 중단하지 않고 Unity가 실행 여부를 판단합니다.
 - Unity 실행 전에 실패했다면 콘솔에 나온 오류를 확인합니다. 이때 빌드 로그가 없을 수 있습니다.
 

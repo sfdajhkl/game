@@ -9,7 +9,22 @@ namespace Arvito.Core
     {
         public Catalog Data { get; }
         public GameState State { get; private set; }
-        public Game(Catalog data, GameState state) { Data = data; State = state; }
+        public Game(Catalog data, GameState state)
+        {
+            Data = data; State = state;
+            // Version-1 saves predate flag timestamps. Recover from the journal when
+            // possible; if that entry has expired, start the wait from this save.
+            if (state.flagWeeks == null) state.flagWeeks = new List<Counter>();
+            foreach (var e in data.events.Where(e => e.minFlagWeeks > 0 && state.flags.Contains(e.requiredFlag)))
+            {
+                if (state.flagWeeks.Any(c => c.id == e.requiredFlag)) continue;
+                var sources = data.events.SelectMany(source => source.choices
+                    .Where(c => c.effects?.flag == e.requiredFlag).Select(c => new { source.title, c.body }));
+                var entry = state.journal.Where(j => sources.Any(source => j.title == source.title && j.body.EndsWith(source.body, StringComparison.Ordinal)))
+                    .OrderBy(j => j.week).FirstOrDefault();
+                CountSet(state.flagWeeks, e.requiredFlag, entry?.week ?? state.weeks);
+            }
+        }
         public int Age => 16 + State.weeks / 52;
         public string AgeLabel => Age + "세 " + State.weeks % 52 + "주";
         public static string Duration(int weeks) => weeks < 52 ? weeks + "주" : weeks / 52 + "년" + (weeks % 52 == 0 ? "" : " " + weeks % 52 + "주");
@@ -75,9 +90,13 @@ namespace Arvito.Core
         public List<string> Apply(Effects e)
         {
             e = e ?? new Effects(); var s = State; var changes = new List<string>();
+            if (s.mode == "ended") return changes;
+            if (e.hp != 0) { s.hero.hp = Clamp(s.hero.hp + e.hp, 0, s.hero.maxHp); changes.Add("체력 " + e.hp); }
+            // A lethal wound ends the life before XP or healing can revive it.
+            if (s.hero.hp <= 0) { EndLife("wounds"); return changes; }
             Adjust(ref s.gold, e.gold, "골드", changes); Adjust(ref s.rations, e.rations, "식량", changes); Adjust(ref s.potions, e.potions, "회복약", changes);
             Adjust(ref s.rep, e.rep, "평판", changes); Adjust(ref s.bond, e.bond, "유대", changes);
-            if (!string.IsNullOrEmpty(e.flag) && !s.flags.Contains(e.flag)) s.flags.Add(e.flag);
+            if (!string.IsNullOrEmpty(e.flag) && !s.flags.Contains(e.flag)) { s.flags.Add(e.flag); CountSet(s.flagWeeks, e.flag, s.weeks); }
             if (!string.IsNullOrEmpty(e.weapon)) { if (!s.inventory.Contains(e.weapon)) { s.inventory.Add(e.weapon); changes.Add(Data.Weapon(e.weapon).name + " 획득"); } else { s.gold += 12; changes.Add("중복 장비 판매 +12골드"); } }
             if (!string.IsNullOrEmpty(e.skill) && !s.hero.skills.Contains(e.skill)) { s.hero.skills.Add(e.skill); changes.Add(Data.Skill(e.skill).name + " 습득"); }
             if (!string.IsNullOrEmpty(e.recruit) && !s.companions.Any(a => a.id == e.recruit) && !s.fallen.Contains(e.recruit) && Party.Count < 4)
@@ -87,15 +106,16 @@ namespace Arvito.Core
                 changes.Add(actor.name + " 동행 시작");
             }
             if (!string.IsNullOrEmpty(e.stat)) { s.hero.stats.Raise(e.stat); changes.Add(Stats.Label(e.stat) + " +1"); }
-            if (e.heal != 0) { foreach (var a in Party) a.hp = Clamp(a.hp + e.heal, 0, a.maxHp); changes.Add(e.heal >= 99 ? "일행 완전 회복" : "일행 체력 +" + e.heal); }
-            if (e.hp != 0) { s.hero.hp = Clamp(s.hero.hp + e.hp, 0, s.hero.maxHp); changes.Add("체력 " + e.hp); }
-            if (e.stress != 0) { foreach (var a in Party) a.stress = Clamp(a.stress + e.stress, 0, 100); changes.Add("긴장 " + (e.stress > 0 ? "+" : "") + e.stress); }
             if (e.xp != 0)
             {
                 s.hero.xp += e.xp; changes.Add("경험 +" + e.xp);
                 while (s.hero.xp >= s.hero.level * 45) { s.hero.xp -= s.hero.level * 45; s.hero.level++; s.hero.maxHp += 4; s.hero.hp = Math.Min(s.hero.maxHp, s.hero.hp + 8); s.hero.power++; changes.Add("성장 단계 " + s.hero.level); }
             }
-            if (s.hero.hp <= 0) EndLife("wounds"); return changes;
+            // Numeric 99/999 values remain supported for pending outcomes in old saves.
+            bool fullHeal = e.fullHeal || e.heal >= 99;
+            if (fullHeal || e.heal != 0) { foreach (var a in Party) a.hp = fullHeal ? a.maxHp : Clamp(a.hp + e.heal, 0, a.maxHp); changes.Add(fullHeal ? "일행 완전 회복" : "일행 체력 +" + e.heal); }
+            if (e.stress != 0) { foreach (var a in Party) a.stress = Clamp(a.stress + e.stress, 0, 100); changes.Add("긴장 " + (e.stress > 0 ? "+" : "") + e.stress); }
+            return changes;
         }
         public bool Choose(int index)
         {
@@ -114,7 +134,7 @@ namespace Arvito.Core
         public List<StoryEvent> AvailableEvents()
         {
             var s = State;
-            return Data.events.Where(e => e.id != "departure" && e.id != "first_hunt" && e.id != "crossroads" && (!e.once || Count(s.seen, e.id) == 0) && s.weeks >= e.minWeeks && s.hero.level >= e.minLevel && (string.IsNullOrEmpty(e.requiredFlag) || s.flags.Contains(e.requiredFlag)) && (string.IsNullOrEmpty(e.excludedFallen) || !s.fallen.Contains(e.excludedFallen)) && !s.recent.Contains(e.id)).ToList();
+            return Data.events.Where(e => e.id != "departure" && e.id != "first_hunt" && e.id != "crossroads" && (!e.once || Count(s.seen, e.id) == 0) && s.weeks >= e.minWeeks && s.hero.level >= e.minLevel && (string.IsNullOrEmpty(e.requiredFlag) || s.flags.Contains(e.requiredFlag)) && (e.minFlagWeeks <= 0 || s.flagWeeks.Any(c => c.id == e.requiredFlag && s.weeks - c.value >= e.minFlagWeeks)) && (string.IsNullOrEmpty(e.excludedFallen) || !s.fallen.Contains(e.excludedFallen)) && !s.recent.Contains(e.id)).ToList();
         }
         public bool Continue()
         {
@@ -287,6 +307,7 @@ namespace Arvito.Core
                 if (s.mode != "ended" && s.hero.hp == 0) return false;
                 if (s.formation.Any(id => actors.All(a => a.id != id)) || s.inventory.Any(id => data.weapons.All(w => w.id != id))) return false;
                 if (s.gold < 0 || s.rations < 0 || s.potions < 0 || s.hero.level < 1 || s.hero.stats == null || s.journal == null || s.flags == null || s.seen == null || s.recent == null || s.fallen == null) return false;
+                if (s.flagWeeks != null && (s.flagWeeks.Any(c => c == null || !s.flags.Contains(c.id) || c.value < 0 || c.value > s.weeks) || s.flagWeeks.Select(c => c.id).Distinct().Count() != s.flagWeeks.Count)) return false;
                 if (s.mode == "combat")
                 {
                     var c = s.combat;

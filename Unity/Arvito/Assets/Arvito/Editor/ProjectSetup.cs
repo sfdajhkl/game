@@ -18,12 +18,18 @@ namespace Arvito.Editor
     {
         const string ScenePath = "Assets/Scenes/Arvito.unity";
         const string FontPath = "Assets/Resources/Arvito/Fonts/Arvito-Korean.asset";
-        static ProjectSetup() { EditorApplication.delayCall += FirstImport; }
+        const string PlayRequested = "Arvito.PlayRequested";
+        static ProjectSetup()
+        {
+            EditorApplication.delayCall += FirstImport;
+            if (SessionState.GetBool(PlayRequested, false)) EditorApplication.delayCall += EnterGame;
+        }
         static void FirstImport()
         {
             if (Application.isBatchMode || EditorApplication.isPlayingOrWillChangePlaymode) return;
             if (EditorApplication.isCompiling || EditorApplication.isUpdating) { EditorApplication.delayCall += FirstImport; return; }
-            if (!File.Exists(ScenePath)) Prepare();
+            if (!File.Exists(ScenePath) || !File.Exists(FontPath)) Prepare();
+            EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(ScenePath);
         }
         [MenuItem("Arvito/Prepare Project")]
         public static void Prepare()
@@ -56,6 +62,7 @@ namespace Arvito.Editor
                 EditorSceneManager.SaveScene(scene, ScenePath);
             }
             EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
+            EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(ScenePath);
             AssetDatabase.SaveAssets();
             Debug.Log("Arvito prepared. Open Assets/Scenes/Arvito.unity and press Play.");
         }
@@ -92,6 +99,27 @@ namespace Arvito.Editor
         }
         [MenuItem("Arvito/Open Game Scene")]
         public static void OpenScene() { if (!File.Exists(ScenePath)) Prepare(); else if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) EditorSceneManager.OpenScene(ScenePath); }
+        [MenuItem("Arvito/Play Game _F5")]
+        public static void PlayGame()
+        {
+            if (Application.isBatchMode) throw new InvalidOperationException("Play Game requires an interactive Editor.");
+            if (EditorApplication.isPlayingOrWillChangePlaymode) return;
+            if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+            Prepare();
+            EditorSceneManager.OpenScene(ScenePath);
+            // Keep the request across an asset import/domain reload during setup.
+            SessionState.SetBool(PlayRequested, true);
+            EditorApplication.delayCall += EnterGame;
+        }
+        static void EnterGame()
+        {
+            if (!SessionState.GetBool(PlayRequested, false)) return;
+            if (EditorApplication.isCompiling || EditorApplication.isUpdating) { EditorApplication.delayCall += EnterGame; return; }
+            SessionState.SetBool(PlayRequested, false);
+            if (EditorSceneManager.GetActiveScene().path != ScenePath) return;
+            EditorApplication.ExecuteMenuItem("Window/General/Game");
+            EditorApplication.isPlaying = true;
+        }
         [MenuItem("Arvito/Build Windows")]
         public static void BuildWindows()
         {

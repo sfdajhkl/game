@@ -722,6 +722,7 @@
         }
       ],
       "requiredFlag": "saved_child",
+      "minFlagWeeks": 104,
       "minWeeks": 104
     },
     {
@@ -756,7 +757,7 @@
           "effects": {
             "skill": "mend",
             "stat": "wit",
-            "heal": 99,
+            "fullHeal": true,
             "xp": 25
           },
           "hint": "상처 봉합 습득 · 지혜 +1"
@@ -1093,7 +1094,7 @@
             "stat": "agility",
             "skill": "rally",
             "xp": 90,
-            "heal": 99,
+            "fullHeal": true,
             "stress": -25
           },
           "hint": "민첩 +1 · 마음 다잡기 습득"
@@ -1210,7 +1211,7 @@
           "weeks": 26,
           "body": "봄이 왔을 때 상처는 아물었고, 동료들은 이름을 부르기 전에도 서로를 알아보게 되었다.",
           "effects": {
-            "heal": 999,
+            "fullHeal": true,
             "stress": -50,
             "xp": 20,
             "gold": 15,
@@ -1381,7 +1382,7 @@
           "weeks": 52,
           "body": "씨를 뿌리고, 지붕을 고치고, 겨울을 보냈다. 모험 밖에도 삶이 있다는 것을 배웠다.",
           "effects": {
-            "heal": 999,
+            "fullHeal": true,
             "stress": -99,
             "gold": 45,
             "rep": 1,
@@ -1395,7 +1396,7 @@
           "weeks": 156,
           "body": "세 번의 봄이 지났다. 평범한 날들은 소리 없이 당신을 단단하게 만들었다. 어느 아침, 다시 여행 가방을 꺼냈다.",
           "effects": {
-            "heal": 999,
+            "fullHeal": true,
             "stress": -99,
             "gold": 90,
             "stat": "will",
@@ -1436,7 +1437,7 @@
             "rep": 4,
             "gold": 100,
             "xp": 100,
-            "heal": 999,
+            "fullHeal": true,
             "stress": -99,
             "flag": "mentor",
             "stat": "will"
@@ -1473,7 +1474,7 @@
           "weeks": 260,
           "body": "꽃이 다섯 번 피고 졌다. 몸에는 세월이 쌓였지만 마음에는 빈자리가 줄었다. 다시 길을 떠날 수도 있을 것이다.",
           "effects": {
-            "heal": 999,
+            "fullHeal": true,
             "stress": -99,
             "gold": 70,
             "xp": 60,

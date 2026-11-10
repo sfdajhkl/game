@@ -1,4 +1,4 @@
-param([string]$UnityPath)
+param([string]$UnityPath, [switch]$PlayInEditor)
 $ErrorActionPreference = 'Stop'
 $launcherRoot = Split-Path -Parent $PSScriptRoot
 $project = $null
@@ -39,6 +39,13 @@ if (-not $UnityPath) {
 if (-not $UnityPath -or -not (Test-Path -LiteralPath $UnityPath)) {
     throw "Unity 6.3 LTS was not found. Install $version with Unity Hub, or run: .\Build-Playtest.cmd -UnityPath <path-to-Unity.exe>"
 }
+if ($PlayInEditor) {
+    $lock = Join-Path $project 'Temp/UnityLockfile'
+    if (Test-Path -LiteralPath $lock -PathType Leaf) {
+        try { $probe = [IO.File]::Open($lock, [IO.FileMode]::Open, [IO.FileAccess]::ReadWrite, [IO.FileShare]::None); $probe.Dispose() }
+        catch [IO.IOException] { throw 'This project is already open in Unity. Use Arvito > Play Game in that Editor, or close it and run Play-In-Unity.cmd again. Unity Hub may stay open.' }
+    }
+}
 $repairScript = Join-Path $project 'Tools/Repair-Packages.ps1'
 if (-not (Test-Path -LiteralPath $repairScript -PathType Leaf)) { throw 'Package repair tools are missing. Apply the complete build-tools update or download the full project again.' }
 & $repairScript -ProjectPath $project -UnityPath $UnityPath
@@ -46,6 +53,15 @@ if (-not (Test-Path -LiteralPath $repairScript -PathType Leaf)) { throw 'Package
 # its presence alone must not prevent Unity from opening the project again.
 Write-Host "Unity: $UnityPath"
 Write-Host "Project: $project"
+if ($PlayInEditor) {
+    $editorLog = Join-Path $builds 'unity-play.log'
+    Write-Host 'Opening Arvito in Unity. The game scene and Korean font are prepared before entering Play Mode.'
+    Write-Host "Editor log: $editorLog"
+    $editorArgs = @('-projectPath', ('"{0}"' -f $project.Replace('\', '/')),
+        '-executeMethod', 'Arvito.Editor.ProjectSetup.PlayGame', '-logFile', ('"{0}"' -f $editorLog.Replace('\', '/')))
+    Start-Process -FilePath $UnityPath -ArgumentList $editorArgs -WorkingDirectory $project | Out-Null
+    return
+}
 Write-Host 'Building Arvito for Windows. Initial package import can take several minutes.'
 $env:ARVITO_BUILD_PATH = Join-Path $player 'Arvito.exe'
 $log = Join-Path $builds 'unity-build.log'
