@@ -62,20 +62,22 @@ namespace Arvito.Core
     [Serializable] public class Actor
     {
         public string id, name, subtitle, weapon, portrait, story;
+        public bool femaleAppearance;
         public int maxHp, hp, stress, energy = 4, speed, power, level = 1, xp;
         public Stats stats = new Stats();
         public List<string> skills = new List<string>();
         public List<Counter> mastery = new List<Counter>();
         public Conditions status = new Conditions();
-        public Actor Copy() => new Actor { id = id, name = name, subtitle = subtitle, weapon = weapon, portrait = portrait, story = story, maxHp = maxHp, hp = maxHp, speed = speed, power = power, skills = new List<string>(skills) };
+        public Actor Copy() => new Actor { id = id, name = name, subtitle = subtitle, weapon = weapon, portrait = portrait, story = story, femaleAppearance = femaleAppearance, maxHp = maxHp, hp = maxHp, speed = speed, power = power, skills = new List<string>(skills) };
     }
     [Serializable] public class Enemy
     {
         public string id, type, name, portrait, attack;
+        public bool femaleAppearance;
         public int maxHp, hp, power, speed, armor, stress;
         public bool bleed, ranged;
         public Conditions status = new Conditions();
-        public Enemy Copy(string instance) => new Enemy { id = instance, type = id, name = name, portrait = portrait, attack = attack, maxHp = maxHp, hp = maxHp, power = power, speed = speed, armor = armor, stress = stress, bleed = bleed, ranged = ranged };
+        public Enemy Copy(string instance) => new Enemy { id = instance, type = id, name = name, portrait = portrait, attack = attack, femaleAppearance = femaleAppearance, maxHp = maxHp, hp = maxHp, power = power, speed = speed, armor = armor, stress = stress, bleed = bleed, ranged = ranged };
     }
     [Serializable] public class Effects
     {

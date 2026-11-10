@@ -140,7 +140,7 @@ namespace Arvito.Runtime
             {
                 var card = Ui.Card(stack, a.id, Ui.Raised); Ui.Height(card, 164); Ui.Border(card, game.State.combat?.active == a.id ? Ui.Gold : Ui.Line);
                 Ui.FixedText(card, game.Rank(a.id).ToString("00") + "   " + Ui.Safe(a.name), 12, 10, 210, 25, 18, a.id == "hero" ? Ui.Gold : Ui.Paper);
-                var portrait=Ui.Node("Party portrait",card);Ui.Box(portrait,8,36,88,112);BattlerArt.Portrait(portrait,a.id);
+                var portrait=Ui.Node("Party portrait",card);Ui.Box(portrait,8,36,88,112);BattlerArt.Portrait(portrait,Appearance.Sprite(a));
                 Ui.FixedText(card, data.Weapon(a.weapon).name, 104, 40, 128, 35, 12, Ui.Muted);
                 Ui.FixedText(card, "체력 " + a.hp + " / " + a.maxHp, 104, 80, 128, 20, 12); Ui.Bar(card, 104, 104, 120, (float)a.hp / a.maxHp, Ui.Green);
                 Ui.FixedText(card, "긴장 " + a.stress + "\n기력 " + a.energy + " / 5" + (a.status.bleed > 0 ? "   출혈" : ""), 104, 116, 128, 36, 11, a.stress >= 70 ? Ui.Red : Ui.Muted);

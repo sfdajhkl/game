@@ -8,7 +8,7 @@ namespace Arvito.Editor
     public sealed class PixelCharacterImporter : AssetPostprocessor
     {
         const string AtlasPath="Assets/Resources/Arvito/Art/characters.png";
-        public override uint GetVersion() => 1;
+        public override uint GetVersion() => 2;
         void OnPreprocessTexture()
         {
             if (assetPath==AtlasPath) Configure((TextureImporter)assetImporter);
@@ -25,7 +25,7 @@ namespace Arvito.Editor
             importer.alphaSource=TextureImporterAlphaSource.FromInput;
             importer.alphaIsTransparency=false;
             importer.anisoLevel=0;
-            importer.maxTextureSize=256;
+            importer.maxTextureSize=512;
             // Prevent a previous per-platform override from changing the fixed raster or palette.
             foreach (string platform in new[] { "Standalone", "Android", "iPhone", "WebGL" })
                 importer.ClearPlatformTextureSettings(platform);

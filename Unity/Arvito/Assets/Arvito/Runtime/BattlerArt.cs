@@ -12,7 +12,9 @@ namespace Arvito.Runtime
             ["hero"]=0,["mira"]=1,["elian"]=2,["borin"]=3,
             ["bandit"]=4,["archer"]=5,["skeleton"]=6,["cultist"]=7,
             ["wolf"]=8,["slime"]=9,["boar"]=10,["spider"]=11,
-            ["wisp"]=12,["warden"]=13,["dragon"]=14
+            ["wisp"]=12,["warden"]=13,["dragon"]=14,
+            ["hero_female"]=16,["elian_female"]=17,["borin_female"]=18,
+            ["bandit_female"]=19,["archer_female"]=20,["cultist_female"]=21
         };
         public static void Apply(PixelArtImage image, string id)
         {
@@ -20,7 +22,9 @@ namespace Arvito.Runtime
             if (atlas != null && slots.TryGetValue(id, out int slot))
             {
                 atlas.filterMode = FilterMode.Point; atlas.wrapMode = TextureWrapMode.Clamp;
-                image.texture = atlas; image.uvRect = new Rect(slot % 4 * .25f, (3-slot/4)*.25f, .25f, .25f);
+                const int tileSize=64;
+                int columns=atlas.width/tileSize,rows=atlas.height/tileSize;
+                image.texture = atlas; image.uvRect = new Rect((float)(slot%columns)/columns,(float)(rows-1-slot/columns)/rows,1f/columns,1f/rows);
             }
             else { image.texture = Get(id); image.uvRect = new Rect(0,0,1,1); }
             image.raycastTarget = false;
@@ -257,6 +261,7 @@ XrttttttrXXrrggrrXXrttttttrX
         };
         public static Texture2D Get(string portrait)
         {
+            if (portrait != null && portrait.EndsWith("_female",StringComparison.Ordinal)) portrait=portrait.Substring(0,portrait.Length-7);
             if (portrait == "cultist") portrait = "mage";
             if (portrait == "warden") portrait = "knight";
             if (string.IsNullOrEmpty(portrait) || !shapes.ContainsKey(portrait)) portrait = "bandit";

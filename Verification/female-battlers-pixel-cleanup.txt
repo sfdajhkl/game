@@ -1,0 +1,31 @@
+ARVITO female variants and pixel continuity — 2026-11-10
+
+Changed
+- Six female counterparts: traveler, healer, axe veteran, bandit, archer, cultist.
+  Mira already has a female sprite. Approved mature cartoon direction retained.
+- 21 native 64x64 sprites in a 256x384 atlas, shared 32-color palette, <=16 opaque
+  colors per sprite, binary alpha and minimum 2px transparent padding.
+- Three continuous 1px bowstrings: Mira and both bandit archer variants.
+  Removed a neighboring wing fragment from the guardian cell and recentered it;
+  filled selected accidental pinholes. Ten other original sprites are unchanged.
+- New-life hero appearance preview/selection, cosmetic choices for hero/Elian/Borin
+  in the party screen, and stable male/female human enemy appearances at spawn.
+  Appearance flags persist in saves; old saves retain their existing sprites.
+  Cosmetic choices and enemy hashing never advance the gameplay RNG.
+
+Validated
+- 44 core C# checks, including five appearance checks: identical starting state
+  except the cosmetic field, persistence, legacy saves, 64 seeded enemy groups,
+  and unchanged battle results after an appearance change.
+- 8 physical-pixel layout checks.
+- Deterministic pixel export, all 21 sprite mappings, connected silhouettes,
+  three uninterrupted bowstrings, palette/alpha/padding constraints.
+- Independent PNG decode confirms dimensions, binary alpha and all blank cells.
+- Existing 500-scene/1,317-choice/95-quest/10-region content checks pass.
+- Player and Editor sources compile against Unity 6000.3.28f1 reference DLLs.
+- Atlas and bow closeups inspected at integer zoom; git diff --check.
+
+Not verified
+Native Unity import, rendering, Play Mode interaction and Windows builds.
+The cloud Editor has no active license; source/API checks and artwork previews
+do not claim a successful native game launch.

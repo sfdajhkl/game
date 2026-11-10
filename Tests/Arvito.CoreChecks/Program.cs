@@ -96,7 +96,57 @@ static class Program
             finally { if (Directory.Exists(dir)) Directory.Delete(dir, true); }
         });
         WorldChecks();
+        AppearanceChecks();
         Console.WriteLine($"{passed} C# checks passed.");
+    }
+    static void AppearanceChecks()
+    {
+        Check("hero appearance selection does not change the opening or gameplay RNG",()=>{
+            var a=Game.New(data,"여행자",9182);var b=Game.New(data,"여행자",9182,true);
+            Assert(Appearance.Sprite(b.State.hero)=="hero_female");
+            b.State.startedAt=a.State.startedAt;b.State.hero.femaleAppearance=false;
+            Assert(Encode(a.State)==Encode(b.State));
+        });
+        Check("ally appearance changes persist and only touch the cosmetic field",()=>{
+            var g=New();g.Apply(new Effects{recruit="elian"});g.Apply(new Effects{recruit="borin"});
+            string before=Encode(g.State);
+            foreach(string id in new[]{"hero","elian","borin"})Assert(g.SetFemaleAppearance(id,true));
+            var restored=new Game(data,Decode(Encode(g.State)));
+            foreach(string id in new[]{"hero","elian","borin"})Assert(Appearance.Sprite(restored.Actor(id))==id+"_female");
+            foreach(string id in new[]{"hero","elian","borin"})Assert(g.SetFemaleAppearance(id,false));
+            Assert(!g.SetFemaleAppearance("mira",true)&&!g.SetFemaleAppearance("missing",true));
+            Assert(Encode(g.State)==before);
+        });
+        Check("old saves retain original portraits when appearance fields are absent",()=>{
+            var g=Battle();string json=Encode(g.State).Replace("\"femaleAppearance\":false,","");
+            Assert(!json.Contains("femaleAppearance"));
+            var restored=new Game(data,Decode(json));Assert(Game.Valid(restored.State,data));
+            Assert(Appearance.Sprite(restored.State.hero)=="hero" && Appearance.Sprite(restored.Actor("mira"))=="mira");
+            Assert(restored.State.combat.enemies.All(e=>Appearance.Sprite(e)==e.type));
+        });
+        Check("human enemy variants vary at spawn and persist across combat saves",()=>{
+            int females=0,males=0;
+            for(uint seed=1;seed<=64;seed++)
+            {
+                var g=New(seed);g.State.hero.hp=g.State.hero.maxHp=1000;uint before=g.State.rng;
+                g.StartCombat(new[]{"bandit","archer","cultist","wolf"},new Outcome{title="test",effects=new Effects()});
+                for(int i=0;i<3;i++){
+                    var e=g.State.combat.enemies[i];Assert(e.femaleAppearance==Appearance.EnemyFemale(e.type,before,i));
+                    if(e.femaleAppearance)females++;else males++;
+                }
+                Assert(!g.State.combat.enemies[3].femaleAppearance);
+                string saved=Encode(g.State);var restored=new Game(data,Decode(saved));Assert(Encode(restored.State)==saved);
+            }
+            Assert(females>40 && males>40,"Missing male or female human enemies");
+        });
+        Check("changing appearance leaves seeded battle outcomes identical",()=>{
+            for(uint seed=1;seed<=5;seed++)
+            {
+                var a=Battle(seed);var b=new Game(data,Decode(Encode(a.State)));Assert(b.SetFemaleAppearance("hero",true));
+                int turns=0;while(a.State.mode=="combat"&&turns++<100){Assert(AutoAction(a));Assert(AutoAction(b));}
+                Assert(a.State.mode=="outcome");b.State.hero.femaleAppearance=false;Assert(Encode(a.State)==Encode(b.State));
+            }
+        });
     }
     static void WorldChecks()
     {

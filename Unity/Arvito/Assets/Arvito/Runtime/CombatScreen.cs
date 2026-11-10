@@ -36,7 +36,7 @@ namespace Arvito.Runtime
                 var slot=BattlePanel(row,enemy.name,(float)i/enemies.Count+.008f,0,(float)(i+1)/enemies.Count-.008f,1);
                 var imageHost=BattlePanel(slot,"Battler image frame",.08f,.24f,.92f,.99f);
                 var imageArea=Ui.Node("Battler image",imageHost);Ui.Fill(imageArea);
-                var enemyImage=imageArea.gameObject.AddComponent<PixelArtImage>(); BattlerArt.Apply(enemyImage,enemy.type);
+                var enemyImage=imageArea.gameObject.AddComponent<PixelArtImage>(); BattlerArt.Apply(enemyImage,Appearance.Sprite(enemy));
                 var plate=Ui.Button(slot,(selected?"▶ ":"")+enemy.name+"\n<size=13>체력 "+enemy.hp+" / "+enemy.maxHp+
                     (enemy.status.bleed>0?"   출혈":"")+(enemy.status.stun>0?"   기절":"")+"</size>",()=>{selectedTarget=id;Render();},58,legal,selected);
                 var pr=(RectTransform)plate.transform; pr.anchorMin=new Vector2(.04f,0);pr.anchorMax=new Vector2(.96f,.23f);pr.offsetMin=pr.offsetMax=Vector2.zero;
@@ -51,7 +51,7 @@ namespace Arvito.Runtime
             for(int i=0;i<members.Count;i++)
             {
                 var a=members[i];var card=BattlePanel(party,a.id,(float)i/members.Count+.004f,0,(float)(i+1)/members.Count-.004f,1,Ui.Panel);Ui.Border(card,a.id=="hero"?Ui.Gold:Ui.Line);
-                var portrait=Ui.Node("Party portrait",card);Ui.Box(portrait,6,6,76,76);BattlerArt.Portrait(portrait,a.id);
+                var portrait=Ui.Node("Party portrait",card);Ui.Box(portrait,6,6,76,76);BattlerArt.Portrait(portrait,Appearance.Sprite(a));
                 var name=Ui.Text(card,Ui.Safe(a.name)+"   <size=11>"+(a.id=="hero"?"주인공":"자동 행동")+"</size>",19,a.id=="hero"?Ui.Gold:Ui.Paper);
                 name.textWrappingMode=TextWrappingModes.NoWrap;name.enableAutoSizing=true;name.fontSizeMin=12;name.fontSizeMax=19*Ui.TextScale;
                 Ui.Fill(name.rectTransform,94,10,8,50);
