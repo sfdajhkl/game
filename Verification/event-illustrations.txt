@@ -1,0 +1,51 @@
+ARVITO event illustrations — 2026-11-10
+
+Changed
+- 500 different native 192x128 illustrations, one for every catalog event ID.
+  Includes the approved shrine and 499 new scenes. Quest encounter, investigation,
+  negotiation and both aftermaths each have their own composition.
+- Restrained fantasy cartoon, varied natural adult builds, simplified faces with
+  human eye marks omitted, fixed local NPCs only and no predefined player party.
+- 32 authored source sheets visually reviewed. 22 scenes corrected for extra
+  visitors, premature rescue outcomes, realistic object textures or NPC continuity.
+  Source SHA-256, scene ordering and visual-review records are in Content/EventArt.
+- EventArt loads the current event texture. Story and outcome screens display the
+  full 3:2 image with the existing physical-pixel integer-scale PixelArtImage.
+- EventArtImporter applies Point filtering, no mipmaps, no compression, Clamp and
+  NPOT size preservation during ordinary imports. Every new asset has a stable GUID.
+- Searchable offline illustration gallery and native PNG export script.
+
+Validated
+- check-event-art.py: 500/500 distinct pixel images, exactly 192x128, opaque,
+  26-32 colors per image, complete event mappings and Unity metadata.
+- All 32 source sheets and both repair sheets have matching visual-review hashes;
+  all 22 queued corrections were imported and inspected again.
+- 9 C# pixel geometry checks passed, including complete 3:2 event-image bounds at
+  eight desktop resolutions. These are geometry checks, not a Unity render test.
+- Player and Editor C# sources compiled against actual Unity 6000.3.28f1 reference
+  assemblies and bundled uGUI/TMP/Input System assemblies.
+- Chromium gallery test loaded all 500 native images, checked five searches,
+  mobile/desktop integer image dimensions, no horizontal overflow, no JavaScript
+  page errors and no external resource requests. Screenshots inspected.
+- Python syntax, Node syntax and git diff whitespace checks passed.
+- Native image files total 5,112,830 bytes; indexed PNG encoding does not alter
+  their authored native pixels. Earlier PNG32-to-PNG8 conversion was checked with
+  ImageMagick pixel comparison and reported zero changed pixels.
+
+Not verified
+- Native Unity asset import, Play Mode rendering/input and a Windows player build.
+  The cloud Editor has no active Unity license; the prior real attempt exited 198
+  with 'No valid Unity Editor license found'. Static compilation and gallery
+  previews do not claim that the game was launched in Unity.
+- The user's local checkout must receive the changes through Git Pull. The GitHub
+  update cannot itself update an already-open local Unity project.
+
+Reproduce asset checks
+  python3 scripts/check-event-art.py
+  python3 scripts/check-pixel-layout.py --dotnet /path/to/dotnet
+  python3 scripts/check-unity-source.py --editor-data /path/to/Editor/Data --dotnet /path/to/dotnet
+  python3 scripts/build-event-art-gallery.py --output /path/to/art-book
+
+Open Unity/Arvito with a licensed Unity 6.3 LTS Editor, then use Arvito > Play Game
+(F5), or launch the repository's Play-In-Unity.cmd. Existing prepare/launch support
+creates the game scene and font assets when needed.

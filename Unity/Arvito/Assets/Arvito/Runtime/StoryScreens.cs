@@ -70,17 +70,19 @@ namespace Arvito.Runtime
             game = Game.New(data, name, BitConverter.ToUInt32(Guid.NewGuid().ToByteArray(), 0),newLifeFemale); title = false; tab = "journey"; selectedSkill = selectedTarget = lastActor = null;
             CloseDialog(); Save(); Render();
         }
-        RectTransform Chapter(string eyebrow, string heading, string illustration = null)
+        RectTransform Chapter(string eyebrow, string heading, string illustration = null, string eventId = null)
         {
             var stack = Ui.Scroll(main, "Chapter");
-            if (illustration != null) Ui.Art(stack, art[illustration], 245);
+            var eventImage = EventArt.Load(eventId);
+            if (eventImage != null) Ui.EventIllustration(stack, eventImage);
+            else if (illustration != null) Ui.Art(stack, art[illustration], 245);
             Ui.Text(stack, eyebrow, 13, Ui.Gold);
             Ui.Text(stack, heading, 34);
             return stack;
         }
         void StoryScreen()
         {
-            var e = game.Event; var stack = Chapter(game.RegionName + "   /   " + game.StageName + "\n" + e.place, e.title, e.art);
+            var e = game.Event; var stack = Chapter(game.RegionName + "   /   " + game.StageName + "\n" + e.place, e.title, e.art, e.id);
             foreach (var paragraph in e.text) Ui.Text(stack, paragraph, 21);
             Ui.Text(stack, "당신은 어떤 길을 택할까?", 14, Ui.Gold);
             for (int i = 0; i < e.choices.Length; i++)
@@ -108,7 +110,7 @@ namespace Arvito.Runtime
         }
         void OutcomeScreen()
         {
-            var o = game.State.outcome; var stack = Chapter(o.combatWin ? "전투의 끝   /   살아남은 사람들" : "기록된 선택   /   " + game.AgeLabel, o.title, game.Event.art);
+            var o = game.State.outcome; var stack = Chapter(o.combatWin ? "전투의 끝   /   살아남은 사람들" : "기록된 선택   /   " + game.AgeLabel, o.title, game.Event.art, game.Event.id);
             if (o.weeks > 0) Ui.Text(stack, Game.Duration(o.weeks) + "의 시간이 흘렀다.", 16, Ui.Gold);
             if (o.hasCheck) Ui.Text(stack, o.checkStat + " 판정 " + (o.success ? "성공" : "실패") + "  ·  성공 확률 " + o.chance + "%", 16, o.success ? Ui.Green : Ui.Red);
             Ui.Text(stack, o.body, 23);

@@ -1,0 +1,112 @@
+[
+  {
+    "id": "q006_offer",
+    "reason": "Remove the young cloaked conversation partner, who can read as the player.",
+    "brief": "One older village apothecary ALONE at a counter preparing to leave. An open wooden box contains folded patient debt notes, not coins. The pharmacist looks toward the unseen viewer with a worried mouth; hands rest beside the box. Shelves hold simple herb jars and bundles. NO visitor, assistant, young adventurer or second person. Natural slender elderly proportions, human eye features omitted."
+  },
+  {
+    "id": "q015_offer",
+    "reason": "Remove the invented explorer who can read as the player.",
+    "brief": "NO PEOPLE OR BODY PARTS. Old lightning-split hollow forest tree with ancient dull gold coins spilling from a crack, a folded forest contract half-visible among the coins. Observational first-person environment, no bag or gear belonging to the viewer."
+  },
+  {
+    "id": "q015_bargain",
+    "reason": "Remove the invented explorer facing the local representative.",
+    "brief": "ONLY ONE PERSON: a slender elderly female village representative in a plain civic robe sits behind a desk, considering an old forest contract and a few coins. She addresses the unseen viewer. Forest emblem on the wall. NO visitor or foreground head, hands, body or shadow."
+  },
+  {
+    "id": "q013_bargain",
+    "reason": "Show the known gatherer dictating without assigning a body to the player who writes the letter.",
+    "brief": "ONLY ONE PERSON: the mushroom gatherer, an adult woman in plain apron and kerchief, sits beside her mushroom basket, dictating a reply toward the unseen viewer. On the table rest a blank reply sheet, a childs old folded farewell letter, ink and an unused quill. No scribe, companion, player hands or extra listener."
+  },
+  {
+    "id": "q020_offer",
+    "reason": "The opening only establishes an unexplained forest voice; remove the adventurer-like listener and avoid revealing the apprentice before investigation.",
+    "brief": "NO PEOPLE OR BODY PARTS. A quiet misty forest fork with several paths leading different ways. A small carved bone flute is half-buried beneath roots beside one path, catching a subtle pale light. A few leaves move in the wind. The composition suggests a mysterious unseen voice without text, sound symbols, ghosts, silhouettes or a listener."
+  },
+  {
+    "id": "q042_trail",
+    "reason": "Replace photographic rope and stone grain with the established flat cartoon pixel treatment.",
+    "brief": "NO PEOPLE. A simple taut rescue rope branches at a sturdy knot beside the lighthouse window: one line leads toward the glowing lantern mechanism, another outside toward the broken ladder. Stormy sea beyond. Clean continuous rope contour with only two broad tan shades, simple flat grey masonry, no rope fibers or grain. Hand-drawn cartoon pixel illustration, not a macro photo."
+  },
+  {
+    "id": "q042_bargain",
+    "reason": "The apprentice must still be outside awaiting rescue, not already safe inside while the plan is discussed.",
+    "brief": "Only TWO ADULT lighthouse keepers inside the tower preparing a wooden brace and rescue rope beside the open window. A taut line extends out the window toward the broken exterior ladder. The young apprentice is STILL OUTSIDE and must not appear safely inside. Lantern remains lit. No player or additional helper. Natural lean adult builds, omitted human eyes, simple flat cartoon shading."
+  },
+  {
+    "id": "q043_trail",
+    "reason": "Replace the photographic glass macro with a sparse cartoon still life.",
+    "brief": "NO PEOPLE OR HANDS. Three small worn sea-glass beads on a flat slate rock beside stylized seaweed. One bead is broken, revealing two simple round air bubbles inside instead of a pearl shell pattern. Draw each object with clean cartoon contours and only two or three broad flat tones. Minimal pale highlights, quiet negative space. No realistic optics, tiny grain, mottled textures or photo-like reflections."
+  },
+  {
+    "id": "q044_trail",
+    "reason": "Replace highly textured rusty metal with the same simple cartoon style as the other illustrations.",
+    "brief": "NO PEOPLE. Close view of a buoy bell suspended from a plain wooden support over a foggy harbor. A folded dull cloth is jammed inside the bell around its intact rounded clapper, muffling it. Simple clean silhouette, two or three flat bronze tones, two broad weathered patches at most, coarse square pixel clusters. No realistic corrosion, speckles, metallic rendering or photographic texture."
+  },
+  {
+    "id": "q036_trail",
+    "reason": "Replace realistic glossy gel rendering with flat cartoon pixel shapes.",
+    "brief": "NO PEOPLE OR HANDS. A torn coarse fishing net lies over a simple river rock, with a small pale blue-green smear of acidic slime stuck across the broken strands. Dark river-cave entrance and quiet water beyond. Draw the slime as two or three broad flat translucent color patches with a simple contour, no realistic reflections, glass material, glistening gel or granular rock textures. Keep the net strands continuous and readable with sparse clean pixel lines."
+  },
+  {
+    "id": "q045_trail",
+    "reason": "Simplify glossy slime and fuzzy rope macro textures into the established flat cartoon style.",
+    "brief": "NO PEOPLE OR HANDS. A short abandoned mooring rope lies beside a pier bollard, with a flat pale green sticky smear dragging in one clear direction across two wooden planks. A small dark gap under the pier hints at a hidden nest. Rope drawn as a simple two-tone twisted shape, slime as two flat colors and one pale edge, planks as large quiet shapes. No fibers, wet 3D gloss, granular wood or photographic surface texture."
+  },
+  {
+    "id": "q053_bargain",
+    "reason": "The three missing porters must not already be present during the plan to lead them to shelter.",
+    "brief": "ONLY ONE PERSON: an elderly local mountain guide in a plain wool coat and with a walking staff stands beside an unoccupied stone refuge hut, a simple cairn and a ready beacon torch. He prepares the marked safe route while three travelers remain missing. No other people, no rescued group, no player. Snowy pass, calm simple cartoon shapes, no eye marks."
+  },
+  {
+    "id": "q055_offer",
+    "reason": "Remove the young visitor who reads as the player; the apprentice belongs to a later alternative branch.",
+    "brief": "ONLY ONE PERSON: a lean elderly retired mountain guide with grey hair and a short grey beard sits behind a wooden table, offering a worn incomplete mountain map toward the unseen viewer. A blank refuge-cave area is visible on the map. Warm simple lantern, mountain view. No apprentice, visitor, customer, foreground hands or body. No eye features; natural original cartoon contours."
+  },
+  {
+    "id": "q055_echo_a",
+    "reason": "Do not substitute a fixed young companion for the player walking with the guide.",
+    "brief": "ONLY ONE PERSON: the elderly retired grey-haired male mountain guide rests one hand against a rock beside an old refuge cave, quietly remembering a lost friend. A simple walking staff and an open map lean against the rock. No apprentice, younger walker or player body. Cold mountain light, restrained flat cartoon pixel shapes, unmarked human eye area."
+  },
+  {
+    "id": "q056_offer",
+    "reason": "Show the initial discovery itself without adding a foreground visiting group or family before investigation.",
+    "brief": "ONLY the long-deceased ancient courier encased upright within a pale blue glacier, holding a sealed folded letter against a plain old cloak. Quiet snowy pass, worn leather satchel frozen beside the courier. No living observers, family, scholar, player silhouette or foreground hands. No gore; peaceful stillness. Ice drawn as broad flat blue planes, not realistic glass or photo textures. Human eyes not marked."
+  },
+  {
+    "id": "q062_offer",
+    "reason": "Remove the added excavation workers from the initial trapped-artist encounter.",
+    "brief": "ONLY one elderly stone-rubbing artist with grey hair tied in a short bun, lean adult body in muted grey work clothes, crouched alone under an unstable low tunnel ceiling, clutching the large engraved stone wedge supporting that ceiling. Rolled rubbing paper and charcoal lie beside them. Show the danger unresolved. No helper, visitor, rescuer, foreground silhouette or hands. Natural contours, no human eye marks."
+  },
+  {
+    "id": "q062_bargain",
+    "reason": "The trapped artist must not already be safe outside during rescue planning.",
+    "brief": "ONLY two local excavation workers in simple aprons and rolled sleeves, one lean younger man and one middle-aged woman, selecting solid wooden support beams beside a wheelbarrow outside a narrow unstable tunnel entrance. Practical planning before the rescue; the trapped grey-haired artist remains off-screen inside the tunnel. No third person, artist, visiting adventurer or foreground body parts. Natural lean adult proportions, no human eye marks."
+  },
+  {
+    "id": "q064_offer",
+    "reason": "The initial scholar discovery should not include the warehouse keeper yet.",
+    "brief": "ONLY the elderly female scholar with grey hair in a loose bun and a plain grey cloak, leaning over an empty grooved stone counting board on a ruins worktable, puzzled and considering whether it is decorative. A few loose grain seeds lie nearby but not arranged in the board. No warehouse keeper, listener or visiting traveler. Natural slender adult body, no human eye marks."
+  },
+  {
+    "id": "q065_offer",
+    "reason": "Remove the pair of human visitors from the initial mechanical guardian scene.",
+    "brief": "ONLY an ancient bronze-and-stone mechanical door guardian, standing alone across a sealed tall arched door in ivy-grown ruins. Heavy articulated limbs and a simple geometric faceplate with two tiny dim mechanical lights. An old crown emblem is carved on the sealed door. No human figure, heir, heroic silhouette, reflection or foreground hands. Flat cartoon broad stone and bronze tones, not realistic textures."
+  },
+  {
+    "id": "q069_offer",
+    "reason": "Show the stranded father alone before local rescuers have joined the event.",
+    "brief": "ONLY a lean middle-aged father in a plain brown work vest and rolled sleeves, stranded on a tiny muddy reed islet, waving a torn red cloth above his head to call for help. Deep marsh water separates him from the unseen viewer. Worried posture and slightly open mouth; no eye marks. No guide, herbalist, rescuer, child, player or foreground observer. Natural adult body, clear quiet marsh shapes."
+  },
+  {
+    "id": "q073_offer",
+    "reason": "Keep this single recurring NPC consistent with the subsequent phases across the sheet boundary.",
+    "brief": "ONLY an elderly male herbalist, lean and slightly stooped, grey hair tied in a small bun and a short grey beard, wearing a plain olive-grey patched cloak. He sits in a modest marsh herb workshop and firmly holds a CLOSED brown leather backpack. Rolled field notes, a few sparse herb pots and a reed marsh window. He is cautious about sharing a rare herb location before investigating overharvesting. No listeners, apprentice, customer or visiting player. Eyes omitted, natural adult proportions, subdued flat cartoon colors."
+  },
+  {
+    "id": "q089_offer",
+    "reason": "Keep this single recurring NPC consistent with the subsequent phases across the sheet boundary.",
+    "brief": "ONLY a young adult male painter with short tousled brown hair and a plain olive-grey cloak over a cream work shirt, standing at an easel holding a palette and a brush. His canvas predicts a village burning, but the ACTUAL quiet village behind him is intact in daylight. Lean adult proportions, small natural head, eyes omitted. No customer, listener, other person or foreground hands. Flat restrained fantasy cartoon, simple shapes, no photographic texture."
+  }
+]
