@@ -1,0 +1,26 @@
+ARVITO Unity 6.3 package defaults — 2026-11-10
+
+The Windows Editor reported CS0104 in collab-proxy's MergeTab.cs and CS0117
+for BuildTarget.ReservedCFE in Input System's InputSystemPluginControl.cs.
+The main branch still requested collab-proxy 2.6.0 and Input System 1.12.0.
+The external repair launcher alone did not fix opening main directly in Unity.
+
+Changes
+- Remove the direct collab-proxy request. This project uses GitHub.
+- Request Input System 1.20.1 and URP 17.3.0 in the shipped manifest.
+- Leave other package requests unchanged. Unity resolves the graph and regenerates
+  its own lock/cache on import; no PackageCache source or lock file was patched.
+- Test the actual shipped manifest for compatibility independently of a legacy
+  fixture, retaining coverage of repair, backup, failure and idempotence.
+
+Evidence
+- Official registry metadata: com.unity.inputsystem 1.20.1, Unity minimum 6000.0.
+- Official Input System 1.20.1 tarball SHA1:
+  2436e68c60c469edbccef8f6b3c319b9441f4675
+- The downloaded InputSystemPluginControl.cs has no BuildTarget.ReservedCFE reference.
+- Unity 6000.3.28f1's bundled URP package.json declares version 17.3.0,
+  minimum Unity 6000.3.
+- 6 package regression checks passed with Unity launches mocked.
+
+Native import/Play Mode still require the user's activated Unity Editor.
+The cloud Editor has no active license; no successful native import is claimed.

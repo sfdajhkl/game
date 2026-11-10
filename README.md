@@ -12,9 +12,11 @@
 
 1. 프로젝트를 모두 압축 해제하고 Unity Hub에서 **Unity 6.3 LTS (권장 6000.3.28f1)**와 활성 라이선스를 확인합니다. 에디터 플레이에는 Windows Build Support 모듈이 필요하지 않습니다.
 2. 저장소 루트 또는 `Unity/Arvito`의 **`Play-In-Unity.cmd`**를 실행합니다. 이 프로젝트가 이미 Unity에서 열려 있다면 먼저 작업을 저장하고 닫습니다. Unity Hub는 켜 두어도 됩니다.
-3. 호환 패키지 복구 후 Unity가 열립니다. 게임 씬·한글 폰트를 준비한 뒤 **Play 모드에 자동 진입**합니다. 첫 실행은 패키지 다운로드와 에셋 임포트 시간이 필요합니다.
+3. 필요한 패키지를 확인한 뒤 Unity가 열립니다. 게임 씬·한글 폰트를 준비한 뒤 **Play 모드에 자동 진입**합니다. 첫 실행은 패키지 다운로드와 에셋 임포트 시간이 필요합니다.
 
 프로젝트가 정상적으로 열린 뒤에는 **Arvito > Play Game (F5)**으로 다시 실행할 수 있습니다. 실행 로그는 `Unity/Arvito/Builds/unity-play.log`에 남습니다. 별도 설치 경로는 `Play-In-Unity.cmd -UnityPath "D:\Unity\6000.3.28f1\Editor\Unity.exe"`로 지정합니다.
+
+최신 main은 Input System **1.20.1**, URP **17.3.0**을 요청하며, GitHub를 사용하는 이 프로젝트에는 `com.unity.collab-proxy`가 필요하지 않아 제외했습니다. GitHub에서 Pull한 뒤 Unity Hub로 `Unity/Arvito`를 직접 열어도 됩니다. Unity가 변경된 요청을 해석하고 기존 PackageCache를 갱신할 때까지 기다린 다음 **Arvito > Play Game (F5)**을 실행하세요.
 
 ## 로그인된 Windows PC에서 플레이테스트 빌드
 
@@ -37,9 +39,9 @@
 
 빌드 중에는 Unity 로그를 실시간으로 표시하고, 5초마다 경과 시간·최근 로그에서 확인한 작업 단계·새 로그가 없는 시간을 보여줍니다. ZIP과 설치 파일을 만들 때도 단계가 표시됩니다. 이미 실행 중인 빌드는 `Watch-Build.cmd`를 별도 창에서 실행해 확인할 수 있습니다. 로그를 찾지 못하면 파일 선택 창에서 `Arvito/Builds/unity-build.log`를 선택하세요. 보기 창을 닫아도 별도 창에서 실행 중인 빌드는 계속됩니다.
 
-처음 빌드할 때는 Unity 6.3과 맞지 않는 템플릿 패키지를 자동 복구합니다. Input System은 `1.20.1`, URP는 `17.3.0`으로 맞추고 `com.unity.collab-proxy`를 제거합니다. 임시 빈 프로젝트에서 Unity `Client.AddAndRemove` API로 구성과 잠금을 생성한 뒤 원본에 적용합니다. 기존 파일은 `Builds/PackageBackup-*`에 보관합니다. 원본 manifest를 직접 편집하거나 PackageCache 소스를 수정하지 않습니다. 첫 복구에는 추가 다운로드 시간이 걸릴 수 있습니다.
+이전 버전의 프로젝트 사본을 실행하는 경우에는 Unity 6.3과 맞지 않는 템플릿 패키지를 자동 복구합니다. Input System은 `1.20.1`, URP는 `17.3.0`으로 맞추고 `com.unity.collab-proxy`를 제거합니다. 임시 빈 프로젝트에서 Unity `Client.AddAndRemove` API로 구성과 잠금을 생성한 뒤 원본에 적용합니다. 기존 파일은 `Builds/PackageBackup-*`에 보관합니다. 최신 main은 이미 호환 버전을 요청하므로 이 별도 복구를 건너뜁니다.
 
-복구 로그는 `Builds/package-repair-create.log`, `Builds/package-repair.log`입니다. 사용자 PC에서 복구한 이후에는 같은 작업을 반복하지 않습니다. Unity 에디터로 직접 플레이하려면 첫 빌드의 패키지 복구를 먼저 마치세요.
+복구가 필요한 이전 사본의 로그는 `Builds/package-repair-create.log`, `Builds/package-repair.log`입니다. 사용자 PC에서 복구한 이후에는 같은 작업을 반복하지 않습니다. `Library/PackageCache`의 C# 파일을 직접 고칠 필요는 없습니다.
 
 에디터에서는 `Play-In-Unity.cmd` 또는 `Arvito > Play Game (F5)`로 실행합니다. `Prepare Project`, `Open Game Scene`, `Build Windows` 메뉴도 제공합니다.
 

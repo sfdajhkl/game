@@ -1,5 +1,5 @@
 # Test the repair plan and file transaction with a mocked Editor/UPM.
-# No real manifest is edited and no licensed Unity Editor is run by these checks.
+# Test fixtures are temporary; no licensed Unity Editor is run by these checks.
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 $root = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
@@ -11,7 +11,9 @@ function Assert-True([bool]$Condition, [string]$Message) { if (-not $Condition) 
 function Make-Target([string]$Name) {
     $path = Join-Path $fixture $Name
     New-Item -ItemType Directory -Path (Join-Path $path 'Packages') | Out-Null
-    Copy-Item -LiteralPath (Join-Path $root 'Unity/Arvito/Packages/manifest.json') -Destination (Join-Path $path 'Packages/manifest.json')
+    # Keep a legacy fixture independent of the shipped manifest: main must already
+    # open with compatible requests, while this suite still exercises old checkouts.
+    [IO.File]::WriteAllText((Join-Path $path 'Packages/manifest.json'), '{"dependencies":{"com.unity.collab-proxy":"2.6.0","com.unity.inputsystem":"1.12.0","com.unity.render-pipelines.universal":"17.0.3","com.unity.ugui":"2.0.0"}}')
     [IO.File]::WriteAllText((Join-Path $path 'Packages/packages-lock.json'), '{"old":"lock bytes"}')
     return $path
 }
@@ -47,6 +49,9 @@ function Start-Process {
     return $process
 }
 try {
+    $shipped = Get-ArvitoPackagePlan (Join-Path $root 'Unity/Arvito')
+    Assert-True (-not $shipped.NeedsRepair) 'The shipped project still needs external repair before Unity can compile it.'
+    Write-Host 'PASS shipped Unity project already requests compatible packages without an external repair step'
     New-Item -ItemType Directory -Path $fixture | Out-Null
     $target = Make-Target 'success'
     $manifest = Join-Path $target 'Packages/manifest.json'
@@ -87,7 +92,7 @@ try {
         Assert-True ([IO.File]::ReadAllText((Join-Path $target 'Packages/packages-lock.json')) -ceq '{"old":"lock bytes"}') 'Failed repair modified the original lock.'
         Write-Host ('PASS ' + $mode + ' leaves original package files untouched')
     }
-    Write-Host '5 package repair checks passed. Unity/UPM were mocked; actual Windows repair is not executed here.'
+    Write-Host '6 package repair checks passed. Unity/UPM were mocked; actual Windows repair is not executed here.'
 }
 finally {
     $env:ARVITO_PACKAGE_REPAIR_RECIPE = $oldRecipe
