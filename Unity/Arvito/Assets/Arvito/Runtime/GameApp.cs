@@ -41,6 +41,18 @@ namespace Arvito.Runtime
                 Ui.Font = TMP_FontAsset.CreateFontAsset(Resources.Load<Font>("Arvito/Fonts/NotoSerifKR-Regular"));
                 Ui.Font.isMultiAtlasTexturesEnabled = true;
             }
+            Ui.NarrativeFont = Resources.Load<TMP_FontAsset>("Arvito/Fonts/Arvito-YiSunShin");
+            if (Ui.NarrativeFont == null)
+            {
+                var source = Resources.Load<Font>("Arvito/Fonts/YiSunShin-Regular");
+                if (source != null)
+                {
+                    Ui.NarrativeFont = TMP_FontAsset.CreateFontAsset(source, 48, 5,
+                        UnityEngine.TextCore.LowLevel.GlyphRenderMode.SDFAA, 1024, 1024, AtlasPopulationMode.Dynamic, true);
+                    Ui.NarrativeFont.fallbackFontAssetTable = new List<TMP_FontAsset> { Ui.Font };
+                }
+                else Debug.LogWarning("YiSunShin font is missing. Run Arvito > Prepare Project.");
+            }
             Ui.TextScale = UiScale;
             foreach (string id in new[] { "village", "forest", "ruins", "camp", "battle" }) art[id] = Resources.Load<Texture2D>("Arvito/Art/" + id);
             saves = new SaveStore(Path.Combine(Application.persistentDataPath, "arvito-save.json"), s => JsonUtility.ToJson(s, true), json => JsonUtility.FromJson<GameState>(json), s => Game.Valid(s, data));
@@ -134,7 +146,8 @@ namespace Arvito.Runtime
         {
             aside = null;
             var header = Ui.Card(page, "Book header"); header.anchorMin = new Vector2(0, 1); header.anchorMax = Vector2.one; header.pivot = new Vector2(.5f, 1); header.sizeDelta = new Vector2(0, 86);
-            Ui.FixedText(header, "아 르 비 토", 28, 12, 210, 40, 30);
+            var brand = Ui.Narrative(header, "아 르 비 토", 30, null, TextAlignmentOptions.MidlineLeft);
+            Ui.Box(brand.rectTransform, 28, 12, 210, 40);
             Ui.FixedText(header, "A  R  V  I  T  O", 32, 53, 210, 20, 12, Ui.Gold);
             if (!Compact) Ui.FixedText(header, game.AgeLabel + "   ·   " + Season() + "   /   " + game.RegionName, 280, 22, 590, 40, 19, Ui.Muted);
             var settings = Ui.Button(header, "설정", Settings, 42);
@@ -212,7 +225,7 @@ namespace Arvito.Runtime
             CloseDialog(); dialog = Ui.Card(canvas, "Modal backdrop", new Color(0, 0, 0, .82f)); Ui.Fill(dialog);
             var box = Ui.Card(dialog, "Dialog"); box.anchorMin = box.anchorMax = new Vector2(.5f, .5f); box.pivot = new Vector2(.5f, .5f); box.sizeDelta = new Vector2(Mathf.Min(650, canvas.rect.width - 48), Mathf.Min(680, Mathf.Max(500, canvas.rect.height - 80))); Ui.Border(box, Ui.Gold);
             var stack = Ui.Scroll(box, "Dialog content"); var layout = stack.GetComponent<UnityEngine.UI.VerticalLayoutGroup>(); layout.padding = new RectOffset(32, 24, 32, 32); layout.spacing = 20;
-            Ui.Text(stack, heading, 29, Ui.Gold); Ui.Text(stack, body, 18); SyncSubmit(); return stack;
+            Ui.Narrative(stack, heading, 29, Ui.Gold); Ui.Text(stack, body, 18); SyncSubmit(); return stack;
         }
         void CloseDialog() { if (dialog != null) { dialog.gameObject.SetActive(false); Destroy(dialog.gameObject); dialog = null; } SyncSubmit(); }
         void CampDialog()
@@ -229,9 +242,10 @@ namespace Arvito.Runtime
             bool characters = Resources.Load<Texture2D>("Arvito/Art/characters") != null;
             bool eventArt = game == null || EventArt.Load(game.Event.id) != null;
             bool font = Resources.Load<TMP_FontAsset>("Arvito/Fonts/Arvito-Korean") != null;
-            var stack = Dialog("게임 자료 확인", "양피지 UI 0.3.0\n\n배경: " + (missing == 0 ? "정상" : missing + "개 누락") +
-                "\n캐릭터: " + (characters ? "정상" : "누락") + "\n현재 삽화: " + (game == null ? "시작 전" : eventArt ? "정상" : "누락") + "\n글꼴: " + (font ? "정상" : "준비 필요"));
-            Ui.Text(stack, "자료가 누락되면 Unity 재생을 멈추고 상단 Arvito → Repair Art Imports를 실행해 주세요.\n\n프로젝트 위치\n" + Application.dataPath, 16, Ui.Muted);
+            bool narrativeFont = Resources.Load<TMP_FontAsset>("Arvito/Fonts/Arvito-YiSunShin") != null;
+            var stack = Dialog("게임 자료 확인", "양피지 UI 0.3.1\n\n배경: " + (missing == 0 ? "정상" : missing + "개 누락") +
+                "\n캐릭터: " + (characters ? "정상" : "누락") + "\n현재 삽화: " + (game == null ? "시작 전" : eventArt ? "정상" : "누락") + "\n정보 글꼴: " + (font ? "정상" : "준비 필요") + "\n이순신체: " + (narrativeFont ? "정상" : "준비 필요"));
+            Ui.Text(stack, "글꼴 준비가 필요하면 재생을 멈추고 Arvito → Prepare Project를 실행해 주세요.\n그림 자료가 누락되면 Unity 재생을 멈추고 상단 Arvito → Repair Art Imports를 실행해 주세요.\n\n프로젝트 위치\n" + Application.dataPath, 16, Ui.Muted);
             Ui.Button(stack, "닫기", CloseDialog);
         }
         void Settings()
@@ -242,7 +256,7 @@ namespace Arvito.Runtime
             if (!title) Ui.Button(stack, "저장하고 시작 화면으로", () => { Save(); CloseDialog(); title = true; Render(); });
             Ui.Button(stack, "게임 종료", () => { Save(); Application.Quit(); });
             Ui.Button(stack, "그림·글꼴 자료 확인", AssetStatus, 48);
-            Ui.Text(stack, "아르비토 0.3.0 · 양피지 수첩\n글꼴: Noto Serif KR · SIL OFL 1.1", 14, Ui.Muted);
+            Ui.Text(stack, "아르비토 0.3.1 · 양피지 수첩\n제목·본문: 이순신체 · 아산시\n정보·숫자: Noto Serif KR · SIL OFL 1.1", 14, Ui.Muted);
             Ui.Button(stack, "계속하기", CloseDialog, 50, true, true);
         }
     }

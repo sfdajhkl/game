@@ -1,9 +1,26 @@
 {
   "status": "passed",
+  "renderer": "Chromium design preview; not Unity Play Mode",
   "viewports": [
     {
       "viewport": 1440,
       "scrollWidth": 1440,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "YiSunShin",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Serif CJK KR",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans CJK KR",
+          "status": "loaded"
+        }
+      ],
+      "narrativeFont": "YiSunShin, \"Noto Serif CJK KR\", serif",
       "image": [
         576,
         384
@@ -12,8 +29,18 @@
         192,
         128
       ],
+      "choiceInteraction": "passed",
+      "errors": []
+    },
+    {
+      "viewport": 1280,
+      "scrollWidth": 1280,
       "overflow": false,
       "fonts": [
+        {
+          "family": "YiSunShin",
+          "status": "loaded"
+        },
         {
           "family": "Noto Serif CJK KR",
           "status": "loaded"
@@ -23,12 +50,7 @@
           "status": "loaded"
         }
       ],
-      "choiceInteraction": "passed",
-      "errors": []
-    },
-    {
-      "viewport": 1280,
-      "scrollWidth": 1280,
+      "narrativeFont": "YiSunShin, \"Noto Serif CJK KR\", serif",
       "image": [
         384,
         256
@@ -36,17 +58,6 @@
       "native": [
         192,
         128
-      ],
-      "overflow": false,
-      "fonts": [
-        {
-          "family": "Noto Serif CJK KR",
-          "status": "loaded"
-        },
-        {
-          "family": "Noto Sans CJK KR",
-          "status": "loaded"
-        }
       ],
       "choiceInteraction": "passed",
       "errors": []
@@ -54,16 +65,12 @@
     {
       "viewport": 800,
       "scrollWidth": 800,
-      "image": [
-        384,
-        256
-      ],
-      "native": [
-        192,
-        128
-      ],
       "overflow": false,
       "fonts": [
+        {
+          "family": "YiSunShin",
+          "status": "loaded"
+        },
         {
           "family": "Noto Serif CJK KR",
           "status": "loaded"
@@ -72,6 +79,15 @@
           "family": "Noto Sans CJK KR",
           "status": "loaded"
         }
+      ],
+      "narrativeFont": "YiSunShin, \"Noto Serif CJK KR\", serif",
+      "image": [
+        384,
+        256
+      ],
+      "native": [
+        192,
+        128
       ],
       "choiceInteraction": "passed",
       "errors": []
@@ -79,6 +95,22 @@
     {
       "viewport": 480,
       "scrollWidth": 480,
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "YiSunShin",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Serif CJK KR",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans CJK KR",
+          "status": "loaded"
+        }
+      ],
+      "narrativeFont": "YiSunShin, \"Noto Serif CJK KR\", serif",
       "image": [
         384,
         256
@@ -87,8 +119,18 @@
         192,
         128
       ],
+      "choiceInteraction": "passed",
+      "errors": []
+    },
+    {
+      "viewport": 390,
+      "scrollWidth": 390,
       "overflow": false,
       "fonts": [
+        {
+          "family": "YiSunShin",
+          "status": "loaded"
+        },
         {
           "family": "Noto Serif CJK KR",
           "status": "loaded"
@@ -98,12 +140,7 @@
           "status": "loaded"
         }
       ],
-      "choiceInteraction": "passed",
-      "errors": []
-    },
-    {
-      "viewport": 390,
-      "scrollWidth": 390,
+      "narrativeFont": "YiSunShin, \"Noto Serif CJK KR\", serif",
       "image": [
         192,
         128
@@ -111,17 +148,6 @@
       "native": [
         192,
         128
-      ],
-      "overflow": false,
-      "fonts": [
-        {
-          "family": "Noto Serif CJK KR",
-          "status": "loaded"
-        },
-        {
-          "family": "Noto Sans CJK KR",
-          "status": "loaded"
-        }
       ],
       "choiceInteraction": "passed",
       "errors": []

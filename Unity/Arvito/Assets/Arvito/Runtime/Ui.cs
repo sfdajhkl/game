@@ -8,6 +8,7 @@ namespace Arvito.Runtime
     public static class Ui
     {
         public static TMP_FontAsset Font;
+        public static TMP_FontAsset NarrativeFont;
         public static float TextScale = 1;
         public static readonly Color Ink = Hex("3B2A20"), Paper = Hex("D5BE96"), Panel = Paper,
             Raised = Hex("E1CDAB"), Line = Hex("997951"), Gold = Hex("79573A"), Muted = Hex("6B4D34"),
@@ -41,6 +42,12 @@ namespace Arvito.Runtime
             t.font = Font; t.text = value; t.fontSize = size * TextScale; t.color = color ?? Ink; t.alignment = align; t.richText = true; t.raycastTarget = false;
             t.textWrappingMode = TextWrappingModes.Normal; t.overflowMode = TextOverflowModes.Overflow; t.lineSpacing = 9;
             return t;
+        }
+        public static TextMeshProUGUI Narrative(Transform parent, string value, float size = 20, Color? color = null, TextAlignmentOptions align = TextAlignmentOptions.TopLeft)
+        {
+            var text = Text(parent, value, size, color, align);
+            text.font = NarrativeFont != null ? NarrativeFont : Font;
+            return text;
         }
         public static TextMeshProUGUI FixedText(Transform parent, string value, float x, float y, float w, float h, float size = 20, Color? color = null, TextAlignmentOptions align = TextAlignmentOptions.MidlineLeft)
         { var t = Text(parent, value, size, color, align); Box(t.rectTransform, x, y, w, h); return t; }

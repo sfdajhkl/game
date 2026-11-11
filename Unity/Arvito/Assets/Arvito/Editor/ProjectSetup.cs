@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 using System;
 using System.IO;
+using System.Collections.Generic;
 using Arvito.Core;
 using Arvito.Runtime;
 using TMPro;
@@ -18,6 +19,8 @@ namespace Arvito.Editor
     {
         const string ScenePath = "Assets/Scenes/Arvito.unity";
         const string FontPath = "Assets/Resources/Arvito/Fonts/Arvito-Korean.asset";
+        const string NarrativeFontPath = "Assets/Resources/Arvito/Fonts/Arvito-YiSunShin.asset";
+        const string NarrativeFallbackPath = "Assets/Resources/Arvito/Fonts/Arvito-YiSunShin-Dynamic.asset";
         const string PlayRequested = "Arvito.PlayRequested";
         static ProjectSetup()
         {
@@ -28,7 +31,7 @@ namespace Arvito.Editor
         {
             if (Application.isBatchMode || EditorApplication.isPlayingOrWillChangePlaymode) return;
             if (EditorApplication.isCompiling || EditorApplication.isUpdating) { EditorApplication.delayCall += FirstImport; return; }
-            if (!File.Exists(ScenePath) || !File.Exists(FontPath)) Prepare();
+            if (!File.Exists(ScenePath) || !File.Exists(FontPath) || !File.Exists(NarrativeFontPath) || !File.Exists(NarrativeFallbackPath)) Prepare();
             EditorSceneManager.playModeStartScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(ScenePath);
         }
         [MenuItem("Arvito/Prepare Project")]
@@ -43,7 +46,7 @@ namespace Arvito.Editor
             ValidateArtImports();
             PlayerSettings.companyName = "Arvito";
             PlayerSettings.productName = "아르비토";
-            PlayerSettings.bundleVersion = "0.3.0";
+            PlayerSettings.bundleVersion = "0.3.1";
             PlayerSettings.SetApplicationIdentifier(UnityEditor.Build.NamedBuildTarget.Standalone, "games.arvito.pc");
             PlayerSettings.defaultScreenWidth = 1440; PlayerSettings.defaultScreenHeight = 900;
             PlayerSettings.resizableWindow = true; PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
@@ -101,6 +104,55 @@ namespace Arvito.Editor
                 font.material.name = "Arvito Korean Material"; AssetDatabase.AddObjectToAsset(font.material, font);
                 EditorUtility.SetDirty(font);
             }
+            ConfigureNarrativeFont();
+        }
+        static void ConfigureNarrativeFont()
+        {
+            var uiFont = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(FontPath);
+            ClearDynamicDataOnBuild(uiFont);
+            var source = AssetDatabase.LoadAssetAtPath<Font>("Assets/Resources/Arvito/Fonts/YiSunShin-Regular.ttf");
+            if (source == null) throw new InvalidDataException("Missing YiSunShin-Regular.ttf. Pull the latest repository.");
+            var fallback = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(NarrativeFallbackPath);
+            if (fallback == null)
+            {
+                fallback = TMP_FontAsset.CreateFontAsset(source, 48, 5, GlyphRenderMode.SDFAA, 1024, 1024, AtlasPopulationMode.Dynamic, true);
+                SaveFont(fallback, NarrativeFallbackPath, "Arvito-YiSunShin-Dynamic");
+            }
+            fallback.fallbackFontAssetTable = new List<TMP_FontAsset> { uiFont };
+            ClearDynamicDataOnBuild(fallback);
+            var narrative = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(NarrativeFontPath);
+            if (narrative == null)
+            {
+                narrative = TMP_FontAsset.CreateFontAsset(source, 48, 5, GlyphRenderMode.SDFAA, 1024, 1024, AtlasPopulationMode.Dynamic, true);
+                string characters = File.ReadAllText("Assets/Resources/Arvito/Fonts/YiSunShin-Characters.txt");
+                if (!narrative.TryAddCharacters(characters, out string missing))
+                    throw new InvalidDataException("YiSunShin atlas could not bake characters: " + missing);
+                narrative.atlasPopulationMode = AtlasPopulationMode.Static;
+                SaveFont(narrative, NarrativeFontPath, "Arvito-YiSunShin");
+            }
+            // Unbaked names/new text use the same face first; unsupported glyphs use bundled Noto.
+            narrative.fallbackFontAssetTable = new List<TMP_FontAsset> { fallback };
+            EditorUtility.SetDirty(narrative);
+            EditorUtility.SetDirty(fallback);
+        }
+        static void SaveFont(TMP_FontAsset font, string path, string name)
+        {
+            font.name = name;
+            AssetDatabase.CreateAsset(font, path);
+            for (int i = 0; i < font.atlasTextures.Length; i++)
+            {
+                var atlas = font.atlasTextures[i]; atlas.name = name + " Atlas " + i;
+                AssetDatabase.AddObjectToAsset(atlas, font);
+            }
+            font.material.name = name + " Material";
+            AssetDatabase.AddObjectToAsset(font.material, font);
+            EditorUtility.SetDirty(font);
+        }
+        static void ClearDynamicDataOnBuild(TMP_FontAsset font)
+        {
+            var serialized = new SerializedObject(font);
+            serialized.FindProperty("m_ClearDynamicDataOnBuild").boolValue = true;
+            serialized.ApplyModifiedPropertiesWithoutUndo();
         }
         [MenuItem("Arvito/Repair Art Imports")]
         public static void RepairArtImports()
@@ -123,7 +175,7 @@ namespace Arvito.Editor
                 count++;
             }
             if (count < 506) throw new InvalidDataException("Art files are missing (" + count + "/506). Pull the latest repository. Project: " + Application.dataPath);
-            Debug.Log("Arvito 0.3.0: " + count + " textures verified via Resources.Load. Project: " + Application.dataPath);
+            Debug.Log("Arvito 0.3.1: " + count + " textures verified via Resources.Load. Project: " + Application.dataPath);
         }
         [MenuItem("Arvito/Open Game Scene")]
         public static void OpenScene() { if (!File.Exists(ScenePath)) Prepare(); else if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) EditorSceneManager.OpenScene(ScenePath); }
@@ -159,6 +211,7 @@ namespace Arvito.Editor
             if (report.summary.result != BuildResult.Succeeded) throw new Exception("Arvito Windows build failed: " + report.summary.result);
             var licenses = Path.Combine(Path.GetDirectoryName(output), "Licenses"); Directory.CreateDirectory(licenses);
             File.Copy("Assets/Resources/Arvito/Fonts/OFL-NotoSerifKR.txt", Path.Combine(licenses, "OFL-NotoSerifKR.txt"), true);
+            File.Copy("Assets/Resources/Arvito/Fonts/LICENSE-YiSunShin.txt", Path.Combine(licenses, "LICENSE-YiSunShin.txt"), true);
             if (File.Exists("Tools/PLAYTEST.txt")) File.Copy("Tools/PLAYTEST.txt", Path.Combine(Path.GetDirectoryName(output), "PLAYTEST.txt"), true);
             Debug.Log("Windows build created: " + output);
         }

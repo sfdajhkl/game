@@ -22,16 +22,16 @@ namespace Arvito.Runtime
             var stack = Ui.Scroll(titleArea, "Title content");
             var layout = stack.GetComponent<UnityEngine.UI.VerticalLayoutGroup>(); layout.padding = new RectOffset(48, 40, 20, 20); layout.spacing = 20;
             Ui.Text(stack, "A  R  V  I  T  O", 18, Ui.Gold);
-            Ui.Text(stack, "아르비토", 60, Ui.Ink);
-            Ui.Text(stack, "당신이 걸은 길이,\n당신의 이름이 된다.", 25, Ui.Gold);
-            Ui.Text(stack, "열여섯의 봄부터 마지막 계절까지.\n선택과 만남으로 써 내려가는\n한 모험가의 일대기.", 18, Ui.Muted);
+            Ui.Narrative(stack, "아르비토", 60, Ui.Ink);
+            Ui.Narrative(stack, "당신이 걸은 길이,\n당신의 이름이 된다.", 25, Ui.Gold);
+            Ui.Narrative(stack, "열여섯의 봄부터 마지막 계절까지.\n선택과 만남으로 써 내려가는\n한 모험가의 일대기.", 18, Ui.Muted);
             Ui.Height(Ui.Node("Space", stack), 18);
             if (game != null) Ui.Button(stack, game.State.mode == "ended" ? "지난 삶의 마지막 장" : "이어서 읽기  ·  " + game.AgeLabel, () => { title = false; tab = "journey"; Render(); }, 58, true, true);
             Ui.Button(stack, "새로운 삶을 시작하다", NewLifeDialog, 58, true, game == null);
             Ui.Button(stack, "설정", Settings, 48);
-            Ui.Text(stack, notice + "\n0.3.0 · 양피지 수첩", 12, Ui.Muted);
+            Ui.Text(stack, notice + "\n0.3.1 · 양피지 수첩", 12, Ui.Muted);
             if (Compact) return;
-            var caption = Ui.Text(page, "아직 쓰이지 않은\n당신의 이야기", 19, Ui.Raised, TextAlignmentOptions.BottomRight); Ui.Fill(caption.rectTransform, 700, 44, 44, 48);
+            var caption = Ui.Narrative(page, "아직 쓰이지 않은\n당신의 이야기", 19, Ui.Raised, TextAlignmentOptions.BottomRight); Ui.Fill(caption.rectTransform, 700, 44, 44, 48);
         }
         void NewLifeDialog()
         {
@@ -81,7 +81,7 @@ namespace Arvito.Runtime
             if (eventImage != null) Ui.EventIllustration(stack, eventImage);
             else if (illustration != null) Ui.Art(stack, art[illustration], 245);
             Ui.Text(stack, eyebrow, 13, Ui.Gold);
-            Ui.Text(stack, heading, 34);
+            Ui.Narrative(stack, heading, 34);
             return stack;
         }
         void StoryScreen()
@@ -93,7 +93,7 @@ namespace Arvito.Runtime
             {
                 words = Ui.Scroll(main, "Event page");
                 Ui.Text(words, game.RegionName + "   /   " + game.StageName, 15, Ui.Muted);
-                Ui.Text(words, e.title, 32);
+                Ui.Narrative(words, e.title, 32);
                 StoryIllustration(words, e.id, e.art, main.rect.width - 16);
                 Ui.Text(words, e.place, 16, Ui.Muted);
             }
@@ -101,7 +101,7 @@ namespace Arvito.Runtime
             {
                 var eyebrow = Ui.Text(main, game.RegionName + "   /   " + game.StageName + "   /   " + e.place, 15, Ui.Muted);
                 Ui.Box(eyebrow.rectTransform, 0, 0, main.rect.width - 8, 30);
-                var heading = Ui.Text(main, e.title, 34);
+                var heading = Ui.Narrative(main, e.title, 34);
                 float headingHeight = Mathf.Max(54, heading.GetPreferredValues(e.title, main.rect.width - 8, Mathf.Infinity).y);
                 Ui.Box(heading.rectTransform, 0, 38, main.rect.width - 8, headingHeight);
                 var pictureHost = Ui.Node("Illustrated page", main); Ui.Fill(pictureHost, 0, 0, headingHeight + 60, 0);
@@ -116,7 +116,7 @@ namespace Arvito.Runtime
                 storyHost.anchorMin = new Vector2(.53f, 0); storyHost.offsetMin = new Vector2(8, 0);
                 words = Ui.Scroll(storyHost, "Story and choices");
             }
-            foreach (var paragraph in e.text) Ui.Text(words, paragraph, 24);
+            foreach (var paragraph in e.text) Ui.Narrative(words, paragraph, 24);
             Ui.Text(words, "어떻게 할까?", 17, Ui.Muted); Ui.Rule(words);
             var buttons = new UnityEngine.UI.Button[e.choices.Length];
             UnityEngine.UI.Button confirm = null;
@@ -185,7 +185,7 @@ namespace Arvito.Runtime
             var o = game.State.outcome; var stack = Chapter(o.combatWin ? "전투의 끝   /   살아남은 사람들" : "기록된 선택   /   " + game.AgeLabel, o.title, game.Event.art, game.Event.id);
             if (o.weeks > 0) Ui.Text(stack, Game.Duration(o.weeks) + "의 시간이 흘렀다.", 16, Ui.Gold);
             if (o.hasCheck) Ui.Text(stack, o.checkStat + " 판정 " + (o.success ? "성공" : "실패") + "  ·  성공 확률 " + o.chance + "%", 16, o.success ? Ui.Green : Ui.Red);
-            Ui.Text(stack, o.body, 23);
+            Ui.Narrative(stack, o.body, 23);
             if (o.changes.Count > 0) Ui.Text(stack, string.Join("   /   ", o.changes), 16, Ui.Gold);
             enterAction = () => Change(() => game.Continue()); shortcuts.Add(enterAction);
             Ui.Button(stack, "다음 페이지로                 Enter", enterAction, 60, true, true);
@@ -216,7 +216,7 @@ namespace Arvito.Runtime
                 string id = a.id;
                 var portrait=Ui.Node("Party illustration",stack);Ui.Height(portrait,170);BattlerArt.Portrait(portrait,Appearance.Sprite(a));
                 Ui.Text(stack, game.Rank(id).ToString("00") + "   " + Ui.Safe(a.name), 26, Ui.Gold);
-                Ui.Text(stack, a.id == "hero" ? "한 가지 직업으로 정해지지 않은 모험가. 당신의 선택이 앞으로의 이야기를 만듭니다." : a.story, 19);
+                Ui.Narrative(stack, a.id == "hero" ? "한 가지 직업으로 정해지지 않은 모험가. 당신의 선택이 앞으로의 이야기를 만듭니다." : a.story, 19);
                 Ui.Text(stack, data.Weapon(a.weapon).name + "  ·  체력 " + a.hp + "/" + a.maxHp + "  ·  긴장 " + a.stress, 16, Ui.Muted);
                 if (Appearance.HasFemaleVariant(id))
                     Ui.Button(stack,a.femaleAppearance ? "외형: 여성형  →  남성형으로 변경" : "외형: 남성형  →  여성형으로 변경",()=>Change(()=>game.SetFemaleAppearance(id,!a.femaleAppearance)),44);
@@ -234,15 +234,15 @@ namespace Arvito.Runtime
             Ui.Text(stack, game.State.events + "개의 선택  ·  " + game.State.victories + "번의 승리  ·  " + game.AgeLabel, 17, Ui.Gold);
             foreach (var j in game.State.journal)
             {
-                Ui.Text(stack, (16 + j.week / 52) + "세 " + j.week % 52 + "주   /   " + j.title, 20, Ui.Gold);
-                Ui.Text(stack, j.body, 18);
+                Ui.Narrative(stack, (16 + j.week / 52) + "세 " + j.week % 52 + "주   /   " + j.title, 20, Ui.Gold);
+                Ui.Narrative(stack, j.body, 18);
             }
             Ui.Text(stack, "최근 350개의 기록이 보관됩니다.", 12, Ui.Muted);
         }
         void EndingScreen()
         {
             var e = game.State.ending; var stack = Chapter("THE LAST PAGE   /   " + game.AgeLabel, e.title, "camp");
-            Ui.Text(stack, Ui.Safe(game.State.hero.name) + "\n" + e.legacy, 28, Ui.Gold); Ui.Text(stack, e.body, 22);
+            Ui.Narrative(stack, Ui.Safe(game.State.hero.name) + "\n" + e.legacy, 28, Ui.Gold); Ui.Narrative(stack, e.body, 22);
             Ui.Text(stack, game.State.events + "개의 선택   ·   " + game.State.victories + "번의 승리   ·   평판 " + game.State.rep, 17, Ui.Muted);
             Ui.Button(stack, "살아온 날들을 돌아본다", () => Navigate("journal"), 54);
             Ui.Button(stack, "다른 이름으로 다시 시작한다", NewLifeDialog, 58, true, true);
