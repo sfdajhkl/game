@@ -1,0 +1,14 @@
+{
+  "id": "q059_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q059",
+  "cell": 1,
+  "beforeSha256": "fa7181a655872bc3459c98c0195df8cd9650c3f8f1d3daa3d98517b55e54c907",
+  "afterSha256": "cd823940f2b90be5084ae83a031011b616b9a6dfe8e14f1055f4fe96e4d74550",
+  "sourceFile": "q059-4db6d3fbf543.png",
+  "sourceSha256": "4db6d3fbf5432a90e941f46df03889a99a01ddc8be61f2e98006f7619eaae8bc",
+  "promptSha256": "2d5e441aff0231b1d0c1b0c265aa30363fdf4e780eecc2f6babe066a1db44a3b",
+  "review": "Native preview reviewed: distant predator, ranch and mine establish displaced habitat; blocked paw trail is person-free; rancher and mine owner negotiate at a loose fence post; outcome A restores a separated animal corridor and relocates the fence. No hunting party or trophy scene."
+}

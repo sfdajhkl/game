@@ -1,0 +1,14 @@
+{
+  "id": "q064_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q064",
+  "cell": 0,
+  "beforeSha256": "8cf37bf94a2e881fc79fb88a2a4e25ca18c3b078150f2fdff9961600db045db2",
+  "afterSha256": "c5ba625d57c0dcc64ce4220085c7218f220bf6392cd8ffc5b699a9b5aeffbf56",
+  "sourceFile": "q064-aec0281670f8.png",
+  "sourceSha256": "aec0281670f81782f471876e7f7de5572747c56d646c799fe0d77b3f0ec8f920",
+  "promptSha256": "8772394e93478b0ea43ca3a9c7d27127f5e00c453e8c78162087227eeca21de4",
+  "review": "Native review: lone scholar faces an empty unnumbered board in offer; grain-size hollows are readable in close-up, warehouse keeper appears only during consultation, counting with grain happens in outcome. Two local NPC silhouettes and restrained outlines remain clear."
+}

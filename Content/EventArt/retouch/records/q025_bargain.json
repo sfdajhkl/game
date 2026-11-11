@@ -1,0 +1,14 @@
+{
+  "id": "q025_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q025",
+  "cell": 2,
+  "beforeSha256": "54c409cc748067814fabc5be1170e3fd4714f447528779104160c50f23821e3a",
+  "afterSha256": "6b405bcc4dd743d7ec55d3ae70d9506a43b194f864ef8ded4b59d553d8fdfe57",
+  "sourceFile": "q025-507ddfe6a193.png",
+  "sourceSha256": "507ddfe6a193728bacff56d350c0200cfadad28f41026ecc93eec54a3aa26c2c",
+  "promptSha256": "453136b4495590f4b7e312a4e832bc5f87bb6b461f97483d28f5b80235d31c45",
+  "review": "Native preview reviewed: duplicated carpenter portraits and printing plate distinguish the clue; carpenter and patrol remain fixed NPCs; withdrawn plate and released man distinguish outcome A. No player party is depicted."
+}

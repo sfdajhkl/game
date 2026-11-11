@@ -1,0 +1,18 @@
+{
+  "key": "repair-03",
+  "events": [
+    "q022_trail"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "repair-03-a4e134c8a7d2.png",
+  "sourceSha256": "a4e134c8a7d2576e31c08f629c997f66d13c9c543247f1ae767a06a384375e33",
+  "promptSha256": "86bf59eba9a17e90255b18c42c229c02eb21f07f29095b56dd046b2ccff41225",
+  "images": [
+    {
+      "id": "q022_trail",
+      "sha256": "fbd2409dd3ad84437e86a9374c7555e929666e9f0a2a459c36dbd1fc6fd7765f"
+    }
+  ],
+  "review": "Native repair preview reviewed: violin now lies horizontally with four distinct continuous straight strings across the dark fingerboard and bridge. Pegs, waist and two f-holes remain readable; diagonal chain artifacts are removed."
+}

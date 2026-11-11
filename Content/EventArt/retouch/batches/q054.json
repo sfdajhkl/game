@@ -1,0 +1,33 @@
+{
+  "key": "q054",
+  "events": [
+    "q054_offer",
+    "q054_trail",
+    "q054_bargain",
+    "q054_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q054-bda77f4c36e4.png",
+  "sourceSha256": "bda77f4c36e49bb5f8384b4f6509322928d00f26df9d46fd1c69637ce45aeb98",
+  "promptSha256": "31bf98821bd5f309bee0a39b194767057657a3c6166f2de15379690ae5f5b191",
+  "images": [
+    {
+      "id": "q054_offer",
+      "sha256": "61ffc9aa039c49fb9a02219ab887ceca083e05810576112d690fc07f4a896810"
+    },
+    {
+      "id": "q054_trail",
+      "sha256": "bcf7ee3de72b25bdd4ed4be93a835d7f3619efbd1ec04725b0ba370f74459481"
+    },
+    {
+      "id": "q054_bargain",
+      "sha256": "82736f18731dc42ae32e0e3c44aa54de586df0fb59f26cc4dc11ee0c56dc4f47"
+    },
+    {
+      "id": "q054_echo_a",
+      "sha256": "c96ebbdbb2d39f90afa0c450a743fc775682d4e3af1c6d0bf6952d6b3494a17f"
+    }
+  ],
+  "review": "Native preview reviewed: torn large flag and narrow rock cleft establish local gusts; small cloth tests replace an oversized gauge; guide and porter negotiate in shelter; outcome A uses cairns and modest cloth wind markers."
+}

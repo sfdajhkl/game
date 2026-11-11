@@ -1,0 +1,33 @@
+{
+  "key": "q020",
+  "events": [
+    "q020_offer",
+    "q020_trail",
+    "q020_bargain",
+    "q020_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q020-94932340f6e8.png",
+  "sourceSha256": "94932340f6e8df62466e6e26f45273f85c1064f7c9044ac4f3d91b03abf85f42",
+  "promptSha256": "7ef7b72d64f8c167ac5be3ae1f87fb3bede1db951ad0ad9557199d9a63b95164",
+  "images": [
+    {
+      "id": "q020_offer",
+      "sha256": "2ee481731ac5e8ee91a7762d912ea927d1988bf253f4c30d46bd943ffeebb44f"
+    },
+    {
+      "id": "q020_trail",
+      "sha256": "16a21ca9ef2e5504d12b5edd873f597ab9890ba58c68fd0e050835b7f7383d55"
+    },
+    {
+      "id": "q020_bargain",
+      "sha256": "cee4cc7ea5192ec3ec9f8cdd6e047de40c2f08a72bcb605a7fe9929b6b2592e1"
+    },
+    {
+      "id": "q020_echo_a",
+      "sha256": "d417b4c58553759ccf756fdf7ecbc1a8743eb3d1e0c798a4f0d63b4c1089a2ce"
+    }
+  ],
+  "review": "Native crops reviewed: empty misleading forest fork and buried flute, matching bone-flute pattern as clue, local apprentice considers a confirmed map, and gathered flutes rest at a quiet memorial afterward. No literal disembodied guide or player. Four-color silhouettes and sparse props."
+}

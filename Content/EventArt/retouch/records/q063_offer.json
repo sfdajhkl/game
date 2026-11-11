@@ -1,0 +1,14 @@
+{
+  "id": "q063_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q063",
+  "cell": 0,
+  "beforeSha256": "80ee43cb0b0efe812f3c8ea77f2d671184efeb55c99a5a712bfc2e691997c078",
+  "afterSha256": "ea75d0ef37c3bc7c3a0881bc63c9bb59a432f3358e442455562b2d3fae88b5f1",
+  "sourceFile": "q063-af1951cd3757.png",
+  "sourceSha256": "af1951cd3757a24eb81ccd9c1c1fccd1559028dcded66212d7e2dea8dd5457a4",
+  "promptSha256": "cbf92f6f83aa8d81f1beabc5599017e59b9721ac1f1fcacb687a8449cbc8e3b4",
+  "review": "Native review: two excavation NPCs debate the lamp; blocked ventilation and flame direction show cause, demonstration stays before decision, repaired vent and stable flame are outcome only. Bordered lamp and connected handles survive native reduction."
+}

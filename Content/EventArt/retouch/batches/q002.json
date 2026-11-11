@@ -1,0 +1,33 @@
+{
+  "key": "q002",
+  "events": [
+    "q002_offer",
+    "q002_trail",
+    "q002_bargain",
+    "q002_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q002-8eae1bd288af.png",
+  "sourceSha256": "8eae1bd288af8153c1be7304b276f960556ee63c2178a273d39fb2c470e730fc",
+  "promptSha256": "d1472fbfc41aef6b71f620ca47b4d44805dd87534dc2023b32b63bbfa6440e84",
+  "images": [
+    {
+      "id": "q002_offer",
+      "sha256": "5c70f40778c6a1106dede0890ba1be65e82a179ce07129dc92961c626303a650"
+    },
+    {
+      "id": "q002_trail",
+      "sha256": "49693c446cb9b7a6614c064c873863eb159e6d0b7c025ecb29d717ad1571e754"
+    },
+    {
+      "id": "q002_bargain",
+      "sha256": "49d4bde6edc1deb70950f9eaf97311ac3b12167d06e33930e63ecfb454ca0c46"
+    },
+    {
+      "id": "q002_echo_a",
+      "sha256": "38ffa7d7e773c3318f10389371b612130a8946ad965a061796d4d4b4463728a2"
+    }
+  ],
+  "review": "Native review: person-free well fissure clue; two local workers assemble axle materials before rescue; cleaner alone recuperating by secured pulley after rescue. q002_offer shows unwanted helpers and remains explicitly queued for a cast correction."
+}

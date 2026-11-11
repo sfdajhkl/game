@@ -1,0 +1,33 @@
+{
+  "key": "echo-07",
+  "events": [
+    "q028_echo_b",
+    "q029_echo_b",
+    "q030_echo_b",
+    "q031_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "echo-07-dcbb3b4886a6.png",
+  "sourceSha256": "dcbb3b4886a6f82f7ea1b47b46e854533be0e06d817c9e3dcddc8a29cfcacb29",
+  "promptSha256": "c95ce3112679932f01fe0b1d06cd9d7544129067606e2f976265a35770187702",
+  "images": [
+    {
+      "id": "q028_echo_b",
+      "sha256": "61643d65f68abd60f796aedbe2424fae7b30dd050579e39130f2d35d9a9561c0"
+    },
+    {
+      "id": "q029_echo_b",
+      "sha256": "0ceefa197188e793f904215d0ea6c0a16ed3a03a275c2a5bd124535ba82a9379"
+    },
+    {
+      "id": "q030_echo_b",
+      "sha256": "79ebfb1df972fd02d0e3aa8576998b9351c07d1db99857f7042f8f26a01fde3c"
+    },
+    {
+      "id": "q031_echo_b",
+      "sha256": "61b438d1f7dfb1d4fd4cb1703387854d15452f8acb4d62af403d5f292a3f72b0"
+    }
+  ],
+  "review": "Reviewed native cells q028-031: separate public toll and anonymous donation containers; closed urn crosses boundary on coherent bier with rolled banners; two novices read equal-sized refusal and keepsake symbols; child and goat safe beside ferry owner with three large knots and continuous river rope. Local civic NPCs, no player likeness or party."
+}

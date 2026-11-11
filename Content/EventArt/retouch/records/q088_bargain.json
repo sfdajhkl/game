@@ -1,0 +1,14 @@
+{
+  "id": "q088_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q088",
+  "cell": 2,
+  "beforeSha256": "46978efc90e1780ef92973a35f2b70d12f7d3aa812038554fec7d98aaeff3794",
+  "afterSha256": "5b662fdb4b5493c804ac34cedfdaf09f01757cc60c6fad803209eb4b3bc695d9",
+  "sourceFile": "q088-cac80cf2e861.png",
+  "sourceSha256": "cac80cf2e86137ab197ed2d5707c74d8daa474096fe2fd2f577ce52592d4d325",
+  "promptSha256": "d1e00032b11a7a1059171dbe50fde7d31cc68f36b6f2e6db96e9f573c6452aa9",
+  "review": "Native review: demon alone presents contract; unborn soul appears only as contract symbol with no physical baby; exactly demon and adult signer negotiate; invalid clause torn in outcome. Consistent demon horns and silhouette, no unrelated observers or player."
+}

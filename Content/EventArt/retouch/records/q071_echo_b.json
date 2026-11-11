@@ -1,0 +1,14 @@
+{
+  "id": "q071_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-17",
+  "cell": 3,
+  "beforeSha256": "bac81dd16f4260648672009b8686f8f86c11cd34a107587875a1bd7fea7ee433",
+  "afterSha256": "297097f0f8eb559ec689f2b3ab80d906f7fffa392158b400d707a77694678960",
+  "sourceFile": "echo-17-eadf1d9e40ec.png",
+  "sourceSha256": "eadf1d9e40ecb51622f63c425bf8fdd57564ec6f2b374d8f4c70fa0563ecae66",
+  "promptSha256": "bb82fcdef620612f190024e3dc8da0e7dfbbce783a3fe5517016d5e54f2dd304",
+  "review": "Reviewed native cells q068-071: public tomb interpretation remains separate from screened family grave; father reaches bank with continuous rescue rope and contact record; civilian boat guide checks stout reed knots and stakes; neighboring pond sections are differentiated with frogs by clean margin. No player, resurrected king or burning marsh, native silhouettes and cord continuity inspected."
+}

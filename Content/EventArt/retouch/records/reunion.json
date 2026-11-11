@@ -1,0 +1,14 @@
+{
+  "id": "reunion",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "base-02",
+  "cell": 0,
+  "beforeSha256": "49fcc158687fa3a2b172691ef177273169d6f3b06fa4212519c9005fdced3d69",
+  "afterSha256": "a8c88c13c8bb52c9825fabd793746c5f3045b022342f04764c84389066e39837",
+  "sourceFile": "base-02-4d8a656cfceb.png",
+  "sourceSha256": "4d8a656cfceb18e31794ea177499d97bcc850a2f18b4c0537095f1ab4cd53b2c",
+  "promptSha256": "91ce86c6b4dc9fd92c9a2e6e7c29cd7541a34a30a83a28583ba590a610847e3f",
+  "review": "Reviewed parchment native cells: recovered toy lit in quiet shop, bandaging at abandoned shrine, veteran isolated by empty dusk sky, three bandits separated by depth. Clear fixed local cast and restrained shading. Right bandit bow cord remains queued for a dedicated continuous pixel stroke."
+}

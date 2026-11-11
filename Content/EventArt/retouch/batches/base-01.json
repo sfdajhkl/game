@@ -1,0 +1,33 @@
+{
+  "key": "base-01",
+  "events": [
+    "departure",
+    "first_hunt",
+    "crossroads",
+    "lost_child"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "base-01-f2abfc49d1bd.png",
+  "sourceSha256": "f2abfc49d1bd363d2ab62ef98931f440243692a2119afb9e42d6087b69195238",
+  "promptSha256": "973bbb26a1604a67e533005cf489c00c2a29a11240260dfe7b6cf5afe74f568f",
+  "images": [
+    {
+      "id": "departure",
+      "sha256": "1a5e8be78a64fedbb4b45f807b2f649a963cb9b8628e4e64ee5ffc2c6d1d4d79"
+    },
+    {
+      "id": "first_hunt",
+      "sha256": "09e80e92a90af6ddafd25518c26b6abbe4daebf28b4b8b06c7d7ee60e15a7a4e"
+    },
+    {
+      "id": "crossroads",
+      "sha256": "1bd340e46202e5a63c56d4d47fb3522ea6381f59bb8481c9edc6a2c90fc4775d"
+    },
+    {
+      "id": "lost_child",
+      "sha256": "47a2358a4d5ceac4e3d7d688884b262e56bd4c4eb6050188785f0352c861c836"
+    }
+  ],
+  "review": "Reviewed parchment native cells: clear small injured hunter, two wolves watching torn provisions, distinct four weapons, lone child holding wooden horse. Shared four-color palette and broad two-tone masses. Bow cords in departure and crossroads remain queued for a dedicated stronger pixel contour."
+}

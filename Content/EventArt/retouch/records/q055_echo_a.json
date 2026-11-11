@@ -1,0 +1,14 @@
+{
+  "id": "q055_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q055",
+  "cell": 3,
+  "beforeSha256": "36e2b0ea1fbed3b48c352abd9ee3f5ddfc0e52068bad3526cbb85b0ce1116ccf",
+  "afterSha256": "5c111cd1f98b02d66e9002d6ab40c175d6cffba207d0a6ff84080d6cc15f9095",
+  "sourceFile": "q055-f1e9415023bc.png",
+  "sourceSha256": "f1e9415023bc9d5bf03b5488383fc37a11a3ac76e74559866e90daf1718ce2c1",
+  "promptSha256": "82248279162aa98565606458f15278daafcfd420ad8c34bfd68cd9ad8398ce18",
+  "review": "Native preview reviewed: retired guide remains alone with incomplete map; missing refuge entry is clear; negotiation leaves the apprentice absent and empty seat visible; outcome A shows only the guide recognizing the cave. Unknown player companion omitted."
+}

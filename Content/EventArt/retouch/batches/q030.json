@@ -1,0 +1,33 @@
+{
+  "key": "q030",
+  "events": [
+    "q030_offer",
+    "q030_trail",
+    "q030_bargain",
+    "q030_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q030-f6048370e40f.png",
+  "sourceSha256": "f6048370e40f6504089febae5433ad6f41caa4824efd065a4ff471f9749856e0",
+  "promptSha256": "daefbbffb71e6c4ec9fee78a1f791ed400f9b4b376cdb10a9c06ffed4744821d",
+  "images": [
+    {
+      "id": "q030_offer",
+      "sha256": "dda817abcdea47e2bc7a6fde549501111d9172a5b1de96c5aee5d614a2c1abfe"
+    },
+    {
+      "id": "q030_trail",
+      "sha256": "80a7c6b1d9c81c9d5a4d451f8870379da709361b4c3c4d2623cbe5eedff6a57a"
+    },
+    {
+      "id": "q030_bargain",
+      "sha256": "4a8e6c9bd900003520e69f0fd961acab20f5d95a4fd84c67468710a9397278f6"
+    },
+    {
+      "id": "q030_echo_a",
+      "sha256": "550bb271a61c1777f211c28a828fc251a30406cce5ea47a6fde32257e866eee2"
+    }
+  ],
+  "review": "Native preview reviewed: guild clerk and two fixed local novices frame the rule dispute; rescue rope clue and public discussion are distinct; amended notice with stretcher and rope conveys outcome A. No assumed playable party."
+}

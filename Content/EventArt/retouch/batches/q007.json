@@ -1,0 +1,33 @@
+{
+  "key": "q007",
+  "events": [
+    "q007_offer",
+    "q007_trail",
+    "q007_bargain",
+    "q007_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q007-92890c8a0f04.png",
+  "sourceSha256": "92890c8a0f0419d5ffe128d29dba7eafa728c99f762f98e4821ac9243e1f9c83",
+  "promptSha256": "27ec266fbd98338f2a36fc5abfeabd8c2bad18a1cd1fd873e1598cc36f89fda6",
+  "images": [
+    {
+      "id": "q007_offer",
+      "sha256": "c1739c2079d5c67e4b7fef907e11e67f941a7634ee3f0d06f5075e570195ccb3"
+    },
+    {
+      "id": "q007_trail",
+      "sha256": "c2ed2538b440d8a80a976ed31c85aadb7747b9ce94e523a56f448015376cc33f"
+    },
+    {
+      "id": "q007_bargain",
+      "sha256": "dbe347dcf017ec9fac73bebaec1eee7e95df45bd5f1b57467543d381222b6f84"
+    },
+    {
+      "id": "q007_echo_a",
+      "sha256": "e961b8c24144cd8eb5d747a4811702eacf1fdc6ec1015aa90c432027ddca9783"
+    }
+  ],
+  "review": "Native crops reviewed: young local courier stays outside the festival initially, the old army emblem and undelivered envelopes dominate the clue, the locals plan at the bag, and a letter is handed to a resident only in the aftermath. Continuous straps, four-color silhouettes, no adventurer party."
+}

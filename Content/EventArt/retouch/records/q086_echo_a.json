@@ -1,0 +1,14 @@
+{
+  "id": "q086_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q086",
+  "cell": 3,
+  "beforeSha256": "5caf9e19e5ebc9260076f074ecd1d4a4182a36d18c905cac15da3bacc870eb01",
+  "afterSha256": "aeb90b16199e82b13e4812883782416fed237a1471ddd230f64dc304881a05b8",
+  "sourceFile": "q086-2f9b695ff1ce.png",
+  "sourceSha256": "2f9b695ff1ce4ba1636e94663443926079854f2ce2e5612ad2c69d7836f4cb21",
+  "promptSha256": "5811a2aa1dfa38469e415189b941916f283ccf165633a36f4a6d829d412887f8",
+  "review": "Reviewed final native grid: living seated elderly lord, floating will and closed-cup setting; knotted ledger clue; restrained trustee discussion; living lord writes name as recipient keeps sack. No corpse or undead, four-color silhouettes and outlines remain readable."
+}

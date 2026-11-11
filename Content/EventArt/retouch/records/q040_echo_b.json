@@ -1,0 +1,14 @@
+{
+  "id": "q040_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-10",
+  "cell": 0,
+  "beforeSha256": "3ad7751519cd33d10cee9802e70f97833f866fcd5532eb43b782c40f651f53bb",
+  "afterSha256": "07f06e738bfa853bf0a499b4a38931b524dff8f7ba2f2e431836fd907ebbe2aa",
+  "sourceFile": "echo-10-f3444dcea206.png",
+  "sourceSha256": "f3444dcea20667e5636d66fe952195d4f07e39b1fe0bc5965abf46f86807d26f",
+  "promptSha256": "fa39a9642e28a0c8c9f490b5c594fec7b23c0671faed79bfa72863521c61c508",
+  "review": "Reviewed native cells q040-043: unworn crown on public plinth and donation work with embankment repair visible through opening; sealed outgoing notices and empty ship mailbox; two keepers test separate latch pieces on continuous ladder as apprentice stays safely inside; merchant and two children use coherent toolkit and glass tokens. Local NPC-only scenes, small faces and clean pixel outlines."
+}

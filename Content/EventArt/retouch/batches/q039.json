@@ -1,0 +1,33 @@
+{
+  "key": "q039",
+  "events": [
+    "q039_offer",
+    "q039_trail",
+    "q039_bargain",
+    "q039_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q039-8f0503f34af3.png",
+  "sourceSha256": "8f0503f34af33b0340cbf430ced1fe65178dd06fa711d5d7ee6b75818ba105b8",
+  "promptSha256": "b8b0b90449a17a851626fe4147f6d8f0d70fe518ed167f6c47e76503e44e615e",
+  "images": [
+    {
+      "id": "q039_offer",
+      "sha256": "13e1c541185d68006dcd18ffbc4be8d7c9982463d5d73fbebf49e5c645dcd5c7"
+    },
+    {
+      "id": "q039_trail",
+      "sha256": "341f4fefec231332b98295e88cc6706e48d949bf21fe63231dc2cc8c9ded1e25"
+    },
+    {
+      "id": "q039_bargain",
+      "sha256": "023b7ac010a2f15f56561b9341b597a8ae02d5b1bfd83a0bde31475999e929e0"
+    },
+    {
+      "id": "q039_echo_a",
+      "sha256": "f903b5ef8096c4dd890cda3d78f61b7a1c505e6ab52c24c48deae1954affd065"
+    }
+  ],
+  "review": "Native preview reviewed: closed dam, buried emergency gate, and two empty compensation boxes make the dilemma readable; outcome A opens an alternate water route while two small locals evacuate. Quiet broad flood shapes."
+}

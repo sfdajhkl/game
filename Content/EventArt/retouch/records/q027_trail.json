@@ -1,0 +1,14 @@
+{
+  "id": "q027_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q027",
+  "cell": 1,
+  "beforeSha256": "6819c31701ade7a997ede98790d1215a2b3b976af0f2a224be55170d2ae58ac4",
+  "afterSha256": "c225f385e0665f47c45c2037401bb93b450618d5979c8aa0a61f8ff95e86e4c5",
+  "sourceFile": "q027-2c99a3148e9c.png",
+  "sourceSha256": "2c99a3148e9c52bba55345fce335887822f7654e75b2c911839cddf3279f3b69",
+  "promptSha256": "f7d3a97d3e19b6cabeca0a9130c4c85e8f4171df2cd4c345e9aaf2e5d5732e29",
+  "review": "Native preview reviewed: family remains outside the gate before the decision; shovel and damaged dyke convey the work condition; outcome A moves mother and child into a dry tent. Sparse rain marks are intentional and silhouettes remain clear."
+}

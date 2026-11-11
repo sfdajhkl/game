@@ -1,0 +1,33 @@
+{
+  "key": "q068",
+  "events": [
+    "q068_offer",
+    "q068_trail",
+    "q068_bargain",
+    "q068_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q068-f2a5a868f8a5.png",
+  "sourceSha256": "f2a5a868f8a51f252ea893477feb15e50c6798894dd32c96cc122feec7be0d56",
+  "promptSha256": "527bac3ba91939ad3f61cd54b8d0f692575845ab6505d9f4b7a5df878573a564",
+  "images": [
+    {
+      "id": "q068_offer",
+      "sha256": "544bfcd648968d50307eeecadfc62cc41c57a80d8fcd60231459fa95a4eaa91c"
+    },
+    {
+      "id": "q068_trail",
+      "sha256": "49456fc0bb5f0679b42e6680c05a327f19f6fcf1e173273b50b6a6b2d3a6f2a6"
+    },
+    {
+      "id": "q068_bargain",
+      "sha256": "0e492c9d32086cc8037cbcb5a6d90981f5bdca00980201a3199bd82c85e5389f"
+    },
+    {
+      "id": "q068_echo_a",
+      "sha256": "25a53938937bedfb3a7aa84e743f98d32d349407d144665a272ca7a1f573df42"
+    }
+  ],
+  "review": "Native review: small private grave and monumental royal tomb are visually distinct; toy horse and crown contrast family and state evidence; descendants and archivist negotiate privacy; final archive retains intact grave in distance. No exposed remains or party figures."
+}

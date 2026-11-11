@@ -1,0 +1,14 @@
+{
+  "id": "q084_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q084",
+  "cell": 1,
+  "beforeSha256": "a81e230c94ad714713e7356c2bcc363eeacedcebfd26239924eed9a0b5330ffe",
+  "afterSha256": "875bf5d60f2dff29f6510c4aac638989c6aeeea41f447239642e9298da7a8e77",
+  "sourceFile": "q084-2081f2d86377.png",
+  "sourceSha256": "2081f2d8637739e5168996610154edbf40e44d5554070a7ffa38340bb31f81f7",
+  "promptSha256": "2cc40b97d0986cba9c00161e32d813bd9e510db6a0f6523f2176f9f17e0ddfb3",
+  "review": "Native review: judge, clerks and two witnesses face equal mirror judgments; maker notes, memory medicine and site sketch are person-free; judge prepares private witness seating with clerk; outcome compares physical evidence beside secondary mirror. No player reflection."
+}

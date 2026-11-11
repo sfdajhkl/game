@@ -1,0 +1,14 @@
+{
+  "id": "q078_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-19",
+  "cell": 1,
+  "beforeSha256": "af2d4370f3b1371eaad58ce791c8b21b415aa97d3b969c0599da88061528e307",
+  "afterSha256": "a92b1b0cc7ae02329945699120901950c1141ff62c4ce1147f8ffc069b151c78",
+  "sourceFile": "echo-19-0cdd6115dcc7.png",
+  "sourceSha256": "0cdd6115dcc768a8a345a7deb40a5dbb81baacd22a489953e8c606af621ed64d",
+  "promptSha256": "59f90b78dfa2e9921247a29e04d195fcab253399578f3e86ed358dbb298fd032",
+  "review": "Reviewed native cells q077-079,q083: locals pass unchanged shrine vent carrying closed letters; housekeeper rests apart from entrance-only ward and hanging apron; civilian banquet uses solid simple food with modest music; young female heir shares formal space with public accountability record. No literal ghost judge, player family or ornate magical spectacle; retained outlines and two-tone masses."
+}

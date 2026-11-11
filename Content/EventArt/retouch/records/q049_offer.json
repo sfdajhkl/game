@@ -1,0 +1,14 @@
+{
+  "id": "q049_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q049",
+  "cell": 0,
+  "beforeSha256": "8b64fb2532e7b718b32549a325e4e27bcafd09cb49084e31ea62385a57cceee5",
+  "afterSha256": "cba1ff61557e115e41d97457395165054ed6ce403c05a3eeceae2468a0bd020b",
+  "sourceFile": "q049-8ecf1093775e.png",
+  "sourceSha256": "8ecf1093775ec108d932a68f382ba141e940f26178af50720d6602ac43dda80c",
+  "promptSha256": "48bf3671d1467ba594cba18aaa43452d45036bca6a007b19d4bb3d2d2c11e7cc",
+  "review": "Native preview reviewed: unseaworthy memorial ship stays on shore; growing list and split hull form a person-free clue; relatives consider its future before action; outcome A sorts known evidence and belongings without implying missing sailors returned."
+}

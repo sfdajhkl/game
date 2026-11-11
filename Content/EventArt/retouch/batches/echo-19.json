@@ -1,0 +1,33 @@
+{
+  "key": "echo-19",
+  "events": [
+    "q077_echo_b",
+    "q078_echo_b",
+    "q079_echo_b",
+    "q083_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "echo-19-0cdd6115dcc7.png",
+  "sourceSha256": "0cdd6115dcc768a8a345a7deb40a5dbb81baacd22a489953e8c606af621ed64d",
+  "promptSha256": "59f90b78dfa2e9921247a29e04d195fcab253399578f3e86ed358dbb298fd032",
+  "images": [
+    {
+      "id": "q077_echo_b",
+      "sha256": "0c82de2530c112eeb4e74ba1a2024d512bfb5b44dbe957d22f9fdfd558927e1e"
+    },
+    {
+      "id": "q078_echo_b",
+      "sha256": "a92b1b0cc7ae02329945699120901950c1141ff62c4ce1147f8ffc069b151c78"
+    },
+    {
+      "id": "q079_echo_b",
+      "sha256": "2713585a3ac1f388f3a9aa9c3d4a5d42c9347fb4e90da9f3b57129c7acc555c5"
+    },
+    {
+      "id": "q083_echo_b",
+      "sha256": "5b212759e6ffb6a235da3fe4d99d3089b41140cb3108ee2ed4ab86a94137fc9b"
+    }
+  ],
+  "review": "Reviewed native cells q077-079,q083: locals pass unchanged shrine vent carrying closed letters; housekeeper rests apart from entrance-only ward and hanging apron; civilian banquet uses solid simple food with modest music; young female heir shares formal space with public accountability record. No literal ghost judge, player family or ornate magical spectacle; retained outlines and two-tone masses."
+}

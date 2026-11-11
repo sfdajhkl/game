@@ -1,0 +1,14 @@
+{
+  "id": "q057_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q057",
+  "cell": 1,
+  "beforeSha256": "419193ce959a4d2e9f5ea2b9e5c08aa7a8a92053c42b4791904881f84650402b",
+  "afterSha256": "59063b86b38fecf74bc666b5a623f772e2aa3cfbe84bde0c192f136ba132a816",
+  "sourceFile": "q057-e269280a3316.png",
+  "sourceSha256": "e269280a33160f0b2d8f2733c2a00c7fae2b62d845617d50ad4b0a9ad86e016c",
+  "promptSha256": "592ae0f0d6f92b3f641c1e6a348ce7ba365c0b14ce3aef1526e425d4a36b439f",
+  "review": "Native preview reviewed: old village overlooks unfinished tunnel; spring omitted from plan is clear; engineer, worker and elder negotiate at the fork; outcome A includes the adopted diversion channel under local construction."
+}

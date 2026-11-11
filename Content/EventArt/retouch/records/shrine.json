@@ -1,0 +1,14 @@
+{
+  "id": "shrine",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "base-02",
+  "cell": 1,
+  "beforeSha256": "5a4154f5f653c11a15753ea10eb04b072f258b4d9ef4162c9fe777769d9eea83",
+  "afterSha256": "373ada2f271612eefe274c46d58262c8f9621718f91886c65b085586703673b9",
+  "sourceFile": "base-02-4d8a656cfceb.png",
+  "sourceSha256": "4d8a656cfceb18e31794ea177499d97bcc850a2f18b4c0537095f1ab4cd53b2c",
+  "promptSha256": "91ce86c6b4dc9fd92c9a2e6e7c29cd7541a34a30a83a28583ba590a610847e3f",
+  "review": "Reviewed parchment native cells: recovered toy lit in quiet shop, bandaging at abandoned shrine, veteran isolated by empty dusk sky, three bandits separated by depth. Clear fixed local cast and restrained shading. Right bandit bow cord remains queued for a dedicated continuous pixel stroke."
+}

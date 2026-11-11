@@ -1,0 +1,33 @@
+{
+  "key": "style-01",
+  "events": [
+    "q073_bargain",
+    "q080_offer",
+    "q081_offer",
+    "q090_offer"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "style-01-b945a48e08a9.png",
+  "sourceSha256": "b945a48e08a9854d474ced344362604dc96aabe451b4b75a12a08dc33c118a0c",
+  "promptSha256": "1790f9f58aeb72b8e18d4ff2a86d0db7be73953a0dbddc866d07ede0e9df81be",
+  "images": [
+    {
+      "id": "q073_bargain",
+      "sha256": "1d1891efff8ca87e9bbe6c21587dec076bf6a4e548af341287d6dd6197b4eb78"
+    },
+    {
+      "id": "q080_offer",
+      "sha256": "bcd8bf009bee35a9d92f6b819c4c0ea2c7ee0d487dcec647d413bd74d7514a01"
+    },
+    {
+      "id": "q081_offer",
+      "sha256": "88176d9d07e64f47d6131ff0c235eec9242b0b91c352faa0fb43ebaa42d0fa77"
+    },
+    {
+      "id": "q090_offer",
+      "sha256": "79911a2f7f59bc6565498203d392654c98d83973cf77d0aaa6ca0421dea7c375"
+    }
+  ],
+  "review": "Reviewed native parchment quartet with exact shared four-color palette and retained contours. Archive caretaker/mimic and cleaning golem have clear staging and native readable props. Herb and commander scenes queued for removal of small texture flecks before final certification."
+}

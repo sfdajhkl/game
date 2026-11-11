@@ -1,0 +1,33 @@
+{
+  "key": "q050",
+  "events": [
+    "q050_offer",
+    "q050_trail",
+    "q050_bargain",
+    "q050_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q050-a3ce0299d416.png",
+  "sourceSha256": "a3ce0299d41658dfafd8bb7f7fcb1dc3f063046fd7461ca7a76011ffa44520d9",
+  "promptSha256": "05ebad5d07916175df8286140e4e7bf7184ca0a85feca1688d83efbcb3d2e76f",
+  "images": [
+    {
+      "id": "q050_offer",
+      "sha256": "0a422fbd5c58970f4fef18a34e7e1e62b9f55acbb1a798d8af572faefb6ae477"
+    },
+    {
+      "id": "q050_trail",
+      "sha256": "edfbf5ab0ce2eb829231c98eb5225eb549bfb571abf1bda260d7d75ec6f04b8e"
+    },
+    {
+      "id": "q050_bargain",
+      "sha256": "c6faf7f00af24e36ff7a1a2a540216e968ca56fdf84394fea187614ba2936dfa"
+    },
+    {
+      "id": "q050_echo_a",
+      "sha256": "84e39b7b0822958f62e92e6dcdd9ff9b836701c779da90fd7b44295f10444e12"
+    }
+  ],
+  "review": "Native preview reviewed: sealed compensation chest and worn cloth establish its journey; person-free seal clue, officials negotiating over a closed chest, and separate aid and salvage payments distinguish all phases. No player witness is drawn."
+}

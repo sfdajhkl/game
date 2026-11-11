@@ -1,0 +1,14 @@
+{
+  "id": "q005_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q005",
+  "cell": 0,
+  "beforeSha256": "a61a896211c21cd3aa8ee8d6b8ae51985bef6f0fb9f86e4278abb857203924c7",
+  "afterSha256": "ae0490f7d42150c6181bf8f2edc6e5778044a03509810ce8dca6740249dac0d7",
+  "sourceFile": "q005-f57d74c730b5.png",
+  "sourceSha256": "f57d74c730b5343b0787be179547c561ffd8f8147b489bc1d47e3c1d89566ebb",
+  "promptSha256": "967c5113a9b63257b1b125c909a81bf288921f050c0f0505cba558ccb2d51728",
+  "review": "Native crops reviewed: worried farmers and the local tax keeper in the storehouse, abandoned farm tools as the clue, a public meeting on the steps before resolution, and tools returned beside the posted account afterward. Four-color silhouettes and continuous tool handles read clearly."
+}

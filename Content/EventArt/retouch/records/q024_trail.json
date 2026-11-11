@@ -1,0 +1,14 @@
+{
+  "id": "q024_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q024",
+  "cell": 1,
+  "beforeSha256": "fb0d317c0fb771ea93193dfa4bfa5c0e990913e780b4f1867f321311ba022937",
+  "afterSha256": "7d49447dabbdebf48c32bd12b5af3f451b962b9c322b17bf5733d2bdce7d35c0",
+  "sourceFile": "q024-73c93b6ad64c.png",
+  "sourceSha256": "73c93b6ad64c97c52934f76a4a6f06c257b8cf00663cfd69f55d2517db361710",
+  "promptSha256": "a20d4c580e22050728f1a8f2aad7844878067e8215a001b643ae527ee1a0efaa",
+  "review": "Native four-color preview reviewed: split wheel and salt clue are readable; repair negotiation retains the wheelwright and roadkeepers; aftermath shows intact reinforced rim beside gravel. Gravel is localized scene content, not global texture."
+}

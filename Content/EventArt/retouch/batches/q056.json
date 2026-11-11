@@ -1,0 +1,33 @@
+{
+  "key": "q056",
+  "events": [
+    "q056_offer",
+    "q056_trail",
+    "q056_bargain",
+    "q056_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q056-e6353aef47b8.png",
+  "sourceSha256": "e6353aef47b81cde8314cc3bf0862b92378d4aa336b91e5552562e33a3155711",
+  "promptSha256": "34385de7d4a93d0de60b7c84cf6b02e72b7e843972e56617ef8e3fcaaa204fc8",
+  "images": [
+    {
+      "id": "q056_offer",
+      "sha256": "227a6cf48289c2f9c68999892ea777cf14ad527138162ab0f674d36608bf3fd6"
+    },
+    {
+      "id": "q056_trail",
+      "sha256": "24eba6e47dd613687140bede7ad4c3eb03f713efc398f5855d319852f01264d5"
+    },
+    {
+      "id": "q056_bargain",
+      "sha256": "59a4ed7c153165a7f948ca6b94e5ae6054de106055c370e1feb9cda7c66ffe1c"
+    },
+    {
+      "id": "q056_echo_a",
+      "sha256": "d70dae1387bfd7a1e943446fe9149590ae1a995ef2e9bc212deda7d90f23d4f8"
+    }
+  ],
+  "review": "Native preview reviewed: long-dead courier remains alone inside ice; sealed ceasefire letter and box clue are person-free; relatives appear only in later disclosure negotiation; outcome A corrects archival records with recovered evidence, not a resurrection."
+}

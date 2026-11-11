@@ -1,0 +1,33 @@
+{
+  "key": "echo-10",
+  "events": [
+    "q040_echo_b",
+    "q041_echo_b",
+    "q042_echo_b",
+    "q043_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "echo-10-f3444dcea206.png",
+  "sourceSha256": "f3444dcea20667e5636d66fe952195d4f07e39b1fe0bc5965abf46f86807d26f",
+  "promptSha256": "fa39a9642e28a0c8c9f490b5c594fec7b23c0671faed79bfa72863521c61c508",
+  "images": [
+    {
+      "id": "q040_echo_b",
+      "sha256": "07f06e738bfa853bf0a499b4a38931b524dff8f7ba2f2e431836fd907ebbe2aa"
+    },
+    {
+      "id": "q041_echo_b",
+      "sha256": "416512584b1a1526f4bc2ba57eab51d6212cb30c60836899d2796cca0de437c9"
+    },
+    {
+      "id": "q042_echo_b",
+      "sha256": "102d575bd62e765420c65ab613bbc02465a56620d98180932f79e4b108af4e1a"
+    },
+    {
+      "id": "q043_echo_b",
+      "sha256": "cbd03625753a8c4d2878f19d8b7fb06ce54248c28f23a567b7e786055f8fdadc"
+    }
+  ],
+  "review": "Reviewed native cells q040-043: unworn crown on public plinth and donation work with embankment repair visible through opening; sealed outgoing notices and empty ship mailbox; two keepers test separate latch pieces on continuous ladder as apprentice stays safely inside; merchant and two children use coherent toolkit and glass tokens. Local NPC-only scenes, small faces and clean pixel outlines."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "whisper",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "base-05",
+  "cell": 0,
+  "beforeSha256": "3bd12d4eb70d7c9928f66c58e341a9e669c6609bfe0c3670c5e65accfea15a34",
+  "afterSha256": "3a5ad2c03086b11289e843b8cb24061f21f9bcee08f7d99fa07064436a15eb97",
+  "sourceFile": "base-05-94d0b4914b70.png",
+  "sourceSha256": "94d0b4914b70d529c40cf1a9d07dbe09aa51353dc1b3ca03ba59466eceebf857",
+  "promptSha256": "b56a41024b5b4c62f84fa91327de4c7c6f67b71c7c4c667f1ec2f760ba789afa",
+  "review": "Native parchment review: local priest and distant skeletons, incomplete bridge and waiting farmers, solitary scholar in broad night shape, ordinary house residents. No player, event subjects remain readable with shared palette and restrained outlines."
+}

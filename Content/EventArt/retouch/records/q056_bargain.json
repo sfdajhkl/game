@@ -1,0 +1,14 @@
+{
+  "id": "q056_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q056",
+  "cell": 2,
+  "beforeSha256": "4511dbd8680d23e51d3904ff9fb638020af902125edad35faeb0d6307bf9ec20",
+  "afterSha256": "59a4ed7c153165a7f948ca6b94e5ae6054de106055c370e1feb9cda7c66ffe1c",
+  "sourceFile": "q056-e6353aef47b8.png",
+  "sourceSha256": "e6353aef47b81cde8314cc3bf0862b92378d4aa336b91e5552562e33a3155711",
+  "promptSha256": "34385de7d4a93d0de60b7c84cf6b02e72b7e843972e56617ef8e3fcaaa204fc8",
+  "review": "Native preview reviewed: long-dead courier remains alone inside ice; sealed ceasefire letter and box clue are person-free; relatives appear only in later disclosure negotiation; outcome A corrects archival records with recovered evidence, not a resurrection."
+}

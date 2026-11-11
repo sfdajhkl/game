@@ -1,0 +1,14 @@
+{
+  "id": "q007_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q007",
+  "cell": 1,
+  "beforeSha256": "6625f4fb2ce378e226a35a3fc66fcd2fa63459273aea4c63ed761394b830eda8",
+  "afterSha256": "c2ed2538b440d8a80a976ed31c85aadb7747b9ce94e523a56f448015376cc33f",
+  "sourceFile": "q007-92890c8a0f04.png",
+  "sourceSha256": "92890c8a0f0419d5ffe128d29dba7eafa728c99f762f98e4821ac9243e1f9c83",
+  "promptSha256": "27ec266fbd98338f2a36fc5abfeabd8c2bad18a1cd1fd873e1598cc36f89fda6",
+  "review": "Native crops reviewed: young local courier stays outside the festival initially, the old army emblem and undelivered envelopes dominate the clue, the locals plan at the bag, and a letter is handed to a resident only in the aftermath. Continuous straps, four-color silhouettes, no adventurer party."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q038_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q038",
+  "cell": 2,
+  "beforeSha256": "813a745efa37c1f1ad21f758c069d1963fc4a7bbe8657ef556349c80323a65ed",
+  "afterSha256": "0398c1644fe5cbd07efbfcd8cfb7c4075501db32c25d0d693484059d3eff589a",
+  "sourceFile": "q038-cc2a555be56e.png",
+  "sourceSha256": "cc2a555be56ef3fb47211d53c5aef3a84a9402e07be9cdb2b7aede57c069e5c7",
+  "promptSha256": "18255c7424fd3a18d3dc87eccb3814a4d9bc0d04bb67025db558f831c895f79a",
+  "review": "Native preview reviewed: exposed roofs and leaning bell tower establish the drowned village; carved names remain abstract marks; elders and archivist negotiate before action; outcome A preserves bell and location record indoors."
+}

@@ -1,0 +1,33 @@
+{
+  "key": "echo-13",
+  "events": [
+    "q052_echo_b",
+    "q053_echo_b",
+    "q054_echo_b",
+    "q055_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "echo-13-2ecdd53d1752.png",
+  "sourceSha256": "2ecdd53d1752f8386f027446ad8b86d134033adae82a35ecd5544d070f12c10e",
+  "promptSha256": "9b2d073f1e06e573133c0b7cdf2b78f6bc0a26a70735d3e7637b41f64569ab85",
+  "images": [
+    {
+      "id": "q052_echo_b",
+      "sha256": "5bf974db8d9c5e6e808d10588d3cd6e259b258212e3878a1d8b74422993e03c9"
+    },
+    {
+      "id": "q053_echo_b",
+      "sha256": "5e90104da88c01f460c8e8d085fce53e213fff47a5f38f6ad32cbdb72952e232"
+    },
+    {
+      "id": "q054_echo_b",
+      "sha256": "c130a3f68b69a8e7ab94105043ab17b0f6969a8c9d7998e38f61261fab9eb9f8"
+    },
+    {
+      "id": "q055_echo_b",
+      "sha256": "e5fbf2afb937834373b607fb76a115e3ddfd2ff22a11d28a249d2626e2649ced"
+    }
+  ],
+  "review": "Reviewed native cells q052-055: recovered payroll and separated manager, exactly three civilian porters reach marked refuge with elderly guide, two lightly loaded porters and unused heavy pack, elder and apprentice add danger mark to map gap. No supernatural mine or player party, intact canes and work tools, clear small silhouettes."
+}

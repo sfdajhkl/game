@@ -1,0 +1,33 @@
+{
+  "key": "q031",
+  "events": [
+    "q031_offer",
+    "q031_trail",
+    "q031_bargain",
+    "q031_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q031-84707960a2f1.png",
+  "sourceSha256": "84707960a2f101018eecef06970d28d240182a4df90268b9ba813a0112a0d9ec",
+  "promptSha256": "b7d16060b488dcb7b6730eff5b4d71dff2a4cc11aadc09071a58c9547652fb2d",
+  "images": [
+    {
+      "id": "q031_offer",
+      "sha256": "60efdd4ee2c990ed7f80503055dc4ba9188a73fced01eaa37790b35dd3be659c"
+    },
+    {
+      "id": "q031_trail",
+      "sha256": "861bd5b7decccf9951d295ca46a908ef688eba1cc7002e1b2c62ce4546a21cf2"
+    },
+    {
+      "id": "q031_bargain",
+      "sha256": "f403a286d92f6d06b6160aebe73e670c44fbe922b4c570fe81acfb47738ebd17"
+    },
+    {
+      "id": "q031_echo_a",
+      "sha256": "73e9c9547e6da7afeca20c06272e781c98039d00940edd5acc436a40b665ed52"
+    }
+  ],
+  "review": "Native preview reviewed: child and goat remain stranded on the roof in offer and negotiation; submerged ferry tether and rescue preparation are readable; only outcome A places them safely in the boat. Main tether and rescue coil remain connected."
+}

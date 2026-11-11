@@ -1,0 +1,14 @@
+{
+  "id": "q002_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q002",
+  "cell": 2,
+  "beforeSha256": "6e9e9a5f09fd89d37f286f270ac3cf7c7f396d596f22120f233b51aff384e429",
+  "afterSha256": "49d4bde6edc1deb70950f9eaf97311ac3b12167d06e33930e63ecfb454ca0c46",
+  "sourceFile": "q002-8eae1bd288af.png",
+  "sourceSha256": "8eae1bd288af8153c1be7304b276f960556ee63c2178a273d39fb2c470e730fc",
+  "promptSha256": "d1472fbfc41aef6b71f620ca47b4d44805dd87534dc2023b32b63bbfa6440e84",
+  "review": "Native review: person-free well fissure clue; two local workers assemble axle materials before rescue; cleaner alone recuperating by secured pulley after rescue. q002_offer shows unwanted helpers and remains explicitly queued for a cast correction."
+}

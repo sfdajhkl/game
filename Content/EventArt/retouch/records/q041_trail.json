@@ -1,0 +1,14 @@
+{
+  "id": "q041_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q041",
+  "cell": 1,
+  "beforeSha256": "3d831096c5f1ca5702fbdb4ffe92c6fa3164b4404c8f192f8c7f8f5c70f77a68",
+  "afterSha256": "2d9b4707574f29af4cf83a7df1f802ed0480b0438e5a3e7a834e3d986d4c40b4",
+  "sourceFile": "q041-69484a16b32c.png",
+  "sourceSha256": "69484a16b32c6be7da01f62862f0ad516cbecfc7cc830505a042c6a1ffedf2fd",
+  "promptSha256": "24d110513c027e1507d62dcf0a6b642e6e786b7805d8d95f3d9b3fbde67563b9",
+  "review": "Native preview reviewed: condolence sheet, closed keepsake at gangway, and family handover correctly separate phases. Offer has three unrequested background figures in the cabin; q041_offer is queued to restore the solitary captain composition."
+}

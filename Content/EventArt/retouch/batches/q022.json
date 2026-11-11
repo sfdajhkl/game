@@ -1,0 +1,33 @@
+{
+  "key": "q022",
+  "events": [
+    "q022_offer",
+    "q022_trail",
+    "q022_bargain",
+    "q022_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q022-af6b78c68247.png",
+  "sourceSha256": "af6b78c6824761320f237069b881f8a74109666571b33f43131670ca5709bf33",
+  "promptSha256": "730b939495ec37d87c572a3a2bb21f37cfec64d8d00992e4aeefc393c0549eff",
+  "images": [
+    {
+      "id": "q022_offer",
+      "sha256": "28c9d4032453847a1105dea0a25090f7276482486ffc8f4c4a7f2f8f68fe91a6"
+    },
+    {
+      "id": "q022_trail",
+      "sha256": "c50455ecaa190fff01ec37a8db6284600b55ad4b005fb7a6e0c2b8bd0c5792e2"
+    },
+    {
+      "id": "q022_bargain",
+      "sha256": "a0ddea2b3e760f5e3906715055cc987584aa0ae646fdb0beef9fda7d18457c7b"
+    },
+    {
+      "id": "q022_echo_a",
+      "sha256": "14285115d6a96c6032faa7984f0d459351c1bfa8f6da7d422cef3eccf786900c"
+    }
+  ],
+  "review": "Native crops reviewed for phase and cast: musician remains beneath overturned wagon initially, violin and keepsake clue is person-free, locals collect a lever before rescue, and bandaged musician sits safely afterward. Violin clue string rendering requires a separate correction before final completion."
+}

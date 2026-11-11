@@ -1,0 +1,14 @@
+{
+  "id": "q059_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q059",
+  "cell": 3,
+  "beforeSha256": "3da86f20b4472a0c9c12371ca77d763e209b5e85138b6c2d329573fbefc65c22",
+  "afterSha256": "aec77af5e43aa969cb900d734254b55dd77dfa2315a32767b6aad0764a406761",
+  "sourceFile": "q059-4db6d3fbf543.png",
+  "sourceSha256": "4db6d3fbf5432a90e941f46df03889a99a01ddc8be61f2e98006f7619eaae8bc",
+  "promptSha256": "2d5e441aff0231b1d0c1b0c265aa30363fdf4e780eecc2f6babe066a1db44a3b",
+  "review": "Native preview reviewed: distant predator, ranch and mine establish displaced habitat; blocked paw trail is person-free; rancher and mine owner negotiate at a loose fence post; outcome A restores a separated animal corridor and relocates the fence. No hunting party or trophy scene."
+}

@@ -1,0 +1,33 @@
+{
+  "key": "q038",
+  "events": [
+    "q038_offer",
+    "q038_trail",
+    "q038_bargain",
+    "q038_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q038-cc2a555be56e.png",
+  "sourceSha256": "cc2a555be56ef3fb47211d53c5aef3a84a9402e07be9cdb2b7aede57c069e5c7",
+  "promptSha256": "18255c7424fd3a18d3dc87eccb3814a4d9bc0d04bb67025db558f831c895f79a",
+  "images": [
+    {
+      "id": "q038_offer",
+      "sha256": "58bc5bb0bc99dfa0d232599371cd056ef4a790398fdcdf8bf241ca7c29cc594c"
+    },
+    {
+      "id": "q038_trail",
+      "sha256": "25d8a7d59a18e60c40e8e771e06638aa89febdca4f2826eb840721d5058d965a"
+    },
+    {
+      "id": "q038_bargain",
+      "sha256": "0398c1644fe5cbd07efbfcd8cfb7c4075501db32c25d0d693484059d3eff589a"
+    },
+    {
+      "id": "q038_echo_a",
+      "sha256": "abf3ce436e72a8d55d5e245a75858a0c976bfe3632bff9e176b90faed0ec3b63"
+    }
+  ],
+  "review": "Native preview reviewed: exposed roofs and leaning bell tower establish the drowned village; carved names remain abstract marks; elders and archivist negotiate before action; outcome A preserves bell and location record indoors."
+}

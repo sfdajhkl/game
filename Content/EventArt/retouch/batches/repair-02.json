@@ -1,0 +1,28 @@
+{
+  "key": "repair-02",
+  "events": [
+    "q073_bargain",
+    "q090_offer",
+    "q022_trail"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "repair-02-347995da618c.png",
+  "sourceSha256": "347995da618c8893dcf1eec029cda72f40d7d1b41062c2c04366bedb175414ab",
+  "promptSha256": "64a7e10b025556f52d7e64097684f6f3487ae1227cf022ad0ba63ee5b2f76ba7",
+  "images": [
+    {
+      "id": "q073_bargain",
+      "sha256": "ed3151c025bc355c858e0bf41e7a8556abc548b1a8bb07babe2586ecd28ed079"
+    },
+    {
+      "id": "q090_offer",
+      "sha256": "15538694e80a1a1126e6174cdb7cfb46d2baf956d9a2fbf68e3d2715ba1bb842"
+    },
+    {
+      "id": "q022_trail",
+      "sha256": "6e714c511597179afd1d29f26b3c8c39481d68d03cd3255c5766c2d6b2234fbd"
+    }
+  ],
+  "review": "Native repair preview reviewed: q073 water and foliage are connected quiet masses, q090 horizon and cloak are flat with three swords retained. Violin shape is clearer but diagonal strings still alias into a chain at native resolution; q022_trail remains pending for a horizontal-string repair."
+}

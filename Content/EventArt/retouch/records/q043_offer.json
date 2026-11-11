@@ -1,0 +1,14 @@
+{
+  "id": "q043_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q043",
+  "cell": 0,
+  "beforeSha256": "865a6361bb4eb98c020487b1900f93baab5be1886decf2460ab25998ecfcbecd",
+  "afterSha256": "9de60ee39f8a00c9783bff83185a79b97234804a2938af2547deb589f0d11758",
+  "sourceFile": "q043-cebf486f634a.png",
+  "sourceSha256": "cebf486f634adc9c03fdaa4e4c2fc617fcbb2e77832078c6c67fd0de22f4d8c8",
+  "promptSha256": "91518100af603bbcdb695f9daaf6b83e41b4fa84e1ebfc4cf076b4d10a553ef6",
+  "review": "Native preview reviewed: merchant and two local children frame the false pearl sale; broad bubbles inside a broken bead reveal glass; proposed tools remain on the ground before agreement; only outcome A shows the sea-glass stall. No party inserted."
+}

@@ -1,0 +1,33 @@
+{
+  "key": "base-05",
+  "events": [
+    "whisper",
+    "bridge",
+    "scholar",
+    "homecoming"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "base-05-94d0b4914b70.png",
+  "sourceSha256": "94d0b4914b70d529c40cf1a9d07dbe09aa51353dc1b3ca03ba59466eceebf857",
+  "promptSha256": "b56a41024b5b4c62f84fa91327de4c7c6f67b71c7c4c667f1ec2f760ba789afa",
+  "images": [
+    {
+      "id": "whisper",
+      "sha256": "3a5ad2c03086b11289e843b8cb24061f21f9bcee08f7d99fa07064436a15eb97"
+    },
+    {
+      "id": "bridge",
+      "sha256": "18c4f52901b8a6ff8dbccd17577857b7a5859781dab4a8f41e5457665b1df264"
+    },
+    {
+      "id": "scholar",
+      "sha256": "56e3eb6703ca8512cf513882db97d7a41a8dce6c8c6e1b4a9a90fd4b6bead765"
+    },
+    {
+      "id": "homecoming",
+      "sha256": "f0f6b189aadf691ee84eee465ae464056f5b371a14caf44ed5a00c1c8b299297"
+    }
+  ],
+  "review": "Native parchment review: local priest and distant skeletons, incomplete bridge and waiting farmers, solitary scholar in broad night shape, ordinary house residents. No player, event subjects remain readable with shared palette and restrained outlines."
+}

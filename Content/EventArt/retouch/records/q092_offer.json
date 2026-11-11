@@ -1,0 +1,14 @@
+{
+  "id": "q092_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q092",
+  "cell": 0,
+  "beforeSha256": "cd3835652a1afb1cee1dd17cc44643726fe893754caa518fdf7c5f359efc1e51",
+  "afterSha256": "d47d782a89089a6c4965c51553da3b0e5052af099a80c5cb0965407e83c2c1d4",
+  "sourceFile": "q092-8dc0610c3758.png",
+  "sourceSha256": "8dc0610c37589d016d3d6bcb7e65f1e3a92c15c4735885e55b9e88e6d446e15c",
+  "promptSha256": "7dd6bb5775c30501cd30c7ba5200f8345fdbcf29a1eadae6dd6b8c3972d174f1",
+  "review": "Reviewed final native grid: lone mage at crystal; near village windows lit and remote houses dark; supply line and star-map clue; mage with three local representatives; ordinary lantern and stars after crystal is inactive. Restrained outlines and distinct lighting states preserved in four flat colors."
+}

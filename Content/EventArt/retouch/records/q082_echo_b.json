@@ -1,0 +1,14 @@
+{
+  "id": "q082_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q082",
+  "cell": 3,
+  "beforeSha256": "04a7a3ebbd6639810754b3297e32131848478cf6a6e5e3167ed26e6992b30095",
+  "afterSha256": "acd1bdf1625a48eaed2f8945c068feba562dd32de54634a38e3f421ee8beed92",
+  "sourceFile": "q082-5f4b3dc91ff9.png",
+  "sourceSha256": "5f4b3dc91ff917f77d80d681ee06b50649c3d18b0b49dca909b87822bc361594",
+  "promptSha256": "e55576353bf0ef8885d68295032af6ba8ca71ef33ebf47e36ec29689da661f8f",
+  "review": "Native review: mercenary alone with letter, thank-you correspondence and keepsake are person-free evidence; elder survivor records actual comrade in result A; result B is private mercenary, widow and child conversation without extra witness. Identity and subdued posture consistent."
+}

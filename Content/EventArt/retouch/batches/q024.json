@@ -1,0 +1,33 @@
+{
+  "key": "q024",
+  "events": [
+    "q024_offer",
+    "q024_trail",
+    "q024_bargain",
+    "q024_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q024-73c93b6ad64c.png",
+  "sourceSha256": "73c93b6ad64c97c52934f76a4a6f06c257b8cf00663cfd69f55d2517db361710",
+  "promptSha256": "a20d4c580e22050728f1a8f2aad7844878067e8215a001b643ae527ee1a0efaa",
+  "images": [
+    {
+      "id": "q024_offer",
+      "sha256": "698297b98ad180f2ec41a20a0c3541ce9ff443bafe11889e1a8d1f8bcab332df"
+    },
+    {
+      "id": "q024_trail",
+      "sha256": "7d49447dabbdebf48c32bd12b5af3f451b962b9c322b17bf5733d2bdce7d35c0"
+    },
+    {
+      "id": "q024_bargain",
+      "sha256": "366771c858758774adbcde6c52f29681c0ec54bf415e444477a1def3330738f3"
+    },
+    {
+      "id": "q024_echo_a",
+      "sha256": "5a652de6e4f880e91446a98cdb7a97ab21abb1b4dcb2b8c59d445093342a9025"
+    }
+  ],
+  "review": "Native four-color preview reviewed: split wheel and salt clue are readable; repair negotiation retains the wheelwright and roadkeepers; aftermath shows intact reinforced rim beside gravel. Gravel is localized scene content, not global texture."
+}

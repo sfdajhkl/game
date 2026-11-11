@@ -1,0 +1,14 @@
+{
+  "id": "q046_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q046",
+  "cell": 1,
+  "beforeSha256": "429a60218d8107a4cd8338260ec44b192e9307d609a4114c8b40d3dcbcd437f9",
+  "afterSha256": "aee554fad3ebe8ce7d2547e9fbb589efd206e8826c9a856ee936bd3115eab83b",
+  "sourceFile": "q046-94d328d3e3b9.png",
+  "sourceSha256": "94d328d3e3b9b8caa489d8dd65766ae0b9c5687dc04b71802c0eeb7ac83e6fdf",
+  "promptSha256": "f0f276d881836fb17f37a19e02f61e0ca7551d68e4e6b40730c9e4fb94b9480f",
+  "review": "Native preview reviewed: two rival guild representatives remain separate from three survivors; original and duplicate ship plates form the clue; unoccupied stretcher keeps rescue priority visible before agreement; only outcome A distributes compensation with records."
+}

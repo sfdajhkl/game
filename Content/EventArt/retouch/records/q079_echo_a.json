@@ -1,0 +1,14 @@
+{
+  "id": "q079_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q079",
+  "cell": 3,
+  "beforeSha256": "2eea28aa4425d198dab20b8a9e03a4d082f8fda9b25eae1eb97cc1a22401a4d4",
+  "afterSha256": "6aeade12682c755e20a17f19c12ec607f06ebfee328e21d2e9f869ebe2608b0e",
+  "sourceFile": "q079-d00e0e61caac.png",
+  "sourceSha256": "d00e0e61caaccfd8d183497f2fe8444e8d70a0b5b35d09a04430ebbf8c83db44",
+  "promptSha256": "f43139e92ec7c1b05d017ff260801b0c5d9682d796bf919e3eaf089ead9f715f",
+  "review": "Native review: empty plates and grain-built decorative tower explain failed feast; empty sacks and siphon focus clue; cook with real loaf faces host before change; result shows workers eating solid bread and soup. Only household staff, host and mage appear."
+}

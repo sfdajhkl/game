@@ -1,0 +1,14 @@
+{
+  "id": "q087_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q087",
+  "cell": 2,
+  "beforeSha256": "b43929ffd53b6e24ad027efadeb5c442c186310c802803ab8858e922177e2e7f",
+  "afterSha256": "74d26a24b3e8a513c606d89c27935fd53fbf4d7d525bb498d7a277aaf55fe6d1",
+  "sourceFile": "q087-e41c532acf87.png",
+  "sourceSha256": "e41c532acf8771d4ae706586154bed90af4437d8c43514c3003542a77d6e9330",
+  "promptSha256": "1fe437151505a9d5ed54e1ae687698ece7ba710c2ebbcd38b433de4611000afb",
+  "review": "Reviewed final native grid: egg alone in burned arch; broken spear and connected protective charm; two guards and researcher with empty carrier while egg stays at wall; egg remains unhatched on thermal stone. Cords continuous and no player party."
+}

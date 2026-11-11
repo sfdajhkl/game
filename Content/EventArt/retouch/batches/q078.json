@@ -1,0 +1,33 @@
+{
+  "key": "q078",
+  "events": [
+    "q078_offer",
+    "q078_trail",
+    "q078_bargain",
+    "q078_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q078-2cf5f390ac3b.png",
+  "sourceSha256": "2cf5f390ac3b746646504661945eb9dabb792c45ce712076060e0bc1e85e458c",
+  "promptSha256": "1d0a7d9867a784f10e38ae59ea371076a17bc8ec0e8de8321d195220fc8d8f0d",
+  "images": [
+    {
+      "id": "q078_offer",
+      "sha256": "53ebd50bef9470f6d96d02a1d8442052be8c9b6944860938aae2e61791f4f708"
+    },
+    {
+      "id": "q078_trail",
+      "sha256": "4b4aa44ccbaaced9e7561e2612d6231d182ecffb21634443c67564f5665a671a"
+    },
+    {
+      "id": "q078_bargain",
+      "sha256": "eddc5e93600b15c13f93be2f5aa044f0882052bd7a14059e60a641c63708e3c8"
+    },
+    {
+      "id": "q078_echo_a",
+      "sha256": "921ee98311f1897eee3d1b3db8869fb71985c8dbf039572988e83ef3da09ab78"
+    }
+  ],
+  "review": "Native review: household NPCs and their mismatched shadows establish the fault; silver powder and magic circle are person-free clue; maid stays at threshold while wizard and noble discuss; final maid works freely and spell stays at doorway. Powder texture is a specific clue, other areas flat."
+}

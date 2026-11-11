@@ -1,0 +1,33 @@
+{
+  "key": "q045",
+  "events": [
+    "q045_offer",
+    "q045_trail",
+    "q045_bargain",
+    "q045_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q045-05e13d9d1aa5.png",
+  "sourceSha256": "05e13d9d1aa55f1f2146eda3a097383111eaa6f7e36126f39e3a510cad637ca1",
+  "promptSha256": "d27d955b3fdd51ac2444722f75420f954f6f01b747ffa032482c9f735ca0c2ad",
+  "images": [
+    {
+      "id": "q045_offer",
+      "sha256": "e47ec1f18245118283603eaf25d59bb891c718cc33c34a89ab130d5f17f88166"
+    },
+    {
+      "id": "q045_trail",
+      "sha256": "ae18bed5794f37fd6b0f726c555d848731d8218b838fca4a3d6495159d1b034d"
+    },
+    {
+      "id": "q045_bargain",
+      "sha256": "e79e9e15a4204ece4cd587aa19e53399031bf245bea71c1626f46a606f7f6765"
+    },
+    {
+      "id": "q045_echo_a",
+      "sha256": "aff56ceea4215419a3b0b6d17b39bb6dfb819f2852bf400b60b23008345fd4fa"
+    }
+  ],
+  "review": "Native preview reviewed: workers retreat from a low slime under the pier; three rope loops carry directional residue to the drain; sectional barrier precedes cleaning; only outcome A shows cleared drainage and removed rotten ropes."
+}

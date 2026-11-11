@@ -1,0 +1,33 @@
+{
+  "key": "q009",
+  "events": [
+    "q009_offer",
+    "q009_trail",
+    "q009_bargain",
+    "q009_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q009-1092b56ed266.png",
+  "sourceSha256": "1092b56ed26664ebb6566e280fd5034496b0e7c94de8c1767de1541832bc2214",
+  "promptSha256": "4b99b51c0b65be27b859bd6e6fab2377e6bf8248994132809c5ad99b17319140",
+  "images": [
+    {
+      "id": "q009_offer",
+      "sha256": "f4c18ed3aabe9c2fc2b260590aab8dc7247fd33473c9857608f938ec9299e98e"
+    },
+    {
+      "id": "q009_trail",
+      "sha256": "2f4335deecb6bde25d96f283a1aa0723404b11a7a03b369569090541ab64ae8d"
+    },
+    {
+      "id": "q009_bargain",
+      "sha256": "a978edd4ad26c2bd48d344c278d86ef33d6d31e65161abb0c9f9641f1cd67014"
+    },
+    {
+      "id": "q009_echo_a",
+      "sha256": "d1311aaac5b4398d397e732e75fecc2552f6585f9a52cfaf3ff0b9dd1db47b91"
+    }
+  ],
+  "review": "Native crops reviewed: key-holder and innkeeper in the empty house, height marks and saved letter as the clue, key untouched between the parties before agreement, and the removed marked doorframe preserved with tenant records afterward. No predetermined hero home or portraits."
+}

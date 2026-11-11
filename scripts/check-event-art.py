@@ -41,7 +41,11 @@ print(f'PASS: {len(actual)}/500 distinct illustrations; 192x128 opaque pixels; {
 if missing: print(f'IN PROGRESS: {len(missing)} scenes still need illustrations.')
 else: print('PASS: every catalog event has a matching image, scene brief and Unity metadata.')
 
-if not args.partial:
+if not args.partial and (root/'Content/EventArt/retouch/plan.json').exists():
+    import subprocess
+    import sys
+    subprocess.run([sys.executable, str(root/'scripts/check-event-retouch.py')], check=True)
+elif not args.partial:
     sources = json.loads((root/'Content/EventArt/sources.json').read_text())
     reviews = json.loads((root/'Content/EventArt/review.json').read_text())
     repairs = json.loads((root/'Content/EventArt/repairs.json').read_text())

@@ -1,0 +1,33 @@
+{
+  "key": "q074",
+  "events": [
+    "q074_offer",
+    "q074_trail",
+    "q074_bargain",
+    "q074_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q074-dd06fc6b2b46.png",
+  "sourceSha256": "dd06fc6b2b465ebbf3ad82c41c7f8dc95b25f8a911b0b8bb4ecae9aec306313d",
+  "promptSha256": "5576d59f94b7b262d0803f835e0f03b5dd63bdd40bfe9b08fbc9e64f78c4186d",
+  "images": [
+    {
+      "id": "q074_offer",
+      "sha256": "c490b6f60c83c8448522f9631f405ff48e1f5bb26fc86772abc851da60ece50a"
+    },
+    {
+      "id": "q074_trail",
+      "sha256": "7fd2f6b6c5ad5fe613a7ffca443b5c75728af3a6e50f7d0c594b88aa2e169e8e"
+    },
+    {
+      "id": "q074_bargain",
+      "sha256": "03ed49509973647819278317417464ce2b9baf75fc548c72b0ebde3e625bf940"
+    },
+    {
+      "id": "q074_echo_a",
+      "sha256": "8493df7224ffece6493d88b96282e7e046f28744ad14c73cc36fea18aa9f22a9"
+    }
+  ],
+  "review": "Native review: two villagers at quiet conscript memorial, reed bundle tag and register remain readable; three relatives confer privately, outcome delivers recovered record at doorway. No ghosts or public forced return; restrained flat sepia shapes."
+}

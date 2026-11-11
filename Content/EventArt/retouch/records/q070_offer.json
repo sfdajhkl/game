@@ -1,0 +1,14 @@
+{
+  "id": "q070_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q070",
+  "cell": 0,
+  "beforeSha256": "c2ea71d0cbc6f98d49be77bffcf79c721f5e4ba9f69eec0b558167d4c5f2e02f",
+  "afterSha256": "420f16bddc6a9df3286e329d875716872c9400a4e4df6b2be4e8f2c390cf53cf",
+  "sourceFile": "q070-82b9e39836b5.png",
+  "sourceSha256": "82b9e39836b51ab9a6cb1aae7aef0b5bdf1ecaa7a04c092c9df919bbe1509b37",
+  "promptSha256": "ccd2956dc583197787b72e0bb34afacf7b41d9f7a8c8f33ac2327c8aea3d9e21",
+  "review": "Native review: empty original lantern socket and shifted lantern make the moving sign problem readable; connected roots displace the base; only two boat workers discuss markers and the final still scene shows a heat-free reflector. No player or unrelated NPCs."
+}

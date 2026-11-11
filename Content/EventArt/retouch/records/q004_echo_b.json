@@ -1,0 +1,14 @@
+{
+  "id": "q004_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-01",
+  "cell": 0,
+  "beforeSha256": "c34741017be06cf428695a3af215f23dc93d63f1c57300bd2aed16ebe0cfb9c8",
+  "afterSha256": "dafd276c0d1c5db30f2571cbcdac54e5b1ce867f4929d53c2497ec8cf009f6a4",
+  "sourceFile": "echo-01-3367a64a6823.png",
+  "sourceSha256": "3367a64a6823090d26f18e2f57323f9656e00388cd10d7f3339f51921a27cf5f",
+  "promptSha256": "93680970598ce7cadb30385fb656e88272ae78385f583e8c8939c25b9a808b8e",
+  "review": "Reviewed native cells q004-007: schoolchildren and teacher use public map with ink pots and blank roll; farmers sort crops in separate bays under common rule; person-free prepared pharmacy shelf and hanging apron; local child, elder and courier distribute invitations without player family. Coherent small silhouettes, useful objects and restrained outlined palette."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q071_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q071",
+  "cell": 1,
+  "beforeSha256": "a33893cbb1a7acfb4e2e1652e50406f7a9810257025ce0bce9727b35c011439e",
+  "afterSha256": "6052d6e85b313b1c919ea42e54220d63588487329b65645788540e4c8aaa1b25",
+  "sourceFile": "q071-6acee3bcae87.png",
+  "sourceSha256": "6acee3bcae87a3977c438ca8315b7d95fe827ec0c19ce01c593548128bcc4706",
+  "promptSha256": "92127e9bf1bed0d7393019554bdbb4b36d7ea72e6ea286089d572654ffe91e2d",
+  "review": "Native review: silent film-covered pond, large connected web leading to reed nest, two local workers preparing small purification area, and cleared stream with single returning frog are distinct. No bonfire or premature celebration; no party figures."
+}

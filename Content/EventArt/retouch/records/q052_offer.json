@@ -1,0 +1,14 @@
+{
+  "id": "q052_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q052",
+  "cell": 0,
+  "beforeSha256": "75194011bb887715ba9f351b31f21f9ccba3c889fc528812bee83ccb409803a3",
+  "afterSha256": "ada6c001504553300716406b2b15beb580708e920f3cea6cc84cfaef1ce06f6b",
+  "sourceFile": "q052-1cc08cdfcbac.png",
+  "sourceSha256": "1cc08cdfcbac1b39e00e63e1766d9194d8f7093c48cc775fcfa96510e8f07a20",
+  "promptSha256": "3d2b08f2a4efae547be1e3e119e3c945cb0766ffb17c7e64f280b38de6f4a581",
+  "review": "Native preview reviewed: cart in the abandoned mine and freshly oiled axle are person-free; miners approach the union clerk before agreement; outcome A has local miners closing an unsafe tunnel as paid cleanup. Clear wheel and connected rails."
+}

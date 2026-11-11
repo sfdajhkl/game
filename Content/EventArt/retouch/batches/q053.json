@@ -1,0 +1,33 @@
+{
+  "key": "q053",
+  "events": [
+    "q053_offer",
+    "q053_trail",
+    "q053_bargain",
+    "q053_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q053-16021611c4fd.png",
+  "sourceSha256": "16021611c4fdce9fda3a80d13515ac9c3f0993cb41750811a5d01afab6f7f472",
+  "promptSha256": "4cdbdb7b120ddd5ab6e12e816c6050c7d9b519a64f5dd4d154379d31ae7c29b8",
+  "images": [
+    {
+      "id": "q053_offer",
+      "sha256": "7924afbe859484fcfa3f4234503246d6012082821682c20214a2cc0c79e91ee4"
+    },
+    {
+      "id": "q053_trail",
+      "sha256": "34abcf0ee0e3ca04ec01700959aacb57c412b0a7645b2bdf0c31ffb61f0ec18a"
+    },
+    {
+      "id": "q053_bargain",
+      "sha256": "ed0e52acf2acde22b9a8d46bc44deed0c8178c036f375d197dea58509c049df7"
+    },
+    {
+      "id": "q053_echo_a",
+      "sha256": "940bbd190181f5fce5f1a6a382b97464875152954c1a94419aa66e4433ee0f83"
+    }
+  ],
+  "review": "Native preview reviewed: six trail lines and reversed boot direction are readable; guide remains alone while preparing refuge before rescue; exactly three missing porters appear only in outcome A under the rock shelter."
+}

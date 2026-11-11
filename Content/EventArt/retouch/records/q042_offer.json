@@ -1,0 +1,14 @@
+{
+  "id": "q042_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q042",
+  "cell": 0,
+  "beforeSha256": "b3af4ca6eb0455618680d09a3d9a2ff7cf2af562da60eb071e6f68a33a3fd221",
+  "afterSha256": "fd74166e89a2511084ed3952b019052310c1f447501e134080974923af6d0bab",
+  "sourceFile": "q042-30c5902d94e9.png",
+  "sourceSha256": "30c5902d94e946f86d06b42e291cf807ef3ded8e31c875274cc000fb1e01225a",
+  "promptSha256": "e95f63b4df9bb4730798ff4ee228d51b57f4da40be8bf4b3786be220c6e20cda",
+  "review": "Native preview reviewed: apprentice remains outside on the broken ladder in offer and negotiation; two keepers are inside preparing a support, lantern remains lit. Only outcome A brings apprentice indoors; main rescue rope remains connected."
+}

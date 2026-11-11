@@ -1,0 +1,33 @@
+{
+  "key": "q063",
+  "events": [
+    "q063_offer",
+    "q063_trail",
+    "q063_bargain",
+    "q063_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q063-af1951cd3757.png",
+  "sourceSha256": "af1951cd3757a24eb81ccd9c1c1fccd1559028dcded66212d7e2dea8dd5457a4",
+  "promptSha256": "cbf92f6f83aa8d81f1beabc5599017e59b9721ac1f1fcacb687a8449cbc8e3b4",
+  "images": [
+    {
+      "id": "q063_offer",
+      "sha256": "ea75d0ef37c3bc7c3a0881bc63c9bb59a432f3358e442455562b2d3fae88b5f1"
+    },
+    {
+      "id": "q063_trail",
+      "sha256": "ec7406fe45cd0ad16126d6c6645739fcb4dbefe69b457007c1673ed90e4b76d3"
+    },
+    {
+      "id": "q063_bargain",
+      "sha256": "94ed84692bddb397a26b362422034802e04f1fadc9e709a7ce4ed901fdb51b70"
+    },
+    {
+      "id": "q063_echo_a",
+      "sha256": "7c89233426d43a1c4072812b98133e4e052f2bd5176acffc14d5ce81ad18e9b8"
+    }
+  ],
+  "review": "Native review: two excavation NPCs debate the lamp; blocked ventilation and flame direction show cause, demonstration stays before decision, repaired vent and stable flame are outcome only. Bordered lamp and connected handles survive native reduction."
+}

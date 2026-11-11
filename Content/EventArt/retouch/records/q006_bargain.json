@@ -1,0 +1,14 @@
+{
+  "id": "q006_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q006",
+  "cell": 2,
+  "beforeSha256": "84c9bed4e7ba09057d4c29dfc0054cb5d5c82868946b4feb75b1f97529a139ae",
+  "afterSha256": "0faae3b33cfe46ab9bca2317c8a9b52bb05aa581900fb2269e2670c320390798",
+  "sourceFile": "q006-b99bd91ab600.png",
+  "sourceSha256": "b99bd91ab6004623ebf10ba7ae35ea327583601689bc17aa0dac54993bf83e87",
+  "promptSha256": "aa4b4604a9460305f55e79ca8fe1ac00dc72b4113a84d4134fc41ea1ac8b340f",
+  "review": "Native crops reviewed: departing pharmacist with closed box at the empty shop, patient notes and herbs in the open box, planning by the medicine jar, and an ordinary resident bringing herbs only in the aftermath. Same pharmacist design, sparse faces, restrained outlines, no player."
+}

@@ -1,0 +1,33 @@
+{
+  "key": "q027",
+  "events": [
+    "q027_offer",
+    "q027_trail",
+    "q027_bargain",
+    "q027_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q027-2c99a3148e9c.png",
+  "sourceSha256": "2c99a3148e9c52bba55345fce335887822f7654e75b2c911839cddf3279f3b69",
+  "promptSha256": "f7d3a97d3e19b6cabeca0a9130c4c85e8f4171df2cd4c345e9aaf2e5d5732e29",
+  "images": [
+    {
+      "id": "q027_offer",
+      "sha256": "9070eea1e35b43977ce4d635474e16695d80aedc0ef2e15df5c3fb04cf191bac"
+    },
+    {
+      "id": "q027_trail",
+      "sha256": "c225f385e0665f47c45c2037401bb93b450618d5979c8aa0a61f8ff95e86e4c5"
+    },
+    {
+      "id": "q027_bargain",
+      "sha256": "073208dbd1d4e8997fe65ee744b8c664697db3a7f7b7b923e391f0551026cdbb"
+    },
+    {
+      "id": "q027_echo_a",
+      "sha256": "f9b2b4f139bf7d103f0f80ebb973524d20efc471ce3ed370007e73a0878edf09"
+    }
+  ],
+  "review": "Native preview reviewed: family remains outside the gate before the decision; shovel and damaged dyke convey the work condition; outcome A moves mother and child into a dry tent. Sparse rain marks are intentional and silhouettes remain clear."
+}

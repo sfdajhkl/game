@@ -1,0 +1,14 @@
+{
+  "id": "q090_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q090",
+  "cell": 0,
+  "beforeSha256": "9aa285fa263d5f331c78d857626728c5c52bf90663e8a443dbd6c2d9ff11eb2d",
+  "afterSha256": "41b3d395eaff9c2c744090176a94a98f07b024e51495e0026945b880abc8cd67",
+  "sourceFile": "q090-cb01ab002c8c.png",
+  "sourceSha256": "cb01ab002c8c4a6ed549dcf6abb7d0ccd8643e5343e6f7112c84d0edc272072b",
+  "promptSha256": "69c5ee9744b69d867d428a0eee3097d71dae41e446946e22324a9157b4b6661e",
+  "review": "Native grid reviewed: distinct tagged sword clue, empty armor beside completed memorial, family receives sheathed sword from civilian merchant with other swords tied. Bargain phase incorrectly includes living onlookers; explicitly pending repair-05 before shipment. No issue in trail or aftermath cells."
+}

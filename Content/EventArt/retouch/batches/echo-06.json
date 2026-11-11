@@ -1,0 +1,33 @@
+{
+  "key": "echo-06",
+  "events": [
+    "q024_echo_b",
+    "q025_echo_b",
+    "q026_echo_b",
+    "q027_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "echo-06-74ed2e0314f2.png",
+  "sourceSha256": "74ed2e0314f2ece7c2678b922468378f50a38c12ddf39e43b5764f5a67798a30",
+  "promptSha256": "d4d1ffafae652e94146952db26595b9f84a0fb33d1a0c9d6c28b821cc6ddcf0f",
+  "images": [
+    {
+      "id": "q024_echo_b",
+      "sha256": "dc1e8572a2f5aebd9c87cc7e5b2999131a3b3e5c6ac3f0489ce62bb70c31913c"
+    },
+    {
+      "id": "q025_echo_b",
+      "sha256": "05a4717695a670397f8d23a8298da2679c05b2ff1414c01439a554516e936ace"
+    },
+    {
+      "id": "q026_echo_b",
+      "sha256": "a75edb202efecfd4559d6b13cc23fc42fc0a1d9b3c8ecb35bc34dedd17164986"
+    },
+    {
+      "id": "q027_echo_b",
+      "sha256": "f50abc76037406726a1568f7db6b5ad8cf1a72bd99050ec34495222dd4f0bf4f"
+    }
+  ],
+  "review": "Reviewed native cells q024-027: wheelwright and road keeper complete distinct repairs as porter cart resumes; carpenter passes portrait-free new notices; retiring owner provisions creditor while paid workers continue safely; mother and adolescent stack sandbags near warm soup shelter. Connected tools and natural varied bodies, no player escorts or victory feast."
+}

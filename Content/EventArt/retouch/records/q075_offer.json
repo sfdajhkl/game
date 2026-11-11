@@ -1,0 +1,14 @@
+{
+  "id": "q075_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q075",
+  "cell": 0,
+  "beforeSha256": "53b04bb0c1b58997f043a1f8de186712f40d5c7fc5ec96e7965b08005ede41d0",
+  "afterSha256": "0638359a07d8e6fb8cb0e009f77bf58a1c710d6f6ae348aafa271a68660a060d",
+  "sourceFile": "q075-ab0cb99566be.png",
+  "sourceSha256": "ab0cb99566bed0f4e31d2d94e6b5acff94bcd693a30010b55ad39d8c4ae2cf1c",
+  "promptSha256": "0a187b8a72387999c3aab9c5c9ac3a76e821b6e91373fcb91aa61ccb8470d115",
+  "review": "Native review: submerged stone tribunal is empty, register dates and blank charge column are isolated clue, new judge meets two descendants outside boundary rope, restored testimony returned at archive doorway in outcome. No fantasy combat party."
+}

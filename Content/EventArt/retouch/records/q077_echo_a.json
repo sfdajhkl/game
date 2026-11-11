@@ -1,0 +1,14 @@
+{
+  "id": "q077_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q077",
+  "cell": 3,
+  "beforeSha256": "58de708e17593617a3d0bb20af6821e6e719b07bd3b917cf5dc2e3480115b545",
+  "afterSha256": "efdbae0d87f709aebff329a2ff9bb8e9915520570cd3edbeba2187a9ed49576c",
+  "sourceFile": "q077-c8605b4e1fc2.png",
+  "sourceSha256": "c8605b4e1fc21cae5f0e7919bd598be25414012f8d5b5d97e925359e5b639ea3",
+  "promptSha256": "36db62575903dc570bbcd7a05769ceda85099a3599553657e1d5c3ea944bf48f",
+  "review": "Native review: empty fog path and hidden speaking horn introduce false judgment; three local villagers discuss blackmail, recovered letters and retreating culprit appear in outcome. No phantom judge or player party; fog uses solid planes, horn and grate intact."
+}

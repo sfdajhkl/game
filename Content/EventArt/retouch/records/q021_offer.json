@@ -1,0 +1,14 @@
+{
+  "id": "q021_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q021",
+  "cell": 0,
+  "beforeSha256": "be605e34d389a2ba2e8256d6534a3df2e0164dfcfeaa38c441d3f732520f5f6d",
+  "afterSha256": "7487ba72010cf9807ac90cd6800148d0c92fd5c0059e356b4adb0416dbb23126",
+  "sourceFile": "q021-37cb165f894e.png",
+  "sourceSha256": "37cb165f894e7c2b8a930884c267eb0fa8967929e9130052dcb8e45365908488",
+  "promptSha256": "c9dc99fca35b1a43c7d62bec98e0bc6f93b2139ec321549ecb208fad6a6c72ba",
+  "review": "Native crops reviewed: two wagons depart different forks, bell and herb crates share indistinct original tags, drivers and recipients pause before coordination, and corrected pictorial tags accompany delivery afterward. Hand and crate silhouettes remain distinct, no hero courier."
+}

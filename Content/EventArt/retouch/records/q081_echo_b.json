@@ -1,0 +1,14 @@
+{
+  "id": "q081_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q081",
+  "cell": 3,
+  "beforeSha256": "07cea0a9ebf7a3735aea52e975c68b5cd17c29e795133ba32352769429b309c1",
+  "afterSha256": "dad233bbec34db4adf19c7f7d175b53a88c4c95f71f88416487171cbb1d0c889",
+  "sourceFile": "q081-85305eaa1d2c.png",
+  "sourceSha256": "85305eaa1d2c32d308a9fa499f0fec73971dcab8c94ee666b9a5d51fc58b606e",
+  "promptSha256": "a36473285da12ee5db8831ef661738a46ef6da68d4a184b8da3775ee95db2428",
+  "review": "Native review: command plate is person-free, two municipal cleaners plan split work while golem still active; result A golem rests with broom down, result B golem moves rubble while cleaner sorts possessions. Broom, ropes and tool silhouettes are connected; no adventuring party."
+}

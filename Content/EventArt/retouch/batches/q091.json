@@ -1,0 +1,33 @@
+{
+  "key": "q091",
+  "events": [
+    "q091_offer",
+    "q091_trail",
+    "q091_bargain",
+    "q091_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q091-88cf3801cb55.png",
+  "sourceSha256": "88cf3801cb552bdabcbf818bc713807bfce26fa751e6cf94c01820d16fcb3b90",
+  "promptSha256": "dd206bc92a94d8f5b0af8bfabc6b3d26d4305b31c0ae41d047ff3b15113ddad9",
+  "images": [
+    {
+      "id": "q091_offer",
+      "sha256": "4670ee9c566c661f3e37685206119c1e498e1541d48aa558b9ee46f553dccf86"
+    },
+    {
+      "id": "q091_trail",
+      "sha256": "5e0d2390c0cabe207be53ab114ea5b1f4b1129710a12a94b15a3b6b89f5d2b8e"
+    },
+    {
+      "id": "q091_bargain",
+      "sha256": "9beb8c71ffdcfaafd3713616d181788ad11aea371ff1fa8abc10a45e4f516573"
+    },
+    {
+      "id": "q091_echo_a",
+      "sha256": "1c7a5cc72edec0af8f06e32e9cc8aff0dad9e42fb05b55ffa8b8230e89f5c098"
+    }
+  ],
+  "review": "Reviewed native grid: person-free village beneath local dark dome with distant daylight; intact tied wartime seal and unused end token; three hesitant villagers around still-burning lamp with snuffer; quiet daylight and opened seal after ritual. No living war, dragon or player likeness, connected small hardware and two-tone shapes."
+}

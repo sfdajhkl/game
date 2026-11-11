@@ -1,0 +1,14 @@
+{
+  "id": "q012_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q012",
+  "cell": 1,
+  "beforeSha256": "3e778c2aec4fde36d24a9bb8f105ecc95aa602107064d0e88fcc525919d3a7a9",
+  "afterSha256": "217040713e89af1eb517c4b4d9000768e199d39e93705b2c8946c3df9096c557",
+  "sourceFile": "q012-70bf2345ab06.png",
+  "sourceSha256": "70bf2345ab064a639bb6b26909d1078ee5b069bce7fdc648f1a966ed11a316d3",
+  "promptSha256": "cd5bde8dc0a22f577034b01101c9ab18502e9e21cdb4c85804ced35c2f4f8cac",
+  "review": "Native crops reviewed: separated woodcutters at the misleading fork, new nail and older arrow as a person-free clue, locals preparing a bypass with a loose board and branch, and separate wildlife/logging markers afterward. Small civilians and deer, connected tool silhouettes, no player party."
+}

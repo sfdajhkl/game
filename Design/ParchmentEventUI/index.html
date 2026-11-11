@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>아르비토 · 양피지 이벤트 화면 시안</title>
+  <style>
+    @font-face{font-family:'Noto Serif CJK KR';src:url('assets/serif-ko.woff') format('woff');font-display:swap;font-weight:400}
+    @font-face{font-family:'Noto Sans CJK KR';src:url('assets/sans-ko.woff') format('woff');font-display:swap;font-weight:400}
+    :root{--paper:#d5be96;--paper-light:#e1cdab;--paper-dim:#c5aa80;--tan:#af8e62;--sepia:#79573a;--ink:#3b2a20;--rule:#997951}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--ink);color:var(--ink);font-family:'Noto Sans CJK KR','Malgun Gothic',sans-serif;font-size:15px;line-height:1.6;padding:32px}
+    button,input{font:inherit}button{color:inherit;cursor:pointer}button:focus-visible,a:focus-visible,label:has(input:focus-visible){outline:2px solid var(--ink);outline-offset:5px}
+    .book{max-width:1376px;margin:auto;background:var(--paper);border:1px solid var(--tan);min-height:888px;position:relative}
+    .book:before,.book:after{content:'';position:absolute;width:16px;height:16px;border:1px solid var(--ink);pointer-events:none;z-index:2}
+    .book:before{left:10px;top:10px;border-right:0;border-bottom:0}.book:after{right:10px;bottom:10px;border-left:0;border-top:0}
+    .topbar{height:86px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 36px;gap:24px}
+    .brand{display:flex;align-items:center;gap:16px}.brand-mark{height:31px;width:31px;position:relative;border:1px solid var(--ink);transform:rotate(45deg)}.brand-mark:after{content:'';width:13px;height:13px;border:1px solid var(--ink);position:absolute;left:8px;top:8px}
+    .wordmark{font-family:'Noto Serif CJK KR',serif;letter-spacing:6px;font-size:23px;line-height:1.2;margin-left:5px}.wordmark small{display:block;font-family:serif;font-size:10px;letter-spacing:5px;margin-top:8px;color:var(--sepia)}
+    .time{font-size:14px;display:flex;align-items:center;gap:18px;color:var(--sepia)}.time strong{font-weight:500;color:var(--ink)}.time i{font-style:normal;color:var(--rule)}
+    .top-actions{display:flex;align-items:center;gap:22px}.icon-button{border:0;background:none;display:flex;align-items:center;gap:9px;padding:8px 0;font-size:13px}.icon-button svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5}
+    .body{display:grid;grid-template-columns:166px minmax(0,1fr);min-height:800px}
+    .sidebar{border-right:1px solid var(--rule);padding:34px 20px 24px;background:var(--paper-dim);display:flex;flex-direction:column}
+    .side-label{font-size:11px;letter-spacing:3px;color:var(--sepia);padding-left:12px;margin-bottom:22px}
+    .nav-item{height:50px;display:flex;align-items:center;gap:12px;border:0;background:none;padding:0 12px;text-align:left;font-size:15px;width:100%;margin-bottom:5px;white-space:nowrap}.nav-item svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.4;flex-shrink:0}.nav-item.active{background:var(--ink);color:var(--paper-light)}
+    .chapter{margin-top:44px;padding:0 12px;border-top:1px solid var(--rule)}.chapter small{display:block;margin-top:22px;font-size:11px;color:var(--sepia);letter-spacing:2px}.chapter p{font-family:'Noto Serif CJK KR',serif;font-size:16px;line-height:1.8;margin:10px 0}.chapter .progress{height:3px;background:var(--tan);margin-top:16px}.chapter .progress:before{content:'';display:block;width:60%;height:100%;background:var(--sepia)}
+    .side-foot{margin-top:auto;padding:50px 12px 0;font-family:serif;font-size:11px;letter-spacing:3px;color:var(--sepia)}
+    main{padding:30px 36px 22px;min-width:0}
+    .resources{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule);padding-bottom:21px;gap:18px}
+    .resource{display:flex;align-items:center;gap:10px;white-space:nowrap}.resource svg{width:19px;height:19px;fill:none;stroke:var(--sepia);stroke-width:1.5}.resource .name{font-size:12px;color:var(--sepia)}.resource strong{font-family:Georgia,serif;font-size:18px;font-weight:400;letter-spacing:.5px}.resource em{font-size:11px;font-style:normal;color:var(--sepia);margin-left:3px}.health-track{height:3px;width:58px;background:var(--tan);margin-top:5px}.health-track:before{content:'';height:3px;display:block;width:76%;background:var(--ink)}
+    .event-head{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-top:28px;margin-bottom:26px}.eyebrow{font-size:11px;letter-spacing:2px;color:var(--sepia);margin:0 0 8px}.event-head h1{font-family:'Noto Serif CJK KR',serif;font-weight:600;font-size:31px;letter-spacing:-.8px;margin:0;line-height:1.5}.location{display:flex;align-items:center;gap:8px;font-size:12px;white-space:nowrap;color:var(--sepia)}.location svg{width:15px;height:18px;fill:none;stroke:currentColor;stroke-width:1.4}
+    .event-grid{display:grid;grid-template-columns:576px minmax(0,1fr);gap:34px;align-items:start}
+    figure{margin:0;position:relative}.picture{border:1px solid var(--sepia);outline:1px solid var(--tan);outline-offset:5px;width:578px;height:386px;background:var(--sepia)}.picture img{display:block;width:576px;height:384px;image-rendering:pixelated;image-rendering:crisp-edges}.caption{display:flex;align-items:center;gap:14px;padding-top:18px;font-family:'Noto Serif CJK KR',serif;color:var(--sepia);font-size:13px}.caption:before,.caption:after{content:'';height:1px;background:var(--rule);flex:1}.caption span{white-space:nowrap}
+    .field-note{margin-top:35px;border-left:2px solid var(--sepia);padding:0 0 0 17px;max-width:500px}.field-note .label{font-size:11px;letter-spacing:2px;color:var(--sepia);margin:0 0 8px}.field-note p{margin:0;font-size:13px;line-height:1.85;color:var(--sepia)}
+    .story{padding-top:0;min-width:0}.story p{font-family:'Noto Serif CJK KR',serif;font-size:17px;line-height:1.95;margin:0 0 17px;word-break:keep-all;overflow-wrap:break-word}.story p:first-child:first-letter{font-size:26px;font-weight:600;line-height:1}
+    .divider{display:flex;align-items:center;gap:13px;color:var(--sepia);font-size:12px;margin:25px 0 17px;letter-spacing:1px}.divider:after{content:'';height:1px;background:var(--rule);flex:1}
+    .choices{display:grid;gap:10px}.choice{display:flex;position:relative;align-items:flex-start;gap:12px;cursor:pointer;padding:14px 14px 13px;border:1px solid var(--rule);min-height:76px;background:transparent}.choice input{position:absolute;opacity:0;width:1px;height:1px}.choice .number{font-family:Georgia,serif;font-size:13px;line-height:24px;width:22px;height:24px;border:1px solid var(--rule);text-align:center;flex-shrink:0}.choice .text{display:block;font-size:14px;line-height:1.65;word-break:keep-all}.choice .cost{display:block;font-size:11px;color:var(--sepia);margin-top:5px}.choice:has(input:checked){border-color:var(--ink);background:var(--paper-light)}.choice:has(input:checked):before{content:'';position:absolute;left:-1px;top:-1px;bottom:-1px;width:3px;background:var(--ink)}.choice:has(input:checked) .number{border-color:var(--ink);background:var(--ink);color:var(--paper-light)}.choice:hover{background:var(--paper-light)}
+    .confirm{border:1px solid var(--ink);background:var(--ink);color:var(--paper-light);width:100%;height:46px;text-align:center;margin-top:18px;font-size:14px;letter-spacing:1px}.confirm span{float:right;margin-right:18px;font-size:18px;line-height:22px}.confirm:hover{background:var(--sepia)}
+    .page-footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--rule);margin-top:29px;padding-top:16px;color:var(--sepia);font-size:11px}.page-footer .folio{font-family:Georgia,serif;letter-spacing:2px}.toast{margin:14px 0 0;padding:12px;border:1px solid var(--rule);font-size:12px;color:var(--ink);background:var(--paper-light)}.toast[hidden]{display:none}
+    .design-note{max-width:1376px;margin:14px auto 0;color:var(--tan);font-size:11px;letter-spacing:1px;display:flex;justify-content:space-between;gap:16px}.design-note a{color:var(--paper);text-decoration:none}
+    @media(max-width:1350px){.event-grid{grid-template-columns:384px minmax(0,1fr)}.picture{width:386px;height:258px}.picture img{width:384px;height:256px}.event-head h1{font-size:28px}.body{grid-template-columns:150px minmax(0,1fr)}main{padding:26px}.resources{flex-wrap:wrap;justify-content:flex-start;gap:20px 35px}.topbar{padding:0 26px}.wordmark{font-size:21px}.story p{font-size:16px}.choice .text{font-size:13px}.field-note{margin-top:26px}}
+    @media(max-width:950px){body{padding:16px}.body{grid-template-columns:1fr}.sidebar{display:none}.topbar{height:78px}.time{display:none}.event-grid{gap:28px}.book{min-height:0}.top-actions{gap:16px}.resources{justify-content:space-between;gap:14px}.resource{gap:6px}.resource strong{font-size:17px}.resource .name{font-size:11px}.health-track{width:40px}.event-head{margin-top:24px}.event-head h1{font-size:26px}main{padding:24px}.page-footer{margin-top:25px}.design-note{font-size:10px}}
+    @media(max-width:740px){body{padding:10px}.topbar{padding:0 20px}.wordmark{font-size:20px;letter-spacing:4px}.top-actions .icon-button:first-child{display:none}.event-grid{grid-template-columns:1fr;gap:28px}.picture{margin:auto}.caption{max-width:386px;margin:auto}.field-note{display:none}.story{max-width:576px;margin:auto;width:100%}.story p{font-size:17px}.choice .text{font-size:14px}.choice{min-height:75px}.resources{display:grid;grid-template-columns:1fr 1fr;gap:18px}.resource{gap:10px}.event-head{align-items:flex-start;margin-bottom:24px}.event-head h1{font-size:24px}.location{font-size:10px;padding-top:6px}.page-footer{font-size:10px}.design-note{flex-direction:column;gap:2px}.event-head .eyebrow{font-size:10px}main{padding:25px 20px}.book:before,.book:after{display:none}}
+    @media(max-width:450px){.picture{width:194px;height:130px}.picture img{width:192px;height:128px}.caption{max-width:280px;font-size:12px}.event-head h1{font-size:22px}.event-head{display:block}.location{margin-top:12px}.brand-mark{width:26px;height:26px}.brand-mark:after{width:10px;height:10px;left:7px;top:7px}.story p{font-size:16px}.wordmark{font-size:18px}.topbar{padding:0 17px}.top-actions{gap:8px}.icon-button{font-size:12px}.resource strong{font-size:16px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <div class="book">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"></span><div class="wordmark">아르비토<small>ARVITO</small></div></div>
+      <div class="time"><strong>여행의 두 번째 해</strong><i>·</i><span>가을, 7주</span></div>
+      <div class="top-actions"><button class="icon-button" type="button" data-demo="기록"><svg viewBox="0 0 24 24"><path d="M5 3h12l2 2v16H5zM9 8h6M9 12h6M9 16h4"/></svg>여정 기록</button><button class="icon-button" type="button" data-demo="설정"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/></svg>설정</button></div>
+    </header>
+    <div class="body">
+      <aside class="sidebar" aria-label="메뉴">
+        <div class="side-label">여행 수첩</div>
+        <button class="nav-item active" type="button" aria-current="page"><svg viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2zM9 3v16M15 5v16"/></svg>여정</button>
+        <button class="nav-item" type="button" data-demo="소지품"><svg viewBox="0 0 24 24"><path d="M5 8h14l1 13H4zM8 8V6a4 4 0 0 1 8 0v2M8 13h8"/></svg>소지품</button>
+        <button class="nav-item" type="button" data-demo="동행"><svg viewBox="0 0 24 24"><path d="M4 21v-3a5 5 0 0 1 10 0v3M16 13a4 4 0 0 1 5 4v4"/><circle cx="9" cy="6" r="3"/><path d="M16 3a3 3 0 0 1 0 6"/></svg>동행</button>
+        <button class="nav-item" type="button" data-demo="기록"><svg viewBox="0 0 24 24"><path d="M4 4h12l4 4v12H4zM16 4v5h4M8 13h8M8 17h5"/></svg>기록</button>
+        <div class="chapter"><small>현재 장</small><p>새벽 성채의<br>사람들</p><div class="progress" aria-hidden="true"></div></div>
+        <div class="side-foot">VOL. II</div>
+      </aside>
+      <main>
+        <section class="resources" aria-label="여행 상태 예시">
+          <div class="resource"><svg viewBox="0 0 24 24"><path d="M12 21 3 11C-1 3 8 0 12 7c4-7 13-4 9 4z"/></svg><span><span class="name">체력</span><div class="health-track" aria-hidden="true"></div></span><strong>38<em>/ 50</em></strong></div>
+          <div class="resource"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c-6 2-11-3-9-9z"/></svg><span class="name">스트레스</span><strong>12<em>/ 100</em></strong></div>
+          <div class="resource"><svg viewBox="0 0 24 24"><path d="M4 9c0-7 16-7 16 0v11H4zM8 5l2 6M14 5l2 6"/></svg><span class="name">식량</span><strong>8<em>일분</em></strong></div>
+          <div class="resource"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="7" rx="8" ry="3"/><path d="M4 7v5c0 4 16 4 16 0V7M4 12v5c0 4 16 4 16 0v-5"/></svg><span class="name">소지금</span><strong>146<em>G</em></strong></div>
+        </section>
+        <header class="event-head"><div><p class="eyebrow">새벽 성채의 사람들　 /　 갈림길</p><h1>인장을 삼킨 상자</h1></div><div class="location"><svg viewBox="0 0 24 28"><path d="M12 26s9-11 9-17a9 9 0 1 0-18 0c0 6 9 17 9 17z"/><circle cx="12" cy="9" r="3"/></svg>새벽 성채 · 서고</div></header>
+        <div class="event-grid">
+          <div>
+            <figure><div class="picture"><img src="assets/event.png" width="192" height="128" alt="어두운 서고에서 관리인이 인장을 삼킨 작은 흉내괴물 상자를 조심스럽게 살피는 양피지색 도트 삽화"></div><figcaption class="caption"><span>돌려받지 못한 약속</span></figcaption></figure>
+            <aside class="field-note"><p class="label">여행자의 메모</p><p>선택에 따라 시간이 흐릅니다.<br>어느 길을 택할지는 당신에게 달려 있습니다.</p></aside>
+          </div>
+          <section class="story" aria-label="사건과 선택지">
+            <p>서고의 보관 상자가 관리인의 인장을 삼키고 돌려주지 않는다.</p>
+            <p>상자는 물건 대신 약속을 보관하는 작은 흉내괴물이다.</p>
+            <div class="divider">어떻게 할까?</div>
+            <form id="choice-form">
+              <div class="choices">
+                <label class="choice"><input type="radio" name="choice" value="0" checked><span class="number">1</span><span><span class="text">상자 안의 낡은 계약을 꺼낸다</span><span class="cost">2주 소요</span></span></label>
+                <label class="choice"><input type="radio" name="choice" value="1"><span class="number">2</span><span><span class="text">상자에게 새 먹이 규칙을 제안한다</span><span class="cost">2주 소요</span></span></label>
+                <label class="choice"><input type="radio" name="choice" value="2"><span class="number">3</span><span><span class="text">지금 맡은 길을 우선한다</span><span class="cost">1주 소요</span></span></label>
+              </div>
+              <button class="confirm" type="submit">이 길을 선택한다<span aria-hidden="true">→</span></button>
+            </form>
+            <div id="toast" class="toast" role="status" hidden></div>
+          </section>
+        </div>
+        <footer class="page-footer"><span>모든 만남이 같은 결말로 이어지지는 않는다.</span><span class="folio">— 080 —</span></footer>
+      </main>
+    </div>
+  </div>
+  <div class="design-note"><span>아르비토 · 양피지 이벤트 UI 시안　/　상태 수치는 예시입니다.</span><a href="assets/event.png" download="arvito-parchment-event.png">삽화 원본 ↓</a></div>
+  <script>
+    const toast=document.getElementById('toast');
+    document.getElementById('choice-form').addEventListener('submit',e=>{e.preventDefault();const selected=document.querySelector('input[name=choice]:checked');toast.textContent='선택 예시 · '+selected.closest('label').querySelector('.text').textContent;toast.hidden=false;});
+    document.querySelectorAll('[data-demo]').forEach(button=>button.addEventListener('click',()=>{toast.textContent=button.dataset.demo+' 메뉴 위치를 보여 주는 UI 시안입니다.';toast.hidden=false;}));
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "id": "q070_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q070",
+  "cell": 1,
+  "beforeSha256": "ff33b389b05956d796bc1eba2af77762cce57a726da14d247b04dac30467131a",
+  "afterSha256": "c9ad3ce6227f73aead23d068f597b89960f6517152fe2685afaa9716261a610b",
+  "sourceFile": "q070-82b9e39836b5.png",
+  "sourceSha256": "82b9e39836b51ab9a6cb1aae7aef0b5bdf1ecaa7a04c092c9df919bbe1509b37",
+  "promptSha256": "ccd2956dc583197787b72e0bb34afacf7b41d9f7a8c8f33ac2327c8aea3d9e21",
+  "review": "Native review: empty original lantern socket and shifted lantern make the moving sign problem readable; connected roots displace the base; only two boat workers discuss markers and the final still scene shows a heat-free reflector. No player or unrelated NPCs."
+}

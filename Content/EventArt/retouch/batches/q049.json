@@ -1,0 +1,33 @@
+{
+  "key": "q049",
+  "events": [
+    "q049_offer",
+    "q049_trail",
+    "q049_bargain",
+    "q049_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q049-8ecf1093775e.png",
+  "sourceSha256": "8ecf1093775ec108d932a68f382ba141e940f26178af50720d6602ac43dda80c",
+  "promptSha256": "48bf3671d1467ba594cba18aaa43452d45036bca6a007b19d4bb3d2d2c11e7cc",
+  "images": [
+    {
+      "id": "q049_offer",
+      "sha256": "cba1ff61557e115e41d97457395165054ed6ce403c05a3eeceae2468a0bd020b"
+    },
+    {
+      "id": "q049_trail",
+      "sha256": "2ffd9ed40c1cd25395eaeb28b77eab1080f4e841d259f84a0cf37c5b2b7affc7"
+    },
+    {
+      "id": "q049_bargain",
+      "sha256": "a2cb8343efc0c215313daaed54324b3ae54ad2d10c89a6db792c3dd317190694"
+    },
+    {
+      "id": "q049_echo_a",
+      "sha256": "4a395de801668167cd99063022f0d17eab7bf6bfc7fd890fc93a7e247a3a1058"
+    }
+  ],
+  "review": "Native preview reviewed: unseaworthy memorial ship stays on shore; growing list and split hull form a person-free clue; relatives consider its future before action; outcome A sorts known evidence and belongings without implying missing sailors returned."
+}

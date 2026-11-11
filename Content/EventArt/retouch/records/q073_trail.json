@@ -1,0 +1,14 @@
+{
+  "id": "q073_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q073",
+  "cell": 1,
+  "beforeSha256": "45254f3112f05f810bc3916932d2aecb6325aee8730ac037ea5d8897ecaf8c8b",
+  "afterSha256": "6a829fe9708d5b678bd80abc0b2934b7acec69d7492d3ab5f084ac06746b6a58",
+  "sourceFile": "q073-454771025250.png",
+  "sourceSha256": "4547710252503c6383381236c21529f80bee3d68300057ee0128e6cbf11d6e84",
+  "promptSha256": "521eb49c40459c986424505644603871fd997cbe33996bfc2fdb9199a9fc9590",
+  "review": "Native review: older male herbalist alone with firmly closed satchel; notebook shows depleted plant beds; outcome A inspects remaining roots, outcome B pairs same herbalist with female healer in cultivation bed. Background quiet and plants separated from hands."
+}

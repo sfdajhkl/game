@@ -1,0 +1,14 @@
+{
+  "id": "q014_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-03",
+  "cell": 2,
+  "beforeSha256": "b25d600b7e28c2cf9eac2d0715e8a1247ea8795fedaf4d269cab08661de70521",
+  "afterSha256": "dd7fad904fd427c6583de2a443c36be9ebd0e51cfd45e4cc9ed7c491390817c0",
+  "sourceFile": "echo-03-2ab28d427910.png",
+  "sourceSha256": "2ab28d427910856914d5c5a673d9e5fa8eaaed49e0f07980e0ce966fedca6b95",
+  "promptSha256": "faa3e54f477d8b5227e9a0d93b09eecf3634e9919a622f0e8f2c45d5cf485fcc",
+  "review": "Reviewed native cells q012-015: woodcutters take bypass around preserved grove; gatherer posts sealed reply with local postal driver; livestock owner repairs fence while beekeeper moves hive; civic fund supports barrier repair and planting beside intact oak. Native ropes, envelope and tools checked; no explorer party or magical returned family."
+}

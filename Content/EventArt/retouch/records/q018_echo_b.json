@@ -1,0 +1,14 @@
+{
+  "id": "q018_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-04",
+  "cell": 2,
+  "beforeSha256": "12029034560d9d54eda21a043d613eb50a229fc0a6a7abc66fb072986d9fafdb",
+  "afterSha256": "900ab3419911ff7488bfe3b28d75b37618ff4d0a6462139e1580c2e591bdd28c",
+  "sourceFile": "echo-04-840c80d66aca.png",
+  "sourceSha256": "840c80d66aca9167933797d8a4cab47c8a80b4fd151a91335bf9ad668bdb31ab",
+  "promptSha256": "7a667b7987fff74c999d828f5be5e3eb23620a59821008b8d56f9b371c103cc7",
+  "review": "Reviewed native cells q016-019: rescue worker follows intact cloth marker while two gatherers share blanket; two apprentices mark separate paths as ranger retires; residents exchange household cup beside empty stool; foreman and villager plant saplings with intact oak and redesigned hull. Fixed local figures only, clear silhouettes and quiet outlines."
+}

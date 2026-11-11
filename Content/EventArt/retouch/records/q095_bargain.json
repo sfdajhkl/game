@@ -1,0 +1,14 @@
+{
+  "id": "q095_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q095",
+  "cell": 2,
+  "beforeSha256": "90b40f7cdf9e9657d6bf504f4d83c244f7c94fe9017d0ef919200bb5adabd631",
+  "afterSha256": "7f4f74f28d78a6d322fdd097f530e0f3ad4783c846f9db7571b8f854b1003422",
+  "sourceFile": "q095-9e90c3d8fa59.png",
+  "sourceSha256": "9e90c3d8fa59953410e11e360591c6e7123b4495583540ce391003e5b53c04b5",
+  "promptSha256": "eabaefcac865bf26e75c36541e39476d2fc59eb3e4c7a58cd598ae4145b9f4a5",
+  "review": "Reviewed native grid: separated civilian families in damaged square; person-free soldier-only return tally with uncounted household bundle; packed cart and unrepaired doorway present genuine alternatives; workers remove a broad trap as distant cart passes. No victory hero, premature rebuild or combat spectacle; flat parchment palette readable."
+}

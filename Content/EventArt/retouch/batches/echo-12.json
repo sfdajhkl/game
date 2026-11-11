@@ -1,0 +1,33 @@
+{
+  "key": "echo-12",
+  "events": [
+    "q048_echo_b",
+    "q049_echo_b",
+    "q050_echo_b",
+    "q051_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "echo-12-d16d3d296606.png",
+  "sourceSha256": "d16d3d2966063e9125a96fd5cd9167bd98897c3b583988a0222d4ebe5498d606",
+  "promptSha256": "9b569ea498de93039a5fa78fef23ad8a3dce49bc9face0a6fbaab8bacb9337a3",
+  "images": [
+    {
+      "id": "q048_echo_b",
+      "sha256": "43823cc1f10bbf182f48fcdf11bca935d6ff5b8a01869516b7d5e3083b46dac5"
+    },
+    {
+      "id": "q049_echo_b",
+      "sha256": "35fbbe154147c0c76774a6dde107d59a530b9c93c26231283b37538296dbd9d5"
+    },
+    {
+      "id": "q050_echo_b",
+      "sha256": "642191d744db3ba66859081efd8b0cf9f7f3b6c8a018e0d58d69d2b3f86b874c"
+    },
+    {
+      "id": "q051_echo_b",
+      "sha256": "e24338adea1601a5a1ccd9de540188fe3761ce622e060bde0cefb18f84ba0971"
+    }
+  ],
+  "review": "Reviewed native cells q048-051: tide notice and safe altar approach; boat firmly supported on land with family memorial notes; three-lock chest and shared public record checked by civilian representatives; ember pot carried through cleared cabin exit beside inspection ladder. No ghost sailors or active avalanche, intact hardware and four flat colors."
+}

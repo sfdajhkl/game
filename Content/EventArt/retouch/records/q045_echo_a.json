@@ -1,0 +1,14 @@
+{
+  "id": "q045_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q045",
+  "cell": 3,
+  "beforeSha256": "aa40bcdbe78fc274f914a6582310b6a1e12310645a0c9f5f8199fe9e44eeae62",
+  "afterSha256": "aff56ceea4215419a3b0b6d17b39bb6dfb819f2852bf400b60b23008345fd4fa",
+  "sourceFile": "q045-05e13d9d1aa5.png",
+  "sourceSha256": "05e13d9d1aa55f1f2146eda3a097383111eaa6f7e36126f39e3a510cad637ca1",
+  "promptSha256": "d27d955b3fdd51ac2444722f75420f954f6f01b747ffa032482c9f735ca0c2ad",
+  "review": "Native preview reviewed: workers retreat from a low slime under the pier; three rope loops carry directional residue to the drain; sectional barrier precedes cleaning; only outcome A shows cleared drainage and removed rotten ropes."
+}

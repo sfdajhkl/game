@@ -1,0 +1,33 @@
+{
+  "key": "q055",
+  "events": [
+    "q055_offer",
+    "q055_trail",
+    "q055_bargain",
+    "q055_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q055-f1e9415023bc.png",
+  "sourceSha256": "f1e9415023bc9d5bf03b5488383fc37a11a3ac76e74559866e90daf1718ce2c1",
+  "promptSha256": "82248279162aa98565606458f15278daafcfd420ad8c34bfd68cd9ad8398ce18",
+  "images": [
+    {
+      "id": "q055_offer",
+      "sha256": "1b8ea57c11d3b1e764c8a15fb54c753529df5c485dd8d93aee0e69ac2b12e8a6"
+    },
+    {
+      "id": "q055_trail",
+      "sha256": "7c147e23db2292d988891a5495e6bf227c2edef6d53fc91a1b30be32c0b4409d"
+    },
+    {
+      "id": "q055_bargain",
+      "sha256": "46573a69a217dd0f1b236a98a3606c997d2317f96f0614f237f6e1d6ca647386"
+    },
+    {
+      "id": "q055_echo_a",
+      "sha256": "5c111cd1f98b02d66e9002d6ab40c175d6cffba207d0a6ff84080d6cc15f9095"
+    }
+  ],
+  "review": "Native preview reviewed: retired guide remains alone with incomplete map; missing refuge entry is clear; negotiation leaves the apprentice absent and empty seat visible; outcome A shows only the guide recognizing the cave. Unknown player companion omitted."
+}

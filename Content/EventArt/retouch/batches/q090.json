@@ -1,0 +1,33 @@
+{
+  "key": "q090",
+  "events": [
+    "q090_trail",
+    "q090_bargain",
+    "q090_echo_a",
+    "q090_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q090-cb01ab002c8c.png",
+  "sourceSha256": "cb01ab002c8c4a6ed549dcf6abb7d0ccd8643e5343e6f7112c84d0edc272072b",
+  "promptSha256": "69c5ee9744b69d867d428a0eee3097d71dae41e446946e22324a9157b4b6661e",
+  "images": [
+    {
+      "id": "q090_trail",
+      "sha256": "41b3d395eaff9c2c744090176a94a98f07b024e51495e0026945b880abc8cd67"
+    },
+    {
+      "id": "q090_bargain",
+      "sha256": "cb9737e4496c8795dc06a9d874d0594385c86d5da8b77f821050b889d94f962a"
+    },
+    {
+      "id": "q090_echo_a",
+      "sha256": "37b65e79c7dc05217a2779aef85fbda99700d1e0546c9d76fbdfdfc0add8cfad"
+    },
+    {
+      "id": "q090_echo_b",
+      "sha256": "bc2a168de3dd7469b8686ee943fd7c0351017eddd22057b02b6539aaa82f7c62"
+    }
+  ],
+  "review": "Native grid reviewed: distinct tagged sword clue, empty armor beside completed memorial, family receives sheathed sword from civilian merchant with other swords tied. Bargain phase incorrectly includes living onlookers; explicitly pending repair-05 before shipment. No issue in trail or aftermath cells."
+}

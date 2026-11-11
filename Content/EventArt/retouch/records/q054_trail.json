@@ -1,0 +1,14 @@
+{
+  "id": "q054_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q054",
+  "cell": 1,
+  "beforeSha256": "40cd089009e8dfa1283667def2cbad04fc515afded9acd905c463d70d6522322",
+  "afterSha256": "bcf7ee3de72b25bdd4ed4be93a835d7f3619efbd1ec04725b0ba370f74459481",
+  "sourceFile": "q054-bda77f4c36e4.png",
+  "sourceSha256": "bda77f4c36e49bb5f8384b4f6509322928d00f26df9d46fd1c69637ce45aeb98",
+  "promptSha256": "31bf98821bd5f309bee0a39b194767057657a3c6166f2de15379690ae5f5b191",
+  "review": "Native preview reviewed: torn large flag and narrow rock cleft establish local gusts; small cloth tests replace an oversized gauge; guide and porter negotiate in shelter; outcome A uses cairns and modest cloth wind markers."
+}

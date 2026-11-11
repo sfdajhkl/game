@@ -1,0 +1,14 @@
+{
+  "id": "q019_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q019",
+  "cell": 2,
+  "beforeSha256": "05ec9d9add4a8d62c65affaa69291bf8a642fd098b010e82b62b7b2339b31bf4",
+  "afterSha256": "f8376222cef701dbcaf67aa81751f23d816652598ee237e23632166406865e19",
+  "sourceFile": "q019-83b2d9f39653.png",
+  "sourceSha256": "83b2d9f396534ee32675b21bccccc6f5d208217fa79cbe993a2f7710daab2d2d",
+  "promptSha256": "54030b37c9a7a76c47b3d084c28a3aabd85e97e9c5808bf913f5d985fc3ee7e9",
+  "review": "Native crops reviewed: shipyard workers and villager separated by the oak slope, roots visibly anchor vulnerable soil above houses, a proposed curved ship timber carries negotiation, and workers use an already fallen trunk afterward while great oak remains standing. No battle or royal hero."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q003_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q003",
+  "cell": 1,
+  "beforeSha256": "a7b0959c551824e39c003dc3edd43614b11ff58fd208dda8eec41e306a3b3d2e",
+  "afterSha256": "e9f6e013dc9b8cc872c1ddf6329be5e92b46060f8f0f6bd7d7d6be5699598c42",
+  "sourceFile": "q003-71522739c8af.png",
+  "sourceSha256": "71522739c8af60c6f2e7a4298eaf74af9ee9a1f5d4780f72f4a9c61bd03d776b",
+  "promptSha256": "8aefa90c7822afa275480d2b1455755699dab9f94578f0b4443a0c03c010811d",
+  "review": "Native review: the same two farming neighbours separated across boundary, person-free old ditch sketch, hesitant lunch invitation before agreement, two workers clearing shared drainage afterward. Distinct staging and phase outcomes with no player."
+}

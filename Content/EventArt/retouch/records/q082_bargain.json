@@ -1,0 +1,14 @@
+{
+  "id": "q082_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-22",
+  "cell": 3,
+  "beforeSha256": "439048a84f670f07f9e6f01c596016e2323cf5e0e0df85c6bbf2be1fbc5d14d0",
+  "afterSha256": "7b0bf9b4cfa18914329902f9679e19c0d4d9c8e830866b1c630b44ead09fc3c2",
+  "sourceFile": "echo-22-5546b37ef0b7.png",
+  "sourceSha256": "5546b37ef0b7d6a6b0881b514ab4dc5ee58670ea4381a66fcb6e9ef33d18cc6a",
+  "promptSha256": "674c99e84d055377032dc755ab7e6a9fe1730db293e0369df6158075869ed4b5",
+  "review": "Reviewed all four final native cells: guarded neutral food drop maintains separation; plain-clothed impostor joins useful rope work with task roster; separate households rebuild and depart with supplies; mercenary left outside and widow right inside with small child behind her, empty threshold between them, lowered letter and no reconciliation. Native palette, outline continuity and fixed NPC-only compositions checked."
+}

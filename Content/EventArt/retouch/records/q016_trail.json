@@ -1,0 +1,14 @@
+{
+  "id": "q016_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q016",
+  "cell": 1,
+  "beforeSha256": "ea348b26b11281eedec306dcde2f7be3173515666b96759072cc45dcb9550e63",
+  "afterSha256": "6e6aa954deab02c06d61a9ff85f348082bd730dd53072f62a6ee19d460e9de5a",
+  "sourceFile": "q016-e8ef7e3debd4.png",
+  "sourceSha256": "e8ef7e3debd4db863900fb859a3b2e9bdd4001f3d60c0468958e371a55581293",
+  "promptSha256": "9b2df69c94d97c821918639598bc84e21fd133c89bcda07179eae938031f470c",
+  "review": "Native crops reviewed: two stranded local civilians shelter with embers, separate rain and inner seepage form the clue, wet cloth and bags remain in the cave before the choice, and civilians reach the higher exit only afterward while bags float below. Broad dark cave masses, no player."
+}

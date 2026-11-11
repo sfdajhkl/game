@@ -1,0 +1,14 @@
+{
+  "id": "q060_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q060",
+  "cell": 0,
+  "beforeSha256": "bdc35d7195bcc09e3494d1d2f8123204d48c4889563a0c794faf26a2feb0c1d9",
+  "afterSha256": "cb68658ed830f0de0af8f2212efdbf813e6a621e1908c697fcbaaa61acb4d4f8",
+  "sourceFile": "q060-d9c03176c1f9.png",
+  "sourceSha256": "d9c03176c1f988d0e6b781b243da1b9965cb665295f139d911c2ebcb26ad50e3",
+  "promptSha256": "c49b44e74f47fc3c624dad1be8c90990a78a90f500ccd00516ba07f2ced1be12",
+  "review": "Native 192x128 review: paired mural kings are paintings, two local scholars only; opposite crown wear and the mirror evidence remain readable, sheets and figures have connected outlines, no playable party, restrained flat background."
+}

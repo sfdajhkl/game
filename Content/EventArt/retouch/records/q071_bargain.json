@@ -1,0 +1,14 @@
+{
+  "id": "q071_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q071",
+  "cell": 2,
+  "beforeSha256": "856ddd22eb9f80ebf723daf96498f129a3ade23d7c01bcb292bd3a3e755a8c1c",
+  "afterSha256": "071812de0caa0ca9f7352252b065e71b5b60a1257bfdc8ff336a360a2e0fff19",
+  "sourceFile": "q071-6acee3bcae87.png",
+  "sourceSha256": "6acee3bcae87a3977c438ca8315b7d95fe827ec0c19ce01c593548128bcc4706",
+  "promptSha256": "92127e9bf1bed0d7393019554bdbb4b36d7ea72e6ea286089d572654ffe91e2d",
+  "review": "Native review: silent film-covered pond, large connected web leading to reed nest, two local workers preparing small purification area, and cleared stream with single returning frog are distinct. No bonfire or premature celebration; no party figures."
+}

@@ -1,0 +1,33 @@
+{
+  "key": "echo-03",
+  "events": [
+    "q012_echo_b",
+    "q013_echo_b",
+    "q014_echo_b",
+    "q015_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "echo-03-2ab28d427910.png",
+  "sourceSha256": "2ab28d427910856914d5c5a673d9e5fa8eaaed49e0f07980e0ce966fedca6b95",
+  "promptSha256": "faa3e54f477d8b5227e9a0d93b09eecf3634e9919a622f0e8f2c45d5cf485fcc",
+  "images": [
+    {
+      "id": "q012_echo_b",
+      "sha256": "b21a74f258da229d70efddcc84e1984c88f59247ac5f8ed35db26bc47f4a8d73"
+    },
+    {
+      "id": "q013_echo_b",
+      "sha256": "0e7f20bbe76bc2ddb435ef34639aff5f3152f7980a5e69009a0fa5f2280a1ed6"
+    },
+    {
+      "id": "q014_echo_b",
+      "sha256": "dd7fad904fd427c6583de2a443c36be9ebd0e51cfd45e4cc9ed7c491390817c0"
+    },
+    {
+      "id": "q015_echo_b",
+      "sha256": "72efffe56d2de2e14e610b481ec492614a4701059f5d5e922faa9ecde652200b"
+    }
+  ],
+  "review": "Reviewed native cells q012-015: woodcutters take bypass around preserved grove; gatherer posts sealed reply with local postal driver; livestock owner repairs fence while beekeeper moves hive; civic fund supports barrier repair and planting beside intact oak. Native ropes, envelope and tools checked; no explorer party or magical returned family."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q081_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "style-01",
+  "cell": 2,
+  "beforeSha256": "c7e7b3cdd8c376ad1bd64d846b143ff49c7d225d166ff87e0a0f45b25ff9a316",
+  "afterSha256": "88176d9d07e64f47d6131ff0c235eec9242b0b91c352faa0fb43ebaa42d0fa77",
+  "sourceFile": "style-01-b945a48e08a9.png",
+  "sourceSha256": "b945a48e08a9854d474ced344362604dc96aabe451b4b75a12a08dc33c118a0c",
+  "promptSha256": "1790f9f58aeb72b8e18d4ff2a86d0db7be73953a0dbddc866d07ede0e9df81be",
+  "review": "Reviewed native parchment quartet with exact shared four-color palette and retained contours. Archive caretaker/mimic and cleaning golem have clear staging and native readable props. Herb and commander scenes queued for removal of small texture flecks before final certification."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "old_ruin",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "base-03",
+  "cell": 0,
+  "beforeSha256": "22972808ac8e5bf7ae256c037a1acab83cd4c0ea03f47013d89f52aae836210b",
+  "afterSha256": "1988c950e11a23434b857499e9a30f46cc2fd2664a1be9480a90f7fb1f7b9fd9",
+  "sourceFile": "base-03-f9c72d601a62.png",
+  "sourceSha256": "f9c72d601a6286298b7dcab2b2bc2e03028b083ba942d961056b778b9969e148",
+  "promptSha256": "deed4cfe0622bce06715094c9e08ccc9b1c6aace3157d8f3aadc066f674c5cb8",
+  "review": "Native parchment review: broad flat architecture and sky; sealed door, connected guardian limbs, complete dragon silhouette above gate, two caravan wagons. Quiet large shapes, correct local cast, no hidden player or color outside the fixed palette."
+}

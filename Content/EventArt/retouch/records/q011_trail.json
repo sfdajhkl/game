@@ -1,0 +1,14 @@
+{
+  "id": "q011_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q011",
+  "cell": 1,
+  "beforeSha256": "d177b5512a965f34932f1ffae4e3a81dddec1fc741119f0165a4dabdaf19b0cb",
+  "afterSha256": "63b4c87da02d37143f7e205218424c9d553791bffc7cc3702a67edd013316a8a",
+  "sourceFile": "q011-7dccd26477bf.png",
+  "sourceSha256": "7dccd26477bf0133da19bed1cdf669e1345b79fc5e029e12264f5a570bbdcc42",
+  "promptSha256": "7f7343a4f885e09dbd41ada48d96c86d420e34c2ab0daf22957ccdfbef0d08d6",
+  "review": "Native crops reviewed: injured dog alone by the trap, collar and kiln marker as person-free clue, local hunters mark a rescue trail while burner remains absent, and bandaged burner and dog only in aftermath. Dog paw, pole, collar loop and bandages remain legible at 192x128."
+}

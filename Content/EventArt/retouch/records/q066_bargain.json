@@ -1,0 +1,14 @@
+{
+  "id": "q066_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q066",
+  "cell": 2,
+  "beforeSha256": "7b68eb1fd04f641908d18dba3b55fde1416214f049e479114264173ee3aa3bfe",
+  "afterSha256": "9daa24ff25cbd03e5b16549aa9d103d4b19b436bdf8853970825c8e3d6492a4c",
+  "sourceFile": "q066-f7cc1efd42fb.png",
+  "sourceSha256": "f7cc1efd42fb42610ca1770b80be27735d1fd728baf7a54b8781eedf031e4c7e",
+  "promptSha256": "d5bd352bc4eed6b8ddb0d13bf96a91e39114003f9e6eed839ed329d1dacb7c3c",
+  "review": "Native review: quiet archive offer and erased-paper clue contain no adventurer; three elders and archivist discuss missing testimony; outcome places memorial records beside trophy records, with connected book/shelf geometry and legible flat areas."
+}

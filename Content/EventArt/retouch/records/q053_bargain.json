@@ -1,0 +1,14 @@
+{
+  "id": "q053_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q053",
+  "cell": 2,
+  "beforeSha256": "84e3b350b63d75a25c34cd18bfacc27ec317216cab78c9df6260c337bc12672f",
+  "afterSha256": "ed0e52acf2acde22b9a8d46bc44deed0c8178c036f375d197dea58509c049df7",
+  "sourceFile": "q053-16021611c4fd.png",
+  "sourceSha256": "16021611c4fdce9fda3a80d13515ac9c3f0993cb41750811a5d01afab6f7f472",
+  "promptSha256": "4cdbdb7b120ddd5ab6e12e816c6050c7d9b519a64f5dd4d154379d31ae7c29b8",
+  "review": "Native preview reviewed: six trail lines and reversed boot direction are readable; guide remains alone while preparing refuge before rescue; exactly three missing porters appear only in outcome A under the rock shelter."
+}

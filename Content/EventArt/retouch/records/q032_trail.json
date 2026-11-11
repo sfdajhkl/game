@@ -1,0 +1,14 @@
+{
+  "id": "q032_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q032",
+  "cell": 1,
+  "beforeSha256": "912e937a0c1ecfda2076ffd67ad6681c119cbdd9f3374b243a57109253d753cf",
+  "afterSha256": "ffb9eb983f961564d68aee1f1787726dac13f483e310392fca46f45df5fe807c",
+  "sourceFile": "q032-4376a7029c76.png",
+  "sourceSha256": "4376a7029c76d20f3fa18e0e972543609cd86da90162a3aa026fbd03d9e3b52d",
+  "promptSha256": "86f7e07d815f94df703e8c285c95cfe3660ec585abf04f49d9b29145fe82bb44",
+  "review": "Native preview reviewed: looping bottles, flour-marked cork and mill water control remain distinct; fisher and millworker are fixed locals; restarted wheel and downstream bottles occur only after outcome A. Investigation and aftermath remain person-free."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q075_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-18",
+  "cell": 2,
+  "beforeSha256": "43f39c258bac547849fa4c761d4f5524f73a04fea139519302290b31606c93bd",
+  "afterSha256": "d28ce0999787d62c4b5650c5c5ae57d69192b59585c23201baa0ca1804f672c0",
+  "sourceFile": "echo-18-a56a25fe64de.png",
+  "sourceSha256": "a56a25fe64deeb55ec53f1a641b52a5f86fda1108288d244d029e38eb967fd52",
+  "promptSha256": "b1d0ad9857125e94515aa6fb1fbef5c2c34d7f195b8dae7e18f70b044ab412c3",
+  "review": "Reviewed native cells q072,q074-076: elderly male tailor with short grey hair and plain apron rides supply boat with worker; anonymous family notes behind reed privacy screen; magistrate suspends old order beside review book while old chair remains; cultivated strip, reed wetland and fishing channel coexist. No corpses or armed conscription, coherent local work and four-color outlines."
+}

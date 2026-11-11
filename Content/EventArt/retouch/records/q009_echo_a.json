@@ -1,0 +1,14 @@
+{
+  "id": "q009_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q009",
+  "cell": 3,
+  "beforeSha256": "e043974a6d66de7f1344bd92ccbf46bb7df94c84621a3782723317722fe6ed86",
+  "afterSha256": "d1311aaac5b4398d397e732e75fecc2552f6585f9a52cfaf3ff0b9dd1db47b91",
+  "sourceFile": "q009-1092b56ed266.png",
+  "sourceSha256": "1092b56ed26664ebb6566e280fd5034496b0e7c94de8c1767de1541832bc2214",
+  "promptSha256": "4b99b51c0b65be27b859bd6e6fab2377e6bf8248994132809c5ad99b17319140",
+  "review": "Native crops reviewed: key-holder and innkeeper in the empty house, height marks and saved letter as the clue, key untouched between the parties before agreement, and the removed marked doorframe preserved with tenant records afterward. No predetermined hero home or portraits."
+}

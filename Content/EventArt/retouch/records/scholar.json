@@ -1,0 +1,14 @@
+{
+  "id": "scholar",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "base-05",
+  "cell": 2,
+  "beforeSha256": "0033213b3589b9baf4faf580bb922a3854114723a99910885654907aed927231",
+  "afterSha256": "56e3eb6703ca8512cf513882db97d7a41a8dce6c8c6e1b4a9a90fd4b6bead765",
+  "sourceFile": "base-05-94d0b4914b70.png",
+  "sourceSha256": "94d0b4914b70d529c40cf1a9d07dbe09aa51353dc1b3ca03ba59466eceebf857",
+  "promptSha256": "b56a41024b5b4c62f84fa91327de4c7c6f67b71c7c4c667f1ec2f760ba789afa",
+  "review": "Native parchment review: local priest and distant skeletons, incomplete bridge and waiting farmers, solitary scholar in broad night shape, ordinary house residents. No player, event subjects remain readable with shared palette and restrained outlines."
+}

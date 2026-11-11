@@ -1,0 +1,14 @@
+{
+  "id": "q050_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-12",
+  "cell": 2,
+  "beforeSha256": "f940fc103d2b860a7c963742938ca00262b34db8fe03a25e2e9408f7329f6c51",
+  "afterSha256": "642191d744db3ba66859081efd8b0cf9f7f3b6c8a018e0d58d69d2b3f86b874c",
+  "sourceFile": "echo-12-d16d3d296606.png",
+  "sourceSha256": "d16d3d2966063e9125a96fd5cd9167bd98897c3b583988a0222d4ebe5498d606",
+  "promptSha256": "9b569ea498de93039a5fa78fef23ad8a3dce49bc9face0a6fbaab8bacb9337a3",
+  "review": "Reviewed native cells q048-051: tide notice and safe altar approach; boat firmly supported on land with family memorial notes; three-lock chest and shared public record checked by civilian representatives; ember pot carried through cleared cabin exit beside inspection ladder. No ghost sailors or active avalanche, intact hardware and four flat colors."
+}

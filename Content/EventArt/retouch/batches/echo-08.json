@@ -1,0 +1,33 @@
+{
+  "key": "echo-08",
+  "events": [
+    "q032_echo_b",
+    "q033_echo_b",
+    "q034_echo_b",
+    "q035_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "echo-08-540708fe011e.png",
+  "sourceSha256": "540708fe011ecbfb92e995a74b4fcd714110d9fd8a59d1a75359e72d7d16676e",
+  "promptSha256": "7c655aec208efd34a3cebbfb8b4f8e56746158154d9a5e71a3ebe93caac3176a",
+  "images": [
+    {
+      "id": "q032_echo_b",
+      "sha256": "87f4719fe08f1f525a4990ffb7ab787187c3393675c94c5ce54519aa34092784"
+    },
+    {
+      "id": "q033_echo_b",
+      "sha256": "b0e1b39adf933a9985d9ba96ffe362f7b3b73796c0a967ce28db71295b3a32c3"
+    },
+    {
+      "id": "q034_echo_b",
+      "sha256": "585098136b42c5530b69325e8cd4876f4af0c83994d9b4d8bf1972e8bc7d8c41"
+    },
+    {
+      "id": "q035_echo_b",
+      "sha256": "167e9c68cd3e336cdc16204e8e12395bae45576dc07cbc2b46e637e8cc6582f7"
+    }
+  ],
+  "review": "Reviewed native cells q032-035: mill pause and downstream fishing remain geographically distinct; new and water-stained letters share one envelope without writer; partial sluice flow, waiting folded net and farmer channel coexist; farmers approach high refuge above plots. Native grid, intact levers/net cords and restrained parchment shapes checked."
+}

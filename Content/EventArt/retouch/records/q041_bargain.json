@@ -1,0 +1,14 @@
+{
+  "id": "q041_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q041",
+  "cell": 2,
+  "beforeSha256": "89ca0aa970d562022bf8e78b5417b977814557c93470643ed5d4d879dbe4b4c9",
+  "afterSha256": "2f9f50a3b63c298b74263b015af42aec8fe8ab38f296fa7a6ebd56c14449937f",
+  "sourceFile": "q041-69484a16b32c.png",
+  "sourceSha256": "69484a16b32c6be7da01f62862f0ad516cbecfc7cc830505a042c6a1ffedf2fd",
+  "promptSha256": "24d110513c027e1507d62dcf0a6b642e6e786b7805d8d95f3d9b3fbde67563b9",
+  "review": "Native preview reviewed: condolence sheet, closed keepsake at gangway, and family handover correctly separate phases. Offer has three unrequested background figures in the cabin; q041_offer is queued to restore the solitary captain composition."
+}

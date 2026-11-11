@@ -1,0 +1,33 @@
+{
+  "key": "q006",
+  "events": [
+    "q006_offer",
+    "q006_trail",
+    "q006_bargain",
+    "q006_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q006-b99bd91ab600.png",
+  "sourceSha256": "b99bd91ab6004623ebf10ba7ae35ea327583601689bc17aa0dac54993bf83e87",
+  "promptSha256": "aa4b4604a9460305f55e79ca8fe1ac00dc72b4113a84d4134fc41ea1ac8b340f",
+  "images": [
+    {
+      "id": "q006_offer",
+      "sha256": "67abb5258354fa3d1902c476e93049755d0a0b89053a01c5cef551211f4b7e70"
+    },
+    {
+      "id": "q006_trail",
+      "sha256": "b6e97af9e2ac261e057865596e00b1217415abbe5530bc6d5420a9b78ac9de07"
+    },
+    {
+      "id": "q006_bargain",
+      "sha256": "0faae3b33cfe46ab9bca2317c8a9b52bb05aa581900fb2269e2670c320390798"
+    },
+    {
+      "id": "q006_echo_a",
+      "sha256": "a2ecec5a2ba65af5bd598039d119a9ea9ef58ce7203394ebdb6485d0bb77a7f8"
+    }
+  ],
+  "review": "Native crops reviewed: departing pharmacist with closed box at the empty shop, patient notes and herbs in the open box, planning by the medicine jar, and an ordinary resident bringing herbs only in the aftermath. Same pharmacist design, sparse faces, restrained outlines, no player."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q045_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q045",
+  "cell": 1,
+  "beforeSha256": "385ecae10aa806a37faa3e491ca72e8528147b56bbc242a338e3eb70eed5c0fb",
+  "afterSha256": "ae18bed5794f37fd6b0f726c555d848731d8218b838fca4a3d6495159d1b034d",
+  "sourceFile": "q045-05e13d9d1aa5.png",
+  "sourceSha256": "05e13d9d1aa55f1f2146eda3a097383111eaa6f7e36126f39e3a510cad637ca1",
+  "promptSha256": "d27d955b3fdd51ac2444722f75420f954f6f01b747ffa032482c9f735ca0c2ad",
+  "review": "Native preview reviewed: workers retreat from a low slime under the pier; three rope loops carry directional residue to the drain; sectional barrier precedes cleaning; only outcome A shows cleared drainage and removed rotten ropes."
+}

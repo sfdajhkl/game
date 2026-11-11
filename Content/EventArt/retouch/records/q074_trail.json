@@ -1,0 +1,14 @@
+{
+  "id": "q074_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q074",
+  "cell": 1,
+  "beforeSha256": "0d327e4b7287d5c939bf7da52fcc5d51cc498040fc7e115b83e2d21611358550",
+  "afterSha256": "7fd2f6b6c5ad5fe613a7ffca443b5c75728af3a6e50f7d0c594b88aa2e169e8e",
+  "sourceFile": "q074-dd06fc6b2b46.png",
+  "sourceSha256": "dd06fc6b2b465ebbf3ad82c41c7f8dc95b25f8a911b0b8bb4ecae9aec306313d",
+  "promptSha256": "5576d59f94b7b262d0803f835e0f03b5dd63bdd40bfe9b08fbc9e64f78c4186d",
+  "review": "Native review: two villagers at quiet conscript memorial, reed bundle tag and register remain readable; three relatives confer privately, outcome delivers recovered record at doorway. No ghosts or public forced return; restrained flat sepia shapes."
+}

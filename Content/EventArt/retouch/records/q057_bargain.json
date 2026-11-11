@@ -1,0 +1,14 @@
+{
+  "id": "q057_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q057",
+  "cell": 2,
+  "beforeSha256": "6d954e0c3758e16b910ed6bd2789fdaaa91ca4959eff2e91d297082a0356e4f4",
+  "afterSha256": "350e59c78b55a7a955e441f502283269ef1cb2ad8701eec8232cf8917a82d367",
+  "sourceFile": "q057-e269280a3316.png",
+  "sourceSha256": "e269280a33160f0b2d8f2733c2a00c7fae2b62d845617d50ad4b0a9ad86e016c",
+  "promptSha256": "592ae0f0d6f92b3f641c1e6a348ce7ba365c0b14ce3aef1526e425d4a36b439f",
+  "review": "Native preview reviewed: old village overlooks unfinished tunnel; spring omitted from plan is clear; engineer, worker and elder negotiate at the fork; outcome A includes the adopted diversion channel under local construction."
+}

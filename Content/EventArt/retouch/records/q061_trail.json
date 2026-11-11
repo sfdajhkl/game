@@ -1,0 +1,14 @@
+{
+  "id": "q061_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q061",
+  "cell": 1,
+  "beforeSha256": "fa96af0ddb989b68e4b6275ceaa8fa72a77a86d874d8975ebfb11f7541ecc32c",
+  "afterSha256": "1c937b7409c6a57cf7b553b93f85a6f03b84c594a321439608f49d8509da3b25",
+  "sourceFile": "q061-baa27bac3762.png",
+  "sourceSha256": "baa27bac3762d04401bc0eff8e1e1a92bc36e82b9dc25b83e18342fb105e2920",
+  "promptSha256": "aa2e8d415870dd871c273d18a4c05584225100e88b863c566c6ecd5dbb273d29",
+  "review": "Native review: closed-door offer contrasts gold plate with broken clay bowl; circular worn socket is clear, two excavation NPCs discuss shared access without opening early; only outcome reveals storage jars and allocation record."
+}

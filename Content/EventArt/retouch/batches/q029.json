@@ -1,0 +1,33 @@
+{
+  "key": "q029",
+  "events": [
+    "q029_offer",
+    "q029_trail",
+    "q029_bargain",
+    "q029_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q029-bd5f983506c8.png",
+  "sourceSha256": "bd5f983506c8b7f44b63235621d98aa87656f6877fa707fceeb421d00c8206ea",
+  "promptSha256": "0584c85a62048366ab5406ca6116c4091d881b68ad3b5dbf341e0ea8abfcc60b",
+  "images": [
+    {
+      "id": "q029_offer",
+      "sha256": "e5f09b97dee220006f1e57a97102b86a777e3024ef04d488fe070b842dfad432"
+    },
+    {
+      "id": "q029_trail",
+      "sha256": "061fefbdbec3f3bfaee811ee28e66cf01bbbddf618d9bee4ea3d3439d958441f"
+    },
+    {
+      "id": "q029_bargain",
+      "sha256": "b3aac76dc0077d234e20c2979539566067fffc8a4150e7c065e69b135231af16"
+    },
+    {
+      "id": "q029_echo_a",
+      "sha256": "ae007261268d331156292965052b36749f5b3ae81c67f65edf7da680a3e22182"
+    }
+  ],
+  "review": "Native preview reviewed: covered foreign urn chest, cemetery record and border meeting stay distinct; only outcome A shows the family placing the chest at a grave. No gore or exposed remains."
+}

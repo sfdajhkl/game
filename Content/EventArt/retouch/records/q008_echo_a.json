@@ -1,0 +1,14 @@
+{
+  "id": "q008_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q008",
+  "cell": 3,
+  "beforeSha256": "3dd9044fd2d3c21a687776041bae4e70c13bff86463d39287b1935a085fda157",
+  "afterSha256": "e6ac412a6892b5b88fbc6c7c7e4f349d276036aa328f784f2c45b91de403cd79",
+  "sourceFile": "q008-1c7817a03a6e.png",
+  "sourceSha256": "1c7817a03a6eb0ff127ec50f65c409e8f78d044e9759c1eef8642565c8d1aaa3",
+  "promptSha256": "768e5090ad2cad876b77ca22ede0ae9f01988ce76f570134c4294dcc85bb48c0",
+  "review": "Native crops reviewed: unfinished monument and paused mason, sparse proposed inscription versus larger witness bundle, empty foundation ring before the shared-well alternative, and an inclusive memorial wall afterward. No hero likeness or companions. Small figures, four colors and clear silhouettes."
+}

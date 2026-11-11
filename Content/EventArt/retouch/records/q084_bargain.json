@@ -1,0 +1,14 @@
+{
+  "id": "q084_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q084",
+  "cell": 2,
+  "beforeSha256": "2fed9495525f9b1435588e6221fc0dd230c393c644af452beee004ed284e5205",
+  "afterSha256": "8b4f61079566acfad5103127f353ca8387a04629b80d9d2360c7e0a1738e6f4c",
+  "sourceFile": "q084-2081f2d86377.png",
+  "sourceSha256": "2081f2d8637739e5168996610154edbf40e44d5554070a7ffa38340bb31f81f7",
+  "promptSha256": "2cc40b97d0986cba9c00161e32d813bd9e510db6a0f6523f2176f9f17e0ddfb3",
+  "review": "Native review: judge, clerks and two witnesses face equal mirror judgments; maker notes, memory medicine and site sketch are person-free; judge prepares private witness seating with clerk; outcome compares physical evidence beside secondary mirror. No player reflection."
+}

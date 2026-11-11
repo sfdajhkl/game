@@ -1,0 +1,14 @@
+{
+  "id": "wayside_rest",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "base-06",
+  "cell": 3,
+  "beforeSha256": "1d5955786d8db5e964e5ba68df3b337f64fc446d26686ec9539da15d2bf3c992",
+  "afterSha256": "70e7f2a22ededd3986f42f258e9afce09ad626dfe1533772520492743eeeae4d",
+  "sourceFile": "base-06-487cad16f9d9.png",
+  "sourceSha256": "487cad16f9d9a758055b7107c376f746bfd0f19c920f77b383136b067c091494",
+  "promptSha256": "a15995015e1dd2cec68fe2fbf38a1d8534befb581cbc0ef01d21faf30812a76f",
+  "review": "Native parchment review: novice NPC alone with lowered sword, empty riverside chair and closed journal, merchant pouring into bottle, empty wayside rest. Each composition has quiet space, clear focal object and no fixed player likeness."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q072_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q072",
+  "cell": 3,
+  "beforeSha256": "87b0052448d6fd3f7411a7004865440c92fcbfca3204db1c900f8577f67d4c28",
+  "afterSha256": "535ef7fcef2720d2edc7e1e54ece2f94bcf64f16e169c25ca6b8bad4d0bacf04",
+  "sourceFile": "q072-c3b4952b38fc.png",
+  "sourceSha256": "c3b4952b38fcbe7abc2e793e74354a1e568c6e7f3d1aa75a1224c53d45965aff",
+  "promptSha256": "a7f217ef1effb7f21718970316c3beaa23079e14dd32f66f1caa2ca337c72cd0",
+  "review": "Native review: prescribed elderly lean male tailor alone folds garment; basket and household clue are person-free; empty boat remains at negotiation with no recipient yet; living older resident receives clothes and medicine in outcome. Mooring rope, basket handles and parcels remain connected."
+}

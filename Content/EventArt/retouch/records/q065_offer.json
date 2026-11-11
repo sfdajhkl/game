@@ -1,0 +1,14 @@
+{
+  "id": "q065_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q065",
+  "cell": 0,
+  "beforeSha256": "a50a1e62f61d0aa31004942b3e0eb042a79cf1827da8765e0fbfa6fae7f5d6fc",
+  "afterSha256": "e1848065ef0032737cc3e891465586bdd9d392697042e71cb4d00dbed9e3eaf0",
+  "sourceFile": "q065-1e18d061fcdc.png",
+  "sourceSha256": "1e18d061fcdc6368cb654d5f2aa77e2e0c02af93057c73f940380a361de0c9fe",
+  "promptSha256": "d5fea682483017f23d89979d340b6439d7082db88465043647a4c9e6126a973c",
+  "review": "Native review: guardian alone blocks the still-closed royal door, law clue is object-only, three ordinary village representatives face guardian before entry, resting guardian and sealed weapons follow resolution. No chosen heir or player party."
+}

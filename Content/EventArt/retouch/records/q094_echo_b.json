@@ -1,0 +1,14 @@
+{
+  "id": "q094_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-22",
+  "cell": 1,
+  "beforeSha256": "870a63dbcba8752023f924034b0a17fd27b4a74f17360a9c1c49257d1f43918d",
+  "afterSha256": "dc278f47a85d82d9fe8be8a377c6ef8bf37cc64312014b433994076eee52a3aa",
+  "sourceFile": "echo-22-5546b37ef0b7.png",
+  "sourceSha256": "5546b37ef0b7d6a6b0881b514ab4dc5ee58670ea4381a66fcb6e9ef33d18cc6a",
+  "promptSha256": "674c99e84d055377032dc755ab7e6a9fe1730db293e0369df6158075869ed4b5",
+  "review": "Reviewed all four final native cells: guarded neutral food drop maintains separation; plain-clothed impostor joins useful rope work with task roster; separate households rebuild and depart with supplies; mercenary left outside and widow right inside with small child behind her, empty threshold between them, lowered letter and no reconciliation. Native palette, outline continuity and fixed NPC-only compositions checked."
+}

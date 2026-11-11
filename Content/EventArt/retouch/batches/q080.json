@@ -1,0 +1,33 @@
+{
+  "key": "q080",
+  "events": [
+    "q080_trail",
+    "q080_bargain",
+    "q080_echo_a",
+    "q080_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q080-3a2f17b78622.png",
+  "sourceSha256": "3a2f17b7862217ea89da1db4e7be16bd800ed8066200bc1d092264eecdf27477",
+  "promptSha256": "0e1a1d872be4a5d4b613d33ba0f9eec9b3b3dcaecb06838a4c1efa55595fa5ea",
+  "images": [
+    {
+      "id": "q080_trail",
+      "sha256": "4f48ac14ef1de1aa8d1fa1db2c898f2c346f6f2dc6ca11f9b5224ac5d2397b72"
+    },
+    {
+      "id": "q080_bargain",
+      "sha256": "95b62228a0bd7f6761ce3f5c0f2ed3fbb12743a72c94137358c01a0453ccc4b5"
+    },
+    {
+      "id": "q080_echo_a",
+      "sha256": "8f2f156908156365ed8aac9245fbb4cadb9822db3a41535ca8ec908627d9235f"
+    },
+    {
+      "id": "q080_echo_b",
+      "sha256": "c13fb4ad939b13dcc92146bfef84d2a757dd6c6c8a16743bf8c73e2ef5ef9e3c"
+    }
+  ],
+  "review": "Native review: contract-eating chest clue has no hands, same elderly female keeper with grey bun negotiates at a distance; result A keeper holds recovered seal, result B feeds completed certificate under meal sign. Chest hinge, teeth and paper edges readable."
+}

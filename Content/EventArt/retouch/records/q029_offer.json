@@ -1,0 +1,14 @@
+{
+  "id": "q029_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q029",
+  "cell": 0,
+  "beforeSha256": "a18802af80503f385a0d5fd87e0c7b720dee8927382a6ad00cd4ee903b98582e",
+  "afterSha256": "e5f09b97dee220006f1e57a97102b86a777e3024ef04d488fe070b842dfad432",
+  "sourceFile": "q029-bd5f983506c8.png",
+  "sourceSha256": "bd5f983506c8b7f44b63235621d98aa87656f6877fa707fceeb421d00c8206ea",
+  "promptSha256": "0584c85a62048366ab5406ca6116c4091d881b68ad3b5dbf341e0ea8abfcc60b",
+  "review": "Native preview reviewed: covered foreign urn chest, cemetery record and border meeting stay distinct; only outcome A shows the family placing the chest at a grave. No gore or exposed remains."
+}

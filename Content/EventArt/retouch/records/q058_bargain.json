@@ -1,0 +1,14 @@
+{
+  "id": "q058_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q058",
+  "cell": 2,
+  "beforeSha256": "dc6424dc0da8161782ec71d7d87d9ef2e411c675bfab0d37cab6599c67157ccf",
+  "afterSha256": "a124cf9916599f0a42c6b8fceadbe87697bfef517a8be9c8168c95ea7b9514cd",
+  "sourceFile": "q058-a0b327f3a199.png",
+  "sourceSha256": "a0b327f3a1993da2921d808443f5c3526e7f71af29bff100aaf52966e08349a8",
+  "promptSha256": "d22d823044bdfafcad0ffc316f9cfba0b3ba36a4848044abca92493ab6083f97",
+  "review": "Native preview reviewed: commemorative stones bury the old arrow; person-free clue exposes its direction toward refuge; removal is considered before action; only outcome A restores the arrow and carries memorial stones away."
+}

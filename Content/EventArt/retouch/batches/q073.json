@@ -1,0 +1,33 @@
+{
+  "key": "q073",
+  "events": [
+    "q073_offer",
+    "q073_trail",
+    "q073_echo_a",
+    "q073_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q073-454771025250.png",
+  "sourceSha256": "4547710252503c6383381236c21529f80bee3d68300057ee0128e6cbf11d6e84",
+  "promptSha256": "521eb49c40459c986424505644603871fd997cbe33996bfc2fdb9199a9fc9590",
+  "images": [
+    {
+      "id": "q073_offer",
+      "sha256": "18a299ec40663bf5d57c99cba74d5c5532da98faca388e6618e8f99e514760e2"
+    },
+    {
+      "id": "q073_trail",
+      "sha256": "6a829fe9708d5b678bd80abc0b2934b7acec69d7492d3ab5f084ac06746b6a58"
+    },
+    {
+      "id": "q073_echo_a",
+      "sha256": "922fe60659c9fd027761ce48ab15eaf41422054bb21bcd25d3527c774bf3cb6c"
+    },
+    {
+      "id": "q073_echo_b",
+      "sha256": "6536a7290485674c8c4f48f76cfad2d6daa2ff45b3fd9db10ff415a78c774c75"
+    }
+  ],
+  "review": "Native review: older male herbalist alone with firmly closed satchel; notebook shows depleted plant beds; outcome A inspects remaining roots, outcome B pairs same herbalist with female healer in cultivation bed. Background quiet and plants separated from hands."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q073_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q073",
+  "cell": 0,
+  "beforeSha256": "c24e7cabe508daff1fb871bf06989b221330e04ff288cc97da047efdae45e0a5",
+  "afterSha256": "18a299ec40663bf5d57c99cba74d5c5532da98faca388e6618e8f99e514760e2",
+  "sourceFile": "q073-454771025250.png",
+  "sourceSha256": "4547710252503c6383381236c21529f80bee3d68300057ee0128e6cbf11d6e84",
+  "promptSha256": "521eb49c40459c986424505644603871fd997cbe33996bfc2fdb9199a9fc9590",
+  "review": "Native review: older male herbalist alone with firmly closed satchel; notebook shows depleted plant beds; outcome A inspects remaining roots, outcome B pairs same herbalist with female healer in cultivation bed. Background quiet and plants separated from hands."
+}

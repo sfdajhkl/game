@@ -1,0 +1,82 @@
+[
+  {
+    "id": "departure",
+    "reason": "Thin bowstring breaks into scattered sampled pixels. Redraw it as a continuous, clearly visible two-native-pixel cord without changing the approved composition.",
+    "originalSha256": "1a5e8be78a64fedbb4b45f807b2f649a963cb9b8628e4e64ee5ffc2c6d1d4d79",
+    "status": "resolved",
+    "resolvedSha256": "76982aa96010b328f71d0273fc1e710cd638de4fe13498aeae7d047fb495edaf",
+    "review": "Vertical bowstring remains connected against the tree from upper to lower bow tip at 192x128."
+  },
+  {
+    "id": "crossroads",
+    "reason": "Bowstring must remain continuous at native scale, not a fine antialiased high-resolution line. Use a strong connected two-native-pixel cord.",
+    "originalSha256": "1bd340e46202e5a63c56d4d47fb3522ea6381f59bb8481c9edc6a2c90fc4775d",
+    "status": "resolved",
+    "resolvedSha256": "061ad38f09cdf57518a64157c8f69462a18b899c8f85c7482bbc1ad9a5159a5a",
+    "review": "Single straight vertical string connects both bow tips without gaps on the flat cloth."
+  },
+  {
+    "id": "bandit_road",
+    "reason": "Native right-hand bowstring is dotted after sampling. Redraw the bow and cord with a continuous two-native-pixel contour.",
+    "originalSha256": "4284668f0fb2797a0c90d54192e467a4ccdfe8ee52c499e245148d20853e7135",
+    "status": "resolved",
+    "resolvedSha256": "e7313583e0ef6af0df7d8fcf89617583396bcdae817868b3604e33c6be41e22f",
+    "review": "Right bandit holds a resting bow with one continuous vertical string and no dotted diagonal."
+  },
+  {
+    "id": "q073_bargain",
+    "reason": "Parchment revision has unnecessary small foliage/water flecks; simplify into quiet connected two-tone masses.",
+    "originalSha256": "1d1891efff8ca87e9bbe6c21587dec076bf6a4e548af341287d6dd6197b4eb78",
+    "status": "resolved",
+    "resolvedSha256": "ed3151c025bc355c858e0bf41e7a8556abc548b1a8bb07babe2586ecd28ed079",
+    "review": "Water and foliage now use connected flat masses; speckled texture was removed while herbalist and healer roles remain."
+  },
+  {
+    "id": "q090_offer",
+    "reason": "Parchment native crop has speckling along the horizon and sword cloth; repaint with perfectly flat sky/ground and no isolated texture pixels.",
+    "originalSha256": "79911a2f7f59bc6565498203d392654c98d83973cf77d0aaa6ca0421dea7c375",
+    "status": "resolved",
+    "resolvedSha256": "15538694e80a1a1126e6174cdb7cfb46d2baf956d9a2fbf68e3d2715ba1bb842",
+    "review": "Flat horizon and cloak removed speckles; commander remains alone with exactly three swords."
+  },
+  {
+    "id": "q002_offer",
+    "reason": "First encounter incorrectly shows two helpers above the well despite the authored direction. Redraw ONLY the trapped cleaner below the broken ladder, empty well mouth, no people or hands at the top.",
+    "originalSha256": "5c70f40778c6a1106dede0890ba1be65e82a179ce07129dc92961c626303a650",
+    "status": "resolved",
+    "resolvedSha256": "6fe52b1ab83f40cd508ca9d38a16b6489df147fd5d11380ca4dd890bd7e49d69",
+    "review": "Only the stranded cleaner remains below the well; all helpers and hands above the rim were removed."
+  },
+  {
+    "id": "q022_trail",
+    "reason": "Violin strings and peg edge become dotted speckles at native resolution. Redraw as a few strong continuously connected straight strings with clean flat body shapes, no fine highlights or grain.",
+    "originalSha256": "c50455ecaa190fff01ec37a8db6284600b55ad4b005fb7a6e0c2b8bd0c5792e2",
+    "status": "resolved",
+    "resolvedSha256": "fbd2409dd3ad84437e86a9374c7555e929666e9f0a2a459c36dbd1fc6fd7765f",
+    "review": "Horizontal orientation preserves four separate continuous strings at 192x128; no dotted chain remains along the fingerboard."
+  },
+  {
+    "id": "q041_offer",
+    "status": "resolved",
+    "reason": "Remove the three unrequested background people. EXACTLY ONE PERSON IN ENTIRE IMAGE: the older female captain alone on the right. Left cabin contains ONLY large piles of unopened letters, empty wood walls and empty bunks. No portrait, ghost, human silhouette, relative, worker, hand or distant person anywhere. Quiet loneliness, not a meeting.",
+    "originalSha256": "daf2288013f16c868019796aad142774af8afe3fde1cac7537755407182579ea",
+    "resolvedSha256": "d435d9d3ea32014bf58ce0c8b0d350d5df9b7093a5aa3939151054ef49ccfc10",
+    "review": "All unrequested background figures removed; exactly one captain remains beside unopened letters."
+  },
+  {
+    "id": "q044_offer",
+    "status": "resolved",
+    "reason": "NO PEOPLE AT ALL. Remove every quay figure, all hands, all faces. Low sea-level view with bell buoy LARGE in foreground at right and two small ship silhouettes in thick flat fog far behind approaching each other. No quay meeting, no people on ships, no buoy repair yet.",
+    "originalSha256": "833ecfa8d8d19464af5060d10aacb19e07a88d52f059f06e0aaab20b0e59bb02",
+    "resolvedSha256": "1d7545f872cbbdc1cce3af12db868a5dc9c0ca667969ffa4ee1af81c49b0b8be",
+    "review": "Person-free buoy and two distant ships restored; no quay figures or human silhouettes remain."
+  },
+  {
+    "id": "q090_bargain",
+    "status": "resolved",
+    "reason": "Remove all living onlookers, merchant and relatives from this BEFORE-resolution scene. EXACTLY ONE FIGURE IN ENTIRE IMAGE: the mournful undead commander kneeling alone beside THREE mismatched swords and one clearly EMPTY sword-sized gap. No person or silhouette anywhere else; no ghost companion. Preserve spare battlefield, plain empty name strip, no coins, no completed peace yet. Keep the commanders small bone profile without gore, cape and hands anatomically coherent. Flat clean background and restrained connected outlines.",
+    "originalSha256": "cb9737e4496c8795dc06a9d874d0594385c86d5da8b77f821050b889d94f962a",
+    "resolvedSha256": "7213d81334cabe7e8df9848f379fc2c4b7e90d3fd361a9b1277259ac18b16f07",
+    "review": "Only the solitary commander remains before restoration; living merchant and bereaved family no longer appear prematurely."
+  }
+]

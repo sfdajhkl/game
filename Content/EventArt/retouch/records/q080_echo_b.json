@@ -1,0 +1,14 @@
+{
+  "id": "q080_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q080",
+  "cell": 3,
+  "beforeSha256": "1800970575406a6acc2b498758e0a9385eba7a1f787f85f83b5d3e5d174d5af0",
+  "afterSha256": "c13fb4ad939b13dcc92146bfef84d2a757dd6c6c8a16743bf8c73e2ef5ef9e3c",
+  "sourceFile": "q080-3a2f17b78622.png",
+  "sourceSha256": "3a2f17b7862217ea89da1db4e7be16bd800ed8066200bc1d092264eecdf27477",
+  "promptSha256": "0e1a1d872be4a5d4b613d33ba0f9eec9b3b3dcaecb06838a4c1efa55595fa5ea",
+  "review": "Native review: contract-eating chest clue has no hands, same elderly female keeper with grey bun negotiates at a distance; result A keeper holds recovered seal, result B feeds completed certificate under meal sign. Chest hinge, teeth and paper edges readable."
+}

@@ -1,0 +1,33 @@
+{
+  "key": "q076",
+  "events": [
+    "q076_offer",
+    "q076_trail",
+    "q076_bargain",
+    "q076_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q076-91a60451cbfe.png",
+  "sourceSha256": "91a60451cbfe7f82d256b7e0d35c79e8ac86e66e52edd927f160387a2d47ab1e",
+  "promptSha256": "77fdd44c3ace3bed04c20171aa51123b19d61cc17662ed41a52c224a0dac6443",
+  "images": [
+    {
+      "id": "q076_offer",
+      "sha256": "5cb2479fe8f1c64c2fd644acede0d6504ceb0d4cfa52c0aa828d27344ae6163d"
+    },
+    {
+      "id": "q076_trail",
+      "sha256": "be5047a9f3edf74b29a730e44a4e37ed4a7bb50403934a3d263e5e19f5b2a4ce"
+    },
+    {
+      "id": "q076_bargain",
+      "sha256": "5fc58b5fb64745f7c23b441a4a0d43f3e5efefb024db2f49297848f405a489fc"
+    },
+    {
+      "id": "q076_echo_a",
+      "sha256": "fdf60a3c3c3a43153e8b999b3869f8a3b736f49b9a5be9268d8b0ba3120ad0cb"
+    }
+  ],
+  "review": "Native review: noble announces at sluice while farmers and fishers remain apart; two water samples and salt establish evidence; workers discuss use beside intact wetland, outcome restores small marsh area with farmland separate. No generic adventurers or all-wetland drainage."
+}

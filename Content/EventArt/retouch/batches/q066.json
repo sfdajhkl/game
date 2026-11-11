@@ -1,0 +1,33 @@
+{
+  "key": "q066",
+  "events": [
+    "q066_offer",
+    "q066_trail",
+    "q066_bargain",
+    "q066_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q066-f7cc1efd42fb.png",
+  "sourceSha256": "f7cc1efd42fb42610ca1770b80be27735d1fd728baf7a54b8781eedf031e4c7e",
+  "promptSha256": "d5bd352bc4eed6b8ddb0d13bf96a91e39114003f9e6eed839ed329d1dacb7c3c",
+  "images": [
+    {
+      "id": "q066_offer",
+      "sha256": "36fa8809ca4545a9b5fd204d5fc310ecccb978b0dd765839c889db82ee75206d"
+    },
+    {
+      "id": "q066_trail",
+      "sha256": "79100f61fe6bec961a5661652979bfb0bcae8238c7e45d4f14f9801d40c17a41"
+    },
+    {
+      "id": "q066_bargain",
+      "sha256": "9daa24ff25cbd03e5b16549aa9d103d4b19b436bdf8853970825c8e3d6492a4c"
+    },
+    {
+      "id": "q066_echo_a",
+      "sha256": "8e04d45b8ba6c00adf5bc7e48fe362520f8e49722959f7fd7425189c69be5cbb"
+    }
+  ],
+  "review": "Native review: quiet archive offer and erased-paper clue contain no adventurer; three elders and archivist discuss missing testimony; outcome places memorial records beside trophy records, with connected book/shelf geometry and legible flat areas."
+}
