@@ -1,0 +1,14 @@
+{
+  "id": "q074_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q074",
+  "cell": 3,
+  "beforeSha256": "d32c5e7e3645e1d07940f53f623f6617fd720919b8269f5e0a8055f2d7a93c9f",
+  "afterSha256": "8493df7224ffece6493d88b96282e7e046f28744ad14c73cc36fea18aa9f22a9",
+  "sourceFile": "q074-dd06fc6b2b46.png",
+  "sourceSha256": "dd06fc6b2b465ebbf3ad82c41c7f8dc95b25f8a911b0b8bb4ecae9aec306313d",
+  "promptSha256": "5576d59f94b7b262d0803f835e0f03b5dd63bdd40bfe9b08fbc9e64f78c4186d",
+  "review": "Native review: two villagers at quiet conscript memorial, reed bundle tag and register remain readable; three relatives confer privately, outcome delivers recovered record at doorway. No ghosts or public forced return; restrained flat sepia shapes."
+}

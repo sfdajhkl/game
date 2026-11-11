@@ -1,0 +1,14 @@
+{
+  "id": "q035_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-08",
+  "cell": 3,
+  "beforeSha256": "001cface846f274ff7a10b973fbff56ef5ba27c20ae29598117ab9a3ba0ab3e9",
+  "afterSha256": "167e9c68cd3e336cdc16204e8e12395bae45576dc07cbc2b46e637e8cc6582f7",
+  "sourceFile": "echo-08-540708fe011e.png",
+  "sourceSha256": "540708fe011ecbfb92e995a74b4fcd714110d9fd8a59d1a75359e72d7d16676e",
+  "promptSha256": "7c655aec208efd34a3cebbfb8b4f8e56746158154d9a5e71a3ebe93caac3176a",
+  "review": "Reviewed native cells q032-035: mill pause and downstream fishing remain geographically distinct; new and water-stained letters share one envelope without writer; partial sluice flow, waiting folded net and farmer channel coexist; farmers approach high refuge above plots. Native grid, intact levers/net cords and restrained parchment shapes checked."
+}

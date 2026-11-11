@@ -1,0 +1,14 @@
+{
+  "id": "mentor",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "base-04",
+  "cell": 0,
+  "beforeSha256": "bd421b29203d8f41f15b124e87876dacf8c9803d961ff4320dc29ce8292ce7e7",
+  "afterSha256": "df5db19a10933a4a57ba9037fc906ef863b16efa9e533e24ba0c178a2ca30b2f",
+  "sourceFile": "base-04-887b7f9bc840.png",
+  "sourceSha256": "887b7f9bc84050f5707ca28c9c4d260254bf37f99c6bc52bec22f2ea645b3cc2",
+  "promptSha256": "b47357167a32d43772b798ae0377784264e7911aed8f036bfdef719a4737f1d4",
+  "review": "Native parchment review: empty practice yard around lone mentor, connected smith hammer action, sparse flowering branch, empty winter inn with clear kettle/window contrast. Two-tone material groups and preserved restrained contours; no player."
+}

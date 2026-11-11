@@ -1,0 +1,33 @@
+{
+  "key": "q015",
+  "events": [
+    "q015_offer",
+    "q015_trail",
+    "q015_bargain",
+    "q015_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q015-7c986b6ae0c2.png",
+  "sourceSha256": "7c986b6ae0c2bc2b1aa0256892dfda0e17b35d92ac841044b1ce64bc333c1311",
+  "promptSha256": "25004f8d414d331c92175b0d4eeb7364422dc3412398c26f7db85acca14dc9f8",
+  "images": [
+    {
+      "id": "q015_offer",
+      "sha256": "5c05f2a03fedffbc64a8ebf57dc69ca450f4a2ee3a4835263249d5fc53cc637e"
+    },
+    {
+      "id": "q015_trail",
+      "sha256": "be47a49a3db321ffb44edc29e208fc7c4f45fa2216de052ebd8a8bcdbbf8b883"
+    },
+    {
+      "id": "q015_bargain",
+      "sha256": "63fbaf75abb2ab35c7a34c9a7e8583181f4d1a5d8ef92a1869826780b73fda24"
+    },
+    {
+      "id": "q015_echo_a",
+      "sha256": "cce2f88ba8ea6f0c72978996c6e4d20b66233285deafc3947fb5b1c307c3d8ba"
+    }
+  ],
+  "review": "Native crops reviewed: coins and pledge at the hollow tree, contract in the recovered chest as clue, village representative considering the paper alone, and preserved chest with forest-protection marker afterward. Gold converted to parchment, no treasure-hunting player or surface grain."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q071_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q071",
+  "cell": 3,
+  "beforeSha256": "18741d29a4bb546bc458840fddf23940e25cd461d3444ad551134e81b9189471",
+  "afterSha256": "41897b0d4af4bd9343e5924302e0797c88a3d3a55359dc1adc251006c53c9ff5",
+  "sourceFile": "q071-6acee3bcae87.png",
+  "sourceSha256": "6acee3bcae87a3977c438ca8315b7d95fe827ec0c19ce01c593548128bcc4706",
+  "promptSha256": "92127e9bf1bed0d7393019554bdbb4b36d7ea72e6ea286089d572654ffe91e2d",
+  "review": "Native review: silent film-covered pond, large connected web leading to reed nest, two local workers preparing small purification area, and cleared stream with single returning frog are distinct. No bonfire or premature celebration; no party figures."
+}

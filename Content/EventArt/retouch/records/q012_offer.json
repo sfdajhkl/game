@@ -1,0 +1,14 @@
+{
+  "id": "q012_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q012",
+  "cell": 0,
+  "beforeSha256": "d8f2f0afa784017650e4eaa329dec028a7a96508f42cd7a09434db10f6ae0a9c",
+  "afterSha256": "4bcb606a7a33c03e2898a0895d34126756548338734e017e8e04f69ab4a8fa5c",
+  "sourceFile": "q012-70bf2345ab06.png",
+  "sourceSha256": "70bf2345ab064a639bb6b26909d1078ee5b069bce7fdc648f1a966ed11a316d3",
+  "promptSha256": "cd5bde8dc0a22f577034b01101c9ab18502e9e21cdb4c85804ced35c2f4f8cac",
+  "review": "Native crops reviewed: separated woodcutters at the misleading fork, new nail and older arrow as a person-free clue, locals preparing a bypass with a loose board and branch, and separate wildlife/logging markers afterward. Small civilians and deer, connected tool silhouettes, no player party."
+}

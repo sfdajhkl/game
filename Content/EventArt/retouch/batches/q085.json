@@ -1,0 +1,33 @@
+{
+  "key": "q085",
+  "events": [
+    "q085_offer",
+    "q085_trail",
+    "q085_bargain",
+    "q085_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q085-6a94ff673031.png",
+  "sourceSha256": "6a94ff673031b23e05cada4da1717ee4e7b90f9fbfcfe1d3d73a5cd42f2319a0",
+  "promptSha256": "ae7061a1015b603bb71378b37f4b60c5d1fd19db747f4f5f24d5fa680fbcbee5",
+  "images": [
+    {
+      "id": "q085_offer",
+      "sha256": "d69927da00ce053de1dd350bc6aac82bf6523da2c23f7e741f5aa6d9035b134c"
+    },
+    {
+      "id": "q085_trail",
+      "sha256": "0fb9f3ae63315677b65ce5e7e1ee2350a4c6d14acbfa8103bc4c584930c89aa1"
+    },
+    {
+      "id": "q085_bargain",
+      "sha256": "4d3322be5a325c32c6003de3dccfb750e0fb3357a24b5f62c703d087299c55ef"
+    },
+    {
+      "id": "q085_echo_a",
+      "sha256": "5d78b48ff73229ac81fa45e44d9cc0c78acdb810f149c6243459343139ca175b"
+    }
+  ],
+  "review": "Native review: young dragon alone on binding circle with gold absorbed by apparatus; evidence shows actual intake channel; residents negotiate before closed exit, only outcome opens path and breaks binding. Dragon anatomy reads coherently at native size, backgrounds simplified."
+}

@@ -1,0 +1,33 @@
+{
+  "key": "q019",
+  "events": [
+    "q019_offer",
+    "q019_trail",
+    "q019_bargain",
+    "q019_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q019-83b2d9f39653.png",
+  "sourceSha256": "83b2d9f396534ee32675b21bccccc6f5d208217fa79cbe993a2f7710daab2d2d",
+  "promptSha256": "54030b37c9a7a76c47b3d084c28a3aabd85e97e9c5808bf913f5d985fc3ee7e9",
+  "images": [
+    {
+      "id": "q019_offer",
+      "sha256": "45c3a2a71fa673195d26ff2e91240aa5b35d9a9d8dfae9e8b3bc4288c4363278"
+    },
+    {
+      "id": "q019_trail",
+      "sha256": "33c978a93ddd71fb8c65a28e49641562c2842b324c7383821204c4c7a28b2069"
+    },
+    {
+      "id": "q019_bargain",
+      "sha256": "f8376222cef701dbcaf67aa81751f23d816652598ee237e23632166406865e19"
+    },
+    {
+      "id": "q019_echo_a",
+      "sha256": "5c6e5783292d1fce3cc1d2371ede1be823daf24ab865d4ae17dfcbb51fb6f944"
+    }
+  ],
+  "review": "Native crops reviewed: shipyard workers and villager separated by the oak slope, roots visibly anchor vulnerable soil above houses, a proposed curved ship timber carries negotiation, and workers use an already fallen trunk afterward while great oak remains standing. No battle or royal hero."
+}

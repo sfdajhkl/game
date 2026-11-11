@@ -1,0 +1,14 @@
+{
+  "id": "q028_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q028",
+  "cell": 2,
+  "beforeSha256": "0ae8431c23b5984822ca95d646b2f0401dabff7290a0a5552ac7826e2717f520",
+  "afterSha256": "987c43a979d47a9683bba86ef0d93759a75b1c499fff9012734e78a29981e7df",
+  "sourceFile": "q028-508b9faa3bc4.png",
+  "sourceSha256": "508b9faa3bc45cd1843531628f39f3b645b4cdc41603558c1cb2c2e7babc925b",
+  "promptSha256": "311c73620689fd8e1e3764eb10b7a330a218d793c45bf58ae16a08ba01cdf9dd",
+  "review": "Native preview reviewed: tax official and refugee family are the only principal figures; allocation ledger and donation bowl make the dilemma readable; relief handover appears in outcome A. No player or heroic proxy appears."
+}

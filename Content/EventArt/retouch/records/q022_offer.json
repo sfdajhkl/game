@@ -1,0 +1,14 @@
+{
+  "id": "q022_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q022",
+  "cell": 0,
+  "beforeSha256": "72a74d34d586a6c0f9d32f246c5536cdb6ed7ea6edee574f0fabb8a31ee6153c",
+  "afterSha256": "28c9d4032453847a1105dea0a25090f7276482486ffc8f4c4a7f2f8f68fe91a6",
+  "sourceFile": "q022-af6b78c68247.png",
+  "sourceSha256": "af6b78c6824761320f237069b881f8a74109666571b33f43131670ca5709bf33",
+  "promptSha256": "730b939495ec37d87c572a3a2bb21f37cfec64d8d00992e4aeefc393c0549eff",
+  "review": "Native crops reviewed for phase and cast: musician remains beneath overturned wagon initially, violin and keepsake clue is person-free, locals collect a lever before rescue, and bandaged musician sits safely afterward. Violin clue string rendering requires a separate correction before final completion."
+}

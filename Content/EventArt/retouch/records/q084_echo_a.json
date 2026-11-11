@@ -1,0 +1,14 @@
+{
+  "id": "q084_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q084",
+  "cell": 3,
+  "beforeSha256": "406c926d3a24fb8fbb834df41c8f4299b531b4088ab8e373ec15ab788816a52e",
+  "afterSha256": "0c2d620fb4e75c1d942ae7b2ad62116c166112d2cfb16aaf64d49a7a3bc4095d",
+  "sourceFile": "q084-2081f2d86377.png",
+  "sourceSha256": "2081f2d8637739e5168996610154edbf40e44d5554070a7ffa38340bb31f81f7",
+  "promptSha256": "2cc40b97d0986cba9c00161e32d813bd9e510db6a0f6523f2176f9f17e0ddfb3",
+  "review": "Native review: judge, clerks and two witnesses face equal mirror judgments; maker notes, memory medicine and site sketch are person-free; judge prepares private witness seating with clerk; outcome compares physical evidence beside secondary mirror. No player reflection."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q048_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q048",
+  "cell": 3,
+  "beforeSha256": "e0c8ef62b0a03d428ecc3d2a03271c34727d30259cf9b8e50e14365ddc62b5bd",
+  "afterSha256": "006e4fb3910dd4ceba1fcbca0184e125fcb562a87c0474ebd2a6812ce29f9461",
+  "sourceFile": "q048-0ccb40dc880a.png",
+  "sourceSha256": "0ccb40dc880ac74397696021fd59132804f20fd518ca08fc05ffbc2b929afc71",
+  "promptSha256": "83881ce25e035b72403390f0c8476ecb2242434c72af4781a3d562985f96df49",
+  "review": "Native preview reviewed: noble and fisher remain separated by exclusion rope; boat-name carvings establish communal ownership; negotiation retains barrier, while outcome A removes it and gives access back to locals. No invented party."
+}

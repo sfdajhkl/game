@@ -1,0 +1,14 @@
+{
+  "id": "crossroads",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "repair-01",
+  "cell": 1,
+  "beforeSha256": "ff489adb19664b277090b55f2d702cf136d0a31788a533309fdf32e2abc13a4e",
+  "afterSha256": "061ad38f09cdf57518a64157c8f69462a18b899c8f85c7482bbc1ad9a5159a5a",
+  "sourceFile": "repair-01-cbbf5df2015d.png",
+  "sourceSha256": "cbbf5df2015de0a6c8896a95f8124040e0c66027c4138e2415310f541afd7140",
+  "promptSha256": "9d5f82ca3c431c1daec904413893c9762995d632e7c10867cf4faec2d2727cd9",
+  "review": "Native repair preview reviewed: all three bows have single continuous vertical strings joining both tips; crossroads keeps four separate weapons; well mouth is now empty with only the stranded cleaner below. Quiet parchment masses and scene roles retained."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q025_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q025",
+  "cell": 1,
+  "beforeSha256": "238b6f1b6cdf85436200938da125b168366b5620fd989e824afbbd761c5e5b89",
+  "afterSha256": "d1856247e6c2df9714f1c0d3a709b2b48fe22d8940c6c1406c1d2b744b68a826",
+  "sourceFile": "q025-507ddfe6a193.png",
+  "sourceSha256": "507ddfe6a193728bacff56d350c0200cfadad28f41026ecc93eec54a3aa26c2c",
+  "promptSha256": "453136b4495590f4b7e312a4e832bc5f87bb6b461f97483d28f5b80235d31c45",
+  "review": "Native preview reviewed: duplicated carpenter portraits and printing plate distinguish the clue; carpenter and patrol remain fixed NPCs; withdrawn plate and released man distinguish outcome A. No player party is depicted."
+}

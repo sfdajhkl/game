@@ -1,0 +1,14 @@
+{
+  "id": "q002_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q002",
+  "cell": 1,
+  "beforeSha256": "4957adf576d10c0867ad9a82eb3b710fb71b55af94b287028c5f9fb55c4f2a7a",
+  "afterSha256": "49693c446cb9b7a6614c064c873863eb159e6d0b7c025ecb29d717ad1571e754",
+  "sourceFile": "q002-8eae1bd288af.png",
+  "sourceSha256": "8eae1bd288af8153c1be7304b276f960556ee63c2178a273d39fb2c470e730fc",
+  "promptSha256": "d1472fbfc41aef6b71f620ca47b4d44805dd87534dc2023b32b63bbfa6440e84",
+  "review": "Native review: person-free well fissure clue; two local workers assemble axle materials before rescue; cleaner alone recuperating by secured pulley after rescue. q002_offer shows unwanted helpers and remains explicitly queued for a cast correction."
+}

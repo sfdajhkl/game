@@ -1,0 +1,14 @@
+{
+  "id": "q010_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q010",
+  "cell": 0,
+  "beforeSha256": "4f1264d91f24308dbdebb1eeb9200d869a7966513113d467c104f7de4df91fd9",
+  "afterSha256": "e98f883e8a5a4bef912592ca94162abe18d59586bec8c7ac383e37e6772a9087",
+  "sourceFile": "q010-70ead54119f0.png",
+  "sourceSha256": "70ead54119f09b86f4966669b539553c3cb07e132545cfd38b5f8399ea42119d",
+  "promptSha256": "368c7c19ef66f47e740d6239784c2d2dacdd7413b540840660ea54df6516aee7",
+  "review": "Native crops reviewed: separated mourners and empty chairs, mixed memorial list without portraits, chairs still being placed before the ritual, and a physically separated open book and candlelit slips afterward. Quiet expressions through pose, no ghosts or player."
+}

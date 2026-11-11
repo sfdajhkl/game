@@ -1,0 +1,14 @@
+{
+  "id": "q083_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q083",
+  "cell": 2,
+  "beforeSha256": "1ae5b3eb7551944df460da4ee2d9df4df9f7994958c74743a1a14467eeb4b115",
+  "afterSha256": "c0e0d55032800e84f28c4754e6b2dd41e08634feab0026a99d34db3d7ac70ad6",
+  "sourceFile": "q083-31d1117ca4fe.png",
+  "sourceSha256": "31d1117ca4fea5e5d97e2c45946ffe4e0c1c0677fd3bb047b75f53f7fc63a9f3",
+  "promptSha256": "f33d39364a54bf929a2152227b9d914dbfd1e382fd5ef62a5a2b17cbcf74a468",
+  "review": "Native review: floating crown and EMPTY throne establish ritual, oath inscription appears as object-only clue; heir faces civilian representatives with throne still empty; written public duties accepted before coronation. No player claimant or generic heroic party."
+}

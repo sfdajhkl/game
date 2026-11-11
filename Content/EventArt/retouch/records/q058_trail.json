@@ -1,0 +1,14 @@
+{
+  "id": "q058_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q058",
+  "cell": 1,
+  "beforeSha256": "a7cc3039089d057ab4a0a78001567f047cbbf55337fc7aad783266b74f0e4eb3",
+  "afterSha256": "9ad31d9e771499bc84436aeec99f40596d1254bf21707c7659bda8d3d9b888c7",
+  "sourceFile": "q058-a0b327f3a199.png",
+  "sourceSha256": "a0b327f3a1993da2921d808443f5c3526e7f71af29bff100aaf52966e08349a8",
+  "promptSha256": "d22d823044bdfafcad0ffc316f9cfba0b3ba36a4848044abca92493ab6083f97",
+  "review": "Native preview reviewed: commemorative stones bury the old arrow; person-free clue exposes its direction toward refuge; removal is considered before action; only outcome A restores the arrow and carries memorial stones away."
+}

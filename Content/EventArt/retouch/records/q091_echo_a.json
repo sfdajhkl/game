@@ -1,0 +1,14 @@
+{
+  "id": "q091_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q091",
+  "cell": 3,
+  "beforeSha256": "8be001349b898ec865d9491e3060d6966662f8699c3802835a61d7db6c1ad75d",
+  "afterSha256": "1c7a5cc72edec0af8f06e32e9cc8aff0dad9e42fb05b55ffa8b8230e89f5c098",
+  "sourceFile": "q091-88cf3801cb55.png",
+  "sourceSha256": "88cf3801cb552bdabcbf818bc713807bfce26fa751e6cf94c01820d16fcb3b90",
+  "promptSha256": "dd206bc92a94d8f5b0af8bfabc6b3d26d4305b31c0ae41d047ff3b15113ddad9",
+  "review": "Reviewed native grid: person-free village beneath local dark dome with distant daylight; intact tied wartime seal and unused end token; three hesitant villagers around still-burning lamp with snuffer; quiet daylight and opened seal after ritual. No living war, dragon or player likeness, connected small hardware and two-tone shapes."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q040_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q040",
+  "cell": 0,
+  "beforeSha256": "56dd274d3a545b7a94f4cc3a23117147751dfbe8a9eabb33b84e40d417f63746",
+  "afterSha256": "57cdda67c15119eb7fc972efbafd4bccc0a03b32c455a4bd3e96f6796ead2133",
+  "sourceFile": "q040-0f5d1da94706.png",
+  "sourceSha256": "0f5d1da947069c70a535f39ddf1becc737125a7b7c454da5e4437793878f3b3d",
+  "promptSha256": "4660137b6701e9c47bb534cdeed50dd0e08416c5ed43744c526629d441823c9e",
+  "review": "Native preview reviewed: recovered crown is a shared-water oath artifact, not worn by a hero; person-free inscription clue and empty museum plinth are distinct; recorded stele and crown establish outcome A."
+}

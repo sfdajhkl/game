@@ -1,0 +1,33 @@
+{
+  "key": "echo-20",
+  "events": [
+    "q084_echo_b",
+    "q085_echo_b",
+    "q086_echo_b",
+    "q087_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "echo-20-9dcc4df1d1aa.png",
+  "sourceSha256": "9dcc4df1d1aaa88193419d2de438d9f079f029133f23c3dd7d898f63c48ef68a",
+  "promptSha256": "08f59526e5ea1b7db11c38f30f45720d7a7875fb25abf8fb5b07f4ce49fb04f6",
+  "images": [
+    {
+      "id": "q084_echo_b",
+      "sha256": "ad6e66abb05ca3c624d2c4cfc0e87a18234b3159b8dbb341796567f5fc0d029d"
+    },
+    {
+      "id": "q085_echo_b",
+      "sha256": "728527de7078a05c9043d768f94d85163090c4e43382f19879aeb4a57e115977"
+    },
+    {
+      "id": "q086_echo_b",
+      "sha256": "4eea50df9806b072c59fb3e245833cc9b11f2578b28d66c38d0948bd621f2f94"
+    },
+    {
+      "id": "q087_echo_b",
+      "sha256": "a7914474a92c0a2d151fb73846ae7133dab1c11d07ac38d67f21058ed35dfdd6"
+    }
+  ],
+  "review": "Reviewed native cells q084-087: separately screened witnesses with magistrate and mirror aside; young dragon free outside town beside mutually marked boundary and empty bowl; living elderly lord and recipient retain separate matching keys to trust provisions; intact egg rests under low shelter with guard and scholar separated and weapons outside. Quiet four-color outlines, fixed local casts and coherent objects verified."
+}

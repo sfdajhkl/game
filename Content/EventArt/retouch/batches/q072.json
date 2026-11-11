@@ -1,0 +1,33 @@
+{
+  "key": "q072",
+  "events": [
+    "q072_offer",
+    "q072_trail",
+    "q072_bargain",
+    "q072_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q072-c3b4952b38fc.png",
+  "sourceSha256": "c3b4952b38fcbe7abc2e793e74354a1e568c6e7f3d1aa75a1224c53d45965aff",
+  "promptSha256": "a7f217ef1effb7f21718970316c3beaa23079e14dd32f66f1caa2ca337c72cd0",
+  "images": [
+    {
+      "id": "q072_offer",
+      "sha256": "c82f477a3262900bca8fdaad047b182659acba2679e98e96fb3a3c7c416f34cf"
+    },
+    {
+      "id": "q072_trail",
+      "sha256": "1b8906c6ce04b2cb612404c2b1d1a8dd9b0066f1a835b6e0d746ca14fa5d1b05"
+    },
+    {
+      "id": "q072_bargain",
+      "sha256": "1ed5c1fc41ea3351b5b54357c8bd732111a96925c74ba3425cd22c80ba6a6a7e"
+    },
+    {
+      "id": "q072_echo_a",
+      "sha256": "535ef7fcef2720d2edc7e1e54ece2f94bcf64f16e169c25ca6b8bad4d0bacf04"
+    }
+  ],
+  "review": "Native review: prescribed elderly lean male tailor alone folds garment; basket and household clue are person-free; empty boat remains at negotiation with no recipient yet; living older resident receives clothes and medicine in outcome. Mooring rope, basket handles and parcels remain connected."
+}

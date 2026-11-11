@@ -1,0 +1,14 @@
+{
+  "id": "q018_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q018",
+  "cell": 0,
+  "beforeSha256": "db20c5c8e1428eb51a2767288e400bd671b0fd3a2c39ddd278f141721e851a62",
+  "afterSha256": "2a8af846688b7bb8658c4a796302e745c7bd36905c698bd102e3ea5646f01a26",
+  "sourceFile": "q018-e47873d9dd5b.png",
+  "sourceSha256": "e47873d9dd5b2565b2c44046576da670ebdb3bd224f084c4240ca8b37d8cb949",
+  "promptSha256": "e1bb65900f96f1ad1242ae2ab05c68ac62dbda3db7ece7cd8686a773550c98a5",
+  "review": "Native crops reviewed: two affected villagers rest under the marked tree, charm under bark is the person-free clue, an extra stool is offered before shared recollection, and removed charm lies foreground while locals reconnect in the distance. No player or ghost."
+}

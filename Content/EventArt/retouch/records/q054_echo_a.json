@@ -1,0 +1,14 @@
+{
+  "id": "q054_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q054",
+  "cell": 3,
+  "beforeSha256": "fea18bcb201867efaa9adec8c8dc6c5dd3b3576a245b12ef9805ca30dbf1a4ed",
+  "afterSha256": "c96ebbdbb2d39f90afa0c450a743fc775682d4e3af1c6d0bf6952d6b3494a17f",
+  "sourceFile": "q054-bda77f4c36e4.png",
+  "sourceSha256": "bda77f4c36e49bb5f8384b4f6509322928d00f26df9d46fd1c69637ce45aeb98",
+  "promptSha256": "31bf98821bd5f309bee0a39b194767057657a3c6166f2de15379690ae5f5b191",
+  "review": "Native preview reviewed: torn large flag and narrow rock cleft establish local gusts; small cloth tests replace an oversized gauge; guide and porter negotiate in shelter; outcome A uses cairns and modest cloth wind markers."
+}

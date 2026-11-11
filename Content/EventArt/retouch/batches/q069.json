@@ -1,0 +1,33 @@
+{
+  "key": "q069",
+  "events": [
+    "q069_offer",
+    "q069_trail",
+    "q069_bargain",
+    "q069_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q069-aede9ed0ae8f.png",
+  "sourceSha256": "aede9ed0ae8f72ed0029a02cbe11e0409d91b30860c18652af6ff4542481881d",
+  "promptSha256": "617fab7638793a0bd54a66cac6dcecc819e8dbc5c97d50a348c6d94dcc747612",
+  "images": [
+    {
+      "id": "q069_offer",
+      "sha256": "eef9172d9ba33cebc13d09ef24fdd84de7a1f600281e85ac3d0e3b878b06ff3e"
+    },
+    {
+      "id": "q069_trail",
+      "sha256": "5db80cf6a3789663aff77d93e95a71a074f6f49c3118d4e52416ae91a782770e"
+    },
+    {
+      "id": "q069_bargain",
+      "sha256": "67c6a847740d03b43018fd6913484d149c86f5d6e2cdb0403ea795476e4983cc"
+    },
+    {
+      "id": "q069_echo_a",
+      "sha256": "1b213e15518ef3707facb5cbe3996d670721734f3b2e54bbe0344804540681f3"
+    }
+  ],
+  "review": "Native review: father alone signals from sinking marsh footing; clue has marked route and personal pouch without premature herbalist; three local rescuers prepare continuous safety rope with stranded father still distant; outcome pairs safe father and found herbalist on bank."
+}

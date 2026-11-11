@@ -1,0 +1,14 @@
+{
+  "id": "q029_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q029",
+  "cell": 1,
+  "beforeSha256": "290766160286832e584645f3dfcfdc0085a7c7b0c0159fc935575b1f7e7c59d7",
+  "afterSha256": "061fefbdbec3f3bfaee811ee28e66cf01bbbddf618d9bee4ea3d3439d958441f",
+  "sourceFile": "q029-bd5f983506c8.png",
+  "sourceSha256": "bd5f983506c8b7f44b63235621d98aa87656f6877fa707fceeb421d00c8206ea",
+  "promptSha256": "0584c85a62048366ab5406ca6116c4091d881b68ad3b5dbf341e0ea8abfcc60b",
+  "review": "Native preview reviewed: covered foreign urn chest, cemetery record and border meeting stay distinct; only outcome A shows the family placing the chest at a grave. No gore or exposed remains."
+}

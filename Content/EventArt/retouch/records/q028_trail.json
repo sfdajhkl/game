@@ -1,0 +1,14 @@
+{
+  "id": "q028_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q028",
+  "cell": 1,
+  "beforeSha256": "ad81becae30b7d3b0915cebf51b4f7c080f1280d01590aae9568414cd730f1c9",
+  "afterSha256": "e27baaf3f5dd54875b9fef5efeadf37ef43d98b53206e052ee835ecaa05b2d6b",
+  "sourceFile": "q028-508b9faa3bc4.png",
+  "sourceSha256": "508b9faa3bc45cd1843531628f39f3b645b4cdc41603558c1cb2c2e7babc925b",
+  "promptSha256": "311c73620689fd8e1e3764eb10b7a330a218d793c45bf58ae16a08ba01cdf9dd",
+  "review": "Native preview reviewed: tax official and refugee family are the only principal figures; allocation ledger and donation bowl make the dilemma readable; relief handover appears in outcome A. No player or heroic proxy appears."
+}

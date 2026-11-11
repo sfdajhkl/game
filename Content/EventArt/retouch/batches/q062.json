@@ -1,0 +1,33 @@
+{
+  "key": "q062",
+  "events": [
+    "q062_offer",
+    "q062_trail",
+    "q062_bargain",
+    "q062_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q062-ce572fcbf989.png",
+  "sourceSha256": "ce572fcbf989d4a8bb002ee255265872ebc166903851823e43047aac18e11aa6",
+  "promptSha256": "26f715945f9f48f8a0e63ad2b98469f9058b353896222d5e4e758f88f3653d23",
+  "images": [
+    {
+      "id": "q062_offer",
+      "sha256": "f392236ff702e5aedb7a0350a4fd93a9f36e3a86676d3631bece9c27ee6d2545"
+    },
+    {
+      "id": "q062_trail",
+      "sha256": "695faa581825195bffcdcbd32846f05543e4751aed2da448798b7d7638cd4bc9"
+    },
+    {
+      "id": "q062_bargain",
+      "sha256": "58e40fcaba3b64075db3e903d584587344fb89d5dbd4647765cd02ed22d3c12e"
+    },
+    {
+      "id": "q062_echo_a",
+      "sha256": "f25dbd62a611190f1bc53b86137014e683195e52750a20eae989b32027dfbb01"
+    }
+  ],
+  "review": "Native review: lone rubbing artist remains trapped holding the wedge in offer, clue isolates the load-bearing slab, both helpers remain outside at bargain, safe artist and replacement support appear only in outcome. No party depiction; small outlines and support silhouettes readable."
+}

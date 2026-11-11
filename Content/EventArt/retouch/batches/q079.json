@@ -1,0 +1,33 @@
+{
+  "key": "q079",
+  "events": [
+    "q079_offer",
+    "q079_trail",
+    "q079_bargain",
+    "q079_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q079-d00e0e61caac.png",
+  "sourceSha256": "d00e0e61caaccfd8d183497f2fe8444e8d70a0b5b35d09a04430ebbf8c83db44",
+  "promptSha256": "f43139e92ec7c1b05d017ff260801b0c5d9682d796bf919e3eaf089ead9f715f",
+  "images": [
+    {
+      "id": "q079_offer",
+      "sha256": "76b91936710858ffdb050b5703b9d5ce419db2f458885c91159a4edd0f2186d2"
+    },
+    {
+      "id": "q079_trail",
+      "sha256": "bd1221442e1822f5b1e3fee02ea79ab6bd08f3c35dd8ee027790840eef9b4f65"
+    },
+    {
+      "id": "q079_bargain",
+      "sha256": "3a8012eb41124f8b05b86780f4be1d493e381a3e01a9e3799c55263b2abc171d"
+    },
+    {
+      "id": "q079_echo_a",
+      "sha256": "6aeade12682c755e20a17f19c12ec607f06ebfee328e21d2e9f869ebe2608b0e"
+    }
+  ],
+  "review": "Native review: empty plates and grain-built decorative tower explain failed feast; empty sacks and siphon focus clue; cook with real loaf faces host before change; result shows workers eating solid bread and soup. Only household staff, host and mage appear."
+}

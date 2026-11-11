@@ -1,0 +1,14 @@
+{
+  "id": "q083_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q083",
+  "cell": 3,
+  "beforeSha256": "e7615acaa57ca4c79f4ad5f348c1f2a269618ccaf156f95d337bbd495310d250",
+  "afterSha256": "f82e7fe33b39a7bf275da63b145c447fde468d33606fc5c5446d765c4576f3b3",
+  "sourceFile": "q083-31d1117ca4fe.png",
+  "sourceSha256": "31d1117ca4fea5e5d97e2c45946ffe4e0c1c0677fd3bb047b75f53f7fc63a9f3",
+  "promptSha256": "f33d39364a54bf929a2152227b9d914dbfd1e382fd5ef62a5a2b17cbcf74a468",
+  "review": "Native review: floating crown and EMPTY throne establish ritual, oath inscription appears as object-only clue; heir faces civilian representatives with throne still empty; written public duties accepted before coronation. No player claimant or generic heroic party."
+}

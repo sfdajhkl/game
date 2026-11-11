@@ -1,0 +1,33 @@
+{
+  "key": "q075",
+  "events": [
+    "q075_offer",
+    "q075_trail",
+    "q075_bargain",
+    "q075_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q075-ab0cb99566be.png",
+  "sourceSha256": "ab0cb99566bed0f4e31d2d94e6b5acff94bcd693a30010b55ad39d8c4ae2cf1c",
+  "promptSha256": "0a187b8a72387999c3aab9c5c9ac3a76e821b6e91373fcb91aa61ccb8470d115",
+  "images": [
+    {
+      "id": "q075_offer",
+      "sha256": "0638359a07d8e6fb8cb0e009f77bf58a1c710d6f6ae348aafa271a68660a060d"
+    },
+    {
+      "id": "q075_trail",
+      "sha256": "031ee56f53e43250eaaa9f4e0a496323fbccbade31679f27461fdc5587dbb935"
+    },
+    {
+      "id": "q075_bargain",
+      "sha256": "02e70755a8cbb0d27435d232813a4fe77f863664ef003f8b1bbdd8011a499f91"
+    },
+    {
+      "id": "q075_echo_a",
+      "sha256": "77a685a5bf648dea3d5f6f8f542ab238247bdf103c73252e5609fbf11c981cbb"
+    }
+  ],
+  "review": "Native review: submerged stone tribunal is empty, register dates and blank charge column are isolated clue, new judge meets two descendants outside boundary rope, restored testimony returned at archive doorway in outcome. No fantasy combat party."
+}

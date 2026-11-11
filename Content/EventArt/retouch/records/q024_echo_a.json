@@ -1,0 +1,14 @@
+{
+  "id": "q024_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q024",
+  "cell": 3,
+  "beforeSha256": "2b989681695d1063f4be5b0a2af0d76c6b654d59078c1c515dda15da9c441525",
+  "afterSha256": "5a652de6e4f880e91446a98cdb7a97ab21abb1b4dcb2b8c59d445093342a9025",
+  "sourceFile": "q024-73c93b6ad64c.png",
+  "sourceSha256": "73c93b6ad64c97c52934f76a4a6f06c257b8cf00663cfd69f55d2517db361710",
+  "promptSha256": "a20d4c580e22050728f1a8f2aad7844878067e8215a001b643ae527ee1a0efaa",
+  "review": "Native four-color preview reviewed: split wheel and salt clue are readable; repair negotiation retains the wheelwright and roadkeepers; aftermath shows intact reinforced rim beside gravel. Gravel is localized scene content, not global texture."
+}

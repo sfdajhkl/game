@@ -1,0 +1,14 @@
+{
+  "id": "q008_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q008",
+  "cell": 1,
+  "beforeSha256": "7c6f2bb2d04a18745f3982ab091cd40d6b2b6bcef2cf0250af63ff2120402151",
+  "afterSha256": "6c88431bf2d1c6b772e3f785d684993bee2bcc05b778e026fd50944adaf8ccf5",
+  "sourceFile": "q008-1c7817a03a6e.png",
+  "sourceSha256": "1c7817a03a6eb0ff127ec50f65c409e8f78d044e9759c1eef8642565c8d1aaa3",
+  "promptSha256": "768e5090ad2cad876b77ca22ede0ae9f01988ce76f570134c4294dcc85bb48c0",
+  "review": "Native crops reviewed: unfinished monument and paused mason, sparse proposed inscription versus larger witness bundle, empty foundation ring before the shared-well alternative, and an inclusive memorial wall afterward. No hero likeness or companions. Small figures, four colors and clear silhouettes."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q044_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q044",
+  "cell": 2,
+  "beforeSha256": "14a61af17f19dad6d18f408242ce48986e6a3c8974afc67b02b5164f54fab2ec",
+  "afterSha256": "7bec82e88be644763a91fef0983001974d227de9fdec0da0cb29e0d129aa5465",
+  "sourceFile": "q044-282922df1615.png",
+  "sourceSha256": "282922df16150fe007acc07e20e08bf2c728f3cf7acf8365b68552d1810efded",
+  "promptSha256": "24ff34bbc3005106c390227d179fc282d9a63c2770f15447368d56df4b7079ff",
+  "review": "Native preview reviewed: intact clapper and wedged cloth are readable; resident and fisherman negotiate before repair; outcome A removes cloth and adds adjustable weight. Offer incorrectly retained foreground NPCs and is queued for the authored person-free fog-and-buoy view."
+}

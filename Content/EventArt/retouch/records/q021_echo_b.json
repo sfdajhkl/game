@@ -1,0 +1,14 @@
+{
+  "id": "q021_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-05",
+  "cell": 1,
+  "beforeSha256": "b8a6abae2d7f6771b90de89104b5fc830d7023fc126ab5cc404f17fddd1ef406",
+  "afterSha256": "42fbb117f39861998a6b4307c7c65ab222b0163712ba4a25db233607bcd07ab3",
+  "sourceFile": "echo-05-a2b8a80ce339.png",
+  "sourceSha256": "a2b8a80ce3399992025957b78b16d8c2e432bdec67471d27002138879ba7a14b",
+  "promptSha256": "fcfd706b2b767986f6d182decae37a41c145e843d8bd70e85eef4b396566a9e6",
+  "review": "Reviewed native cells q020-023: braided apprentice fixes verified sign while locals leave and flute stays bundled; drivers exchange coherent crates between staggered wagons; short-haired violinist plays on bare step for two theatre workers with intact bow and modest instrument; one tariff gate and two small crests over single civilian wagon. Continuous cords and small faces, no player audience."
+}

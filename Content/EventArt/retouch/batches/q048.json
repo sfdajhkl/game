@@ -1,0 +1,33 @@
+{
+  "key": "q048",
+  "events": [
+    "q048_offer",
+    "q048_trail",
+    "q048_bargain",
+    "q048_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q048-0ccb40dc880a.png",
+  "sourceSha256": "0ccb40dc880ac74397696021fd59132804f20fd518ca08fc05ffbc2b929afc71",
+  "promptSha256": "83881ce25e035b72403390f0c8476ecb2242434c72af4781a3d562985f96df49",
+  "images": [
+    {
+      "id": "q048_offer",
+      "sha256": "3b6410185e3ed2dbaa06977d7d55fea1db4ad3a04eb3e765cffacc2c43f574e2"
+    },
+    {
+      "id": "q048_trail",
+      "sha256": "be313e145dfd20c9fec5fd0c85912152e51ae733502f2d5e0f50c7f76dc42499"
+    },
+    {
+      "id": "q048_bargain",
+      "sha256": "577677331356b780c861c377d4f3d2f5a8bcbc9380fdadced9db2a0473579a51"
+    },
+    {
+      "id": "q048_echo_a",
+      "sha256": "006e4fb3910dd4ceba1fcbca0184e125fcb562a87c0474ebd2a6812ce29f9461"
+    }
+  ],
+  "review": "Native preview reviewed: noble and fisher remain separated by exclusion rope; boat-name carvings establish communal ownership; negotiation retains barrier, while outcome A removes it and gives access back to locals. No invented party."
+}

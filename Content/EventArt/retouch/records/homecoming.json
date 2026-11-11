@@ -1,0 +1,14 @@
+{
+  "id": "homecoming",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "base-05",
+  "cell": 3,
+  "beforeSha256": "1a58d8956836013a01e598665f1c4d737772938d814e1a04230652a28b25df14",
+  "afterSha256": "f0f6b189aadf691ee84eee465ae464056f5b371a14caf44ed5a00c1c8b299297",
+  "sourceFile": "base-05-94d0b4914b70.png",
+  "sourceSha256": "94d0b4914b70d529c40cf1a9d07dbe09aa51353dc1b3ca03ba59466eceebf857",
+  "promptSha256": "b56a41024b5b4c62f84fa91327de4c7c6f67b71c7c4c667f1ec2f760ba789afa",
+  "review": "Native parchment review: local priest and distant skeletons, incomplete bridge and waiting farmers, solitary scholar in broad night shape, ordinary house residents. No player, event subjects remain readable with shared palette and restrained outlines."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q019_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q019",
+  "cell": 1,
+  "beforeSha256": "cd29c380292d5a1117af3f237f4c303fe43d2e96a4c49a010bc6ed817d8998ed",
+  "afterSha256": "33c978a93ddd71fb8c65a28e49641562c2842b324c7383821204c4c7a28b2069",
+  "sourceFile": "q019-83b2d9f39653.png",
+  "sourceSha256": "83b2d9f396534ee32675b21bccccc6f5d208217fa79cbe993a2f7710daab2d2d",
+  "promptSha256": "54030b37c9a7a76c47b3d084c28a3aabd85e97e9c5808bf913f5d985fc3ee7e9",
+  "review": "Native crops reviewed: shipyard workers and villager separated by the oak slope, roots visibly anchor vulnerable soil above houses, a proposed curved ship timber carries negotiation, and workers use an already fallen trunk afterward while great oak remains standing. No battle or royal hero."
+}

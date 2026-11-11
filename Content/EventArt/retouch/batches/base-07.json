@@ -1,0 +1,33 @@
+{
+  "key": "base-07",
+  "events": [
+    "roaming_post",
+    "q001_echo_b",
+    "q002_echo_b",
+    "q003_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "base-07-0ae9ee56eaee.png",
+  "sourceSha256": "0ae9ee56eaee28211b1ef1c650ad7b37c0525e857c7d77b0bf58c37e07522adc",
+  "promptSha256": "f96fa6aa61a1172adaf8e514d7c2d22e3f8f54001425fcff75ab79ddf8c93850",
+  "images": [
+    {
+      "id": "roaming_post",
+      "sha256": "034e314919ef8ef83ad6cdb023de7496c33f01565b584cce75f3782089b478fc"
+    },
+    {
+      "id": "q001_echo_b",
+      "sha256": "29aea7d3893635dfa87257f75bfaf1274e7dff4e74d4a5acb89a662a5d453c28"
+    },
+    {
+      "id": "q002_echo_b",
+      "sha256": "664ff0a540a09956023c249b9381f1f5ab5fa3ab264311dbeb18e1dc454c136e"
+    },
+    {
+      "id": "q003_echo_b",
+      "sha256": "d3c6394312a3ed6c526ed8e671f014a2f3802f119af339858fcbf65622a81b92"
+    }
+  ],
+  "review": "Native parchment review: postal wagon driver alone; repaired sundial aftermath; villagers operating a connected rescue frame; two neighbours sharing lunch with boundary stone. Distinct event outcomes and broad quiet shapes, no protagonist avatar."
+}

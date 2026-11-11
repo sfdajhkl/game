@@ -1,0 +1,33 @@
+{
+  "key": "echo-17",
+  "events": [
+    "q068_echo_b",
+    "q069_echo_b",
+    "q070_echo_b",
+    "q071_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "echo-17-eadf1d9e40ec.png",
+  "sourceSha256": "eadf1d9e40ecb51622f63c425bf8fdd57564ec6f2b374d8f4c70fa0563ecae66",
+  "promptSha256": "bb82fcdef620612f190024e3dc8da0e7dfbbce783a3fe5517016d5e54f2dd304",
+  "images": [
+    {
+      "id": "q068_echo_b",
+      "sha256": "7c5f7a0da4c2df14a17ca4f7c0080351f1d8544882e51a0f509cbc1fd5121d2e"
+    },
+    {
+      "id": "q069_echo_b",
+      "sha256": "89cec422bbc6599b27ff04dbcfa880a2ecd3f88b6ae24c891eaacf03bb17bf38"
+    },
+    {
+      "id": "q070_echo_b",
+      "sha256": "8c93efc556c0b4abccec88d69a1897c7c4493659d7caa9bd85d9cf4dba5dc911"
+    },
+    {
+      "id": "q071_echo_b",
+      "sha256": "297097f0f8eb559ec689f2b3ab80d906f7fffa392158b400d707a77694678960"
+    }
+  ],
+  "review": "Reviewed native cells q068-071: public tomb interpretation remains separate from screened family grave; father reaches bank with continuous rescue rope and contact record; civilian boat guide checks stout reed knots and stakes; neighboring pond sections are differentiated with frogs by clean margin. No player, resurrected king or burning marsh, native silhouettes and cord continuity inspected."
+}

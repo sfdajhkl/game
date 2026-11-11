@@ -1,0 +1,14 @@
+{
+  "id": "q064_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q064",
+  "cell": 1,
+  "beforeSha256": "8a5adc2949848e5bb09524e890f692e123e3c1068a5ec6d32030e09093d621c7",
+  "afterSha256": "7f8e53c95f112f4cd4aff02bda0400c45e103723ca2dc8545c696bdd676ed712",
+  "sourceFile": "q064-aec0281670f8.png",
+  "sourceSha256": "aec0281670f81782f471876e7f7de5572747c56d646c799fe0d77b3f0ec8f920",
+  "promptSha256": "8772394e93478b0ea43ca3a9c7d27127f5e00c453e8c78162087227eeca21de4",
+  "review": "Native review: lone scholar faces an empty unnumbered board in offer; grain-size hollows are readable in close-up, warehouse keeper appears only during consultation, counting with grain happens in outcome. Two local NPC silhouettes and restrained outlines remain clear."
+}

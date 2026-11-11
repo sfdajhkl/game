@@ -1,0 +1,33 @@
+{
+  "key": "q047",
+  "events": [
+    "q047_offer",
+    "q047_trail",
+    "q047_bargain",
+    "q047_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q047-a4c62f42e289.png",
+  "sourceSha256": "a4c62f42e289e3a3d1c4687256cd437fcc93c2572e6028410282215d108bfd26",
+  "promptSha256": "06dec32adcfb404bca52402f8ba5017678623a5e28242d983215b4a4d7ee0975",
+  "images": [
+    {
+      "id": "q047_offer",
+      "sha256": "aa077968b3d3f157240cb71106d56fe65b27745ee0154e49fb251448b508a327"
+    },
+    {
+      "id": "q047_trail",
+      "sha256": "03fc1c0bdf552a5dc0fc87a036c19a890697d150f08576812ca0cfaaac20f988"
+    },
+    {
+      "id": "q047_bargain",
+      "sha256": "16e65a0257c8d458754657c35e9d57f35f269d24f6c333526942464ac581f479"
+    },
+    {
+      "id": "q047_echo_a",
+      "sha256": "5a60f8f6d09dde8e127a70f47b316add0d83d59362916126475049cbb9b613a2"
+    }
+  ],
+  "review": "Native preview reviewed: returning stowaway approaches the dismissed sailor outside a closed gate; missing cargo row is clear in the person-free ledger clue; employment negotiation precedes outcome A, where corrected notice and reopened gate show reinstatement."
+}

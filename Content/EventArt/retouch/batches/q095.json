@@ -1,0 +1,33 @@
+{
+  "key": "q095",
+  "events": [
+    "q095_offer",
+    "q095_trail",
+    "q095_bargain",
+    "q095_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q095-9e90c3d8fa59.png",
+  "sourceSha256": "9e90c3d8fa59953410e11e360591c6e7123b4495583540ce391003e5b53c04b5",
+  "promptSha256": "eabaefcac865bf26e75c36541e39476d2fc59eb3e4c7a58cd598ae4145b9f4a5",
+  "images": [
+    {
+      "id": "q095_offer",
+      "sha256": "39dac96dfecd90c2d507a64ee6e7f14c1e7222f736e6c3f97be6faa9226174f6"
+    },
+    {
+      "id": "q095_trail",
+      "sha256": "8a798601d0e03122c006ac40c1890367a8469878ce0535ad85d792ae4e6d41ff"
+    },
+    {
+      "id": "q095_bargain",
+      "sha256": "7f4f74f28d78a6d322fdd097f530e0f3ad4783c846f9db7571b8f854b1003422"
+    },
+    {
+      "id": "q095_echo_a",
+      "sha256": "4c1aa1284c17f575432bc76860a028e43e558a48878b7d55df3ec5a1a0a25558"
+    }
+  ],
+  "review": "Reviewed native grid: separated civilian families in damaged square; person-free soldier-only return tally with uncounted household bundle; packed cart and unrepaired doorway present genuine alternatives; workers remove a broad trap as distant cart passes. No victory hero, premature rebuild or combat spectacle; flat parchment palette readable."
+}

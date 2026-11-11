@@ -1,0 +1,130 @@
+{
+  "status": "passed",
+  "viewports": [
+    {
+      "viewport": 1440,
+      "scrollWidth": 1440,
+      "image": [
+        576,
+        384
+      ],
+      "native": [
+        192,
+        128
+      ],
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Noto Serif CJK KR",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans CJK KR",
+          "status": "loaded"
+        }
+      ],
+      "choiceInteraction": "passed",
+      "errors": []
+    },
+    {
+      "viewport": 1280,
+      "scrollWidth": 1280,
+      "image": [
+        384,
+        256
+      ],
+      "native": [
+        192,
+        128
+      ],
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Noto Serif CJK KR",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans CJK KR",
+          "status": "loaded"
+        }
+      ],
+      "choiceInteraction": "passed",
+      "errors": []
+    },
+    {
+      "viewport": 800,
+      "scrollWidth": 800,
+      "image": [
+        384,
+        256
+      ],
+      "native": [
+        192,
+        128
+      ],
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Noto Serif CJK KR",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans CJK KR",
+          "status": "loaded"
+        }
+      ],
+      "choiceInteraction": "passed",
+      "errors": []
+    },
+    {
+      "viewport": 480,
+      "scrollWidth": 480,
+      "image": [
+        384,
+        256
+      ],
+      "native": [
+        192,
+        128
+      ],
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Noto Serif CJK KR",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans CJK KR",
+          "status": "loaded"
+        }
+      ],
+      "choiceInteraction": "passed",
+      "errors": []
+    },
+    {
+      "viewport": 390,
+      "scrollWidth": 390,
+      "image": [
+        192,
+        128
+      ],
+      "native": [
+        192,
+        128
+      ],
+      "overflow": false,
+      "fonts": [
+        {
+          "family": "Noto Serif CJK KR",
+          "status": "loaded"
+        },
+        {
+          "family": "Noto Sans CJK KR",
+          "status": "loaded"
+        }
+      ],
+      "choiceInteraction": "passed",
+      "errors": []
+    }
+  ]
+}

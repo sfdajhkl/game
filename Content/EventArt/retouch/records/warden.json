@@ -1,0 +1,14 @@
+{
+  "id": "warden",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "base-03",
+  "cell": 1,
+  "beforeSha256": "1e1faa6e1c98db3d3c0c3ce82543db74d8536650f1d468cb693d386d1248632f",
+  "afterSha256": "dc3a13a739f522903c6bb5971bc198058c0b309f1c43a7c58f830d523b59c2e0",
+  "sourceFile": "base-03-f9c72d601a62.png",
+  "sourceSha256": "f9c72d601a6286298b7dcab2b2bc2e03028b083ba942d961056b778b9969e148",
+  "promptSha256": "deed4cfe0622bce06715094c9e08ccc9b1c6aace3157d8f3aadc066f674c5cb8",
+  "review": "Native parchment review: broad flat architecture and sky; sealed door, connected guardian limbs, complete dragon silhouette above gate, two caravan wagons. Quiet large shapes, correct local cast, no hidden player or color outside the fixed palette."
+}

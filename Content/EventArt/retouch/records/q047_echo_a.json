@@ -1,0 +1,14 @@
+{
+  "id": "q047_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q047",
+  "cell": 3,
+  "beforeSha256": "2e0579d1595038460258a166ca398ec647e0ad88a132685dbe42e3f0a52ffb6c",
+  "afterSha256": "5a60f8f6d09dde8e127a70f47b316add0d83d59362916126475049cbb9b613a2",
+  "sourceFile": "q047-a4c62f42e289.png",
+  "sourceSha256": "a4c62f42e289e3a3d1c4687256cd437fcc93c2572e6028410282215d108bfd26",
+  "promptSha256": "06dec32adcfb404bca52402f8ba5017678623a5e28242d983215b4a4d7ee0975",
+  "review": "Native preview reviewed: returning stowaway approaches the dismissed sailor outside a closed gate; missing cargo row is clear in the person-free ledger clue; employment negotiation precedes outcome A, where corrected notice and reopened gate show reinstatement."
+}

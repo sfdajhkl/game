@@ -1,0 +1,14 @@
+{
+  "id": "q087_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q087",
+  "cell": 1,
+  "beforeSha256": "413235a82b77623e69abf3c3aa70b9bf6fb05f277667d290380c109705ddd0da",
+  "afterSha256": "8389697fef06625dc5cce84691e2fd7775e125ffa80553abd3642c066ce103d7",
+  "sourceFile": "q087-e41c532acf87.png",
+  "sourceSha256": "e41c532acf8771d4ae706586154bed90af4437d8c43514c3003542a77d6e9330",
+  "promptSha256": "1fe437151505a9d5ed54e1ae687698ece7ba710c2ebbcd38b433de4611000afb",
+  "review": "Reviewed final native grid: egg alone in burned arch; broken spear and connected protective charm; two guards and researcher with empty carrier while egg stays at wall; egg remains unhatched on thermal stone. Cords continuous and no player party."
+}

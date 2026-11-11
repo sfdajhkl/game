@@ -1,0 +1,14 @@
+{
+  "id": "q069_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q069",
+  "cell": 3,
+  "beforeSha256": "d58cbbe2d80c4efb24c1e3f1731edae7527b3c770ace72dc50fc0b328e28c345",
+  "afterSha256": "1b213e15518ef3707facb5cbe3996d670721734f3b2e54bbe0344804540681f3",
+  "sourceFile": "q069-aede9ed0ae8f.png",
+  "sourceSha256": "aede9ed0ae8f72ed0029a02cbe11e0409d91b30860c18652af6ff4542481881d",
+  "promptSha256": "617fab7638793a0bd54a66cac6dcecc819e8dbc5c97d50a348c6d94dcc747612",
+  "review": "Native review: father alone signals from sinking marsh footing; clue has marked route and personal pouch without premature herbalist; three local rescuers prepare continuous safety rope with stranded father still distant; outcome pairs safe father and found herbalist on bank."
+}

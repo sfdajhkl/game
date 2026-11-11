@@ -1,0 +1,14 @@
+{
+  "id": "q060_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q060",
+  "cell": 1,
+  "beforeSha256": "91a3874858988ae4c47036c79c49798232d8e27bdd17497b89a6d52a5b4ab219",
+  "afterSha256": "9cf3d43ecf2a7da7e0e0b8d15ffefb4929eeb9b9b158790fee0af0a83af578b7",
+  "sourceFile": "q060-d9c03176c1f9.png",
+  "sourceSha256": "d9c03176c1f988d0e6b781b243da1b9965cb665295f139d911c2ebcb26ad50e3",
+  "promptSha256": "c49b44e74f47fc3c624dad1be8c90990a78a90f500ccd00516ba07f2ced1be12",
+  "review": "Native 192x128 review: paired mural kings are paintings, two local scholars only; opposite crown wear and the mirror evidence remain readable, sheets and figures have connected outlines, no playable party, restrained flat background."
+}

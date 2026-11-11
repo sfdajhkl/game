@@ -1,0 +1,14 @@
+{
+  "id": "q036_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-09",
+  "cell": 0,
+  "beforeSha256": "9615729d6d828b985b7fd3111252a4317998004d5079820824082503272608b9",
+  "afterSha256": "2a62b17fe0d8a26dd6bbd5ee3bafee3ccd32cd497ef3f5465cf0a1a547f1a58c",
+  "sourceFile": "echo-09-3a665888975d.png",
+  "sourceSha256": "3a665888975d50a14e828b02bd76b1160c1e51508730e64ee0d10f9ce384fcd7",
+  "promptSha256": "65d18bbdc82b3d67f81fd40ab93701b7b3a9e70f33a5123fd90504fc862eb3a0",
+  "review": "Reviewed native cells q036-039: sealed waste barrel moves away while net is repaired; widow and new civilian neighbours share river bench without ring or ghost; elderly survivors and local record keeper revisit submerged roofs with bell still in tower; villagers pool grain above flood while keeper records it. Net connections, small faces and non-player local casts checked."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "shieldbearer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "base-02",
+  "cell": 2,
+  "beforeSha256": "dc4ae8f802c884953698672ead1a2d33e541495c6b377acf4641f1322bcc876b",
+  "afterSha256": "087f21505716a6f09034c1e1f1180bd2828f6706df7a0b59ad937d919a263f83",
+  "sourceFile": "base-02-4d8a656cfceb.png",
+  "sourceSha256": "4d8a656cfceb18e31794ea177499d97bcc850a2f18b4c0537095f1ab4cd53b2c",
+  "promptSha256": "91ce86c6b4dc9fd92c9a2e6e7c29cd7541a34a30a83a28583ba590a610847e3f",
+  "review": "Reviewed parchment native cells: recovered toy lit in quiet shop, bandaging at abandoned shrine, veteran isolated by empty dusk sky, three bandits separated by depth. Clear fixed local cast and restrained shading. Right bandit bow cord remains queued for a dedicated continuous pixel stroke."
+}

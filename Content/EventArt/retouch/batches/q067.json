@@ -1,0 +1,33 @@
+{
+  "key": "q067",
+  "events": [
+    "q067_offer",
+    "q067_trail",
+    "q067_bargain",
+    "q067_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q067-d8fb39676afa.png",
+  "sourceSha256": "d8fb39676afae8c5788bdd96b00b86eda3ecda6f7d62f2d5d3e16c7362dce519",
+  "promptSha256": "51cfee3418a2330f8c48b6931e654804d4b43d96b4c7f21de3288b3fd183d761",
+  "images": [
+    {
+      "id": "q067_offer",
+      "sha256": "9f73dfdd5085616dfe2226404a2e4084fb4037cf9c7fee6167b3acbf551998a3"
+    },
+    {
+      "id": "q067_trail",
+      "sha256": "fc915cc71f4c1b29a6993485c65425adb4249c2947e7167f350463875ae80d82"
+    },
+    {
+      "id": "q067_bargain",
+      "sha256": "dd5fe506ba0b35a40bea6fa5720a4ad9345a535551690982610d5808f7103256"
+    },
+    {
+      "id": "q067_echo_a",
+      "sha256": "d56f5f0a34b69a17d44aa7a83ef1fc1704e2a50c102f91407d07d78146f0cc6f"
+    }
+  ],
+  "review": "Native review: blocked downstream channel and dry village establish stakes; mechanism diagram isolates evidence, scholar and two villagers negotiate before flow; only result shows opened working section and water. Wheel spokes, bucket and body silhouettes remain connected."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q051_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q051",
+  "cell": 0,
+  "beforeSha256": "d526ab64c5b06418fe703528654813b0903a79fa6ac6111ec7b9e48907b8d262",
+  "afterSha256": "67e07f7d984ec206798c68c33729759110e07e3d8a21519e8c20869852f221a3",
+  "sourceFile": "q051-86ee7e07a98f.png",
+  "sourceSha256": "86ee7e07a98f140b789c1c28a4bc322bebd60c0e47adb02453546fd271cf3653",
+  "promptSha256": "29c8379cabf6a97605e734f64fe0e3a6cecfdebde0413b2348e76e0ff08eb802",
+  "review": "Native preview reviewed: isolated cliff hut and dangerous snow cornice are person-free; local rescuers prepare rope and ladder below before action; only outcome A shows occupants safely outside the window beside fallen front-door snow. No playable rescuer is fixed."
+}

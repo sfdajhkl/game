@@ -1,0 +1,14 @@
+{
+  "id": "q001_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q001",
+  "cell": 3,
+  "beforeSha256": "b1703a907f2acc950bab0615c7b7f0248866f20d8a47973110b5aa16d87cd754",
+  "afterSha256": "e14cedba277676bde23c046686d6c4387b85753231ad8ffdb06aa1a84484ea44",
+  "sourceFile": "q001-46412cb02487.png",
+  "sourceSha256": "46412cb02487f63d52633a1e6eba0fc76bc67345918a66a8fe506122c338dd2b",
+  "promptSha256": "1767d38a28da10f59c7661c602061a6e28b8c9c0a43ea217fdeea5d7bdceceb6",
+  "review": "Native review of bell arc: empty tower yoke before resolution, person-free new-rope wrapper clue, damaged sundial with detached gnomon before communal agreement, lone keeper repairing bell in A outcome. Correct order and no player; restrained parchment palette."
+}

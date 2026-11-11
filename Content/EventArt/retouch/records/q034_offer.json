@@ -1,0 +1,14 @@
+{
+  "id": "q034_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q034",
+  "cell": 0,
+  "beforeSha256": "d55310566bca12b75955d9682d92534589b50ec274d9f1f30241eb8fa31fd836",
+  "afterSha256": "4aba9ad192aa77530a1ad2dd72a3826f84a8e1932e9b9b62570c087639125905",
+  "sourceFile": "q034-1a0d1dc7f0b8.png",
+  "sourceSha256": "1a0d1dc7f0b88b9d68e5689b4cbfa5b0cbcef86aadb127fb9f0edcd6b640ed80",
+  "promptSha256": "af243296086e5ba62335a2722d8d056f8a6cac7f9570966f55ecedc291e99ef3",
+  "review": "Native preview reviewed: tall sluice blocks three fish before action, fisher carries an empty net; negotiation is still at the lever; only outcome A contains the connected stepped fish passage and folded net. No player party appears."
+}

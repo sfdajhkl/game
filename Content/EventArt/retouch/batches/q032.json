@@ -1,0 +1,33 @@
+{
+  "key": "q032",
+  "events": [
+    "q032_offer",
+    "q032_trail",
+    "q032_bargain",
+    "q032_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q032-4376a7029c76.png",
+  "sourceSha256": "4376a7029c76d20f3fa18e0e972543609cd86da90162a3aa026fbd03d9e3b52d",
+  "promptSha256": "86f7e07d815f94df703e8c285c95cfe3660ec585abf04f49d9b29145fe82bb44",
+  "images": [
+    {
+      "id": "q032_offer",
+      "sha256": "06660fa10a93a4a6a4ecf76a8668b1e76aab84732dfc1cb0040c7b40ecbfdc91"
+    },
+    {
+      "id": "q032_trail",
+      "sha256": "ffb9eb983f961564d68aee1f1787726dac13f483e310392fca46f45df5fe807c"
+    },
+    {
+      "id": "q032_bargain",
+      "sha256": "04d1bd628a1743245960cb3cf4b13db01694ba919783ded6931e95fa79f558e7"
+    },
+    {
+      "id": "q032_echo_a",
+      "sha256": "a4e476455d70cd4fc447589f87cd5953337c62ebecda6eb693f5d98c59621913"
+    }
+  ],
+  "review": "Native preview reviewed: looping bottles, flour-marked cork and mill water control remain distinct; fisher and millworker are fixed locals; restarted wheel and downstream bottles occur only after outcome A. Investigation and aftermath remain person-free."
+}

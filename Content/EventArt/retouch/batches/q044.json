@@ -1,0 +1,33 @@
+{
+  "key": "q044",
+  "events": [
+    "q044_offer",
+    "q044_trail",
+    "q044_bargain",
+    "q044_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q044-282922df1615.png",
+  "sourceSha256": "282922df16150fe007acc07e20e08bf2c728f3cf7acf8365b68552d1810efded",
+  "promptSha256": "24ff34bbc3005106c390227d179fc282d9a63c2770f15447368d56df4b7079ff",
+  "images": [
+    {
+      "id": "q044_offer",
+      "sha256": "833ecfa8d8d19464af5060d10aacb19e07a88d52f059f06e0aaab20b0e59bb02"
+    },
+    {
+      "id": "q044_trail",
+      "sha256": "292ae662f6c4b10cc056bdc1edbed671405fb9a5636b5cceb588f3d33429037b"
+    },
+    {
+      "id": "q044_bargain",
+      "sha256": "7bec82e88be644763a91fef0983001974d227de9fdec0da0cb29e0d129aa5465"
+    },
+    {
+      "id": "q044_echo_a",
+      "sha256": "4f3b6fc7d3f26f24682724c35e26ec79aa1ed017835d554f7da59c5e14926ead"
+    }
+  ],
+  "review": "Native preview reviewed: intact clapper and wedged cloth are readable; resident and fisherman negotiate before repair; outcome A removes cloth and adds adjustable weight. Offer incorrectly retained foreground NPCs and is queued for the authored person-free fog-and-buoy view."
+}

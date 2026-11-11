@@ -1,0 +1,33 @@
+{
+  "key": "q093",
+  "events": [
+    "q093_offer",
+    "q093_trail",
+    "q093_bargain",
+    "q093_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q093-a65a7095ed15.png",
+  "sourceSha256": "a65a7095ed15eaf2ac1625e03634837cf6eb1ec33d9d84a739e5b0eb7284480d",
+  "promptSha256": "5944b3a197da7ca5514d142c0690929079b842cd6777621f23772afbc44da1a1",
+  "images": [
+    {
+      "id": "q093_offer",
+      "sha256": "bbff4872373ca6ee9991609f703c8f24f1fd29ed0f8555af90e7ff52c8ac5eef"
+    },
+    {
+      "id": "q093_trail",
+      "sha256": "d2bf2eae231d7929e8a161ed70ecc12a1311dbe44c709b8a615346e4f0129a62"
+    },
+    {
+      "id": "q093_bargain",
+      "sha256": "8e8011affb5fd78868e02571fed4e009a3c1f32bffc76fe33676da787877b0bc"
+    },
+    {
+      "id": "q093_echo_a",
+      "sha256": "8c5193d60106c860f8ca59b10f7845a1a400c3ff869a542d10f12f362dad8913"
+    }
+  ],
+  "review": "Reviewed final native grid: three hungry monsters with intact flag before closed guarded gate; human bootprints and water obstruction; two monster representatives with commander and guard before unopened crate; three monsters drink at restored stream separated from guards by continuous rope. No premature attack or player party."
+}

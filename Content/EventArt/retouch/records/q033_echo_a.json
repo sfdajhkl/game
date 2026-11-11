@@ -1,0 +1,14 @@
+{
+  "id": "q033_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q033",
+  "cell": 3,
+  "beforeSha256": "1290fd1cf2d4f866f449e0d5bd634080a9634e2323d568d7c8d5a15312f3ad52",
+  "afterSha256": "d41bc31f95419371117360c64fb661136af6d7bf447d24d0031c9eb2186784e4",
+  "sourceFile": "q033-9252511debf5.png",
+  "sourceSha256": "9252511debf5104e7c03eb69ce4c06fb5af42fab649eb45bf86fb0246e41a16c",
+  "promptSha256": "07890ffb11d3e6cc526e9902aa5a6734781ac4b0e17f645f80a62780f64a28d3",
+  "review": "Native preview reviewed: writer remains alone at ferry and at fresh letter; water damage is two broad smears; recipient appears only in the delivered-letter aftermath. No courier, party or invented couple is inserted."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q015_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q015",
+  "cell": 0,
+  "beforeSha256": "81d97a617476c851f1164e5ab7cabf889ea94f43ec3c91e89724c60eb012271b",
+  "afterSha256": "5c05f2a03fedffbc64a8ebf57dc69ca450f4a2ee3a4835263249d5fc53cc637e",
+  "sourceFile": "q015-7c986b6ae0c2.png",
+  "sourceSha256": "7c986b6ae0c2bc2b1aa0256892dfda0e17b35d92ac841044b1ce64bc333c1311",
+  "promptSha256": "25004f8d414d331c92175b0d4eeb7364422dc3412398c26f7db85acca14dc9f8",
+  "review": "Native crops reviewed: coins and pledge at the hollow tree, contract in the recovered chest as clue, village representative considering the paper alone, and preserved chest with forest-protection marker afterward. Gold converted to parchment, no treasure-hunting player or surface grain."
+}

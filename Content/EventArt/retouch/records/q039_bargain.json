@@ -1,0 +1,14 @@
+{
+  "id": "q039_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q039",
+  "cell": 2,
+  "beforeSha256": "413ea40d95c1e3aa3acdce80f8f2054229c9f5010b27cb05e7f5ccecba1f6cb8",
+  "afterSha256": "023b7ac010a2f15f56561b9341b597a8ae02d5b1bfd83a0bde31475999e929e0",
+  "sourceFile": "q039-8f0503f34af3.png",
+  "sourceSha256": "8f0503f34af33b0340cbf430ced1fe65178dd06fa711d5d7ee6b75818ba105b8",
+  "promptSha256": "b8b0b90449a17a851626fe4147f6d8f0d70fe518ed167f6c47e76503e44e615e",
+  "review": "Native preview reviewed: closed dam, buried emergency gate, and two empty compensation boxes make the dilemma readable; outcome A opens an alternate water route while two small locals evacuate. Quiet broad flood shapes."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q075_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q075",
+  "cell": 1,
+  "beforeSha256": "ee6b917b99561fe56b1793505abb68897f411947c52b81d1a782021ea927a474",
+  "afterSha256": "031ee56f53e43250eaaa9f4e0a496323fbccbade31679f27461fdc5587dbb935",
+  "sourceFile": "q075-ab0cb99566be.png",
+  "sourceSha256": "ab0cb99566bed0f4e31d2d94e6b5acff94bcd693a30010b55ad39d8c4ae2cf1c",
+  "promptSha256": "0a187b8a72387999c3aab9c5c9ac3a76e821b6e91373fcb91aa61ccb8470d115",
+  "review": "Native review: submerged stone tribunal is empty, register dates and blank charge column are isolated clue, new judge meets two descendants outside boundary rope, restored testimony returned at archive doorway in outcome. No fantasy combat party."
+}

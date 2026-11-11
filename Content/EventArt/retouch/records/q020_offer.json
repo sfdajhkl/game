@@ -1,0 +1,14 @@
+{
+  "id": "q020_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q020",
+  "cell": 0,
+  "beforeSha256": "31cb4c2d9db3707012e7faef442a0b65dac65096074edd3a924f34e8e19d35ff",
+  "afterSha256": "2ee481731ac5e8ee91a7762d912ea927d1988bf253f4c30d46bd943ffeebb44f",
+  "sourceFile": "q020-94932340f6e8.png",
+  "sourceSha256": "94932340f6e8df62466e6e26f45273f85c1064f7c9044ac4f3d91b03abf85f42",
+  "promptSha256": "7ef7b72d64f8c167ac5be3ae1f87fb3bede1db951ad0ad9557199d9a63b95164",
+  "review": "Native crops reviewed: empty misleading forest fork and buried flute, matching bone-flute pattern as clue, local apprentice considers a confirmed map, and gathered flutes rest at a quiet memorial afterward. No literal disembodied guide or player. Four-color silhouettes and sparse props."
+}

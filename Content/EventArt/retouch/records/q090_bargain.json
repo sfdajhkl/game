@@ -1,0 +1,14 @@
+{
+  "id": "q090_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "repair-05",
+  "cell": 0,
+  "beforeSha256": "0d0e2c025e4028cc6770f11d9af943b42674888804bf3f8b954d1f2fde7dcfa4",
+  "afterSha256": "7213d81334cabe7e8df9848f379fc2c4b7e90d3fd361a9b1277259ac18b16f07",
+  "sourceFile": "repair-05-1bf79692e565.png",
+  "sourceSha256": "1bf79692e565d86e182fe0f16530bec3074273a4f7c5454701a283be68e8816e",
+  "promptSha256": "40c9915b339b92184bd5ff95490a984ee647f63e51b19157488ca4ee5a650bf9",
+  "review": "Final native repair inspected: exactly one kneeling undead commander, three physical swords and a dark empty placement mark, plain sparse name strip and silent battlefield. All living onlookers, merchant and family removed; coherent hands and connected outline with flat palette."
+}

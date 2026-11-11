@@ -1,0 +1,14 @@
+{
+  "id": "q027_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q027",
+  "cell": 3,
+  "beforeSha256": "9786988560b878f0c1d45f3d3547a4c241bfa364234a762984750e6ad9d41e84",
+  "afterSha256": "f9b2b4f139bf7d103f0f80ebb973524d20efc471ce3ed370007e73a0878edf09",
+  "sourceFile": "q027-2c99a3148e9c.png",
+  "sourceSha256": "2c99a3148e9c52bba55345fce335887822f7654e75b2c911839cddf3279f3b69",
+  "promptSha256": "f7d3a97d3e19b6cabeca0a9130c4c85e8f4171df2cd4c345e9aaf2e5d5732e29",
+  "review": "Native preview reviewed: family remains outside the gate before the decision; shovel and damaged dyke convey the work condition; outcome A moves mother and child into a dry tent. Sparse rain marks are intentional and silhouettes remain clear."
+}

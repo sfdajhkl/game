@@ -1,0 +1,14 @@
+{
+  "id": "q076_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q076",
+  "cell": 2,
+  "beforeSha256": "b57e536db750a8a877b8c54d395324f7020d6351ca80f6a35bece3f3ed2b4cce",
+  "afterSha256": "5fc58b5fb64745f7c23b441a4a0d43f3e5efefb024db2f49297848f405a489fc",
+  "sourceFile": "q076-91a60451cbfe.png",
+  "sourceSha256": "91a60451cbfe7f82d256b7e0d35c79e8ac86e66e52edd927f160387a2d47ab1e",
+  "promptSha256": "77fdd44c3ace3bed04c20171aa51123b19d61cc17662ed41a52c224a0dac6443",
+  "review": "Native review: noble announces at sluice while farmers and fishers remain apart; two water samples and salt establish evidence; workers discuss use beside intact wetland, outcome restores small marsh area with farmland separate. No generic adventurers or all-wetland drainage."
+}

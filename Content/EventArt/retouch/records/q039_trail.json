@@ -1,0 +1,14 @@
+{
+  "id": "q039_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q039",
+  "cell": 1,
+  "beforeSha256": "7866f1fb55424b3ec4ee31563ba884933cbde7f769a2d1ac1d18b12191938454",
+  "afterSha256": "341f4fefec231332b98295e88cc6706e48d949bf21fe63231dc2cc8c9ded1e25",
+  "sourceFile": "q039-8f0503f34af3.png",
+  "sourceSha256": "8f0503f34af33b0340cbf430ced1fe65178dd06fa711d5d7ee6b75818ba105b8",
+  "promptSha256": "b8b0b90449a17a851626fe4147f6d8f0d70fe518ed167f6c47e76503e44e615e",
+  "review": "Native preview reviewed: closed dam, buried emergency gate, and two empty compensation boxes make the dilemma readable; outcome A opens an alternate water route while two small locals evacuate. Quiet broad flood shapes."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q089_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q089",
+  "cell": 0,
+  "beforeSha256": "492d2a5c15db6f199c0f64df5107a0ba597a853783be5dae0c19595ea278388e",
+  "afterSha256": "587039124242a4d6316df167dfe67e1be9cf3bf0243782ccbadf7d3273b33088",
+  "sourceFile": "q089-64dce9ecbaf0.png",
+  "sourceSha256": "64dce9ecbaf0224ae0dedbcd023b1bb79c4df9b2fe67c85e750597e5ae051bbb",
+  "promptSha256": "51b1a458619d5088ebfcb8b816beec906565c26edcac571327de4f7d9ada49ec",
+  "review": "Native review: young male painter is consistent; fire exists ONLY inside painted canvas while real village stays intact; leaky oil and broken support clue are clear; local storage workers see warning; outcome paints safe town with repaired supports and no flames."
+}

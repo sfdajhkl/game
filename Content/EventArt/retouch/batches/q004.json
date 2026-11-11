@@ -1,0 +1,33 @@
+{
+  "key": "q004",
+  "events": [
+    "q004_offer",
+    "q004_trail",
+    "q004_bargain",
+    "q004_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q004-074c3c7d3966.png",
+  "sourceSha256": "074c3c7d3966e9ca5a21bdb9614c648342b9643241e30503415b816876fac088",
+  "promptSha256": "d3400facca5f5070e120b80a8b68264b5596d2a47730b74127d03c1670c87db8",
+  "images": [
+    {
+      "id": "q004_offer",
+      "sha256": "115c27f930ea3e03f54f686cfeddc96c13e7e8e7521c5d087ae197359e6829d0"
+    },
+    {
+      "id": "q004_trail",
+      "sha256": "e50e6673c3d7df0b1cc3564afe2654ad3c5198ee08fe8432d679ff9b2d6da410"
+    },
+    {
+      "id": "q004_bargain",
+      "sha256": "b95899cc4e4131ce275c786d5448d4f234cb832bc6f9b7fbfb3dcaa35d1f50a9"
+    },
+    {
+      "id": "q004_echo_a",
+      "sha256": "7f341836763f65ec946aae194020b6335d7267638b6fff959a8a3350c0dc0187"
+    }
+  ],
+  "review": "Native four-color crops reviewed: two schoolchildren make a map, the clue isolates the ambiguous well/cave symbols, the teacher and parents discuss it before action, and children survey the bridge in the aftermath. Empty faces and varied small-body poses remain legible. No player party."
+}

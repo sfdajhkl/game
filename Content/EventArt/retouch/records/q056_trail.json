@@ -1,0 +1,14 @@
+{
+  "id": "q056_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q056",
+  "cell": 1,
+  "beforeSha256": "30266759fcb2a49967805a54665be1355e1a61cd5036f763ceda63701ae27299",
+  "afterSha256": "24eba6e47dd613687140bede7ad4c3eb03f713efc398f5855d319852f01264d5",
+  "sourceFile": "q056-e6353aef47b8.png",
+  "sourceSha256": "e6353aef47b81cde8314cc3bf0862b92378d4aa336b91e5552562e33a3155711",
+  "promptSha256": "34385de7d4a93d0de60b7c84cf6b02e72b7e843972e56617ef8e3fcaaa204fc8",
+  "review": "Native preview reviewed: long-dead courier remains alone inside ice; sealed ceasefire letter and box clue are person-free; relatives appear only in later disclosure negotiation; outcome A corrects archival records with recovered evidence, not a resurrection."
+}

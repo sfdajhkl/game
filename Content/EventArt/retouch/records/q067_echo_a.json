@@ -1,0 +1,14 @@
+{
+  "id": "q067_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q067",
+  "cell": 3,
+  "beforeSha256": "56de4313a660f36813905c0e9fe9211cc7135a3d7391c3b759cf903d60972147",
+  "afterSha256": "d56f5f0a34b69a17d44aa7a83ef1fc1704e2a50c102f91407d07d78146f0cc6f",
+  "sourceFile": "q067-d8fb39676afa.png",
+  "sourceSha256": "d8fb39676afae8c5788bdd96b00b86eda3ecda6f7d62f2d5d3e16c7362dce519",
+  "promptSha256": "51cfee3418a2330f8c48b6931e654804d4b43d96b4c7f21de3288b3fd183d761",
+  "review": "Native review: blocked downstream channel and dry village establish stakes; mechanism diagram isolates evidence, scholar and two villagers negotiate before flow; only result shows opened working section and water. Wheel spokes, bucket and body silhouettes remain connected."
+}

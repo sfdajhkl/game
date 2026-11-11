@@ -1,0 +1,33 @@
+{
+  "key": "q008",
+  "events": [
+    "q008_offer",
+    "q008_trail",
+    "q008_bargain",
+    "q008_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q008-1c7817a03a6e.png",
+  "sourceSha256": "1c7817a03a6eb0ff127ec50f65c409e8f78d044e9759c1eef8642565c8d1aaa3",
+  "promptSha256": "768e5090ad2cad876b77ca22ede0ae9f01988ce76f570134c4294dcc85bb48c0",
+  "images": [
+    {
+      "id": "q008_offer",
+      "sha256": "726dd8eb72cfb6841962b4bb07f1fbc2dd85652b8b79e981e7976e1e975aa281"
+    },
+    {
+      "id": "q008_trail",
+      "sha256": "6c88431bf2d1c6b772e3f785d684993bee2bcc05b778e026fd50944adaf8ccf5"
+    },
+    {
+      "id": "q008_bargain",
+      "sha256": "2533e758204d20df2240f7ace153aff56adb1495bd5dd5aa5ac2498da0df17f8"
+    },
+    {
+      "id": "q008_echo_a",
+      "sha256": "e6ac412a6892b5b88fbc6c7c7e4f349d276036aa328f784f2c45b91de403cd79"
+    }
+  ],
+  "review": "Native crops reviewed: unfinished monument and paused mason, sparse proposed inscription versus larger witness bundle, empty foundation ring before the shared-well alternative, and an inclusive memorial wall afterward. No hero likeness or companions. Small figures, four colors and clear silhouettes."
+}

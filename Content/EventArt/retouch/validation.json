@@ -1,0 +1,128 @@
+{
+  "status": "passed",
+  "events": 500,
+  "size": [
+    192,
+    128
+  ],
+  "palette": [
+    "#D5BE96",
+    "#AF8E62",
+    "#79573A",
+    "#3B2A20"
+  ],
+  "sourceGrid": "opaque native raster",
+  "outlines": "retained",
+  "unresolvedRepairs": 0,
+  "assetCheck": "python3 scripts/check-event-art.py",
+  "unityMetadata": "all 500 .meta files byte-identical to baseline",
+  "gallery": {
+    "passed": true,
+    "images": 500,
+    "partial": false,
+    "checks": [
+      {
+        "width": 1440,
+        "comparing": false,
+        "overflow": false,
+        "imageErrors": []
+      },
+      {
+        "width": 1440,
+        "comparing": true,
+        "overflow": false,
+        "imageErrors": []
+      },
+      {
+        "width": 900,
+        "comparing": false,
+        "overflow": false,
+        "imageErrors": []
+      },
+      {
+        "width": 900,
+        "comparing": true,
+        "overflow": false,
+        "imageErrors": []
+      },
+      {
+        "width": 480,
+        "comparing": false,
+        "overflow": false,
+        "imageErrors": []
+      },
+      {
+        "width": 480,
+        "comparing": true,
+        "overflow": false,
+        "imageErrors": []
+      },
+      {
+        "width": 456,
+        "comparing": false,
+        "overflow": false,
+        "imageErrors": []
+      },
+      {
+        "width": 456,
+        "comparing": true,
+        "overflow": false,
+        "imageErrors": []
+      },
+      {
+        "width": 455,
+        "comparing": false,
+        "overflow": false,
+        "imageErrors": []
+      },
+      {
+        "width": 455,
+        "comparing": true,
+        "overflow": false,
+        "imageErrors": []
+      },
+      {
+        "width": 450,
+        "comparing": false,
+        "overflow": false,
+        "imageErrors": []
+      },
+      {
+        "width": 450,
+        "comparing": true,
+        "overflow": false,
+        "imageErrors": []
+      },
+      {
+        "width": 390,
+        "comparing": false,
+        "overflow": false,
+        "imageErrors": []
+      },
+      {
+        "width": 390,
+        "comparing": true,
+        "overflow": false,
+        "imageErrors": []
+      },
+      {
+        "width": 320,
+        "comparing": false,
+        "overflow": false,
+        "imageErrors": []
+      },
+      {
+        "width": 320,
+        "comparing": true,
+        "overflow": false,
+        "imageErrors": []
+      }
+    ],
+    "search": true,
+    "emptyState": true,
+    "placeFilter": true,
+    "allImagesDecoded": true,
+    "jsErrors": []
+  },
+  "unityEditorPlayMode": "Not run: cloud Editor has no active license. This change replaces artwork and adds a separate HTML UI design sample."
+}

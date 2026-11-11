@@ -1,0 +1,14 @@
+{
+  "id": "q063_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q063",
+  "cell": 1,
+  "beforeSha256": "704e8edfa64354c7de9658442a443e84ec7fba4f9bca5001e01ee2249929138b",
+  "afterSha256": "ec7406fe45cd0ad16126d6c6645739fcb4dbefe69b457007c1673ed90e4b76d3",
+  "sourceFile": "q063-af1951cd3757.png",
+  "sourceSha256": "af1951cd3757a24eb81ccd9c1c1fccd1559028dcded66212d7e2dea8dd5457a4",
+  "promptSha256": "cbf92f6f83aa8d81f1beabc5599017e59b9721ac1f1fcacb687a8449cbc8e3b4",
+  "review": "Native review: two excavation NPCs debate the lamp; blocked ventilation and flame direction show cause, demonstration stays before decision, repaired vent and stable flame are outcome only. Bordered lamp and connected handles survive native reduction."
+}

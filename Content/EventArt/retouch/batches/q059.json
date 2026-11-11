@@ -1,0 +1,33 @@
+{
+  "key": "q059",
+  "events": [
+    "q059_offer",
+    "q059_trail",
+    "q059_bargain",
+    "q059_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q059-4db6d3fbf543.png",
+  "sourceSha256": "4db6d3fbf5432a90e941f46df03889a99a01ddc8be61f2e98006f7619eaae8bc",
+  "promptSha256": "2d5e441aff0231b1d0c1b0c265aa30363fdf4e780eecc2f6babe066a1db44a3b",
+  "images": [
+    {
+      "id": "q059_offer",
+      "sha256": "33a37fcfe3cacf4fd0c64a4c5b76ceddf13f7edaa3fcb559075ac5ba64916868"
+    },
+    {
+      "id": "q059_trail",
+      "sha256": "cd823940f2b90be5084ae83a031011b616b9a6dfe8e14f1055f4fe96e4d74550"
+    },
+    {
+      "id": "q059_bargain",
+      "sha256": "9f6095603e21c902a6590a1024d0afb3de47f7f6a78287cf4a6744cd132ebbd7"
+    },
+    {
+      "id": "q059_echo_a",
+      "sha256": "aec77af5e43aa969cb900d734254b55dd77dfa2315a32767b6aad0764a406761"
+    }
+  ],
+  "review": "Native preview reviewed: distant predator, ranch and mine establish displaced habitat; blocked paw trail is person-free; rancher and mine owner negotiate at a loose fence post; outcome A restores a separated animal corridor and relocates the fence. No hunting party or trophy scene."
+}

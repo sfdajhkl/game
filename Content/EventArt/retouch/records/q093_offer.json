@@ -1,0 +1,14 @@
+{
+  "id": "q093_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q093",
+  "cell": 0,
+  "beforeSha256": "0b2f7ee1ad42a942fd74a2125efb603825dad5d5d81feb43ce73e971db771ed9",
+  "afterSha256": "bbff4872373ca6ee9991609f703c8f24f1fd29ed0f8555af90e7ff52c8ac5eef",
+  "sourceFile": "q093-a65a7095ed15.png",
+  "sourceSha256": "a65a7095ed15eaf2ac1625e03634837cf6eb1ec33d9d84a739e5b0eb7284480d",
+  "promptSha256": "5944b3a197da7ca5514d142c0690929079b842cd6777621f23772afbc44da1a1",
+  "review": "Reviewed final native grid: three hungry monsters with intact flag before closed guarded gate; human bootprints and water obstruction; two monster representatives with commander and guard before unopened crate; three monsters drink at restored stream separated from guards by continuous rope. No premature attack or player party."
+}

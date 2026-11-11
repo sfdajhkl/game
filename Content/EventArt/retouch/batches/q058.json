@@ -1,0 +1,33 @@
+{
+  "key": "q058",
+  "events": [
+    "q058_offer",
+    "q058_trail",
+    "q058_bargain",
+    "q058_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q058-a0b327f3a199.png",
+  "sourceSha256": "a0b327f3a1993da2921d808443f5c3526e7f71af29bff100aaf52966e08349a8",
+  "promptSha256": "d22d823044bdfafcad0ffc316f9cfba0b3ba36a4848044abca92493ab6083f97",
+  "images": [
+    {
+      "id": "q058_offer",
+      "sha256": "d69e1129e1aa0ad1afa39dcaa1d32cf29ae0a0ed415e8dd6041e27cbfeb56817"
+    },
+    {
+      "id": "q058_trail",
+      "sha256": "9ad31d9e771499bc84436aeec99f40596d1254bf21707c7659bda8d3d9b888c7"
+    },
+    {
+      "id": "q058_bargain",
+      "sha256": "a124cf9916599f0a42c6b8fceadbe87697bfef517a8be9c8168c95ea7b9514cd"
+    },
+    {
+      "id": "q058_echo_a",
+      "sha256": "8f8a276e9848ce4729061f0513134bc65b33d0cc7b22341e742e39eb58a6ea3f"
+    }
+  ],
+  "review": "Native preview reviewed: commemorative stones bury the old arrow; person-free clue exposes its direction toward refuge; removal is considered before action; only outcome A restores the arrow and carries memorial stones away."
+}

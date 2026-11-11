@@ -1,0 +1,33 @@
+{
+  "key": "q092",
+  "events": [
+    "q092_offer",
+    "q092_trail",
+    "q092_bargain",
+    "q092_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q092-8dc0610c3758.png",
+  "sourceSha256": "8dc0610c37589d016d3d6bcb7e65f1e3a92c15c4735885e55b9e88e6d446e15c",
+  "promptSha256": "7dd6bb5775c30501cd30c7ba5200f8345fdbcf29a1eadae6dd6b8c3972d174f1",
+  "images": [
+    {
+      "id": "q092_offer",
+      "sha256": "d47d782a89089a6c4965c51553da3b0e5052af099a80c5cb0965407e83c2c1d4"
+    },
+    {
+      "id": "q092_trail",
+      "sha256": "25ff423b26324f81c23c19a5e339ffe17b97885d127980512f4e306cf6d68493"
+    },
+    {
+      "id": "q092_bargain",
+      "sha256": "7340f69eaca16a56f1ec204cce398d27785a9f4aca8712793d5c396ded042b7c"
+    },
+    {
+      "id": "q092_echo_a",
+      "sha256": "186d453e5faa4320d40ca888e1845210d20f737b920479c8bf1ab85b255053fa"
+    }
+  ],
+  "review": "Reviewed final native grid: lone mage at crystal; near village windows lit and remote houses dark; supply line and star-map clue; mage with three local representatives; ordinary lantern and stars after crystal is inactive. Restrained outlines and distinct lighting states preserved in four flat colors."
+}

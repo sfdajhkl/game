@@ -1,0 +1,14 @@
+{
+  "id": "q082_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q082",
+  "cell": 1,
+  "beforeSha256": "9c5b2057f5d0b535a2723adc28d755d6cd6b9e0b92487f399ee956edf800354b",
+  "afterSha256": "ad079e1d0a43cdfe0bb30112bf6346fd2049cd6554f5545f4b21cbe7be52aeb7",
+  "sourceFile": "q082-5f4b3dc91ff9.png",
+  "sourceSha256": "5f4b3dc91ff917f77d80d681ee06b50649c3d18b0b49dca909b87822bc361594",
+  "promptSha256": "e55576353bf0ef8885d68295032af6ba8ca71ef33ebf47e36ec29689da661f8f",
+  "review": "Native review: mercenary alone with letter, thank-you correspondence and keepsake are person-free evidence; elder survivor records actual comrade in result A; result B is private mercenary, widow and child conversation without extra witness. Identity and subdued posture consistent."
+}

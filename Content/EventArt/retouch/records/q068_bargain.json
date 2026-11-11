@@ -1,0 +1,14 @@
+{
+  "id": "q068_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q068",
+  "cell": 2,
+  "beforeSha256": "b89905e62bec79e54715bd4cf36fc967c5175080f9d9cfb7e3efc482939a5eba",
+  "afterSha256": "0e492c9d32086cc8037cbcb5a6d90981f5bdca00980201a3199bd82c85e5389f",
+  "sourceFile": "q068-f2a5a868f8a5.png",
+  "sourceSha256": "f2a5a868f8a51f252ea893477feb15e50c6798894dd32c96cc122feec7be0d56",
+  "promptSha256": "527bac3ba91939ad3f61cd54b8d0f692575845ab6505d9f4b7a5df878573a564",
+  "review": "Native review: small private grave and monumental royal tomb are visually distinct; toy horse and crown contrast family and state evidence; descendants and archivist negotiate privacy; final archive retains intact grave in distance. No exposed remains or party figures."
+}

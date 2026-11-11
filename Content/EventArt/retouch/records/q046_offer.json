@@ -1,0 +1,14 @@
+{
+  "id": "q046_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q046",
+  "cell": 0,
+  "beforeSha256": "196b32bfb898b2e84936fdbeb16acbf0d17804881c0d930c2f0a770d8c17a6c6",
+  "afterSha256": "15d73e392979799880a1dbca9a7eb5f3cea39c583f32543a987dce4770df90e3",
+  "sourceFile": "q046-94d328d3e3b9.png",
+  "sourceSha256": "94d328d3e3b9b8caa489d8dd65766ae0b9c5687dc04b71802c0eeb7ac83e6fdf",
+  "promptSha256": "f0f276d881836fb17f37a19e02f61e0ca7551d68e4e6b40730c9e4fb94b9480f",
+  "review": "Native preview reviewed: two rival guild representatives remain separate from three survivors; original and duplicate ship plates form the clue; unoccupied stretcher keeps rescue priority visible before agreement; only outcome A distributes compensation with records."
+}

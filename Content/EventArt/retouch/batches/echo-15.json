@@ -1,0 +1,33 @@
+{
+  "key": "echo-15",
+  "events": [
+    "q060_echo_b",
+    "q061_echo_b",
+    "q062_echo_b",
+    "q063_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "echo-15-3684ce15317c.png",
+  "sourceSha256": "3684ce15317c135efc3bfe3fc740f8777ccfe11ac90758bd506db48fd8b6846d",
+  "promptSha256": "410ae6533a8ff3feda49409684fd63eb08494f9ac6abbf7237e053b5e17cf797",
+  "images": [
+    {
+      "id": "q060_echo_b",
+      "sha256": "ad79d8a5dba4caab15894eb893ab7a09b9edff79a0b052e773c6751ebfa8305b"
+    },
+    {
+      "id": "q061_echo_b",
+      "sha256": "d2123a33e450f927beefbe038fe81d52e12d2f455ab715b63b6eb86e78ad1c97"
+    },
+    {
+      "id": "q062_echo_b",
+      "sha256": "07debcb29b656596d317365a2bc6db4635d9b1eb8ea6d44b10fcf8a40c303ce4"
+    },
+    {
+      "id": "q063_echo_b",
+      "sha256": "505beb3e9ecbde784866146581642f95952db508f25a1d39448b2b9b6e40386a"
+    }
+  ],
+  "review": "Reviewed native cells q060-063: paired scholars retain opposing mirrored-crown records; shared emergency route keeps bowl on pedestal; two workers secure continuous support frame while female artist rubs safely aside; lit entrance lamp becomes routine entry check. No ghost, player rescuer or private relic removal; native hands, beams and outlines readable."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q014_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q014",
+  "cell": 2,
+  "beforeSha256": "28b4c5961063dcf640e0950f7656030506434aca3c992d2d2cacd7bb38d29a68",
+  "afterSha256": "906906cf67920f752d1b79bf37253ab6c8d3caf8ee9c58454892866d7d4b38f1",
+  "sourceFile": "q014-6ce76eb6a708.png",
+  "sourceSha256": "6ce76eb6a708430ae9d24676e39d5e4a7a189fc59092cafcc8d6c710ef28fbce",
+  "promptSha256": "564df9529b403c851bfc83e0c3f75ac79bea1faaa61134347478faa06590c5dc",
+  "review": "Native crops reviewed: beekeeper tends smoky wet wood at night, fur and split hooves reveal livestock, owner positions a loose fence plank before the agreement, and smoke is cleared as animals are led out afterward. No bear or combat introduced; native silhouettes are legible."
+}

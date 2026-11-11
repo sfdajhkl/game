@@ -1,0 +1,33 @@
+{
+  "key": "q036",
+  "events": [
+    "q036_offer",
+    "q036_trail",
+    "q036_bargain",
+    "q036_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q036-5d52e27c29f6.png",
+  "sourceSha256": "5d52e27c29f60cabfd2b2894894c935abd506cff0af377abdb956269ecc59bb2",
+  "promptSha256": "3c4a1406011930bc7b54fb11a2c6749f1f404426030d0ae9d0a905f1a53f4da9",
+  "images": [
+    {
+      "id": "q036_offer",
+      "sha256": "aae2fbb1b2478c7bf11d4f2f5a9991261a6c5cbeb9ebed02607eb133b70aff6d"
+    },
+    {
+      "id": "q036_trail",
+      "sha256": "b503cccea680afd61720934d2ee2c0d49a8ca1511284f9640547d5e2b26c7297"
+    },
+    {
+      "id": "q036_bargain",
+      "sha256": "92efeddc129fc0588015422fd4470f5e1acb50856a39a400ed692362e427235f"
+    },
+    {
+      "id": "q036_echo_a",
+      "sha256": "0962aaa31f0ceb4981858ec85b2c2c0e0311d43f916bcd16cd58cb21f79e6b22"
+    }
+  ],
+  "review": "Native preview reviewed: torn nets and broad acid residue establish the river slime; workshop outflow negotiation is distinct from the person-free cleaned cave and collected waste outcome. No combat party or gore."
+}

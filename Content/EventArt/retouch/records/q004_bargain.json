@@ -1,0 +1,14 @@
+{
+  "id": "q004_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q004",
+  "cell": 2,
+  "beforeSha256": "b41c725b8a57fdb3ffe1b4bb81cb97e3589ccd1ce7dc50d0a49de398841e9fd2",
+  "afterSha256": "b95899cc4e4131ce275c786d5448d4f234cb832bc6f9b7fbfb3dcaa35d1f50a9",
+  "sourceFile": "q004-074c3c7d3966.png",
+  "sourceSha256": "074c3c7d3966e9ca5a21bdb9614c648342b9643241e30503415b816876fac088",
+  "promptSha256": "d3400facca5f5070e120b80a8b68264b5596d2a47730b74127d03c1670c87db8",
+  "review": "Native four-color crops reviewed: two schoolchildren make a map, the clue isolates the ambiguous well/cave symbols, the teacher and parents discuss it before action, and children survey the bridge in the aftermath. Empty faces and varied small-body poses remain legible. No player party."
+}

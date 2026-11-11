@@ -1,0 +1,33 @@
+{
+  "key": "q065",
+  "events": [
+    "q065_offer",
+    "q065_trail",
+    "q065_bargain",
+    "q065_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q065-1e18d061fcdc.png",
+  "sourceSha256": "1e18d061fcdc6368cb654d5f2aa77e2e0c02af93057c73f940380a361de0c9fe",
+  "promptSha256": "d5fea682483017f23d89979d340b6439d7082db88465043647a4c9e6126a973c",
+  "images": [
+    {
+      "id": "q065_offer",
+      "sha256": "e1848065ef0032737cc3e891465586bdd9d392697042e71cb4d00dbed9e3eaf0"
+    },
+    {
+      "id": "q065_trail",
+      "sha256": "68f9274c54b05e01dc0f266791ec58fda8af83eab791090874e4419fd647bb36"
+    },
+    {
+      "id": "q065_bargain",
+      "sha256": "47feb5d1e14b63d9ee83da4e2afc037268d0cb413f990af702f6c1a30c2065eb"
+    },
+    {
+      "id": "q065_echo_a",
+      "sha256": "0a08c0415162629d1e856d02935240057a7005516ce095802d0affef32db68c7"
+    }
+  ],
+  "review": "Native review: guardian alone blocks the still-closed royal door, law clue is object-only, three ordinary village representatives face guardian before entry, resting guardian and sealed weapons follow resolution. No chosen heir or player party."
+}

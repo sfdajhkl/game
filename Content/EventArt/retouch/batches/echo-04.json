@@ -1,0 +1,33 @@
+{
+  "key": "echo-04",
+  "events": [
+    "q016_echo_b",
+    "q017_echo_b",
+    "q018_echo_b",
+    "q019_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "echo-04-840c80d66aca.png",
+  "sourceSha256": "840c80d66aca9167933797d8a4cab47c8a80b4fd151a91335bf9ad668bdb31ab",
+  "promptSha256": "7a667b7987fff74c999d828f5be5e3eb23620a59821008b8d56f9b371c103cc7",
+  "images": [
+    {
+      "id": "q016_echo_b",
+      "sha256": "4bcfe8b2645fa864b7189cef07d92e00d2d0730901e77f0a412c5d6dfa9970fc"
+    },
+    {
+      "id": "q017_echo_b",
+      "sha256": "e7ab279194eb772b3502f7c6675bcf620ad246967c2fccfce79dd631527e5913"
+    },
+    {
+      "id": "q018_echo_b",
+      "sha256": "900ab3419911ff7488bfe3b28d75b37618ff4d0a6462139e1580c2e591bdd28c"
+    },
+    {
+      "id": "q019_echo_b",
+      "sha256": "2947c6362394e6dfae0be9d62b5f2db8532139566f5579ffb435bc4f8ffb3998"
+    }
+  ],
+  "review": "Reviewed native cells q016-019: rescue worker follows intact cloth marker while two gatherers share blanket; two apprentices mark separate paths as ranger retires; residents exchange household cup beside empty stool; foreman and villager plant saplings with intact oak and redesigned hull. Fixed local figures only, clear silhouettes and quiet outlines."
+}

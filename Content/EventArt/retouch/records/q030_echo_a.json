@@ -1,0 +1,14 @@
+{
+  "id": "q030_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q030",
+  "cell": 3,
+  "beforeSha256": "b3f93c649696dd0f555ce6434ec58e977a81dc644ed357c395c06293177cd6f1",
+  "afterSha256": "550bb271a61c1777f211c28a828fc251a30406cce5ea47a6fde32257e866eee2",
+  "sourceFile": "q030-f6048370e40f.png",
+  "sourceSha256": "f6048370e40f6504089febae5433ad6f41caa4824efd065a4ff471f9749856e0",
+  "promptSha256": "daefbbffb71e6c4ec9fee78a1f791ed400f9b4b376cdb10a9c06ffed4744821d",
+  "review": "Native preview reviewed: guild clerk and two fixed local novices frame the rule dispute; rescue rope clue and public discussion are distinct; amended notice with stretcher and rope conveys outcome A. No assumed playable party."
+}

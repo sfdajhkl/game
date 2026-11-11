@@ -1,0 +1,33 @@
+{
+  "key": "echo-21",
+  "events": [
+    "q088_echo_b",
+    "q089_echo_b",
+    "q091_echo_b",
+    "q092_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "echo-21-ddb1524079a4.png",
+  "sourceSha256": "ddb1524079a4bdcf45bd9395f0b440c073206ebb0ae366d6dd756ca7cdbd09b6",
+  "promptSha256": "f278ceaaea91acb27dc8f6f0712a2fe7323cc10661c41a5acae6d12f85261f65",
+  "images": [
+    {
+      "id": "q088_echo_b",
+      "sha256": "e346b91392a0b6e8a97c7ccc36e755d392aa12822be7a0439998f02d6cd61b88"
+    },
+    {
+      "id": "q089_echo_b",
+      "sha256": "72ddd4e8cb97b385952f3e99147ff327f13fff33d3b07842e14f2df2973ce503"
+    },
+    {
+      "id": "q091_echo_b",
+      "sha256": "a45e9fede85aebea5da8ac349a54e985af28a4cb0c9cb684e6f7ca8d660da80a"
+    },
+    {
+      "id": "q092_echo_b",
+      "sha256": "4349f92c2e836ba3bdfd55abecbc5dee9bbf7950f5bae96cd13a6900506e312d"
+    }
+  ],
+  "review": "Reviewed all four final native cells: mortal performs wall repair under demon labor agreement without child or chains; young painter and intact village evacuate powder safely; three attached civilian arms lower snuffer while weapons rest aside; older female mage and representatives manage modest sharing schedule. Native silhouettes, attached tools and quiet outlined four-color forms checked."
+}

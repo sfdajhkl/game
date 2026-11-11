@@ -1,0 +1,14 @@
+{
+  "id": "q085_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q085",
+  "cell": 1,
+  "beforeSha256": "696415e77e559678e57c9d0c140aa8e6c15aa96797ed8e17a24c4e2dc52766b0",
+  "afterSha256": "0fb9f3ae63315677b65ce5e7e1ee2350a4c6d14acbfa8103bc4c584930c89aa1",
+  "sourceFile": "q085-6a94ff673031.png",
+  "sourceSha256": "6a94ff673031b23e05cada4da1717ee4e7b90f9fbfcfe1d3d73a5cd42f2319a0",
+  "promptSha256": "ae7061a1015b603bb71378b37f4b60c5d1fd19db747f4f5f24d5fa680fbcbee5",
+  "review": "Native review: young dragon alone on binding circle with gold absorbed by apparatus; evidence shows actual intake channel; residents negotiate before closed exit, only outcome opens path and breaks binding. Dragon anatomy reads coherently at native size, backgrounds simplified."
+}

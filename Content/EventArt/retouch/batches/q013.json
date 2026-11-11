@@ -1,0 +1,33 @@
+{
+  "key": "q013",
+  "events": [
+    "q013_offer",
+    "q013_trail",
+    "q013_bargain",
+    "q013_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q013-7cedc7e82fa5.png",
+  "sourceSha256": "7cedc7e82fa50cd83dd6ce1238d5ab21b521cdd8df8b1a7945200b029c25d638",
+  "promptSha256": "7cb9513283a48873f0eac21d2b6e523bfa74f80f4660b3c963a1bfe723779298",
+  "images": [
+    {
+      "id": "q013_offer",
+      "sha256": "7c477cdeaab25f9088980ba4c54874ffe4c42039f111814ce39cc62ddb01dacd"
+    },
+    {
+      "id": "q013_trail",
+      "sha256": "2b009e8ce5b13c63f9a1843ee44fa74afae166845237a98d9eecbc410b9fcb03"
+    },
+    {
+      "id": "q013_bargain",
+      "sha256": "37d8cb65e668b37088c6672f57b33584b64e3b69b230424c6b02cc37c56d193f"
+    },
+    {
+      "id": "q013_echo_a",
+      "sha256": "68d95ed15bb583960729366365058e7a38ca92df7f2e3323f61f4a4919ccfcca"
+    }
+  ],
+  "review": "Native crops reviewed: forager pauses alone with letter at the bridge, child drawing in basket as clue, unsent reply setup before choice, and basket handed to the departing civilian family afterward. No fixed hero writing hand; basket handles remain connected."
+}

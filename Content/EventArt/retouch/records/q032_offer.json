@@ -1,0 +1,14 @@
+{
+  "id": "q032_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q032",
+  "cell": 0,
+  "beforeSha256": "c1f833d29a51667b58e152316bc1561027de4eba2a57b205079d8b7ad5cf887d",
+  "afterSha256": "06660fa10a93a4a6a4ecf76a8668b1e76aab84732dfc1cb0040c7b40ecbfdc91",
+  "sourceFile": "q032-4376a7029c76.png",
+  "sourceSha256": "4376a7029c76d20f3fa18e0e972543609cd86da90162a3aa026fbd03d9e3b52d",
+  "promptSha256": "86f7e07d815f94df703e8c285c95cfe3660ec585abf04f49d9b29145fe82bb44",
+  "review": "Native preview reviewed: looping bottles, flour-marked cork and mill water control remain distinct; fisher and millworker are fixed locals; restarted wheel and downstream bottles occur only after outcome A. Investigation and aftermath remain person-free."
+}

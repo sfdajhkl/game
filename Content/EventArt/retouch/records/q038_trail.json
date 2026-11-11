@@ -1,0 +1,14 @@
+{
+  "id": "q038_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q038",
+  "cell": 1,
+  "beforeSha256": "78c5b23f7bce11120fbe2166348d792bcfbdfe6c67f12cc9eb83b04e884838f2",
+  "afterSha256": "25d8a7d59a18e60c40e8e771e06638aa89febdca4f2826eb840721d5058d965a",
+  "sourceFile": "q038-cc2a555be56e.png",
+  "sourceSha256": "cc2a555be56ef3fb47211d53c5aef3a84a9402e07be9cdb2b7aede57c069e5c7",
+  "promptSha256": "18255c7424fd3a18d3dc87eccb3814a4d9bc0d04bb67025db558f831c895f79a",
+  "review": "Native preview reviewed: exposed roofs and leaning bell tower establish the drowned village; carved names remain abstract marks; elders and archivist negotiate before action; outcome A preserves bell and location record indoors."
+}

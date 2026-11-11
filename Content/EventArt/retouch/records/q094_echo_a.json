@@ -1,0 +1,14 @@
+{
+  "id": "q094_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q094",
+  "cell": 3,
+  "beforeSha256": "b7036cba3142280feb29d0413de23967d781f2934dee81751a7e6a3af828319e",
+  "afterSha256": "4782faf08a7506a863fa5afaba2149244b3b7ecb8ed882ad78a1425198a83ba6",
+  "sourceFile": "q094-5aab8dc55e5e.png",
+  "sourceSha256": "5aab8dc55e5e8e3df4174b521ee0adc72143458e39f78d366b35f5e4ebf4ef36",
+  "promptSha256": "dd101896a388851ba4ea8f0a3073defae37436273476199232e30163b3575ff8",
+  "review": "Reviewed native grid: plain-clothed local impostor, two villagers and unsafe fortress; anonymous unanswered pleas; unused stretcher and continuous rope before rescue; civilians emerge by cleared path supporting an adult. Consistent young local man without playable hero costume, restrained outlines and no detailed eyes."
+}

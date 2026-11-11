@@ -1,0 +1,14 @@
+{
+  "id": "q010_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q010",
+  "cell": 1,
+  "beforeSha256": "58a37c5598cdc12aa7f7376ce42f1589a59aca6f53b8a0effc6194743f45213f",
+  "afterSha256": "7a1a02f2f98c66d78587df13a4aabc76df938773147e85af59399dac9e63e8e0",
+  "sourceFile": "q010-70ead54119f0.png",
+  "sourceSha256": "70ead54119f09b86f4966669b539553c3cb07e132545cfd38b5f8399ea42119d",
+  "promptSha256": "368c7c19ef66f47e740d6239784c2d2dacdd7413b540840660ea54df6516aee7",
+  "review": "Native crops reviewed: separated mourners and empty chairs, mixed memorial list without portraits, chairs still being placed before the ritual, and a physically separated open book and candlelit slips afterward. Quiet expressions through pose, no ghosts or player."
+}

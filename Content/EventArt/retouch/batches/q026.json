@@ -1,0 +1,33 @@
+{
+  "key": "q026",
+  "events": [
+    "q026_offer",
+    "q026_trail",
+    "q026_bargain",
+    "q026_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q026-5c992f016639.png",
+  "sourceSha256": "5c992f016639415f0c10e277e8056f19bce843d4da8f949a8a545e4bdbcfdd6f",
+  "promptSha256": "231cc71a0aa6c8cfea1d5f35d884593321890ab70054b1823ce970df5a728dc4",
+  "images": [
+    {
+      "id": "q026_offer",
+      "sha256": "4792c1c6170e06729684329a78fe4782265d36aca56d3b9f7bd9bbac485f6847"
+    },
+    {
+      "id": "q026_trail",
+      "sha256": "ac9dd8420b090d80321782c82dbb3502e006222b157f050a987f1d3d654ee5a7"
+    },
+    {
+      "id": "q026_bargain",
+      "sha256": "a65b356e82194f82c5de14f5b06b4a3208a3a6962d59ba94dc472d147d05957d"
+    },
+    {
+      "id": "q026_echo_a",
+      "sha256": "0132930845fdef152235993b3a709136563b28acfbbedcf855c9754b33431b0d"
+    }
+  ],
+  "review": "Native preview reviewed: elderly caravan leader and wage ledger establish the dispute; bargaining keeps the crate closed at the fork; paid workers and delivered crate distinguish outcome A. Outlines and quiet cloth masses remain legible."
+}

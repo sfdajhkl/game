@@ -1,0 +1,14 @@
+{
+  "id": "q017_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q017",
+  "cell": 3,
+  "beforeSha256": "55b934875ec209b9789386067fbab5d906b6fe13ef92f32b1dd30a0538ec41f2",
+  "afterSha256": "181d6a1f4f32f7e97ffd69944ef8bd4220184823a41e8e3ed0c836767afdc35a",
+  "sourceFile": "q017-a18080019e99.png",
+  "sourceSha256": "a18080019e99c7dfc9aac14a5e159d26b219cfa67e5c877091721cd7ad60ab6f",
+  "promptSha256": "243e078af45f711c775d2c46b73322b4bd71c3fa54adcc1bae92d360768f019a",
+  "review": "Native crops reviewed: retired keeper hangs empty boots, spring-route engraving on sole is isolated as clue, young local trainees listen beside grounded boots, and boots are passed on after traps and pit are made safe. Hanging cord and boot shapes remain connected."
+}

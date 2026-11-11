@@ -1,0 +1,14 @@
+{
+  "id": "lost_child",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "base-01",
+  "cell": 3,
+  "beforeSha256": "7c8ca77482d2e983d32b2a4b8faaaec6b519760648f35b5d9a8c5e4e5fd7075e",
+  "afterSha256": "47a2358a4d5ceac4e3d7d688884b262e56bd4c4eb6050188785f0352c861c836",
+  "sourceFile": "base-01-f2abfc49d1bd.png",
+  "sourceSha256": "f2abfc49d1bd363d2ab62ef98931f440243692a2119afb9e42d6087b69195238",
+  "promptSha256": "973bbb26a1604a67e533005cf489c00c2a29a11240260dfe7b6cf5afe74f568f",
+  "review": "Reviewed parchment native cells: clear small injured hunter, two wolves watching torn provisions, distinct four weapons, lone child holding wooden horse. Shared four-color palette and broad two-tone masses. Bow cords in departure and crossroads remain queued for a dedicated stronger pixel contour."
+}

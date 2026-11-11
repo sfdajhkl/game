@@ -1,0 +1,14 @@
+{
+  "id": "q050_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q050",
+  "cell": 3,
+  "beforeSha256": "60484eb3b038e1db2be0fc37f9527f33819e81ea9f5ed1e1ec593db10e79a023",
+  "afterSha256": "84e39b7b0822958f62e92e6dcdd9ff9b836701c779da90fd7b44295f10444e12",
+  "sourceFile": "q050-a3ce0299d416.png",
+  "sourceSha256": "a3ce0299d41658dfafd8bb7f7fcb1dc3f063046fd7461ca7a76011ffa44520d9",
+  "promptSha256": "05ebad5d07916175df8286140e4e7bf7184ca0a85feca1688d83efbcb3d2e76f",
+  "review": "Native preview reviewed: sealed compensation chest and worn cloth establish its journey; person-free seal clue, officials negotiating over a closed chest, and separate aid and salvage payments distinguish all phases. No player witness is drawn."
+}

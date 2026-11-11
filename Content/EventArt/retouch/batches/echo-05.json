@@ -1,0 +1,33 @@
+{
+  "key": "echo-05",
+  "events": [
+    "q020_echo_b",
+    "q021_echo_b",
+    "q022_echo_b",
+    "q023_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "echo-05-a2b8a80ce339.png",
+  "sourceSha256": "a2b8a80ce3399992025957b78b16d8c2e432bdec67471d27002138879ba7a14b",
+  "promptSha256": "fcfd706b2b767986f6d182decae37a41c145e843d8bd70e85eef4b396566a9e6",
+  "images": [
+    {
+      "id": "q020_echo_b",
+      "sha256": "8f28a0ab79a7729dffd0d6095aa56b9e0058c7f83cde628e0435a8b9f52109ee"
+    },
+    {
+      "id": "q021_echo_b",
+      "sha256": "42fbb117f39861998a6b4307c7c65ab222b0163712ba4a25db233607bcd07ab3"
+    },
+    {
+      "id": "q022_echo_b",
+      "sha256": "3f5a549ce6881e23bfa0c6f3cc40b8769f7b14cd4a62c2d9ae7fd03f6cc42797"
+    },
+    {
+      "id": "q023_echo_b",
+      "sha256": "6280e365813bf839c7b5235a91a4c3ded238f685d83a62b05319c69c4058c339"
+    }
+  ],
+  "review": "Reviewed native cells q020-023: braided apprentice fixes verified sign while locals leave and flute stays bundled; drivers exchange coherent crates between staggered wagons; short-haired violinist plays on bare step for two theatre workers with intact bow and modest instrument; one tariff gate and two small crests over single civilian wagon. Continuous cords and small faces, no player audience."
+}

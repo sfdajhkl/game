@@ -1,0 +1,14 @@
+{
+  "id": "q041_offer",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "repair-04",
+  "cell": 0,
+  "beforeSha256": "5bc59e0fa1e9e174478b134b93bda7ba5278d1e094e32aa65519d2306641fa10",
+  "afterSha256": "d435d9d3ea32014bf58ce0c8b0d350d5df9b7093a5aa3939151054ef49ccfc10",
+  "sourceFile": "repair-04-6d8a603c214f.png",
+  "sourceSha256": "6d8a603c214fd71b37281023b16028d66b4e1e5370df1413df7355b85bc7d87b",
+  "promptSha256": "e0b6ce538253dd838c1a45dc8490678d8b5fa7b3fe54e152c4bcd83bb4bc5269",
+  "review": "Native repair preview reviewed: q041 cabin now contains exactly one captain with unopened letters and empty bunks; q044 has no people and centers the silent buoy between two distant fogbound ships. Both authored compositions restored."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q013_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q013",
+  "cell": 3,
+  "beforeSha256": "5d216a709efd330b8a8c35a138513469eb8450351c002d72a778e940fc313050",
+  "afterSha256": "68d95ed15bb583960729366365058e7a38ca92df7f2e3323f61f4a4919ccfcca",
+  "sourceFile": "q013-7cedc7e82fa5.png",
+  "sourceSha256": "7cedc7e82fa50cd83dd6ce1238d5ab21b521cdd8df8b1a7945200b029c25d638",
+  "promptSha256": "7cb9513283a48873f0eac21d2b6e523bfa74f80f4660b3c963a1bfe723779298",
+  "review": "Native crops reviewed: forager pauses alone with letter at the bridge, child drawing in basket as clue, unsent reply setup before choice, and basket handed to the departing civilian family afterward. No fixed hero writing hand; basket handles remain connected."
+}

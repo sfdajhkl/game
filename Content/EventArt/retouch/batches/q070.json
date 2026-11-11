@@ -1,0 +1,33 @@
+{
+  "key": "q070",
+  "events": [
+    "q070_offer",
+    "q070_trail",
+    "q070_bargain",
+    "q070_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q070-82b9e39836b5.png",
+  "sourceSha256": "82b9e39836b51ab9a6cb1aae7aef0b5bdf1ecaa7a04c092c9df919bbe1509b37",
+  "promptSha256": "ccd2956dc583197787b72e0bb34afacf7b41d9f7a8c8f33ac2327c8aea3d9e21",
+  "images": [
+    {
+      "id": "q070_offer",
+      "sha256": "420f16bddc6a9df3286e329d875716872c9400a4e4df6b2be4e8f2c390cf53cf"
+    },
+    {
+      "id": "q070_trail",
+      "sha256": "c9ad3ce6227f73aead23d068f597b89960f6517152fe2685afaa9716261a610b"
+    },
+    {
+      "id": "q070_bargain",
+      "sha256": "63daec5c0b0546454771191d4ae6847e07c2823707baf6cd97364d74991cfde3"
+    },
+    {
+      "id": "q070_echo_a",
+      "sha256": "dd304e8a792724bfb6ed48ea1383c7d1c5cec7b54b4015993390be89964a035e"
+    }
+  ],
+  "review": "Native review: empty original lantern socket and shifted lantern make the moving sign problem readable; connected roots displace the base; only two boat workers discuss markers and the final still scene shows a heat-free reflector. No player or unrelated NPCs."
+}

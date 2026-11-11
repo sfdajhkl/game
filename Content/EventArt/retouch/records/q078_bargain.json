@@ -1,0 +1,14 @@
+{
+  "id": "q078_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q078",
+  "cell": 2,
+  "beforeSha256": "f79aeca4880a86c954c961afa07ae6d6a50332c34845ba0cf1924c296378a17b",
+  "afterSha256": "eddc5e93600b15c13f93be2f5aa044f0882052bd7a14059e60a641c63708e3c8",
+  "sourceFile": "q078-2cf5f390ac3b.png",
+  "sourceSha256": "2cf5f390ac3b746646504661945eb9dabb792c45ce712076060e0bc1e85e458c",
+  "promptSha256": "1d0a7d9867a784f10e38ae59ea371076a17bc8ec0e8de8321d195220fc8d8f0d",
+  "review": "Native review: household NPCs and their mismatched shadows establish the fault; silver powder and magic circle are person-free clue; maid stays at threshold while wizard and noble discuss; final maid works freely and spell stays at doorway. Powder texture is a specific clue, other areas flat."
+}

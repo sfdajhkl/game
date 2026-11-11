@@ -1,0 +1,33 @@
+{
+  "key": "q082",
+  "events": [
+    "q082_offer",
+    "q082_trail",
+    "q082_echo_a",
+    "q082_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q082-5f4b3dc91ff9.png",
+  "sourceSha256": "5f4b3dc91ff917f77d80d681ee06b50649c3d18b0b49dca909b87822bc361594",
+  "promptSha256": "e55576353bf0ef8885d68295032af6ba8ca71ef33ebf47e36ec29689da661f8f",
+  "images": [
+    {
+      "id": "q082_offer",
+      "sha256": "da00f1080f4de9ddcaeb58587c5c11ddb013a25ca8b4da207b45cfbf0b5ba409"
+    },
+    {
+      "id": "q082_trail",
+      "sha256": "ad079e1d0a43cdfe0bb30112bf6346fd2049cd6554f5545f4b21cbe7be52aeb7"
+    },
+    {
+      "id": "q082_echo_a",
+      "sha256": "45a8a5a6e7417d16a213b8d91d6602248e59401c4c3fcb30bee59fb75592c01d"
+    },
+    {
+      "id": "q082_echo_b",
+      "sha256": "acd1bdf1625a48eaed2f8945c068feba562dd32de54634a38e3f421ee8beed92"
+    }
+  ],
+  "review": "Native review: mercenary alone with letter, thank-you correspondence and keepsake are person-free evidence; elder survivor records actual comrade in result A; result B is private mercenary, widow and child conversation without extra witness. Identity and subdued posture consistent."
+}

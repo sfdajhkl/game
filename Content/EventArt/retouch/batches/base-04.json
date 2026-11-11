@@ -1,0 +1,33 @@
+{
+  "key": "base-04",
+  "events": [
+    "mentor",
+    "smith",
+    "spring",
+    "winter"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "base-04-887b7f9bc840.png",
+  "sourceSha256": "887b7f9bc84050f5707ca28c9c4d260254bf37f99c6bc52bec22f2ea645b3cc2",
+  "promptSha256": "b47357167a32d43772b798ae0377784264e7911aed8f036bfdef719a4737f1d4",
+  "images": [
+    {
+      "id": "mentor",
+      "sha256": "df5db19a10933a4a57ba9037fc906ef863b16efa9e533e24ba0c178a2ca30b2f"
+    },
+    {
+      "id": "smith",
+      "sha256": "ea6caa87e1d9779ebd33bc2ff564e1aa5c553491ca6013bdf912544edca1dbd3"
+    },
+    {
+      "id": "spring",
+      "sha256": "7076124b36cd7d765b05fdf5691d765042036ca6e9e1d94b43cebe840d0cdf34"
+    },
+    {
+      "id": "winter",
+      "sha256": "8ea43c60a64b7a0822e21e979f37b90d7f3db03b726f451cc76b6c02be9892e2"
+    }
+  ],
+  "review": "Native parchment review: empty practice yard around lone mentor, connected smith hammer action, sparse flowering branch, empty winter inn with clear kettle/window contrast. Two-tone material groups and preserved restrained contours; no player."
+}

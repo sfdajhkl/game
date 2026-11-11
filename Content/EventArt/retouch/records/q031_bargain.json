@@ -1,0 +1,14 @@
+{
+  "id": "q031_bargain",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q031",
+  "cell": 2,
+  "beforeSha256": "a2ffb8eda3cee852a62c724d6e13d9d83af225c038d20092351fc51f44d5921b",
+  "afterSha256": "f403a286d92f6d06b6160aebe73e670c44fbe922b4c570fe81acfb47738ebd17",
+  "sourceFile": "q031-84707960a2f1.png",
+  "sourceSha256": "84707960a2f101018eecef06970d28d240182a4df90268b9ba813a0112a0d9ec",
+  "promptSha256": "b7d16060b488dcb7b6730eff5b4d71dff2a4cc11aadc09071a58c9547652fb2d",
+  "review": "Native preview reviewed: child and goat remain stranded on the roof in offer and negotiation; submerged ferry tether and rescue preparation are readable; only outcome A places them safely in the boat. Main tether and rescue coil remain connected."
+}

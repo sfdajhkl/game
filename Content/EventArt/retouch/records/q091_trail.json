@@ -1,0 +1,14 @@
+{
+  "id": "q091_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q091",
+  "cell": 1,
+  "beforeSha256": "eec73e5c6117a843818620971a91433d5846467f8056bd18568be8073611bfa5",
+  "afterSha256": "5e0d2390c0cabe207be53ab114ea5b1f4b1129710a12a94b15a3b6b89f5d2b8e",
+  "sourceFile": "q091-88cf3801cb55.png",
+  "sourceSha256": "88cf3801cb552bdabcbf818bc713807bfce26fa751e6cf94c01820d16fcb3b90",
+  "promptSha256": "dd206bc92a94d8f5b0af8bfabc6b3d26d4305b31c0ae41d047ff3b15113ddad9",
+  "review": "Reviewed native grid: person-free village beneath local dark dome with distant daylight; intact tied wartime seal and unused end token; three hesitant villagers around still-burning lamp with snuffer; quiet daylight and opened seal after ritual. No living war, dragon or player likeness, connected small hardware and two-tone shapes."
+}

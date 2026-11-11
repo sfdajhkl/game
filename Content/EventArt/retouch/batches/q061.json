@@ -1,0 +1,33 @@
+{
+  "key": "q061",
+  "events": [
+    "q061_offer",
+    "q061_trail",
+    "q061_bargain",
+    "q061_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q061-baa27bac3762.png",
+  "sourceSha256": "baa27bac3762d04401bc0eff8e1e1a92bc36e82b9dc25b83e18342fb105e2920",
+  "promptSha256": "aa2e8d415870dd871c273d18a4c05584225100e88b863c566c6ecd5dbb273d29",
+  "images": [
+    {
+      "id": "q061_offer",
+      "sha256": "fdd9a05488de4fbcce443c6de9383a43c07d7b8d65d034aa0539d0bd5b047bec"
+    },
+    {
+      "id": "q061_trail",
+      "sha256": "1c937b7409c6a57cf7b553b93f85a6f03b84c594a321439608f49d8509da3b25"
+    },
+    {
+      "id": "q061_bargain",
+      "sha256": "5fc86a4fdc67d0fd2e91483c7a0f82c0e6239977ff84074f9620e01a5bf4bc32"
+    },
+    {
+      "id": "q061_echo_a",
+      "sha256": "3b1a36b9eb17dccf11576a6fd1c45b5a4e8f93638387be1078dac446481b7354"
+    }
+  ],
+  "review": "Native review: closed-door offer contrasts gold plate with broken clay bowl; circular worn socket is clear, two excavation NPCs discuss shared access without opening early; only outcome reveals storage jars and allocation record."
+}

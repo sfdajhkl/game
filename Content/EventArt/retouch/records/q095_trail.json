@@ -1,0 +1,14 @@
+{
+  "id": "q095_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q095",
+  "cell": 1,
+  "beforeSha256": "0f66b9aba8e76c71c643e12e38ef7916fe3d9459d53b7bafed9839eb8ad44d8e",
+  "afterSha256": "8a798601d0e03122c006ac40c1890367a8469878ce0535ad85d792ae4e6d41ff",
+  "sourceFile": "q095-9e90c3d8fa59.png",
+  "sourceSha256": "9e90c3d8fa59953410e11e360591c6e7123b4495583540ce391003e5b53c04b5",
+  "promptSha256": "eabaefcac865bf26e75c36541e39476d2fc59eb3e4c7a58cd598ae4145b9f4a5",
+  "review": "Reviewed native grid: separated civilian families in damaged square; person-free soldier-only return tally with uncounted household bundle; packed cart and unrepaired doorway present genuine alternatives; workers remove a broad trap as distant cart passes. No victory hero, premature rebuild or combat spectacle; flat parchment palette readable."
+}

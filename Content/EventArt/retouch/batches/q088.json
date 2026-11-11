@@ -1,0 +1,33 @@
+{
+  "key": "q088",
+  "events": [
+    "q088_offer",
+    "q088_trail",
+    "q088_bargain",
+    "q088_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q088-cac80cf2e861.png",
+  "sourceSha256": "cac80cf2e86137ab197ed2d5707c74d8daa474096fe2fd2f577ce52592d4d325",
+  "promptSha256": "d1e00032b11a7a1059171dbe50fde7d31cc68f36b6f2e6db96e9f573c6452aa9",
+  "images": [
+    {
+      "id": "q088_offer",
+      "sha256": "be07b555d59cc8be2a32ff89fc561096e2677d13507391d0df9bac7a71727231"
+    },
+    {
+      "id": "q088_trail",
+      "sha256": "d198b698c4d67229b07996716db1c285f70493950d9d2dc5db5c424f645a8841"
+    },
+    {
+      "id": "q088_bargain",
+      "sha256": "5b662fdb4b5493c804ac34cedfdaf09f01757cc60c6fad803209eb4b3bc695d9"
+    },
+    {
+      "id": "q088_echo_a",
+      "sha256": "e33aad7c07647c1c56a2b9b3071faf3f14a06c3c51a9ff5e3e1cd813e1d488d1"
+    }
+  ],
+  "review": "Native review: demon alone presents contract; unborn soul appears only as contract symbol with no physical baby; exactly demon and adult signer negotiate; invalid clause torn in outcome. Consistent demon horns and silhouette, no unrelated observers or player."
+}

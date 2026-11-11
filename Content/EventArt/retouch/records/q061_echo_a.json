@@ -1,0 +1,14 @@
+{
+  "id": "q061_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q061",
+  "cell": 3,
+  "beforeSha256": "81185df35b6a695dab9f7368b4122143d32a7f433c20b76989fe7d1604dc58a3",
+  "afterSha256": "3b1a36b9eb17dccf11576a6fd1c45b5a4e8f93638387be1078dac446481b7354",
+  "sourceFile": "q061-baa27bac3762.png",
+  "sourceSha256": "baa27bac3762d04401bc0eff8e1e1a92bc36e82b9dc25b83e18342fb105e2920",
+  "promptSha256": "aa2e8d415870dd871c273d18a4c05584225100e88b863c566c6ecd5dbb273d29",
+  "review": "Native review: closed-door offer contrasts gold plate with broken clay bowl; circular worn socket is clear, two excavation NPCs discuss shared access without opening early; only outcome reveals storage jars and allocation record."
+}

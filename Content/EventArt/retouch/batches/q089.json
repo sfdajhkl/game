@@ -1,0 +1,33 @@
+{
+  "key": "q089",
+  "events": [
+    "q089_offer",
+    "q089_trail",
+    "q089_bargain",
+    "q089_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q089-64dce9ecbaf0.png",
+  "sourceSha256": "64dce9ecbaf0224ae0dedbcd023b1bb79c4df9b2fe67c85e750597e5ae051bbb",
+  "promptSha256": "51b1a458619d5088ebfcb8b816beec906565c26edcac571327de4f7d9ada49ec",
+  "images": [
+    {
+      "id": "q089_offer",
+      "sha256": "587039124242a4d6316df167dfe67e1be9cf3bf0243782ccbadf7d3273b33088"
+    },
+    {
+      "id": "q089_trail",
+      "sha256": "fd22873f2243f886e414fbc7f15f3984deccae6323e9f0d9fbcc7661adda133c"
+    },
+    {
+      "id": "q089_bargain",
+      "sha256": "e1875c0ae6073752413a969454291e1387b29d448b832f4346803efbc0cba17f"
+    },
+    {
+      "id": "q089_echo_a",
+      "sha256": "6e0514db823638853a1b60707e7755797a0be72dc182c18a75debae107e42a9d"
+    }
+  ],
+  "review": "Native review: young male painter is consistent; fire exists ONLY inside painted canvas while real village stays intact; leaky oil and broken support clue are clear; local storage workers see warning; outcome paints safe town with repaired supports and no flames."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q049_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q049",
+  "cell": 1,
+  "beforeSha256": "90f04ef5b860cddcce6ef063afeca68badccf011bc8b73b0300981841d435aa5",
+  "afterSha256": "2ffd9ed40c1cd25395eaeb28b77eab1080f4e841d259f84a0cf37c5b2b7affc7",
+  "sourceFile": "q049-8ecf1093775e.png",
+  "sourceSha256": "8ecf1093775ec108d932a68f382ba141e940f26178af50720d6602ac43dda80c",
+  "promptSha256": "48bf3671d1467ba594cba18aaa43452d45036bca6a007b19d4bb3d2d2c11e7cc",
+  "review": "Native preview reviewed: unseaworthy memorial ship stays on shore; growing list and split hull form a person-free clue; relatives consider its future before action; outcome A sorts known evidence and belongings without implying missing sailors returned."
+}

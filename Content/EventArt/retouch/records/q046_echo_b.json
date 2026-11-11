@@ -1,0 +1,14 @@
+{
+  "id": "q046_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-11",
+  "cell": 2,
+  "beforeSha256": "a474b5a330043885e1d92c09b1ce978de5e5a5b33042733012583847d1f06576",
+  "afterSha256": "682f7b4b4d43bccf068d17bbc1dda897b27ac996b7a4439443cb6e2de6d8c98a",
+  "sourceFile": "echo-11-5af335b48671.png",
+  "sourceSha256": "5af335b4867123a672b137d13bc9509f8fc5ab860adef5967ec22146b4f74b14",
+  "promptSha256": "559d4e4d750fb57a457bf3d1c0b013fd1532485efb2b4c01b4dd025ee6040c5a",
+  "review": "Reviewed native cells q044-047: quiet lantern signaling with still distant buoy; dock workers clean on low foothold below staged section; guild workers carry empty rescue stretcher with safe sailor on quay; young former stowaway coils intact rope across channel from older sailor with recommendation. Plain civilian roles and connected equipment checked at native grid."
+}

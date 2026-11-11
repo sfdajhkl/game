@@ -1,0 +1,14 @@
+{
+  "id": "q051_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q051",
+  "cell": 1,
+  "beforeSha256": "a81601b8cf4bc6e4d6a9027e5e44c3176b2bedf01c83e3d1d51929e2990c1642",
+  "afterSha256": "6d82e08b064adbce28ac7c7e565eea0103d40260c12a9a587b477857f00c7a3d",
+  "sourceFile": "q051-86ee7e07a98f.png",
+  "sourceSha256": "86ee7e07a98f140b789c1c28a4bc322bebd60c0e47adb02453546fd271cf3653",
+  "promptSha256": "29c8379cabf6a97605e734f64fe0e3a6cecfdebde0413b2348e76e0ff08eb802",
+  "review": "Native preview reviewed: isolated cliff hut and dangerous snow cornice are person-free; local rescuers prepare rope and ladder below before action; only outcome A shows occupants safely outside the window beside fallen front-door snow. No playable rescuer is fixed."
+}

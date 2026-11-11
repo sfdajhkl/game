@@ -1,0 +1,14 @@
+{
+  "id": "q017_trail",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q017",
+  "cell": 1,
+  "beforeSha256": "5836c52b5a623fc5c2c313dee20880adb2ce3afef6a8a211fd100cd03c9fd57d",
+  "afterSha256": "36cd318cb1ddb991ca42ab81e87de333d549f5481a30df0c96d03ef572e51cce",
+  "sourceFile": "q017-a18080019e99.png",
+  "sourceSha256": "a18080019e99c7dfc9aac14a5e159d26b219cfa67e5c877091721cd7ad60ab6f",
+  "promptSha256": "243e078af45f711c775d2c46b73322b4bd71c3fa54adcc1bae92d360768f019a",
+  "review": "Native crops reviewed: retired keeper hangs empty boots, spring-route engraving on sole is isolated as clue, young local trainees listen beside grounded boots, and boots are passed on after traps and pit are made safe. Hanging cord and boot shapes remain connected."
+}

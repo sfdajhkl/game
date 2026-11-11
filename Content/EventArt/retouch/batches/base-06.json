@@ -1,0 +1,33 @@
+{
+  "key": "base-06",
+  "events": [
+    "veteran",
+    "quiet_years",
+    "market",
+    "wayside_rest"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "base-06-487cad16f9d9.png",
+  "sourceSha256": "487cad16f9d9a758055b7107c376f746bfd0f19c920f77b383136b067c091494",
+  "promptSha256": "a15995015e1dd2cec68fe2fbf38a1d8534befb581cbc0ef01d21faf30812a76f",
+  "images": [
+    {
+      "id": "veteran",
+      "sha256": "4f5003ac82438441d7d46619243da18c805c98805cf0534fab06e078b1425f97"
+    },
+    {
+      "id": "quiet_years",
+      "sha256": "784a2aca3a9f0ba7c58a2f0b9c8624a31e93d92768216d2475918f7422b3b504"
+    },
+    {
+      "id": "market",
+      "sha256": "9d78803f7acdbf4106349a39732007a7e932adae4fba59a8bb92ecd05b91c3f6"
+    },
+    {
+      "id": "wayside_rest",
+      "sha256": "70e7f2a22ededd3986f42f258e9afce09ad626dfe1533772520492743eeeae4d"
+    }
+  ],
+  "review": "Native parchment review: novice NPC alone with lowered sword, empty riverside chair and closed journal, merchant pouring into bottle, empty wayside rest. Each composition has quiet space, clear focal object and no fixed player likeness."
+}

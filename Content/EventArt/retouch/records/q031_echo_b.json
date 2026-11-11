@@ -1,0 +1,14 @@
+{
+  "id": "q031_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-07",
+  "cell": 3,
+  "beforeSha256": "65ef4d80d1721b6429d1fb07b8332a661787741501ce1f9a00625611c628fe2b",
+  "afterSha256": "61b438d1f7dfb1d4fd4cb1703387854d15452f8acb4d62af403d5f292a3f72b0",
+  "sourceFile": "echo-07-dcbb3b4886a6.png",
+  "sourceSha256": "dcbb3b4886a6f82f7ea1b47b46e854533be0e06d817c9e3dcddc8a29cfcacb29",
+  "promptSha256": "c95ce3112679932f01fe0b1d06cd9d7544129067606e2f976265a35770187702",
+  "review": "Reviewed native cells q028-031: separate public toll and anonymous donation containers; closed urn crosses boundary on coherent bier with rolled banners; two novices read equal-sized refusal and keepsake symbols; child and goat safe beside ferry owner with three large knots and continuous river rope. Local civic NPCs, no player likeness or party."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q009_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-02",
+  "cell": 1,
+  "beforeSha256": "f866bb1aebdf76655bcb02854f8b7ee1b9d5f554655a585254336094df275588",
+  "afterSha256": "9e59c07791dcbd9ede93590f4423f6da64f58bd7fc061c83992f568c416fdaf9",
+  "sourceFile": "echo-02-b02e6258e468.png",
+  "sourceSha256": "b02e6258e468b4ec15d132563b5cbaa00c4621837a0facdfb5d27310bcc485c5",
+  "promptSha256": "77ff8a17148e4e4dc326c7ee90895ff92c9a7a69416ab3921f7c2755e96232db",
+  "review": "Reviewed native cells q008-011: useful communal well with mason and collecting residents; shared-key inn with empty beds and one weary civilian arrival; three bereaved adults face quiet field beside two empty chairs; charcoal burner supported out of kiln while injured dog rests under shelter. No famous hero statue, ghosts or player party, muted outlined native forms."
+}

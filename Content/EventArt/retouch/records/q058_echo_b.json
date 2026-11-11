@@ -1,0 +1,14 @@
+{
+  "id": "q058_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-14",
+  "cell": 2,
+  "beforeSha256": "beb85bdb9853d548f0db510df2aab460e0db5608c03a338f965ef3631ba0c982",
+  "afterSha256": "3483173f509edef7a95661d5a3217eb3bcf879b45802ded69b0e5ad102644d8a",
+  "sourceFile": "echo-14-bd7ac687585d.png",
+  "sourceSha256": "bd7ac687585d7f6d165bef164af65e7f468134511cf13e33f5226e0d5d0d8d5b",
+  "promptSha256": "8228f40cf791cdfbb757fd31e3ee4e59b3d2e24440fc533d54cd7556c047a03f",
+  "review": "Reviewed native cells q056-059: descendant receives acknowledgment and closed compensation pouch with dispatch preserved; both tunnel freight route and upper refuge route stay open; quiet lowland memorial holds name stones; wildlife corridor remains outside relocated ranch fence. Local civilian casts, no summit hero monument, four-color spatial clarity checked."
+}

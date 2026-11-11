@@ -1,0 +1,33 @@
+{
+  "key": "q001",
+  "events": [
+    "q001_offer",
+    "q001_trail",
+    "q001_bargain",
+    "q001_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q001-46412cb02487.png",
+  "sourceSha256": "46412cb02487f63d52633a1e6eba0fc76bc67345918a66a8fe506122c338dd2b",
+  "promptSha256": "1767d38a28da10f59c7661c602061a6e28b8c9c0a43ea217fdeea5d7bdceceb6",
+  "images": [
+    {
+      "id": "q001_offer",
+      "sha256": "ca36ab925ca9e1d56f898413eb3587a46c65b7578316eb012b2cd5a833224691"
+    },
+    {
+      "id": "q001_trail",
+      "sha256": "795bda36be59618d215ecef9c93735858cc0933ee3388f6f31854c6a4e9135a6"
+    },
+    {
+      "id": "q001_bargain",
+      "sha256": "2d4e7f99d4f09af2c034a41a6ba0416e7893bcac44061bbf46ef8b366de45dc4"
+    },
+    {
+      "id": "q001_echo_a",
+      "sha256": "e14cedba277676bde23c046686d6c4387b85753231ad8ffdb06aa1a84484ea44"
+    }
+  ],
+  "review": "Native review of bell arc: empty tower yoke before resolution, person-free new-rope wrapper clue, damaged sundial with detached gnomon before communal agreement, lone keeper repairing bell in A outcome. Correct order and no player; restrained parchment palette."
+}

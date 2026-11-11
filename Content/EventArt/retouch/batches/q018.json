@@ -1,0 +1,33 @@
+{
+  "key": "q018",
+  "events": [
+    "q018_offer",
+    "q018_trail",
+    "q018_bargain",
+    "q018_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q018-e47873d9dd5b.png",
+  "sourceSha256": "e47873d9dd5b2565b2c44046576da670ebdb3bd224f084c4240ca8b37d8cb949",
+  "promptSha256": "e1bb65900f96f1ad1242ae2ab05c68ac62dbda3db7ece7cd8686a773550c98a5",
+  "images": [
+    {
+      "id": "q018_offer",
+      "sha256": "2a8af846688b7bb8658c4a796302e745c7bd36905c698bd102e3ea5646f01a26"
+    },
+    {
+      "id": "q018_trail",
+      "sha256": "335d80edf59548258211b5bf1e4afb790e65c252b42387c6ca1af9a51a59088f"
+    },
+    {
+      "id": "q018_bargain",
+      "sha256": "36d20b1abf2bf2c9ebf67c2fe53afedb671869911200e6cfc9cd1c18011b4abd"
+    },
+    {
+      "id": "q018_echo_a",
+      "sha256": "9940d613f0420b2c17c15470e5b372dcb2abb7832724aed62287e5c625124e28"
+    }
+  ],
+  "review": "Native crops reviewed: two affected villagers rest under the marked tree, charm under bark is the person-free clue, an extra stool is offered before shared recollection, and removed charm lies foreground while locals reconnect in the distance. No player or ghost."
+}

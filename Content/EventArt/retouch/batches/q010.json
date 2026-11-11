@@ -1,0 +1,33 @@
+{
+  "key": "q010",
+  "events": [
+    "q010_offer",
+    "q010_trail",
+    "q010_bargain",
+    "q010_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q010-70ead54119f0.png",
+  "sourceSha256": "70ead54119f09b86f4966669b539553c3cb07e132545cfd38b5f8399ea42119d",
+  "promptSha256": "368c7c19ef66f47e740d6239784c2d2dacdd7413b540840660ea54df6516aee7",
+  "images": [
+    {
+      "id": "q010_offer",
+      "sha256": "e98f883e8a5a4bef912592ca94162abe18d59586bec8c7ac383e37e6772a9087"
+    },
+    {
+      "id": "q010_trail",
+      "sha256": "7a1a02f2f98c66d78587df13a4aabc76df938773147e85af59399dac9e63e8e0"
+    },
+    {
+      "id": "q010_bargain",
+      "sha256": "33af67ba3109b8ede81c282960ade69ee1bbe3c73d4902b8cd1473f1f2e5eb5b"
+    },
+    {
+      "id": "q010_echo_a",
+      "sha256": "377c47b4bb5949432b225179f2abe01c400e9730184ab7923e093b68cbd12011"
+    }
+  ],
+  "review": "Native crops reviewed: separated mourners and empty chairs, mixed memorial list without portraits, chairs still being placed before the ritual, and a physically separated open book and candlelit slips afterward. Quiet expressions through pose, no ghosts or player."
+}

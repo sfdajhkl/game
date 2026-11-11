@@ -1,0 +1,33 @@
+{
+  "key": "q052",
+  "events": [
+    "q052_offer",
+    "q052_trail",
+    "q052_bargain",
+    "q052_echo_a"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "q052-1cc08cdfcbac.png",
+  "sourceSha256": "1cc08cdfcbac1b39e00e63e1766d9194d8f7093c48cc775fcfa96510e8f07a20",
+  "promptSha256": "3d2b08f2a4efae547be1e3e119e3c945cb0766ffb17c7e64f280b38de6f4a581",
+  "images": [
+    {
+      "id": "q052_offer",
+      "sha256": "ada6c001504553300716406b2b15beb580708e920f3cea6cc84cfaef1ce06f6b"
+    },
+    {
+      "id": "q052_trail",
+      "sha256": "644fc6f8c0a5e2990ef08934a1ae9f29a77a95773c1ed5a68cda1999e7bd99e4"
+    },
+    {
+      "id": "q052_bargain",
+      "sha256": "aae20e8b71e5e3b152a9ddfb802a19ca483db5900927e52db91987667158f0f8"
+    },
+    {
+      "id": "q052_echo_a",
+      "sha256": "283511ab8945066184d190cf7e5c46564cee9db311008ba405a83a1ae7543d84"
+    }
+  ],
+  "review": "Native preview reviewed: cart in the abandoned mine and freshly oiled axle are person-free; miners approach the union clerk before agreement; outcome A has local miners closing an unsafe tunnel as paid cleanup. Clear wheel and connected rails."
+}

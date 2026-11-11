@@ -1,0 +1,14 @@
+{
+  "id": "q003_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "base-07",
+  "cell": 3,
+  "beforeSha256": "0d8fe49b7a8d4748fdb3b57634198a286f741be265c57dcded0d72b91b206a85",
+  "afterSha256": "d3c6394312a3ed6c526ed8e671f014a2f3802f119af339858fcbf65622a81b92",
+  "sourceFile": "base-07-0ae9ee56eaee.png",
+  "sourceSha256": "0ae9ee56eaee28211b1ef1c650ad7b37c0525e857c7d77b0bf58c37e07522adc",
+  "promptSha256": "f96fa6aa61a1172adaf8e514d7c2d22e3f8f54001425fcff75ab79ddf8c93850",
+  "review": "Native parchment review: postal wagon driver alone; repaired sundial aftermath; villagers operating a connected rescue frame; two neighbours sharing lunch with boundary stone. Distinct event outcomes and broad quiet shapes, no protagonist avatar."
+}

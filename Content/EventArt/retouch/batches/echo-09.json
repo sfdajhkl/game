@@ -1,0 +1,33 @@
+{
+  "key": "echo-09",
+  "events": [
+    "q036_echo_b",
+    "q037_echo_b",
+    "q038_echo_b",
+    "q039_echo_b"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "echo-09-3a665888975d.png",
+  "sourceSha256": "3a665888975d50a14e828b02bd76b1160c1e51508730e64ee0d10f9ce384fcd7",
+  "promptSha256": "65d18bbdc82b3d67f81fd40ab93701b7b3a9e70f33a5123fd90504fc862eb3a0",
+  "images": [
+    {
+      "id": "q036_echo_b",
+      "sha256": "2a62b17fe0d8a26dd6bbd5ee3bafee3ccd32cd497ef3f5465cf0a1a547f1a58c"
+    },
+    {
+      "id": "q037_echo_b",
+      "sha256": "b6fceef5021ffd72bee8bcccdb3fbfbaf3f3bf4ef208bec1b97876e43792f1d2"
+    },
+    {
+      "id": "q038_echo_b",
+      "sha256": "bcf5e5d175eb34f2e16bde8c4dba41b12ce95f9ca9560251ebc022b06536d2e6"
+    },
+    {
+      "id": "q039_echo_b",
+      "sha256": "39829ea2830689007f1ff502cd03e7b52825c0687b0a9649d7b9fa9e6323af05"
+    }
+  ],
+  "review": "Reviewed native cells q036-039: sealed waste barrel moves away while net is repaired; widow and new civilian neighbours share river bench without ring or ghost; elderly survivors and local record keeper revisit submerged roofs with bell still in tower; villagers pool grain above flood while keeper records it. Net connections, small faces and non-player local casts checked."
+}

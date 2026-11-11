@@ -1,0 +1,14 @@
+{
+  "id": "q037_echo_a",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "q037",
+  "cell": 3,
+  "beforeSha256": "184e1e834f29519f1fedd7f785acba8c4b706e99cf3903b680e3f613a49e47bd",
+  "afterSha256": "9a12676bfe0875e19669d0019715754d21037b3f5867a748f644478395ae381a",
+  "sourceFile": "q037-4b01948d5828.png",
+  "sourceSha256": "4b01948d58281eaced9cfdd434c987c15f4aca9dcb5e9638775189c4b8926a77",
+  "promptSha256": "811bd38d9e68e1b4b7c5309e496b3e540f0f0568db19d3cb33b4c435d27a8fd0",
+  "review": "Native preview reviewed: widow is separated from the new house by the river; ring-memory clue is person-free; unused bench pieces mark the alternative before action, while outcome A returns the ring without damaging the occupied foundation."
+}

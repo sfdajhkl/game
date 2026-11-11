@@ -1,0 +1,18 @@
+{
+  "key": "repair-05",
+  "events": [
+    "q090_bargain"
+  ],
+  "styleRevision": 4,
+  "status": "reviewed",
+  "sourceFile": "repair-05-1bf79692e565.png",
+  "sourceSha256": "1bf79692e565d86e182fe0f16530bec3074273a4f7c5454701a283be68e8816e",
+  "promptSha256": "40c9915b339b92184bd5ff95490a984ee647f63e51b19157488ca4ee5a650bf9",
+  "images": [
+    {
+      "id": "q090_bargain",
+      "sha256": "7213d81334cabe7e8df9848f379fc2c4b7e90d3fd361a9b1277259ac18b16f07"
+    }
+  ],
+  "review": "Final native repair inspected: exactly one kneeling undead commander, three physical swords and a dark empty placement mark, plain sparse name strip and silent battlefield. All living onlookers, merchant and family removed; coherent hands and connected outline with flat palette."
+}

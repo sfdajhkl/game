@@ -1,0 +1,14 @@
+{
+  "id": "q054_echo_b",
+  "status": "reviewed",
+  "styleRevision": 4,
+  "kind": "generated-retouch",
+  "batch": "echo-13",
+  "cell": 2,
+  "beforeSha256": "50459537c8bfbd7d0680350dff21c653b8b9151d202a6b938fd01a7ad884efed",
+  "afterSha256": "c130a3f68b69a8e7ab94105043ab17b0f6969a8c9d7998e38f61261fab9eb9f8",
+  "sourceFile": "echo-13-2ecdd53d1752.png",
+  "sourceSha256": "2ecdd53d1752f8386f027446ad8b86d134033adae82a35ecd5544d070f12c10e",
+  "promptSha256": "9b2d073f1e06e573133c0b7cdf2b78f6bc0a26a70735d3e7637b41f64569ab85",
+  "review": "Reviewed native cells q052-055: recovered payroll and separated manager, exactly three civilian porters reach marked refuge with elderly guide, two lightly loaded porters and unused heavy pack, elder and apprentice add danger mark to map gap. No supernatural mine or player party, intact canes and work tools, clear small silhouettes."
+}
