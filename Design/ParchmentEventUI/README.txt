@@ -16,3 +16,9 @@ WOFF 출처: https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/YiSunSh
 
 기존 Unity 프로젝트는 Canvas/uGUI 및 TextMeshPro 기반입니다.
 이 시안의 계층은 Header → Status → Event header → Illustration / Story & Choices → Footer입니다.
+
+0.3.2 종이 재질
+- 종이 전용 512×512 무채색 결을 배경색과 곱해 사용합니다. 글·삽화 위에 합성하지 않습니다.
+- Unity와 시안은 동일 PNG를 사용합니다. scripts/generate-paper-grain.py로 재현할 수 있습니다.
+- paper-edges.js는 ParchmentWear.cs의 같은 윤곽식을 사용한 브라우저 미리보기입니다.
+- 가장자리 30px 안쪽으로 옅은 색이 사라지며, 장식은 포인터 입력을 받지 않습니다.

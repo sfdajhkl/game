@@ -45,9 +45,11 @@
     @media(max-width:450px){.picture{width:194px;height:130px}.picture img{width:192px;height:128px}.caption{max-width:280px;font-size:12px}.event-head h1{font-size:22px}.event-head{display:block}.location{margin-top:12px}.brand-mark{width:26px;height:26px}.brand-mark:after{width:10px;height:10px;left:7px;top:7px}.story p{font-size:20px}.wordmark{font-size:18px}.topbar{padding:0 17px}.top-actions{gap:8px}.icon-button{font-size:12px}.resource strong{font-size:16px}}
     @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 
-    /* Small edge damage; preview only. Runtime equivalent: ParchmentWear.cs. */
-    .book{clip-path:polygon(0 12px,9px 3px,8% 0,calc(8% + 8px) 7px,calc(8% + 15px) 0,61% 0,calc(61% + 5px) 5px,calc(61% + 10px) 0,100% 0,100% 31%,calc(100% - 4px) calc(31% + 7px),100% calc(31% + 13px),100% calc(100% - 10px),calc(100% - 15px) 100%,73% 100%,calc(73% - 8px) calc(100% - 5px),calc(73% - 14px) 100%,0 100%,0 68%,5px calc(68% - 6px),0 calc(68% - 12px))}
-    .book:before,.book:after{width:66px;height:18px;border:0;background:radial-gradient(ellipse,#79573a1c,transparent 70%)}
+    /* Paper texture is behind content; the shallow edge treatment never intercepts input. */
+    .book{border:0}
+    .book:before,.book:after{display:none}
+    .book,.sidebar,.choice:has(input:checked),.choice:hover{background-image:url('assets/paper-grain.png');background-size:512px 512px;background-blend-mode:multiply}
+    .paper-edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
   </style>
 </head>
 <body>
@@ -100,6 +102,7 @@
     </div>
   </div>
   <div class="design-note"><span>아르비토 · 양피지 이벤트 UI 시안　/　상태 수치는 예시입니다.</span><a href="assets/event.png" download="arvito-parchment-event.png">삽화 원본 ↓</a></div>
+  <script src="paper-edges.js"></script>
   <script>
     const toast=document.getElementById('toast');
     document.getElementById('choice-form').addEventListener('submit',e=>{e.preventDefault();const selected=document.querySelector('input[name=choice]:checked');toast.textContent='선택 예시 · '+selected.closest('label').querySelector('.text').textContent;toast.hidden=false;});

@@ -111,7 +111,7 @@ namespace Arvito.Runtime
         void ClearPage()
         {
             if (page != null) { page.gameObject.SetActive(false); Destroy(page.gameObject); }
-            page = Ui.Card(canvas, "Page", Ui.Paper); Ui.Fill(page, 20, 20, 20, 20); Ui.Border(page);
+            page = Ui.Card(canvas, "Page", Ui.Paper); Ui.Fill(page, 20, 20, 20, 20);
             Canvas.ForceUpdateCanvases(); shortcuts.Clear(); enterAction = null; nameInput = null;
             EventSystem.current?.SetSelectedGameObject(null);
         }
@@ -243,7 +243,7 @@ namespace Arvito.Runtime
             bool eventArt = game == null || EventArt.Load(game.Event.id) != null;
             bool font = Resources.Load<TMP_FontAsset>("Arvito/Fonts/Arvito-Korean") != null;
             bool narrativeFont = Resources.Load<TMP_FontAsset>("Arvito/Fonts/Arvito-YiSunShin") != null;
-            var stack = Dialog("게임 자료 확인", "양피지 UI 0.3.1\n\n배경: " + (missing == 0 ? "정상" : missing + "개 누락") +
+            var stack = Dialog("게임 자료 확인", "양피지 UI 0.3.2\n\n배경: " + (missing == 0 ? "정상" : missing + "개 누락") +
                 "\n캐릭터: " + (characters ? "정상" : "누락") + "\n현재 삽화: " + (game == null ? "시작 전" : eventArt ? "정상" : "누락") + "\n정보 글꼴: " + (font ? "정상" : "준비 필요") + "\n이순신체: " + (narrativeFont ? "정상" : "준비 필요"));
             Ui.Text(stack, "글꼴 준비가 필요하면 재생을 멈추고 Arvito → Prepare Project를 실행해 주세요.\n그림 자료가 누락되면 Unity 재생을 멈추고 상단 Arvito → Repair Art Imports를 실행해 주세요.\n\n프로젝트 위치\n" + Application.dataPath, 16, Ui.Muted);
             Ui.Button(stack, "닫기", CloseDialog);
@@ -256,7 +256,7 @@ namespace Arvito.Runtime
             if (!title) Ui.Button(stack, "저장하고 시작 화면으로", () => { Save(); CloseDialog(); title = true; Render(); });
             Ui.Button(stack, "게임 종료", () => { Save(); Application.Quit(); });
             Ui.Button(stack, "그림·글꼴 자료 확인", AssetStatus, 48);
-            Ui.Text(stack, "아르비토 0.3.1 · 양피지 수첩\n제목·본문: 이순신체 · 아산시\n정보·숫자: Noto Serif KR · SIL OFL 1.1", 14, Ui.Muted);
+            Ui.Text(stack, "아르비토 0.3.2 · 양피지 수첩\n제목·본문: 이순신체 · 아산시\n정보·숫자: Noto Serif KR · SIL OFL 1.1", 14, Ui.Muted);
             Ui.Button(stack, "계속하기", CloseDialog, 50, true, true);
         }
     }
