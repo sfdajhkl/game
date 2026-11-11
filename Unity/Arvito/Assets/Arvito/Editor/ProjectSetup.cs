@@ -40,9 +40,10 @@ namespace Arvito.Editor
                 TMP_PackageResourceImporter.ImportResources(true, false, false);
             AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
             ConfigureAssets();
+            ValidateArtImports();
             PlayerSettings.companyName = "Arvito";
             PlayerSettings.productName = "아르비토";
-            PlayerSettings.bundleVersion = "0.2.0";
+            PlayerSettings.bundleVersion = "0.3.0";
             PlayerSettings.SetApplicationIdentifier(UnityEditor.Build.NamedBuildTarget.Standalone, "games.arvito.pc");
             PlayerSettings.defaultScreenWidth = 1440; PlayerSettings.defaultScreenHeight = 900;
             PlayerSettings.resizableWindow = true; PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
@@ -85,6 +86,7 @@ namespace Arvito.Editor
             foreach (string id in new[] { "village", "forest", "ruins", "camp", "battle", "characters" })
             {
                 var importer = (TextureImporter)AssetImporter.GetAtPath("Assets/Resources/Arvito/Art/" + id + ".png");
+                if (importer == null) throw new InvalidDataException("Missing texture importer: " + id + ".png. Project: " + Application.dataPath);
                 importer.textureType = TextureImporterType.Default; importer.filterMode = FilterMode.Point; importer.wrapMode = TextureWrapMode.Clamp; importer.mipmapEnabled = false;
                 importer.textureCompression = TextureImporterCompression.Uncompressed; importer.maxTextureSize = 2048;
                 if (id == "characters") PixelCharacterImporter.Configure(importer);
@@ -99,6 +101,29 @@ namespace Arvito.Editor
                 font.material.name = "Arvito Korean Material"; AssetDatabase.AddObjectToAsset(font.material, font);
                 EditorUtility.SetDirty(font);
             }
+        }
+        [MenuItem("Arvito/Repair Art Imports")]
+        public static void RepairArtImports()
+        {
+            if (EditorApplication.isPlayingOrWillChangePlaymode) { Debug.LogWarning("Stop Play mode before repairing art imports."); return; }
+            foreach (string path in Directory.GetFiles("Assets/Resources/Arvito/Art", "*.png", SearchOption.AllDirectories))
+                AssetDatabase.ImportAsset(path.Replace('\\', '/'), ImportAssetOptions.ForceUpdate | ImportAssetOptions.ForceSynchronousImport);
+            ConfigureAssets();
+            ValidateArtImports();
+        }
+        public static void ValidateArtImports()
+        {
+            int count = 0;
+            foreach (string path in Directory.GetFiles("Assets/Resources/Arvito/Art", "*.png", SearchOption.AllDirectories))
+            {
+                string resource = path.Replace('\\', '/').Replace("Assets/Resources/", "");
+                resource = resource.Substring(0, resource.Length - 4);
+                if (AssetDatabase.LoadAssetAtPath<Texture2D>(path.Replace('\\', '/')) == null || Resources.Load<Texture2D>(resource) == null)
+                    throw new InvalidDataException("Cannot load illustration: " + path + ". Use Arvito > Repair Art Imports. Project: " + Application.dataPath);
+                count++;
+            }
+            if (count < 506) throw new InvalidDataException("Art files are missing (" + count + "/506). Pull the latest repository. Project: " + Application.dataPath);
+            Debug.Log("Arvito 0.3.0: " + count + " textures verified via Resources.Load. Project: " + Application.dataPath);
         }
         [MenuItem("Arvito/Open Game Scene")]
         public static void OpenScene() { if (!File.Exists(ScenePath)) Prepare(); else if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) EditorSceneManager.OpenScene(ScenePath); }
