@@ -3,6 +3,14 @@ ARVITO / 아르비토 — Unity C# PC 프로젝트
 이 압축 파일은 Unity 프로젝트입니다. 이미 빌드된 게임이나 설치 파일은 아닙니다.
 현재 클라우드에는 Unity 라이선스가 없어 플레이어 빌드와 화면 실행 검증을 하지 못했습니다.
 
+0.3.0 양피지 UI 업데이트
+- 낡은 양피지 테두리, 상단 자원 표시, 삽화/본문 나란히 배치.
+- 사건: 선택지를 고른 다음 ‘이 길을 선택한다’ 또는 Enter로 확정.
+- 글꼴은 기존 Noto Serif KR 유지. 중세풍 글꼴은 시안만 제작, 미적용.
+- GitHub Desktop에서 main을 Pull한 후 Unity 상단 Arvito > Play Game(F5).
+- 그림 누락: 재생을 멈추고 Arvito > Repair Art Imports.
+- 설정 > 그림·글꼴 자료 확인에서 자료 상태와 프로젝트 위치 확인.
+
 Unity에서 바로 플레이 (Windows)
 1. ZIP을 폴더에 모두 압축 해제합니다.
 2. Unity Hub에서 Unity 6.3 LTS(권장 6000.3.28f1)와 활성 라이선스를 확인합니다.

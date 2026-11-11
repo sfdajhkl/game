@@ -9,7 +9,9 @@ namespace Arvito.Runtime
     {
         public static TMP_FontAsset Font;
         public static float TextScale = 1;
-        public static readonly Color Ink = Hex("111917"), Panel = Hex("1B2521"), Raised = Hex("25312B"), Line = Hex("3D493C"), Gold = Hex("D0AF71"), Paper = Hex("EBE2CB"), Muted = Hex("A4AE99"), Red = Hex("CA7969"), Green = Hex("91B08B");
+        public static readonly Color Ink = Hex("3B2A20"), Paper = Hex("D5BE96"), Panel = Paper,
+            Raised = Hex("E1CDAB"), Line = Hex("997951"), Gold = Hex("79573A"), Muted = Hex("6B4D34"),
+            Red = Hex("8A3E30"), Green = Hex("53613F"), Rail = Hex("C5AA80");
         public static Color Hex(string hex) { ColorUtility.TryParseHtmlString("#" + hex, out var c); return c; }
         public static RectTransform Node(string name, Transform parent)
         {
@@ -36,7 +38,7 @@ namespace Arvito.Runtime
         public static TextMeshProUGUI Text(Transform parent, string value, float size = 20, Color? color = null, TextAlignmentOptions align = TextAlignmentOptions.TopLeft)
         {
             var rt = Node("Text", parent); var t = rt.gameObject.AddComponent<TextMeshProUGUI>();
-            t.font = Font; t.text = value; t.fontSize = size * TextScale; t.color = color ?? Paper; t.alignment = align; t.richText = true; t.raycastTarget = false;
+            t.font = Font; t.text = value; t.fontSize = size * TextScale; t.color = color ?? Ink; t.alignment = align; t.richText = true; t.raycastTarget = false;
             t.textWrappingMode = TextWrappingModes.Normal; t.overflowMode = TextOverflowModes.Overflow; t.lineSpacing = 9;
             return t;
         }
@@ -54,28 +56,39 @@ namespace Arvito.Runtime
         }
         public static UnityEngine.UI.Button Button(Transform parent, string label, Action click, float height = 50, bool enabled = true, bool primary = false)
         {
-            var rt = Card(parent, "Button " + label, primary ? Gold : Raised); Height(rt, height); Border(rt, primary ? Gold : Line);
+            var rt = Card(parent, "Button " + label, primary ? Ink : Raised); Height(rt, height); Border(rt, primary ? Ink : Line);
             var b = rt.gameObject.AddComponent<UnityEngine.UI.Button>(); b.targetGraphic = rt.GetComponent<UnityEngine.UI.Image>(); b.interactable = enabled;
-            var colors = b.colors; colors.normalColor = Color.white; colors.highlightedColor = Hex("DDE8C9"); colors.pressedColor = Hex("ABBC97"); colors.selectedColor = Color.white; colors.disabledColor = Hex("687268"); colors.fadeDuration = .1f; b.colors = colors;
-            var text = Text(rt, label, 18, primary ? Ink : Paper, TextAlignmentOptions.MidlineLeft); Fill(text.rectTransform, 16, 16, 5, 5);
+            var colors = b.colors; colors.normalColor = Color.white; colors.highlightedColor = Hex("F5E9D4"); colors.pressedColor = Hex("CBB38D"); colors.selectedColor = Color.white; colors.disabledColor = Hex("B6A78D"); colors.fadeDuration = .1f; b.colors = colors;
+            var text = Text(rt, label, 18, primary ? Paper : Ink, TextAlignmentOptions.MidlineLeft); Fill(text.rectTransform, 16, 16, 5, 5);
             b.onClick.AddListener(() => { if (enabled) click?.Invoke(); }); return b;
         }
         public static void Art(Transform parent, Texture texture, float height)
         {
-            var rt = Node("Pixel illustration", parent); Height(rt, height); var raw = rt.gameObject.AddComponent<UnityEngine.UI.RawImage>(); raw.texture = texture; raw.raycastTarget = false;
+            var rt = Node("Pixel illustration", parent); Height(rt, height); var raw = rt.gameObject.AddComponent<UnityEngine.UI.RawImage>(); raw.texture = texture; raw.raycastTarget = false; raw.enabled = texture != null;
             rt.gameObject.AddComponent<ArtCrop>(); Border(rt);
+            if (texture == null) MissingArt(rt);
         }
-        public static void EventIllustration(Transform parent, Texture texture)
+        public static void EventIllustration(Transform parent, Texture texture, float height = 400)
         {
-            var frame = Card(parent, "Event illustration frame", Ink); Height(frame, 400); Border(frame);
+            var frame = Card(parent, "Event illustration frame", Paper); Height(frame, height); Border(frame);
             var picture = Node("Event illustration", frame); Fill(picture, 2, 2, 2, 2);
             var raw = picture.gameObject.AddComponent<PixelArtImage>();
             raw.texture = texture; raw.raycastTarget = false;
         }
         public static void Bar(Transform parent, float x, float y, float width, float ratio, Color color)
         {
-            var track = Card(parent, "Meter", Ink); Box(track, x, y, width, 5);
+            var track = Card(parent, "Meter", Line); Box(track, x, y, width, 5);
             var fill = Card(track, "Value", color); fill.anchorMin = Vector2.zero; fill.anchorMax = new Vector2(Mathf.Clamp01(ratio), 1); fill.offsetMin = fill.offsetMax = Vector2.zero;
+        }
+        public static void MissingArt(Transform parent)
+        {
+            var label = Text(parent, "삽화를 불러오지 못했습니다.\n설정의 자료 확인에서 상태를 확인해 주세요.", 16, Muted, TextAlignmentOptions.Center);
+            Fill(label.rectTransform, 16, 16, 16, 16);
+        }
+        public static void Rule(Transform parent)
+        {
+            var line = Card(parent, "Book rule", Line); Height(line, 1);
+            line.GetComponent<UnityEngine.UI.Image>().raycastTarget = false;
         }
         public static string Safe(string text) => (text ?? "").Replace("<", "‹").Replace(">", "›");
     }

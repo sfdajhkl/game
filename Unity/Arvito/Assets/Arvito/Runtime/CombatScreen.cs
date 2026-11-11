@@ -25,7 +25,7 @@ namespace Arvito.Runtime
             // Front-view battlefield: enemy battlers share a baseline above the party HUD.
             var arena=BattlePanel(main,"Front-view battlefield",0,.46f,1,1);
             var backdrop=arena.gameObject.AddComponent<UnityEngine.UI.RawImage>();
-            backdrop.texture=art[game.Event.art??"battle"]; backdrop.raycastTarget=false; arena.gameObject.AddComponent<ArtCrop>();
+            backdrop.texture=art[game.Event.art??"battle"]; backdrop.raycastTarget=false; backdrop.enabled=backdrop.texture!=null; arena.gameObject.AddComponent<ArtCrop>();
             var shade=Ui.Card(arena,"Battle shade",new Color(.02f,.04f,.05f,.35f)); Ui.Fill(shade); shade.GetComponent<UnityEngine.UI.Image>().raycastTarget=false;
             Ui.FixedText(arena,"ROUND "+combat.round.ToString("00")+"    /    "+game.RegionName+"    /    "+game.Event.title,20,12,1250,32,19,Ui.Paper);
             var enemies=combat.enemies.Where(e=>e.hp>0).ToList();
@@ -52,10 +52,10 @@ namespace Arvito.Runtime
             {
                 var a=members[i];var card=BattlePanel(party,a.id,(float)i/members.Count+.004f,0,(float)(i+1)/members.Count-.004f,1,Ui.Panel);Ui.Border(card,a.id=="hero"?Ui.Gold:Ui.Line);
                 var portrait=Ui.Node("Party portrait",card);Ui.Box(portrait,6,6,76,76);BattlerArt.Portrait(portrait,Appearance.Sprite(a));
-                var name=Ui.Text(card,Ui.Safe(a.name)+"   <size=11>"+(a.id=="hero"?"주인공":"자동 행동")+"</size>",19,a.id=="hero"?Ui.Gold:Ui.Paper);
+                var name=Ui.Text(card,Ui.Safe(a.name)+"   <size=11>"+(a.id=="hero"?"주인공":"자동 행동")+"</size>",19,a.id=="hero"?Ui.Gold:Ui.Ink);
                 name.textWrappingMode=TextWrappingModes.NoWrap;name.enableAutoSizing=true;name.fontSizeMin=12;name.fontSizeMax=19*Ui.TextScale;
                 Ui.Fill(name.rectTransform,94,10,8,50);
-                var status=Ui.Text(card,"체력 "+a.hp+" / "+a.maxHp+"     기력 "+a.energy+" / 5\n<size=12>긴장 "+a.stress+"   "+game.Rank(a.id)+"열</size>",15,Ui.Paper);
+                var status=Ui.Text(card,"체력 "+a.hp+" / "+a.maxHp+"     기력 "+a.energy+" / 5\n<size=12>긴장 "+a.stress+"   "+game.Rank(a.id)+"열</size>",15,Ui.Ink);
                 Ui.Fill(status.rectTransform,94,10,38,6);
                 var track=BattlePanel(card,"HP track",0,.035f,1,.075f,Ui.Line);track.offsetMin=new Vector2(94,0);track.offsetMax=new Vector2(-14,0);
                 BattlePanel(track,"HP",0,0,(float)a.hp/a.maxHp,1,a.hp<a.maxHp*.3f?Ui.Red:Ui.Green);

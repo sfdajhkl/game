@@ -21,9 +21,13 @@ namespace Arvito.Runtime
         string tab = "journey", selectedSkill, selectedTarget, lastActor, notice = "";
         bool title = true, busy;
         float toastUntil;
+        int screenWidth, screenHeight;
+        bool Compact => Screen.width < 1000 || (float)Screen.width / Mathf.Max(1, Screen.height) < 1.25f;
         readonly List<Action> shortcuts = new List<Action>();
         readonly Dictionary<string, Texture2D> art = new Dictionary<string, Texture2D>();
         Action enterAction;
+        InputSystemUIInputModule uiInput;
+        InputActionReference uiSubmit;
         float UiScale => PlayerPrefs.GetFloat("textScale", 1);
 
         void Awake()
@@ -44,15 +48,24 @@ namespace Arvito.Runtime
             canvas = Ui.Node("Arvito Canvas", transform); var c = canvas.gameObject.AddComponent<Canvas>(); c.renderMode = RenderMode.ScreenSpaceOverlay;
             var scaler = canvas.gameObject.AddComponent<UnityEngine.UI.CanvasScaler>(); scaler.uiScaleMode = UnityEngine.UI.CanvasScaler.ScaleMode.ScaleWithScreenSize; scaler.referenceResolution = new Vector2(1440, 900); scaler.matchWidthOrHeight = .5f;
             canvas.gameObject.AddComponent<UnityEngine.UI.GraphicRaycaster>();
+            Ui.Paint(canvas, Ui.Ink);
             if (FindFirstObjectByType<EventSystem>() == null)
             {
                 var events = new GameObject("EventSystem", typeof(EventSystem)); var input = events.AddComponent<InputSystemUIInputModule>(); input.AssignDefaultActions();
+
             }
+            uiInput = FindFirstObjectByType<InputSystemUIInputModule>();
+            if (uiInput != null) uiSubmit = uiInput.submit;
             Render();
         }
         void Update()
         {
             if (toast != null && Time.unscaledTime > toastUntil) { Destroy(toast.gameObject); toast = null; }
+            if (dialog == null && (screenWidth != Screen.width || screenHeight != Screen.height))
+            {
+                screenWidth = Screen.width; screenHeight = Screen.height;
+                Render();
+            }
             var k = Keyboard.current; if (k == null || busy) return;
             if (k.f11Key.wasPressedThisFrame) Screen.fullScreenMode = Screen.fullScreen ? FullScreenMode.Windowed : FullScreenMode.FullScreenWindow;
             if (dialog != null) { if (k.escapeKey.wasPressedThisFrame) CloseDialog(); return; }
@@ -79,21 +92,23 @@ namespace Arvito.Runtime
         void Change(Action action)
         {
             if (busy) return; busy = true;
-            try { action(); Save(); if (game.State.mode == "ended") tab = "journey"; Render(); }
+            try { selectedChoice = -1; action(); Save(); if (game.State.mode == "ended") tab = "journey"; Render(); }
             finally { busy = false; }
         }
         void Navigate(string destination) { tab = destination; Render(); }
         void ClearPage()
         {
             if (page != null) { page.gameObject.SetActive(false); Destroy(page.gameObject); }
-            page = Ui.Card(canvas, "Page", Ui.Ink); Ui.Fill(page); shortcuts.Clear(); enterAction = null; nameInput = null;
+            page = Ui.Card(canvas, "Page", Ui.Paper); Ui.Fill(page, 20, 20, 20, 20); Ui.Border(page);
+            Canvas.ForceUpdateCanvases(); shortcuts.Clear(); enterAction = null; nameInput = null;
             EventSystem.current?.SetSelectedGameObject(null);
         }
         void Render()
         {
             ClearPage();
-            if (title) { TitleScreen(); return; }
+            if (title) { TitleScreen(); FinishBook(); return; }
             Shell();
+            Canvas.ForceUpdateCanvases();
             if (tab == "inventory") InventoryScreen();
             else if (tab == "journal") JournalScreen();
             else if (tab == "party") PartyScreen();
@@ -102,33 +117,70 @@ namespace Arvito.Runtime
             else if (game.State.mode == "outcome") OutcomeScreen();
             else StoryScreen();
             if (aside != null) Sidebar();
+            FinishBook();
+        }
+        void SyncSubmit()
+        {
+            // Preserve native keyboard submit in menus/dialogs; story/combat Enter has one owner.
+            if (uiInput != null) uiInput.submit = dialog != null || enterAction == null ? uiSubmit : null;
+        }
+        void FinishBook()
+        {
+            SyncSubmit();
+            var edges = Ui.Node("Worn parchment edges", page); Ui.Fill(edges);
+            edges.gameObject.AddComponent<ParchmentWear>().raycastTarget = false;
         }
         void Shell()
         {
-            var header = Ui.Card(page, "Header"); header.anchorMin = new Vector2(0, 1); header.anchorMax = Vector2.one; header.pivot = new Vector2(.5f, 1); header.sizeDelta = new Vector2(0, 78);
-            Ui.FixedText(header, "A R V I T O", 28, 13, 205, 30, 26, Ui.Gold);
-            Ui.FixedText(header, "아르비토  ·  한 사람의 일대기", 30, 43, 220, 22, 11, Ui.Muted);
-            Ui.FixedText(header, Ui.Safe(game.State.hero.name) + "의 여정", 252, 14, 285, 26, 21);
-            Ui.FixedText(header, game.AgeLabel + "   /   " + game.RegionName + "   /   성장 " + game.State.hero.level, 252, 44, 490, 20, 13, Ui.Muted);
-            var controls = Ui.Node("Header controls", header); controls.anchorMin = controls.anchorMax = new Vector2(1, 1); controls.pivot = new Vector2(1, 1); controls.anchoredPosition = new Vector2(-24, -20); controls.sizeDelta = new Vector2(340, 40);
-            Ui.FixedText(controls, "G  " + game.State.gold + "     식량 " + game.State.rations + "     약 " + game.State.potions, 0, 0, 255, 40, 15, Ui.Gold);
-            var settings = Ui.Button(controls, "설정", Settings, 40); Ui.Box((RectTransform)settings.transform, 264, 0, 76, 40);
+            aside = null;
+            var header = Ui.Card(page, "Book header"); header.anchorMin = new Vector2(0, 1); header.anchorMax = Vector2.one; header.pivot = new Vector2(.5f, 1); header.sizeDelta = new Vector2(0, 86);
+            Ui.FixedText(header, "아 르 비 토", 28, 12, 210, 40, 30);
+            Ui.FixedText(header, "A  R  V  I  T  O", 32, 53, 210, 20, 12, Ui.Gold);
+            if (!Compact) Ui.FixedText(header, game.AgeLabel + "   ·   " + Season() + "   /   " + game.RegionName, 280, 22, 590, 40, 19, Ui.Muted);
+            var settings = Ui.Button(header, "설정", Settings, 42);
+            var sr = (RectTransform)settings.transform; sr.anchorMin = sr.anchorMax = Vector2.one; sr.pivot = Vector2.one; sr.anchoredPosition = new Vector2(-24, -22); sr.sizeDelta = new Vector2(82, 42);
+            var rule = Ui.Card(header, "Header rule", Ui.Line); rule.anchorMin = Vector2.zero; rule.anchorMax = new Vector2(1, 0); rule.sizeDelta = new Vector2(0, 1);
             if (game.State.mode == "combat" && tab == "journey")
             {
-                main = Ui.Node("Battle main", page); Ui.Fill(main, 24, 24, 96, 30); aside = null; return;
+                main = Ui.Node("Battle main", page); Ui.Fill(main, 24, 24, 104, 32); return;
             }
-            var rail = Ui.Card(page, "Navigation"); Ui.Fill(rail, 0, 0, 79, 40); rail.anchorMax = new Vector2(0, 1); rail.offsetMax = new Vector2(204, -79);
-            Ui.FixedText(rail, "TRAVELER'S BOOK", 24, 26, 170, 26, 11, Ui.Gold);
-            var nav = Ui.Stack(rail, "Navigation items", 0, 12); Ui.Fill(nav, 20, 20, 75, 180);
-            Nav(nav, "01   여정", "journey", "E"); Nav(nav, "02   일행", "party", "C"); Nav(nav, "03   소지품", "inventory", "I"); Nav(nav, "04   연대기", "journal", "J");
-            var travel = Ui.Button(rail, "다른 지역으로", TravelDialog, 46, game.State.mode == "story");
-            var tr = (RectTransform)travel.transform; tr.anchorMin = new Vector2(0, 0); tr.anchorMax = new Vector2(1, 0); tr.offsetMin = new Vector2(20, 138); tr.offsetMax = new Vector2(-20, 184);
-            var camp = Ui.Button(rail, "불가에서 쉬기", CampDialog, 50, game.State.mode == "story"); var campRt = (RectTransform)camp.transform; campRt.anchorMin = new Vector2(0, 0); campRt.anchorMax = new Vector2(1, 0); campRt.offsetMin = new Vector2(20, 76); campRt.offsetMax = new Vector2(-20, 126);
-            var note = Ui.Text(rail, "한 주의 쉼도\n당신의 삶에 남습니다.", 12, Ui.Muted); Ui.Fill(note.rectTransform, 25, 15); note.rectTransform.anchorMax = new Vector2(1, 0); note.rectTransform.offsetMin = new Vector2(25, 15); note.rectTransform.offsetMax = new Vector2(-15, 62);
-            main = Ui.Node("Main", page); Ui.Fill(main, 228, 316, 100, 60);
-            aside = Ui.Card(page, "Party sidebar"); Ui.Fill(aside, 0, 24, 100, 60); aside.anchorMin = new Vector2(1, 0); aside.offsetMin = new Vector2(-292, 60);
-            var footer = Ui.Text(page, "E 여정     C 일행     I 소지품     J 연대기     1–9 선택     F11 전체 화면", 11, Ui.Muted); footer.rectTransform.anchorMin = Vector2.zero; footer.rectTransform.anchorMax = new Vector2(1, 0); footer.rectTransform.offsetMin = new Vector2(28, 9); footer.rectTransform.offsetMax = new Vector2(-28, 29);
-            var saved = Ui.Text(page, notice, 11, Ui.Muted, TextAlignmentOptions.TopRight); saved.rectTransform.anchorMin = Vector2.zero; saved.rectTransform.anchorMax = new Vector2(1, 0); saved.rectTransform.offsetMin = new Vector2(850, 9); saved.rectTransform.offsetMax = new Vector2(-28, 29);
+            float left = Compact ? 20 : 198;
+            if (Compact)
+            {
+                var nav = Ui.Node("Book tabs", page); Ui.Box(nav, 20, 96, page.rect.width - 40, 46);
+                string[] names = { "여정", "소지품", "동행", "기록" }, tabs = { "journey", "inventory", "party", "journal" };
+                for (int i = 0; i < tabs.Length; i++)
+                {
+                    string destination = tabs[i]; var button = Ui.Button(nav, names[i], () => Navigate(destination), 44, true, tab == destination);
+                    var rt = (RectTransform)button.transform; rt.anchorMin = new Vector2(i / 4f, 0); rt.anchorMax = new Vector2((i + 1) / 4f, 1); rt.offsetMin = new Vector2(2, 0); rt.offsetMax = new Vector2(-2, 0);
+                }
+            }
+            else
+            {
+                var rail = Ui.Card(page, "Book navigation", Ui.Rail); Ui.Fill(rail, 0, 0, 87, 0); rail.anchorMax = new Vector2(0, 1); rail.offsetMax = new Vector2(166, -87);
+                Ui.FixedText(rail, "여 행 수 첩", 24, 28, 130, 30, 14, Ui.Muted);
+                var nav = Ui.Stack(rail, "Navigation items", 0, 12); Ui.Fill(nav, 18, 18, 76, 300);
+                Nav(nav, "여정", "journey", "E"); Nav(nav, "소지품", "inventory", "I"); Nav(nav, "동행", "party", "C"); Nav(nav, "기록", "journal", "J");
+                var place = Ui.Text(rail, "현재 장\n\n" + game.RegionName + "\n" + game.StageName, 18, Ui.Muted);
+                Ui.Box(place.rectTransform, 24, 358, 120, 160);
+                var travel = Ui.Button(rail, "다른 지역으로", TravelDialog, 46, game.State.mode == "story");
+                var tr = (RectTransform)travel.transform; tr.anchorMin = Vector2.zero; tr.anchorMax = new Vector2(1, 0); tr.offsetMin = new Vector2(18, 100); tr.offsetMax = new Vector2(-18, 146);
+                var camp = Ui.Button(rail, "불가에서 쉬기", CampDialog, 46, game.State.mode == "story");
+                var cr = (RectTransform)camp.transform; cr.anchorMin = Vector2.zero; cr.anchorMax = new Vector2(1, 0); cr.offsetMin = new Vector2(18, 42); cr.offsetMax = new Vector2(-18, 88);
+            }
+            float top = Compact ? 158 : 104;
+            var resources = Ui.Node("Travel resources", page); Ui.Box(resources, left, top, page.rect.width - left - 28, 56);
+            var hero = game.State.hero;
+            string[] values = { "체력  " + hero.hp + " / " + hero.maxHp, "긴장  " + hero.stress + " / 100", "식량  " + game.State.rations, "소지금  " + game.State.gold + " G" };
+            for (int i = 0; i < values.Length; i++)
+            {
+                var label = Ui.Text(resources, values[i], Compact ? 16 : 19, Ui.Muted, TextAlignmentOptions.MidlineLeft);
+                label.rectTransform.anchorMin = new Vector2(i / 4f, 0); label.rectTransform.anchorMax = new Vector2((i + 1) / 4f, 1); label.rectTransform.offsetMin = Vector2.zero; label.rectTransform.offsetMax = Vector2.zero;
+            }
+            var divider = Ui.Card(resources, "Resource rule", Ui.Line); divider.anchorMin = Vector2.zero; divider.anchorMax = new Vector2(1, 0); divider.sizeDelta = new Vector2(0, 1);
+            main = Ui.Node("Book content", page); Ui.Fill(main, left, 28, top + 78, 52);
+            var footer = Ui.Text(page, Compact ? game.AgeLabel + " · " + Season() + "     /     " + notice : "E 여정   I 소지품   C 동행   J 기록   1–9 선택   Enter 확정     /     " + notice, 12, Ui.Muted);
+            footer.rectTransform.anchorMin = Vector2.zero; footer.rectTransform.anchorMax = new Vector2(1, 0); footer.rectTransform.offsetMin = new Vector2(left, 14); footer.rectTransform.offsetMax = new Vector2(-24, 34);
         }
         void Nav(Transform parent, string label, string destination, string key) => Ui.Button(parent, label + "  <size=11>" + key + "</size>", () => Navigate(destination), 52, true, tab == destination);
         string Season() => new[] { "봄", "여름", "가을", "겨울" }[(game.State.weeks % 52) / 13];
@@ -139,7 +191,7 @@ namespace Arvito.Runtime
             foreach (var a in game.Party)
             {
                 var card = Ui.Card(stack, a.id, Ui.Raised); Ui.Height(card, 164); Ui.Border(card, game.State.combat?.active == a.id ? Ui.Gold : Ui.Line);
-                Ui.FixedText(card, game.Rank(a.id).ToString("00") + "   " + Ui.Safe(a.name), 12, 10, 210, 25, 18, a.id == "hero" ? Ui.Gold : Ui.Paper);
+                Ui.FixedText(card, game.Rank(a.id).ToString("00") + "   " + Ui.Safe(a.name), 12, 10, 210, 25, 18, a.id == "hero" ? Ui.Gold : Ui.Ink);
                 var portrait=Ui.Node("Party portrait",card);Ui.Box(portrait,8,36,88,112);BattlerArt.Portrait(portrait,Appearance.Sprite(a));
                 Ui.FixedText(card, data.Weapon(a.weapon).name, 104, 40, 128, 35, 12, Ui.Muted);
                 Ui.FixedText(card, "체력 " + a.hp + " / " + a.maxHp, 104, 80, 128, 20, 12); Ui.Bar(card, 104, 104, 120, (float)a.hp / a.maxHp, Ui.Green);
@@ -153,22 +205,34 @@ namespace Arvito.Runtime
         {
             if (toast != null) Destroy(toast.gameObject);
             toast = Ui.Card(canvas, "Notice", Ui.Raised); toast.anchorMin = toast.anchorMax = new Vector2(.5f, 0); toast.pivot = new Vector2(.5f, 0); toast.anchoredPosition = new Vector2(0, 48); toast.sizeDelta = new Vector2(600, 60); Ui.Border(toast, Ui.Gold);
-            var label = Ui.Text(toast, message, 16, Ui.Paper, TextAlignmentOptions.Center); Ui.Fill(label.rectTransform, 16, 16, 8, 8); toastUntil = Time.unscaledTime + 4;
+            var label = Ui.Text(toast, message, 16, Ui.Ink, TextAlignmentOptions.Center); Ui.Fill(label.rectTransform, 16, 16, 8, 8); toastUntil = Time.unscaledTime + 4;
         }
         RectTransform Dialog(string heading, string body)
         {
             CloseDialog(); dialog = Ui.Card(canvas, "Modal backdrop", new Color(0, 0, 0, .82f)); Ui.Fill(dialog);
-            var box = Ui.Card(dialog, "Dialog"); box.anchorMin = box.anchorMax = new Vector2(.5f, .5f); box.pivot = new Vector2(.5f, .5f); box.sizeDelta = new Vector2(650, Mathf.Min(680, Mathf.Max(500, canvas.rect.height - 80))); Ui.Border(box, Ui.Gold);
+            var box = Ui.Card(dialog, "Dialog"); box.anchorMin = box.anchorMax = new Vector2(.5f, .5f); box.pivot = new Vector2(.5f, .5f); box.sizeDelta = new Vector2(Mathf.Min(650, canvas.rect.width - 48), Mathf.Min(680, Mathf.Max(500, canvas.rect.height - 80))); Ui.Border(box, Ui.Gold);
             var stack = Ui.Scroll(box, "Dialog content"); var layout = stack.GetComponent<UnityEngine.UI.VerticalLayoutGroup>(); layout.padding = new RectOffset(32, 24, 32, 32); layout.spacing = 20;
-            Ui.Text(stack, heading, 29, Ui.Gold); Ui.Text(stack, body, 18); return stack;
+            Ui.Text(stack, heading, 29, Ui.Gold); Ui.Text(stack, body, 18); SyncSubmit(); return stack;
         }
-        void CloseDialog() { if (dialog != null) { dialog.gameObject.SetActive(false); Destroy(dialog.gameObject); dialog = null; } }
+        void CloseDialog() { if (dialog != null) { dialog.gameObject.SetActive(false); Destroy(dialog.gameObject); dialog = null; } SyncSubmit(); }
         void CampDialog()
         {
             var stack = Dialog("불가에서 쉬기", "1주가 흐릅니다. 식량 1개를 사용하고, 식량이 없으면 8골드를 냅니다.\n\n일행의 체력이 회복되고 긴장이 20 줄어듭니다.");
             Ui.Art(stack, art["camp"], 150);
             Ui.Button(stack, "1주 동안 야영한다", () => { CloseDialog(); string message = ""; Change(() => message = game.Camp()); Notify(message); }, 52, true, true);
             Ui.Button(stack, "길을 계속 걷는다", CloseDialog);
+        }
+        void AssetStatus()
+        {
+            int missing = 0;
+            foreach (string id in art.Keys) if (art[id] == null) missing++;
+            bool characters = Resources.Load<Texture2D>("Arvito/Art/characters") != null;
+            bool eventArt = game == null || EventArt.Load(game.Event.id) != null;
+            bool font = Resources.Load<TMP_FontAsset>("Arvito/Fonts/Arvito-Korean") != null;
+            var stack = Dialog("게임 자료 확인", "양피지 UI 0.3.0\n\n배경: " + (missing == 0 ? "정상" : missing + "개 누락") +
+                "\n캐릭터: " + (characters ? "정상" : "누락") + "\n현재 삽화: " + (game == null ? "시작 전" : eventArt ? "정상" : "누락") + "\n글꼴: " + (font ? "정상" : "준비 필요"));
+            Ui.Text(stack, "자료가 누락되면 Unity 재생을 멈추고 상단 Arvito → Repair Art Imports를 실행해 주세요.\n\n프로젝트 위치\n" + Application.dataPath, 16, Ui.Muted);
+            Ui.Button(stack, "닫기", CloseDialog);
         }
         void Settings()
         {
@@ -177,6 +241,8 @@ namespace Arvito.Runtime
             Ui.Button(stack, Ui.TextScale > 1 ? "글자 크기: 크게 → 기본" : "글자 크기: 기본 → 크게", () => { Ui.TextScale = Ui.TextScale > 1 ? 1 : 1.12f; PlayerPrefs.SetFloat("textScale", Ui.TextScale); PlayerPrefs.Save(); CloseDialog(); Render(); });
             if (!title) Ui.Button(stack, "저장하고 시작 화면으로", () => { Save(); CloseDialog(); title = true; Render(); });
             Ui.Button(stack, "게임 종료", () => { Save(); Application.Quit(); });
+            Ui.Button(stack, "그림·글꼴 자료 확인", AssetStatus, 48);
+            Ui.Text(stack, "아르비토 0.3.0 · 양피지 수첩\n글꼴: Noto Serif KR · SIL OFL 1.1", 14, Ui.Muted);
             Ui.Button(stack, "계속하기", CloseDialog, 50, true, true);
         }
     }
