@@ -29,7 +29,7 @@ namespace Arvito.Runtime
             if (game != null) Ui.Button(stack, game.State.mode == "ended" ? "지난 삶의 마지막 장" : "이어서 읽기  ·  " + game.AgeLabel, () => { title = false; tab = "journey"; Render(); }, 58, true, true);
             Ui.Button(stack, "새로운 삶을 시작하다", NewLifeDialog, 58, true, game == null);
             Ui.Button(stack, "설정", Settings, 48);
-            Ui.Text(stack, notice + "\n0.3.1 · 양피지 수첩", 12, Ui.Muted);
+            Ui.Text(stack, notice + "\n0.3.2 · 양피지 수첩", 12, Ui.Muted);
             if (Compact) return;
             var caption = Ui.Narrative(page, "아직 쓰이지 않은\n당신의 이야기", 19, Ui.Raised, TextAlignmentOptions.BottomRight); Ui.Fill(caption.rectTransform, 700, 44, 44, 48);
         }

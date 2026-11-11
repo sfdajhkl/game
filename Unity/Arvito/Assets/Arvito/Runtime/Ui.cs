@@ -9,6 +9,7 @@ namespace Arvito.Runtime
     {
         public static TMP_FontAsset Font;
         public static TMP_FontAsset NarrativeFont;
+        static Sprite paperSurface;
         public static float TextScale = 1;
         public static readonly Color Ink = Hex("3B2A20"), Paper = Hex("D5BE96"), Panel = Paper,
             Raised = Hex("E1CDAB"), Line = Hex("997951"), Gold = Hex("79573A"), Muted = Hex("6B4D34"),
@@ -23,7 +24,20 @@ namespace Arvito.Runtime
         public static void Box(RectTransform rt, float x, float y, float w, float h)
         { rt.anchorMin = rt.anchorMax = new Vector2(0, 1); rt.pivot = new Vector2(0, 1); rt.anchoredPosition = new Vector2(x, -y); rt.sizeDelta = new Vector2(w, h); }
         public static UnityEngine.UI.Image Paint(RectTransform rt, Color color)
-        { var image = rt.gameObject.AddComponent<UnityEngine.UI.Image>(); image.color = color; return image; }
+        {
+            var image = rt.gameObject.AddComponent<UnityEngine.UI.Image>(); image.color = color;
+            if (color == Paper || color == Raised || color == Rail)
+            {
+                if (paperSurface == null)
+                {
+                    var texture = Resources.Load<Texture2D>("Arvito/UI/paper-grain");
+                    if (texture != null) paperSurface = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(.5f, .5f), 100);
+                }
+                image.sprite = paperSurface;
+                image.type = UnityEngine.UI.Image.Type.Tiled;
+            }
+            return image;
+        }
         public static RectTransform Card(Transform parent, string name, Color? color = null)
         { var rt = Node(name, parent); Paint(rt, color ?? Panel); return rt; }
         public static void Border(RectTransform rt, Color? color = null)
