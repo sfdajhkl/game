@@ -64,3 +64,6 @@ body{background:#3b2a20}.book,dialog{background:var(--paper) url('art/natural-pa
  .view.illustrated.paged .event-grid:first-of-type{padding-top:10px}
  .view.illustrated .event-head h1{font-size:25px}
 }
+
+.enemy-intent{color:#704c29;font-weight:600}.battler small{white-space:normal;overflow-wrap:anywhere}
+@media(min-width:1200px) and (min-height:750px){.battle-stage .battler{max-width:210px}.battle-stage .battler .sprite{width:128px;height:128px;background-size:512px 768px;background-position:calc(var(--col)*-128px) calc(var(--row)*-128px)}}

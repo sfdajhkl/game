@@ -1,5 +1,8 @@
 import {WEAPONS,SKILLS,COMPANIONS,ENEMIES,EVENTS,STAT_NAMES,REGIONS} from './content.mjs';
 
+import {DEFAULT_COMBAT_RULES,normalizeCombatRules,validCombatRules,abilityModifier,combatStats,defenseValue,attackPreview,resolveD20,physicalDamage,signed} from './combat-rules.mjs';
+export {DEFAULT_COMBAT_RULES,abilityModifier,combatStats,defenseValue,attackPreview} from './combat-rules.mjs';
+
 import LEGACY_EVENTS from './legacy-events.mjs';
 export const VERSION=2;
 export const initialStats=()=>Object.fromEntries(Object.keys(STAT_NAMES).map(k=>[k,4]));
@@ -101,6 +104,12 @@ export function camp(s){
 }
 export function equip(s,weapon){if(s.mode==='combat'||s.mode==='ended'||!s.inventory.includes(weapon))return false;s.hero.weapon=weapon;return true;}
 export function reorder(s,id,delta){if(s.mode==='combat'||s.mode==='ended')return false;const p=s.formation.indexOf(id),q=p+delta;if(p<0||q<0||q>=s.formation.length)return false;[s.formation[p],s.formation[q]]=[s.formation[q],s.formation[p]];return true;}
+export function skillDescription(s,id){
+ const sk=SKILLS[id];if(!s.combat?.rules)return sk.desc;
+ if(sk.guard)return sk.power?sk.desc+` (방어도 +${s.combat.rules.guardBonus})`:`다음 자신의 차례까지 방어도 +${s.combat.rules.guardBonus}. 기력 +1.`;
+ if(sk.calm)return `아군 긴장 ${sk.calm+Math.max(0,abilityModifier(s.hero.stats.charisma))*2} 감소, 기력 +1.`;
+ return sk.desc;
+}
 export function availableSkills(s,actor){return [...new Set([...WEAPONS[actor.weapon].skills,...actor.skills,'strike','guard','focus','potion','move'])];}
 export function rankOf(s,id){return party(s).findIndex(a=>a.id===id)+1;}
 export function actorById(s,id){return party(s).find(a=>a.id===id)||s.combat?.enemies.find(e=>e.id===id);}
@@ -121,15 +130,19 @@ export function skillLock(s,id,actorId=s.combat?.active){
  return '';
 }
 function log(s,text){s.combat.log.push(text);s.combat.log=s.combat.log.slice(-80);}
-export function startCombat(s,enemyTypes,pending){
+export function startCombat(s,enemyTypes,pending,rules=DEFAULT_COMBAT_RULES){
+ if(!Array.isArray(enemyTypes)||enemyTypes.length<1||enemyTypes.length>4||enemyTypes.some(id=>!ENEMIES[id]))throw Error('적은 1~4명이어야 합니다.');
+ const chosenRules=rules?normalizeCombatRules(rules):null;
  s.mode='combat';s.outcome=null;
  s.combat={round:0,active:null,queue:[],log:['일행이 진형을 갖춥니다.'],pending,enemies:enemyTypes.map((id,i)=>({...ENEMIES[id],id:`enemy_${i}`,type:id,hp:ENEMIES[id].maxHp,energy:4,stress:0,status:{},femaleAppearance:enemyFemale(id,s.rng,i)}))};
+ if(chosenRules){s.combat.rules=chosenRules;s.combat.intents={};s.combat.rolls=[];for(const e of s.combat.enemies){e.maxHp=e.hp=Math.max(1,Math.round(e.maxHp*chosenRules.enemyHealthScale));}}
  for(const a of party(s)){a.energy=4;a.status={};}
- advanceTurn(s);
+ const started=s.combat;advanceTurn(s);return started;
 }
 function newRound(s){
  const c=s.combat;c.round++;
- c.queue=[...party(s),...c.enemies.filter(e=>e.hp>0)].map(a=>({id:a.id,initiative:a.speed+(a.weapon?WEAPONS[a.weapon].speed:0)+roll(s,0,4)})).sort((a,b)=>b.initiative-a.initiative).map(a=>a.id);
+ c.queue=[...party(s),...c.enemies.filter(e=>e.hp>0)].map(a=>({id:a.id,initiative:a.speed+(a.weapon?WEAPONS[a.weapon].speed:0)+(c.rules?abilityModifier(combatStats(a).agility)+roll(s,1,20):roll(s,0,4))})).sort((a,b)=>b.initiative-a.initiative).map(a=>a.id);
+ if(c.rules)planEnemyIntents(s);
  log(s,`— ${c.round}번째 라운드 —`);
 }
 function deathCheck(s){
@@ -146,7 +159,49 @@ function deathCheck(s){
  }
  return false;
 }
+function planEnemyIntents(s){
+ const c=s.combat;c.intents={};
+ for(const e of c.enemies.filter(e=>e.hp>0)){
+  const wounded=[...c.enemies].filter(a=>a.hp>0&&a.hp<a.maxHp*.5).sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp)[0];
+  if(e.type==='cultist'&&wounded){c.intents[e.id]={kind:'heal',targetId:wounded.id};continue;}
+  if(['bandit','warden'].includes(e.type)&&c.round%3===0){c.intents[e.id]={kind:'guard',targetId:e.id};continue;}
+  const targets=e.ranged?party(s):party(s).slice(0,2),target=targets[roll(s,0,targets.length-1)];
+  c.intents[e.id]={kind:'attack',targetId:target?.id};
+ }
+}
+export function enemyIntent(s,e){
+ if(!s.combat?.rules)return '';
+ if(e.hp<=0)return '쓰러짐';
+ if(e.status.stun)return '기절 · 행동 불가';
+ const plan=s.combat.intents[e.id];if(!plan)return '이번 라운드 행동 완료';
+ if(plan.kind==='guard')return '방어 준비';
+ const target=actorById(s,plan.targetId);
+ return (plan.kind==='heal'?'치유':'공격')+' → '+(target?.hp>0?target.name:'대상 재선정');
+}
+function recordD20(s,a,t,sk){
+ const preview=attackPreview(a,t,sk,s.combat.rules),result=resolveD20(roll(s,1,20),preview.bonus,preview.defense);
+ s.combat.rolls.push({...result,attackerId:a.id,targetId:t.id});s.combat.rolls=s.combat.rolls.slice(-40);
+ const text=`d20 ${result.die}${signed(result.bonus)}=${result.total} / 방어 ${result.defense}`;
+ log(s,`${a.name} → ${t.name} · ${text} · ${result.critical?'치명타':result.hit?'명중':'빗나감'}`);
+ return result;
+}
+function enemyActionD20(s,e){
+ const c=s.combat,plan=c.intents[e.id]||{kind:'attack'};delete c.intents[e.id];
+ if(plan.kind==='guard'){e.status.guard=true;log(s,`${e.name} · 방어도 +${c.rules.guardBonus}, 다음 차례까지`);return;}
+ if(plan.kind==='heal'){
+  const target=c.enemies.find(a=>a.id===plan.targetId&&a.hp>0)||c.enemies.find(a=>a.hp>0&&a.hp<a.maxHp);
+  if(target){const healed=Math.min(target.maxHp-target.hp,8);target.hp+=healed;log(s,`${e.name} · 치유 → ${target.name} 체력 +${healed}`);return;}
+ }
+ const pool=e.ranged?party(s):party(s).slice(0,2),t=pool.find(a=>a.id===plan.targetId)||pool[0];if(!t)return;
+ const sk={magic:!!e.stress,accuracy:90},hit=recordD20(s,e,t,sk);if(!hit.hit)return;
+ const base=Math.max(1,e.power+abilityModifier(combatStats(e)[sk.magic?'intelligence':e.ranged?'agility':'strength'])+roll(s,-1,2));
+ const damage=Math.max(1,Math.round(base*c.rules.enemyDamageScale*(hit.critical?c.rules.criticalMultiplier:1)));
+ t.hp=Math.max(0,t.hp-damage);const tension=stressTaken(s,t,e.stress||3);t.stress=clamp(t.stress+tension,0,100);
+ if(e.bleed&&random(s)<.3)t.status.bleed=2;
+ log(s,`${e.name} · ${e.attack} → ${t.name} 체력 -${damage}${e.stress?`, 긴장 +${tension}`:''}`);
+}
 function enemyAction(s,e){
+ if(s.combat.rules){enemyActionD20(s,e);return;}
  const targets=party(s);const pool=e.ranged?targets:targets.slice(0,2);
  const t=pool[roll(s,0,pool.length-1)];if(!t)return;
  const miss=random(s)<.08;
@@ -164,7 +219,7 @@ function advanceTurn(s){
   const id=c.queue.shift(),a=actorById(s,id);if(!a||a.hp<=0)continue;
   a.status||={};delete a.status.guard;
   if(a.status.bleed>0){a.status.bleed--;a.hp=Math.max(0,a.hp-2);log(s,`${a.name} · 출혈 피해 2`);if(deathCheck(s))return;if(a.hp<=0)continue;}
-  if(a.status.stun>0){a.status.stun--;log(s,`${a.name} · 기절로 차례를 넘깁니다.`);continue;}
+  if(a.status.stun>0){if(c.intents)delete c.intents[id];a.status.stun--;log(s,`${a.name} · 기절로 차례를 넘깁니다.`);continue;}
   if(!id.startsWith('enemy_')&&a.stress>=100){a.stress=65;log(s,`${a.name} · 압도된 마음. 한 차례를 잃고 긴장이 65로 낮아집니다.`);continue;}
   if(id.startsWith('enemy_')){enemyAction(s,a);continue;}
   c.active=id;if(id!=='hero'){companionAction(s,a);c.active=null;continue;}return;
@@ -181,8 +236,18 @@ function resolveAction(s,skillId,targetId){
  a.energy-=sk.cost;if(sk.item)s[sk.item]--;
  if(sk.move){const p=s.formation.indexOf(a.id),q=s.formation.indexOf(t.id);[s.formation[p],s.formation[q]]=[s.formation[q],s.formation[p]];log(s,`${a.name} ↔ ${t.name} 자리 교대`);}
  else if(sk.heal){const value=sk.item?sk.heal:sk.heal+roll(s,-2,2);const restored=Math.min(t.maxHp-t.hp,value);t.hp+=restored;t.status.bleed=0;log(s,`${a.name} · ${sk.name} → ${t.name} 체력 +${restored}, 출혈 해제`);}
- else if(sk.calm){t.stress=Math.max(0,t.stress-sk.calm);t.energy=Math.min(5,t.energy+1);log(s,`${a.name} · ${sk.name} → ${t.name} 긴장 -${sk.calm}, 기력 +1`);}
+ else if(sk.calm){const calm=sk.calm+(c.rules?Math.max(0,abilityModifier(combatStats(a).charisma))*2:0);t.stress=Math.max(0,t.stress-calm);t.energy=Math.min(5,t.energy+1);log(s,`${a.name} · ${sk.name} → ${t.name} 긴장 -${calm}, 기력 +1`);}
  else if(sk.focus){a.energy=Math.min(5,a.energy+2);a.stress=Math.max(0,a.stress-6);log(s,`${a.name} · 숨 고르기, 기력 +2`);}
+ else if(sk.power&&c.rules){
+  const hit=recordD20(s,a,t,sk);
+  if(hit.hit){
+   const damage=Math.max(1,Math.round(physicalDamage(a,sk,roll(s,-1,2))*(hit.critical?c.rules.criticalMultiplier:1)));
+   t.hp=Math.max(0,t.hp-damage);if(sk.bleed)t.status.bleed=sk.bleed;
+   const stunned=sk.stun&&random(s)*100<sk.stun;if(stunned)t.status.stun=1;
+   log(s,`${a.name} · ${sk.name} → ${t.name} 체력 -${damage}${sk.bleed?' · 출혈':''}${stunned?' · 기절':''}`);
+  }
+  if(a.id==='hero')a.mastery[a.weapon]=(a.mastery[a.weapon]||0)+1;
+ }
  else if(sk.power){
   if(random(s)*100>sk.accuracy){log(s,`${a.name} · ${sk.name} → ${t.name} 빗나감`);}
   else{
@@ -198,7 +263,7 @@ function resolveAction(s,skillId,targetId){
   }
   if(a.id==='hero')a.mastery[a.weapon]=(a.mastery[a.weapon]||0)+1;
  }
- if(sk.guard){a.status.guard=true;if(!sk.power)a.energy=Math.min(5,a.energy+1);log(s,`${a.name} · 다음 차례까지 피해 65% 감소`);}
+ if(sk.guard){a.status.guard=true;if(!sk.power)a.energy=Math.min(5,a.energy+1);log(s,c.rules?`${a.name} · 다음 차례까지 방어도 +${c.rules.guardBonus}`:`${a.name} · 다음 차례까지 피해 65% 감소`);}
  return true;
 }
 export function flee(s){
@@ -264,6 +329,10 @@ export function deserialize(raw){
   if(actors.some(a=>!Number.isFinite(a.energy)||a.energy<0||a.energy>5||!a.status))return null;
   if(s.mode==='combat'){
    const c=s.combat;
+   if(c.rules){
+    if(!validCombatRules(c.rules)||!c.intents||Array.isArray(c.intents)||!Array.isArray(c.rolls))return null;
+    if(Object.entries(c.intents).some(([id,p])=>!c.enemies.some(e=>e.id===id)||!p||!['attack','guard','heal'].includes(p.kind)||![...actors,...c.enemies].some(a=>a.id===p.targetId)))return null;
+   }
    if(!party(s).some(a=>a.id===c.active)||!Array.isArray(c.log)||c.enemies.length<1||c.enemies.length>4||!c.enemies.some(e=>e.hp>0))return null;
    if(c.enemies.some(e=>!ENEMIES[e.type]||!e.status||!Number.isFinite(e.hp)||e.hp<0||e.hp>e.maxHp||!e.id.startsWith('enemy_'))||new Set(c.enemies.map(e=>e.id)).size!==c.enemies.length)return null;
    if(c.queue.some(id=>![...actors,...c.enemies].some(a=>a.id===id)))return null;
@@ -283,10 +352,10 @@ function companionAction(s,a){
  const legal=availableSkills(s,a).filter(id=>!skillLock(s,id)).map(id=>SKILLS[id]);
  const wounded=[...party(s)].sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp)[0];
  const heal=legal.find(k=>k.heal>0&&k.item!=='potions');
- if(heal&&(wounded.hp<wounded.maxHp*.6||wounded.status.bleed>0)){resolveAction(s,heal.id,wounded.id);return;}
- if(wounded.hp<wounded.maxHp*.3&&legal.some(k=>k.id==='potion')){resolveAction(s,'potion',wounded.id);return;}
+ if(heal&&(wounded.hp<wounded.maxHp*.6||wounded.status.bleed>0)){if(s.combat.rules)log(s,`${a.name} 판단 · 부상자를 먼저 치료`);resolveAction(s,heal.id,wounded.id);return;}
+ if(wounded.hp<wounded.maxHp*.3&&legal.some(k=>k.id==='potion')){if(s.combat.rules)log(s,`${a.name} 판단 · 위급한 아군에게 회복약`);resolveAction(s,'potion',wounded.id);return;}
  const canHeal=availableSkills(s,a).map(id=>SKILLS[id]).some(k=>k.heal>0&&k.item!=='potions'&&k.from.includes(rankOf(s,a.id)));
- if(canHeal&&!heal&&(wounded.hp<wounded.maxHp*.6||wounded.status.bleed>0)){resolveAction(s,'focus',a.id);return;}
+ if(canHeal&&!heal&&(wounded.hp<wounded.maxHp*.6||wounded.status.bleed>0)){if(s.combat.rules)log(s,`${a.name} 판단 · 치유를 위한 기력 회복`);resolveAction(s,'focus',a.id);return;}
  const anxious=[...party(s)].sort((a,b)=>b.stress-a.stress)[0],calm=legal.find(k=>k.calm>0);
  if(calm&&anxious.stress>=75){resolveAction(s,calm.id,anxious.id);return;}
  const attacks=legal.filter(k=>k.power>0);
