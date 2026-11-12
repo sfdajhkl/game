@@ -26,8 +26,8 @@ export function decoratePaper(book) {
         [...contour].reverse().forEach(([t,d])=>c.lineTo(...point(side,t,d+innerOffset)));
         c.closePath();c.fill();
       }
-      strip(0,30,'rgba(121,87,58,.22)','rgba(121,87,58,0)');
-      strip(0,.65,'rgba(225,205,171,.38)','rgba(225,205,171,0)');
+      strip(0,18,'rgba(121,87,58,.08)','rgba(121,87,58,0)');
+      strip(0,.65,'rgba(246,237,219,.25)','rgba(225,205,171,0)');
       strip(0,0,'#3b2a20','#3b2a20',true);
     }
   }
