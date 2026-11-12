@@ -1,14 +1,14 @@
 {
-  "version": "1.4.0",
+  "version": "1.5.0",
   "date": "2026-11-12",
   "production_url": "https://arvito-travelers-book.choibumsoo.chatgpt.site",
   "audience": "owner-private",
   "project_id": "appgprj_6af512d40a3c8191a956b1bacdf241be",
-  "deployment_id": "appgdep_6af561fb0a9c8191b69c0bf39beddf63",
-  "site_source_commit": "b6d2819604c1274d6cef1b083074b6228d7eb8ed",
+  "deployment_id": "appgdep_6af569bca9bc8191babcb1bd067b8853",
+  "site_source_commit": "1cf3d7c45262d757078a6a472c3b312e998a850a",
   "deployment_status": "succeeded",
   "node_tests": {
-    "passed": 25,
+    "passed": 46,
     "failed": 0,
     "coverage": [
       "100 authored events, 207 choices, 64 checks with both success and failure exercised",
@@ -22,9 +22,14 @@
       "health growth, camping recovery, wisdom resistance, intelligence magic damage",
       "all 400 retired event IDs migrate without RNG/resource/time changes",
       "pending outcomes and combat rewards survive migration without replay",
-      "every region/stage retains a pool after one-time events are exhausted"
+      "every region/stage retains a pool after one-time events are exhausted",
+      "d20 natural rolls, exact hit probabilities, ability modifiers and defense",
+      "new d20 and legacy ongoing combat save replay",
+      "enemy intents and automatic companion actions",
+      "deterministic batch simulation and bounded setup import",
+      "combat laboratory DOM actions and isolation from play/draft storage"
     ],
-    "last_run_version": "1.3.0 (20 existing tests and 5 content/migration checks)"
+    "last_run_version": "1.5.0 (all Web/tests/*.test.mjs)"
   },
   "build": "passed",
   "syntax_checks": [
@@ -34,7 +39,10 @@
     "events.mjs",
     "editor.mjs",
     "editor-model.mjs",
-    "editor-test.mjs"
+    "editor-test.mjs",
+    "combat-rules.mjs",
+    "combat-lab-model.mjs",
+    "combat-lab.mjs"
   ],
   "browser_qa": {
     "status": "blocked",
@@ -82,5 +90,14 @@
     ],
     "storage": "browser-local draft only; play-save key remains untouched",
     "publication": "editing/exporting in the workshop does not deploy changes"
+  },
+  "combat_lab_url": "https://arvito-travelers-book.choibumsoo.chatgpt.site/combat-lab.html",
+  "combat_tests": {
+    "passed": 11,
+    "failed": 0,
+    "rules": "d20 + attack modifiers >= defense; natural 1 misses, natural 20 critical; armor adds defense only",
+    "storage": "arvito.combat-lab.v1, separate from play saves and event drafts",
+    "compatibility": "Existing ongoing combats retain legacy rules; newly started combats use d20.",
+    "balance": "First experimental rules; batch policy is a simple benchmark, not a player win-rate prediction."
   }
 }
