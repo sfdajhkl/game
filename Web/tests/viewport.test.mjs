@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 import {parseHTML} from 'linkedom';
-import {fitPages} from '../web/viewport.mjs';
+import {fitPages,illustrationCover} from '../web/viewport.mjs';
 import * as G from '../web/engine.mjs';
 import * as Content from '../web/content.mjs';
 
@@ -53,4 +53,30 @@ test('all event screens preserve story and choices with the approved right summa
   assert.deepEqual([...document.querySelectorAll('.story>p')].map(p=>p.textContent),event.text,event.id);
   assert.equal(document.querySelectorAll('.event-choices [data-action="confirm"]').length,1,event.id);
  }
+});
+
+
+test('illustration covers its frame with square integer physical pixels at every zoom',()=>{
+ for(const dpr of [1,1.25,1.5,2,3])for(const [w,h] of [[840,720],[960,850],[374,240],[320,460]]){
+  const box=illustrationCover(w,h,dpr);
+  assert(box.width>=w&&box.height>=h);
+  assert(Math.abs(box.width/box.height-1.5)<1e-9);
+  for(const value of [box.width/192*dpr,box.height/128*dpr,box.left*dpr,box.top*dpr])assert(Math.abs(value-Math.round(value))<1e-9);
+  assert(box.left<=0&&box.top<=0);assert(box.left+box.width>=w-1e-9&&box.top+box.height>=h-1e-9);
+ }
+});
+test('illustration remains visible on every reading page without duplicating choices or losing prose',()=>{
+ const text='새로운 사건의 본문을 끝까지 읽습니다. '.repeat(35);
+ const {view,controls}=fixture(`<div class="event-grid"><section class="event-art"><figure><div class="picture"><img src="art/Events/q080_offer.png" alt="인장을 삼킨 상자"></div></figure></section><section class="story"><h1>인장을 삼킨 상자</h1><p>${text}</p></section><section class="event-choices"><button data-action="select">상자와 협상한다</button><button data-action="confirm">선택 확정</button></section></div>`);
+ const cleanup=fitPages(view,controls,'persistent-illustration');
+ assert(view.classList.contains('illustrated'));
+ const art=view.querySelector('.event-backdrop');assert(art);
+ const pages=readPages(view,controls);assert(pages.length>1);
+ assert.equal(view.querySelector('.event-backdrop'),art);
+ for(const html of pages){const {document}=parseHTML('<html><body>'+html+'</body></html>');assert.equal(document.querySelectorAll('.event-backdrop img').length,1);}
+ const {document}=parseHTML('<html><body>'+pages.join('')+'</body></html>');
+ assert.equal([...document.querySelectorAll('.story p')].map(p=>p.textContent).join(''),text);
+ assert.equal(document.querySelectorAll('[data-action="select"]').length,1);
+ assert.equal(document.querySelectorAll('[data-action="confirm"]').length,1);
+ cleanup();
 });
