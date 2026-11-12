@@ -1,14 +1,14 @@
 {
-  "version": "1.1.1",
+  "version": "1.2.0",
   "date": "2026-11-12",
   "production_url": "https://arvito-travelers-book.choibumsoo.chatgpt.site",
   "audience": "owner-private",
   "project_id": "appgprj_6af512d40a3c8191a956b1bacdf241be",
-  "deployment_id": "appgdep_6af51d7c7c6c819194c898ca710bfeb6",
-  "site_source_commit": "f76381a58067f9e96c4c919592c03fdae47e93ef",
+  "deployment_id": "appgdep_6af5267b3f908191a34602ae31c56e3a",
+  "site_source_commit": "1c20ab25f177188753f85a0ccb9b1263e9f89a06",
   "deployment_status": "succeeded",
   "node_tests": {
-    "passed": 17,
+    "passed": 20,
     "failed": 0,
     "coverage": [
       "500 event illustrations and all event choices",
@@ -21,7 +21,7 @@
       "all six stats have checks and growth",
       "health growth, camping recovery, wisdom resistance, intelligence magic damage"
     ],
-    "last_run_version": "1.1.0; engine unchanged in UI-only 1.1.1"
+    "last_run_version": "1.2.0 (17 rule tests and 3 DOM behavior checks)"
   },
   "build": "passed",
   "syntax_checks": [
@@ -30,15 +30,15 @@
   ],
   "browser_qa": {
     "status": "blocked",
-    "managed_preview": "relay could not open browser port 4173: timed out waiting for relay readiness",
-    "limitation": "Deployment and logic verified; browser rendering/interaction unverified."
+    "production_browser": "Browser Use could not read requirements",
+    "limitation": "No actual browser rendering or viewport-size verification. DOM checks use synthetic measurements only."
   },
   "font_coverage": "Noto Sans KR UI font includes all 11,172 modern Hangul syllables; variable weights 100–900. YiSunShin is explicitly scoped to game/story titles and story prose, not controls or status.",
   "ui_checks": [
-    "app.mjs syntax passed",
-    "static build passed",
-    "all modern Korean syllables and game Korean characters covered by UI font",
-    "deprecated decorative text removed from markup",
-    "narrative-only YiSunShin CSS scope inspected"
+    "app, viewport, paper-edge module syntax passed",
+    "title font ARVITO glyphs verified",
+    "all 500 event DOM templates retain narrative, choices, confirm button and 6 attributes",
+    "synthetic-size pagination preserves every prose character and interactive choice",
+    "short content does not add unnecessary page controls"
   ]
 }
