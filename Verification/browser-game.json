@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0",
+  "date": "2026-11-12",
+  "production_url": "https://arvito-travelers-book.choibumsoo.chatgpt.site",
+  "audience": "owner-private",
+  "project_id": "appgprj_6af512d40a3c8191a956b1bacdf241be",
+  "deployment_id": "appgdep_6af51500fbdc8191b613f1a3ad2f029b",
+  "site_source_commit": "5dda9ffd82ba0876baf3c5b9ab183094f39367d8",
+  "deployment_status": "succeeded",
+  "node_tests": {
+    "passed": 13,
+    "failed": 0,
+    "coverage": [
+      "500 event illustrations and all event choices",
+      "50 seeded battles: only hero controllable",
+      "stage/region/flag event eligibility",
+      "save round trips and combat RNG",
+      "storage backup recovery and quota errors",
+      "travel costs and appearance variants"
+    ]
+  },
+  "build": "passed",
+  "syntax_checks": [
+    "app.mjs",
+    "engine.mjs"
+  ],
+  "browser_qa": {
+    "status": "blocked",
+    "managed_preview": "relay could not open browser port 4173: timed out waiting for relay readiness",
+    "production_browser": "Browser Use could not read requirements",
+    "limitation": "Production deployment confirmed by Sites; visual rendering and browser interaction have not been verified."
+  }
+}
