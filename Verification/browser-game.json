@@ -1,11 +1,11 @@
 {
-  "version": "1.1.0",
+  "version": "1.1.1",
   "date": "2026-11-12",
   "production_url": "https://arvito-travelers-book.choibumsoo.chatgpt.site",
   "audience": "owner-private",
   "project_id": "appgprj_6af512d40a3c8191a956b1bacdf241be",
-  "deployment_id": "appgdep_6af51b32e4f08191974e6a43d5fd2019",
-  "site_source_commit": "83b2f32e4f0efc2fe0844ce28904faa7f08eb225",
+  "deployment_id": "appgdep_6af51d7c7c6c819194c898ca710bfeb6",
+  "site_source_commit": "f76381a58067f9e96c4c919592c03fdae47e93ef",
   "deployment_status": "succeeded",
   "node_tests": {
     "passed": 17,
@@ -20,7 +20,8 @@
       "v1 to v2 six-stat save migration including combat rewards",
       "all six stats have checks and growth",
       "health growth, camping recovery, wisdom resistance, intelligence magic damage"
-    ]
+    ],
+    "last_run_version": "1.1.0; engine unchanged in UI-only 1.1.1"
   },
   "build": "passed",
   "syntax_checks": [
@@ -32,5 +33,12 @@
     "managed_preview": "relay could not open browser port 4173: timed out waiting for relay readiness",
     "limitation": "Deployment and logic verified; browser rendering/interaction unverified."
   },
-  "font_coverage": "All Korean syllables used by UI and catalog are covered by YiSunShin; one font family used throughout."
+  "font_coverage": "Noto Sans KR UI font includes all 11,172 modern Hangul syllables; variable weights 100–900. YiSunShin is explicitly scoped to game/story titles and story prose, not controls or status.",
+  "ui_checks": [
+    "app.mjs syntax passed",
+    "static build passed",
+    "all modern Korean syllables and game Korean characters covered by UI font",
+    "deprecated decorative text removed from markup",
+    "narrative-only YiSunShin CSS scope inspected"
+  ]
 }
