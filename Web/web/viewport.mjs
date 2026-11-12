@@ -3,10 +3,13 @@
 const pageMemory = new Map();
 const structural = '.event-grid,.event-grid>section,.item-list,.item-list>article,.companion-list,.companion-list>article,.journal,.journal>article,.ending,.choices,.battle-bottom,.battle-bottom>section,.skills,.mobile-actions';
 
-// Cover the illustration frame without stretching pixels or leaving letterbox space.
+// Fit the complete illustration inside its frame; never crop its edges.
 // Center offsets are snapped too, including fractional browser zoom/DPR values.
-export function illustrationCover(width, height, dpr = 1) {
-  const scale = Math.max(1, Math.ceil(Math.max(width / 192, height / 128) * dpr));
+export function illustrationFit(width, height, dpr = 1) {
+  const limit = Math.min(width / 192, height / 128) * dpr;
+  // Prefer integer physical-pixel enlargement. If even native physical size
+  // cannot fit an exceptionally small frame, contain it instead of cropping.
+  const scale = limit >= 1 ? Math.floor(limit) : Math.max(0, limit);
   const w = 192 * scale / dpr, h = 128 * scale / dpr;
   return {width:w, height:h, left:Math.floor((width-w)*dpr/2)/dpr, top:Math.floor((height-h)*dpr/2)/dpr};
 }
@@ -27,7 +30,7 @@ export function fitPages(view, controls, key) {
     for (const picture of view.querySelectorAll('.picture')) {
       const img = picture.querySelector('img');
       if (picture.closest('.event-backdrop')) {
-        const box = illustrationCover(picture.clientWidth || 192, picture.clientHeight || 128, dpr);
+        const box = illustrationFit(picture.clientWidth || 192, picture.clientHeight || 128, dpr);
         for (const [property,value] of Object.entries(box)) img.style[property] = `${value}px`;
       } else {
         const cap = view.clientHeight * .45;
