@@ -1,12 +1,16 @@
 # 아르비토 · ARVITO
 
-**Unity 6.3 LTS / C# / Windows PC**용 텍스트 로그라이크입니다. 열여섯에 시작한 인물이 사건을 선택하고, 동료와 턴제 전투를 치르며, 사망하거나 수명이 다할 때까지 살아가는 게임입니다.
+**브라우저에서 실행하는 텍스트 로그라이크 RPG**입니다. 열여섯에 시작한 인물이 사건을 선택하고, 동료와 턴제 전투를 치르며 생애를 이어갑니다.
 
-현재 프로젝트: [`Unity/Arvito`](Unity/Arvito). 이전 Android/Web 시제품은 `Legacy/AndroidPrototype`에 보관했습니다.
+## 웹에서 바로 플레이
 
-## 현재 제공 상태
+**[아르비토 실행](https://arvito-travelers-book.choibumsoo.chatgpt.site)** — Unity 설치나 빌드가 필요하지 않습니다. 현재 접근 범위는 사이트 소유자 전용입니다.
 
-게임 규칙과 네이티브 uGUI 화면, 자동 저장, Unity 에디터 설정 및 Windows 빌드/설치 패키징 스크립트를 작성했습니다. **현재 클라우드에 활성 Unity 라이선스가 없어 에디터 실행과 Windows EXE 빌드는 완료하지 못했습니다.** 소스 ZIP은 설치 파일이 아닙니다.
+웹 소스는 [`Web/`](Web/README.md)에 있습니다. 500개 사건, 지역·성장에 따른 무작위 추첨, 주인공 조작과 동료 자동 전투, 양피지 UI, 이순신체 및 기존 삽화를 사용합니다. 진행은 현재 브라우저에 자동 저장되며 설정에서 기록 파일을 내보내고 불러올 수 있습니다. 기기 간 자동 동기화는 제공하지 않습니다.
+
+수정 흐름: `Web/web` 수정 → `cd Web && npm test && npm run build` → 기존 Sites 프로젝트에 소스와 빌드 결과 배포. GitHub에 Push하는 것만으로 사이트가 자동 배포되지는 않습니다. `.openai/hosting.json`의 기존 프로젝트 ID를 유지하세요. 현재 배포 원본과 검증 범위는 [`Verification/browser-game.json`](Verification/browser-game.json)에 기록했습니다.
+
+Unity 프로젝트는 [`Unity/Arvito`](Unity/Arvito)에 유지합니다. 웹과 Unity는 별도 구현이며 웹 수정이 Unity 코드에 자동 반영되지는 않습니다. 기존 Android/Web 시제품은 `Legacy/AndroidPrototype`에 보관했습니다. 아래 실행·빌드 절차는 Unity 버전에 해당합니다. 클라우드의 활성 Unity 라이선스가 없어 Windows EXE 빌드는 완료하지 못했습니다.
 
 ## Unity에서 바로 플레이 (Windows)
 
