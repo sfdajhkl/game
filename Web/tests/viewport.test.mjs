@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 import {parseHTML} from 'linkedom';
-import {fitPages,illustrationCover} from '../web/viewport.mjs';
+import {fitPages,illustrationFit} from '../web/viewport.mjs';
 import * as G from '../web/engine.mjs';
 import * as Content from '../web/content.mjs';
 
@@ -56,13 +56,21 @@ test('all event screens preserve story and choices with the approved right summa
 });
 
 
-test('illustration covers its frame with square integer physical pixels at every zoom',()=>{
- for(const dpr of [1,1.25,1.5,2,3])for(const [w,h] of [[840,720],[960,850],[374,240],[320,460]]){
-  const box=illustrationCover(w,h,dpr);
-  assert(box.width>=w&&box.height>=h);
+test('complete illustration fits without cropping and uses the largest integer pixel enlargement',()=>{
+ for(const dpr of [1,1.25,1.5,2,3])for(const [w,h] of [[840,720],[960,850],[374,240],[320,460],[1500,250]]){
+  const box=illustrationFit(w,h,dpr);
+  assert(box.width<=w+1e-9&&box.height<=h+1e-9);
   assert(Math.abs(box.width/box.height-1.5)<1e-9);
   for(const value of [box.width/192*dpr,box.height/128*dpr,box.left*dpr,box.top*dpr])assert(Math.abs(value-Math.round(value))<1e-9);
-  assert(box.left<=0&&box.top<=0);assert(box.left+box.width>=w-1e-9&&box.top+box.height>=h-1e-9);
+  assert(box.left>=0&&box.top>=0);
+  assert(box.left+box.width<=w+1e-9&&box.top+box.height<=h+1e-9);
+  assert(box.width+192/dpr>w||box.height+128/dpr>h,'next integer size must not fit');
+ }
+ for(const [w,h] of [[100,70],[320,80]]){
+  const box=illustrationFit(w,h,1);
+  assert(box.left>=0&&box.top>=0);
+  assert(box.left+box.width<=w+1e-9&&box.top+box.height<=h+1e-9);
+  assert(Math.abs(box.width/box.height-1.5)<1e-9);
  }
 });
 test('illustration remains visible on every reading page without duplicating choices or losing prose',()=>{
