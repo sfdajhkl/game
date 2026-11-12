@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Collections.Generic;
 using System.Text.Json;
 using Arvito.Core;
 
@@ -90,6 +91,40 @@ static class Program
         Check("stress breakdown loses one turn", () => { var g = Battle(); g.Actor("mira").stress = 100; g.State.combat.active = "hero"; g.State.combat.queue = new System.Collections.Generic.List<string> { "mira", "hero" }; g.Act("guard", "hero"); Assert(g.State.combat.active == "hero" && g.Actor("mira").stress == 65); });
         Check("retreat has cost and no victory reward", () => { var g = Battle(); g.State.gold = 31; g.Flee(); Assert(g.State.gold == 24 && g.State.victories == 0 && g.State.mode == "outcome"); });
         Check("camp heals, spends supplies and advances time", () => { var g = New(); g.State.hero.hp = 10; g.State.hero.stress = 35; g.Camp(); Assert(g.State.rations == 3 && g.State.weeks == 1 && g.State.hero.stress == 15 && g.State.hero.hp > 10); });
+        Check("browser saves reload and recover a validated backup", () => {
+            var values = new Dictionary<string, string>();
+            Func<string, string> read = key => values.TryGetValue(key, out var value) ? value : null;
+            var store = new BrowserSaveStore(read, (k,v) => values[k] = v, Encode, Decode, state => Game.Valid(state, data));
+            var g = Story("departure"); store.Save(g.State); g.Choose(0); store.Save(g.State);
+            var reopened = new BrowserSaveStore(read, (k,v) => values[k] = v, Encode, Decode, state => Game.Valid(state, data));
+            Assert(reopened.Load(out _)?.weeks == 1);
+            values[BrowserSaveStore.CurrentKey] = "{broken";
+            Assert(reopened.Load(out var notice)?.weeks == 0 && notice.Length > 0);
+            var backup = values[BrowserSaveStore.BackupKey]; store.Save(g.State);
+            Assert(values[BrowserSaveStore.BackupKey] == backup, "corrupt primary must not replace backup");
+        });
+        Check("browser quota failure leaves the previous save readable", () => {
+            var values = new Dictionary<string, string>(); bool full = false;
+            var store = new BrowserSaveStore(k => values.TryGetValue(k, out var v) ? v : null,
+                (k,v) => { if (full && k == BrowserSaveStore.CurrentKey) throw new IOException("quota"); values[k] = v; },
+                Encode, Decode, state => Game.Valid(state, data));
+            var g = Story("departure"); store.Save(g.State); g.Choose(0); full = true;
+            bool failed = false; try { store.Save(g.State); } catch (IOException) { failed = true; }
+            Assert(failed && store.Load(out _)?.weeks == 0);
+        });
+        Check("blocked browser storage is reported rather than claiming a save", () => {
+            var store = new BrowserSaveStore(k => throw new IOException("denied"), (k,v) => throw new IOException("denied"),
+                Encode, Decode, state => Game.Valid(state, data));
+            Assert(store.Load(out var notice) == null && notice.Length > 0);
+            bool failed = false; try { store.Save(New().State); } catch (IOException) { failed = true; } Assert(failed);
+        });
+        Check("invalid browser state never reaches persistence", () => {
+            int writes = 0;
+            var store = new BrowserSaveStore(k => null, (k,v) => writes++, Encode, Decode, state => Game.Valid(state, data));
+            var g = New(); g.State.hero = null;
+            bool failed = false; try { store.Save(g.State); } catch (InvalidDataException) { failed = true; }
+            Assert(failed && writes == 0);
+        });
         Check("atomic save and corrupted-primary backup recovery", () => {
             string dir = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "arvito-test-" + Guid.NewGuid()); string file = System.IO.Path.Combine(dir, "save.json");
             try { var store = new SaveStore(file, Encode, Decode, s => Game.Valid(s, data)); var g = Story("departure"); store.Save(g.State); g.Choose(0); store.Save(g.State); Assert(store.Load(out _)?.weeks == 1); File.WriteAllText(file, "{broken"); var restored = store.Load(out string notice); Assert(restored != null && restored.weeks == 0 && notice.Length > 0); }

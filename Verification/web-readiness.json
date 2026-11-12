@@ -1,0 +1,16 @@
+{
+  "version": "0.4.0",
+  "date": "2026-11-12",
+  "source_checks": {
+    "core_checks_passed": 48,
+    "unity_reference_compile": ["desktop player", "WebGL player defines", "editor"],
+    "browser": ["loader success and error states", "fullscreen dispatch", "1440 and 390px overflow", "Korean storage reload", "quota failure preserves prior value", "storage access denied"]
+  },
+  "browser_test_limit": "Unity loader and UTF-8 memory are test doubles. The real jslib and HTML template run in Chromium.",
+  "unity_editor_probe": { "result": "EDITOR_LICENSING_FAILURE", "exit_code": 198, "stage": "Prepare Project; Editor exited before import" },
+  "web_build_support_installed_in_cloud": false,
+  "actual_web_player_built": false,
+  "gameplay_in_browser_verified": false,
+  "public_play_url": null,
+  "remaining": "Build with a licensed Unity Editor and Web Build Support, verify real browser gameplay/reload, then deploy the output folder."
+}

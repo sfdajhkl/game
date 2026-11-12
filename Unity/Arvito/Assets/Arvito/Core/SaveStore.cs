@@ -4,8 +4,13 @@ using System.Text;
 
 namespace Arvito.Core
 {
+    public interface IGameSaveStore
+    {
+        GameState Load(out string notice);
+        void Save(GameState state);
+    }
     /// <summary>JSON is supplied by Unity JsonUtility or the .NET test harness. Atomic replace with a validated backup.</summary>
-    public sealed class SaveStore
+    public sealed class SaveStore : IGameSaveStore
     {
         readonly string path;
         readonly Func<GameState, string> encode;
