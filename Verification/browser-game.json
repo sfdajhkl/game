@@ -1,17 +1,17 @@
 {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "date": "2026-11-12",
   "production_url": "https://arvito-travelers-book.choibumsoo.chatgpt.site",
   "audience": "owner-private",
   "project_id": "appgprj_6af512d40a3c8191a956b1bacdf241be",
-  "deployment_id": "appgdep_6af5267b3f908191a34602ae31c56e3a",
-  "site_source_commit": "1c20ab25f177188753f85a0ccb9b1263e9f89a06",
+  "deployment_id": "appgdep_6af53f06a1c08191b1246af45a24f7b5",
+  "site_source_commit": "09d34e954986a22f7a108b05e28bd75736111ab1",
   "deployment_status": "succeeded",
   "node_tests": {
-    "passed": 20,
+    "passed": 25,
     "failed": 0,
     "coverage": [
-      "500 event illustrations and all event choices",
+      "100 authored events, 207 choices, 64 checks with both success and failure exercised",
       "50 seeded battles: only hero controllable",
       "stage/region/flag event eligibility",
       "save round trips and combat RNG",
@@ -19,25 +19,30 @@
       "travel costs and appearance variants",
       "v1 to v2 six-stat save migration including combat rewards",
       "all six stats have checks and growth",
-      "health growth, camping recovery, wisdom resistance, intelligence magic damage"
+      "health growth, camping recovery, wisdom resistance, intelligence magic damage",
+      "all 400 retired event IDs migrate without RNG/resource/time changes",
+      "pending outcomes and combat rewards survive migration without replay",
+      "every region/stage retains a pool after one-time events are exhausted"
     ],
-    "last_run_version": "1.2.0 (17 rule tests and 3 DOM behavior checks)"
+    "last_run_version": "1.3.0 (20 existing tests and 5 content/migration checks)"
   },
   "build": "passed",
   "syntax_checks": [
     "app.mjs",
-    "engine.mjs"
+    "engine.mjs",
+    "viewport.mjs",
+    "events.mjs"
   ],
   "browser_qa": {
     "status": "blocked",
     "production_browser": "Browser Use could not read requirements",
     "limitation": "No actual browser rendering or viewport-size verification. DOM checks use synthetic measurements only."
   },
-  "font_coverage": "Noto Sans KR UI font includes all 11,172 modern Hangul syllables; variable weights 100–900. YiSunShin is explicitly scoped to game/story titles and story prose, not controls or status.",
+  "font_coverage": "Noto Sans KR UI font includes all 11,172 modern Hangul syllables; variable weights 100–900. YiSunShin is explicitly scoped to event titles and story prose, not controls or status.",
   "ui_checks": [
     "app, viewport, paper-edge module syntax passed",
-    "title font ARVITO glyphs verified",
-    "all 500 event DOM templates retain narrative, choices, confirm button and 6 attributes",
+    "UnifrakturCook Bold ARVITO glyphs verified; SIL OFL bundled",
+    "all 100 event DOM templates retain narrative, choices, confirm button and 6 attributes",
     "synthetic-size pagination preserves every prose character and interactive choice",
     "short content does not add unnecessary page controls"
   ]

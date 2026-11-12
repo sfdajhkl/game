@@ -1,6 +1,7 @@
 import catalog from './catalog.mjs';
+import events from './events.mjs';
 const map=items=>Object.fromEntries(items.map(x=>[x.id,x]));
-export const WEAPONS=map(catalog.weapons),SKILLS=map(catalog.skills.map(x=>({accuracy:100,...x}))),COMPANIONS=map(catalog.companions),ENEMIES=map(catalog.enemies),EVENTS=map(catalog.events),REGIONS=map(catalog.regions);
+export const WEAPONS=map(catalog.weapons),SKILLS=map(catalog.skills.map(x=>({accuracy:100,...x}))),COMPANIONS=map(catalog.companions),ENEMIES=map(catalog.enemies),EVENTS=map(events),REGIONS=map(catalog.regions);
 export const STAT_NAMES={strength:'힘',agility:'민첩',intelligence:'지능',wisdom:'지혜',charisma:'매력',constitution:'건강'};
 export const STAT_DETAILS={
  strength:{icon:'sword',color:'#884336',description:'근접 무기의 피해와 무거운 물건을 다루는 판정에 영향을 줍니다.'},

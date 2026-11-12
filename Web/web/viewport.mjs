@@ -12,8 +12,15 @@ export function fitPages(view, controls, key) {
     const dpr = window.devicePixelRatio || 1;
     for (const picture of view.querySelectorAll('.picture')) {
       const img = picture.querySelector('img');
-      const cap = Math.min(256, Math.max(64, view.clientHeight * .45));
-      const n = Math.max(1, Math.floor(Math.min((picture.clientWidth - 10) / 192, cap / 128) * dpr));
+      const grid = picture.closest('.event-grid');
+      const style = grid && window.getComputedStyle?.(grid);
+      const stacked = !style || style.display !== 'grid' || style.gridTemplateColumns.trim().split(/\s+/).length < 2;
+      const choices = grid?.querySelector('.event-choices');
+      const reserved = choices?.getBoundingClientRect().height || 0;
+      // Side-by-side art can use the entire story row, with room for actions.
+      // Stacked/paginated views reserve reading space instead of making art a full page.
+      const cap = stacked ? view.clientHeight * .45 : Math.max(128, view.clientHeight - reserved - 24);
+      const n = Math.max(1, Math.floor(Math.min(picture.clientWidth / 192, cap / 128) * dpr));
       img.style.width = `${192 * n / dpr}px`; img.style.height = `${128 * n / dpr}px`;
     }
     return view.scrollHeight <= view.clientHeight + 1 && view.scrollWidth <= view.clientWidth + 1;
