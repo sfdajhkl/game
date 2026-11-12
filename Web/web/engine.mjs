@@ -1,5 +1,6 @@
 import {WEAPONS,SKILLS,COMPANIONS,ENEMIES,EVENTS,STAT_NAMES,REGIONS} from './content.mjs';
 
+import LEGACY_EVENTS from './legacy-events.mjs';
 export const VERSION=2;
 export const initialStats=()=>Object.fromEntries(Object.keys(STAT_NAMES).map(k=>[k,4]));
 export const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
@@ -13,7 +14,7 @@ export const weeklyMortality=(age,vitality=1)=>1-Math.pow(1-naturalAnnualRisk(ag
 export const stressTaken=(s,actor,amount)=>Math.max(1,amount-Math.floor((actor.id==='hero'?s.hero.stats.wisdom:4)/4));
 export function newGame(name='여행자',seed=Date.now(),femaleAppearance=false){
  const hero={id:'hero',name:(name.trim()||'여행자').slice(0,12),subtitle:'이름 없는 모험가',weapon:'sword',maxHp:38,hp:38,stress:0,energy:4,speed:3,power:1,portrait:'hero',femaleAppearance,status:{},skills:[],level:1,xp:0,stats:initialStats(),mastery:{}};
- const s={version:VERSION,rng:(seed>>>0)||1,weeks:0,vitality:1,hero,companions:[],formation:['hero'],fallen:[],inventory:['sword'],gold:24,rations:4,potions:3,rep:0,bond:0,flags:{},flagWeeks:{},seen:{},recent:[],eventId:'departure',mode:'story',outcome:null,combat:null,ending:null,journal:[],events:0,victories:0,startedAt:new Date().toISOString()};
+ const s={version:VERSION,contentRevision:2,rng:(seed>>>0)||1,weeks:0,vitality:1,hero,companions:[],formation:['hero'],fallen:[],inventory:['sword'],gold:24,rations:4,potions:3,rep:0,bond:0,flags:{},flagWeeks:{},seen:{},recent:[],eventId:'departure',mode:'story',outcome:null,combat:null,ending:null,journal:[],events:0,victories:0,startedAt:new Date().toISOString()};
  s.vitality=.8+random(s)*.4;
  const starts=Object.values(REGIONS).filter(r=>!r.minStage);s.region=starts[roll(s,0,starts.length-1)].id;s.eventId=drawEvent(s);
  record(s,'첫 장',`열여섯의 봄, ${regionName(s)}에서 당신의 이야기가 시작되었다.`,'birth');
@@ -236,6 +237,17 @@ export function deserialize(raw){
     const entry=(s.journal||[]).filter(j=>sources.some(src=>src.title===j.title&&j.body.endsWith(src.body))).sort((a,b)=>a.week-b.week)[0];s.flagWeeks[e.requiredFlag]=entry?.week??s.weeks;
   }
   const outcome=o=>{if(o&&!o.check&&o.hasCheck)o.check={success:o.success,chance:o.chance,stat:o.checkStat};};outcome(s.outcome);outcome(s.combat?.pending);
+  // Retired event screens map deterministically to a complete current event.
+  // Keep pending outcomes/combat rewards, history, time, resources and RNG intact.
+  if(!EVENTS[s.eventId]&&LEGACY_EVENTS[s.eventId])s.eventId=LEGACY_EVENTS[s.eventId];
+  if(s.contentRevision!==2){
+   for(const [id,count] of Object.entries(s.seen||{})){
+    const target=LEGACY_EVENTS[id];
+    if(target)s.seen[target]=Math.max(s.seen[target]||0,count);
+   }
+   if(Array.isArray(s.recent))s.recent=[...new Set(s.recent.map(id=>LEGACY_EVENTS[id]||id))].slice(-12);
+   s.contentRevision=2;
+  }
   if(s?.version!==VERSION||!['story','outcome','combat','ended'].includes(s.mode)||!EVENTS[s.eventId])return null;
   if(!s.hero||!Number.isFinite(s.hero.hp)||!Number.isInteger(s.weeks)||s.weeks<0||!Number.isInteger(s.rng)||s.rng<=0||s.rng>4294967295||!Number.isFinite(s.vitality)||s.vitality<=0)return null;
   if(!Array.isArray(s.formation)||!Array.isArray(s.companions)||!Array.isArray(s.inventory)||!Array.isArray(s.journal)||!Array.isArray(s.fallen)||!s.flags||!s.seen||!Array.isArray(s.recent))return null;
