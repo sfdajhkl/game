@@ -16,3 +16,33 @@ test('travel charges two weeks and one ration; locked travel leaves state unchan
 test('delayed reunion starts its wait at flag acquisition',()=>{const s=fresh();s.weeks=1040;s.region='village';G.applyEffects(s,{flag:'saved_child'});assert(!G.eligible(s,EVENTS.reunion));s.weeks+=103;assert(!G.eligible(s,EVENTS.reunion));s.weeks++;assert(G.eligible(s,EVENTS.reunion));});
 test('saves recover valid backup and preserve current on storage failure',()=>{const data=new Map(),storage={getItem:k=>data.get(k)??null,setItem:(k,v)=>data.set(k,v)};const s=fresh();Store.save(storage,s);s.gold++;Store.save(storage,s);assert.equal(Store.load(storage).state.gold,s.gold);data.set(Store.SAVE,'broken');assert(Store.load(storage).notice);assert.equal(Store.load(storage).state.gold,s.gold-1);Store.save(storage,s);const before=data.get(Store.SAVE);assert.throws(()=>Store.save({...storage,setItem(){throw Error('quota');}},s));assert.equal(data.get(Store.SAVE),before);});
 test('invalid or injected combat save is rejected',()=>{const s=battle(fresh());s.combat.queue.push('enemy_fake');assert.equal(roundtrip(s),null);});
+
+test('legacy saves retain progress and migrate old abilities without replaying rewards',()=>{
+ const s=fresh(77);s.version=1;s.hero.stats={strength:7,agility:6,wit:9,will:8};s.hero.hp=17;s.hero.maxHp=50;
+ const loaded=roundtrip(s);assert(loaded);assert.equal(loaded.version,2);
+ assert.deepEqual(loaded.hero.stats,{strength:7,agility:6,intelligence:9,wisdom:8,charisma:4,constitution:4});
+ assert.equal(loaded.hero.hp,17);assert.equal(loaded.hero.maxHp,50);assert.equal(loaded.rng,s.rng);assert.equal(loaded.eventId,s.eventId);assert.deepEqual(roundtrip(loaded),loaded);
+ const combat=battle(fresh(12));combat.version=1;combat.hero.stats={strength:4,agility:4,wit:4,will:4};combat.combat.pending.effects={stat:'will'};
+ assert.equal(roundtrip(combat).combat.pending.effects.stat,'wisdom');
+ delete s.hero.stats.wit;assert.equal(roundtrip(s),null);
+});
+test('all six abilities have authored checks and growth rewards; obsolete keys are gone',()=>{
+ const keys=['strength','agility','intelligence','wisdom','charisma','constitution'],checks=new Set(),rewards=new Set();
+ for(const e of Object.values(EVENTS))for(const c of e.choices){if(c.check?.stat){assert(keys.includes(c.check.stat));checks.add(c.check.stat);}for(const fx of [c.effects,c.failure?.effects])if(fx?.stat){assert(keys.includes(fx.stat));rewards.add(fx.stat);}}
+ assert.equal(checks.size,6);assert.equal(rewards.size,6);
+ const s=fresh();for(const stat of keys){const before=G.checkChance(s,{stat,dc:4});s.hero.stats[stat]++;assert.equal(G.checkChance(s,{stat,dc:4}),before+7);}
+});
+test('constitution growth improves max HP and resting; wisdom reduces tension',()=>{
+ const a=fresh(919),b=structuredClone(a);a.hero.hp=b.hero.hp=1;
+ G.applyEffects(a,{stat:'constitution'});assert.equal(a.hero.maxHp,b.hero.maxHp+2);assert.equal(a.hero.hp,3);
+ a.hero.hp=1;G.camp(a);G.camp(b);assert(a.hero.hp>b.hero.hp);
+ assert.equal(G.stressTaken(b,b.hero,8),7);b.hero.stats.wisdom=8;assert.equal(G.stressTaken(b,b.hero,8),6);
+ const invalid=fresh();delete invalid.hero.stats.charisma;assert.equal(roundtrip(invalid),null);
+});
+test('intelligence increases magic damage with identical rolls',()=>{
+ const a=fresh(75);G.applyEffects(a,{recruit:'borin'});a.inventory.push('staff');G.equip(a,'staff');battle(a);
+ const b=structuredClone(a);b.hero.stats.intelligence+=6;
+ const sk=G.availableSkills(a,a.hero).find(id=>SKILLS[id].magic&&SKILLS[id].power&&!G.skillLock(a,id));assert(sk);
+ const target=a.combat.enemies[0];target.hp=target.maxHp=1000;b.combat.enemies[0].hp=b.combat.enemies[0].maxHp=1000;
+ G.act(a,sk,target.id);G.act(b,sk,target.id);assert(b.combat.enemies[0].hp<a.combat.enemies[0].hp);
+});
