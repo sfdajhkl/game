@@ -1,6 +1,7 @@
 import {WEAPONS,SKILLS,COMPANIONS,ENEMIES,EVENTS,STAT_NAMES,REGIONS} from './content.mjs';
 
-export const VERSION=1;
+export const VERSION=2;
+export const initialStats=()=>Object.fromEntries(Object.keys(STAT_NAMES).map(k=>[k,4]));
 export const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 export const ageOf=s=>16+Math.floor(s.weeks/52);
 export const ageText=s=>`${ageOf(s)}세 ${s.weeks%52}주`;
@@ -9,9 +10,9 @@ export function random(s){let x=s.rng>>>0; x^=x<<13;x^=x>>>17;x^=x<<5;s.rng=x>>>
 const roll=(s,a,b)=>a+Math.floor(random(s)*(b-a+1));
 export function naturalAnnualRisk(age,vitality=1){return age<40?0:Math.min(.98,.0015*Math.exp((age-40)/8)/vitality);}
 export const weeklyMortality=(age,vitality=1)=>1-Math.pow(1-naturalAnnualRisk(age,vitality),1/52);
-export const stressTaken=(s,actor,amount)=>Math.max(1,amount-Math.floor((actor.id==='hero'?s.hero.stats.will:4)/4));
+export const stressTaken=(s,actor,amount)=>Math.max(1,amount-Math.floor((actor.id==='hero'?s.hero.stats.wisdom:4)/4));
 export function newGame(name='여행자',seed=Date.now(),femaleAppearance=false){
- const hero={id:'hero',name:(name.trim()||'여행자').slice(0,12),subtitle:'이름 없는 모험가',weapon:'sword',maxHp:38,hp:38,stress:0,energy:4,speed:3,power:1,portrait:'hero',femaleAppearance,status:{},skills:[],level:1,xp:0,stats:{strength:4,agility:4,wit:4,will:4},mastery:{}};
+ const hero={id:'hero',name:(name.trim()||'여행자').slice(0,12),subtitle:'이름 없는 모험가',weapon:'sword',maxHp:38,hp:38,stress:0,energy:4,speed:3,power:1,portrait:'hero',femaleAppearance,status:{},skills:[],level:1,xp:0,stats:initialStats(),mastery:{}};
  const s={version:VERSION,rng:(seed>>>0)||1,weeks:0,vitality:1,hero,companions:[],formation:['hero'],fallen:[],inventory:['sword'],gold:24,rations:4,potions:3,rep:0,bond:0,flags:{},flagWeeks:{},seen:{},recent:[],eventId:'departure',mode:'story',outcome:null,combat:null,ending:null,journal:[],events:0,victories:0,startedAt:new Date().toISOString()};
  s.vitality=.8+random(s)*.4;
  const starts=Object.values(REGIONS).filter(r=>!r.minStage);s.region=starts[roll(s,0,starts.length-1)].id;s.eventId=drawEvent(s);
@@ -55,8 +56,8 @@ export function applyEffects(s,e={}){
  if(e.region&&REGIONS[e.region]){s.region=e.region;changes.push(`${regionName(s)} 도착`);}
  if(e.weapon){if(!s.inventory.includes(e.weapon)){s.inventory.push(e.weapon);changes.push(`${WEAPONS[e.weapon].name} 획득`);}else{s.gold+=12;changes.push('중복 장비 판매 +12골드');}}
  if(e.skill&&!s.hero.skills.includes(e.skill)){s.hero.skills.push(e.skill);changes.push(`${SKILLS[e.skill].name} 습득`);}
- if(e.recruit&&!s.companions.some(a=>a.id===e.recruit)&&!s.fallen.includes(e.recruit)&&party(s).length<4){const t=COMPANIONS[e.recruit];s.companions.push({...structuredClone(t),skills:[...(t.skills||[])],hp:t.maxHp,stress:0,energy:4,level:1,xp:0,stats:{strength:4,agility:4,wit:4,will:4},mastery:{},status:{}});if(e.recruit==='borin')s.formation.unshift(e.recruit);else s.formation.push(e.recruit);changes.push(`${t.name} 동행 시작`);}
- if(e.stat){s.hero.stats[e.stat]++;changes.push(`${STAT_NAMES[e.stat]} +1`);}
+ if(e.recruit&&!s.companions.some(a=>a.id===e.recruit)&&!s.fallen.includes(e.recruit)&&party(s).length<4){const t=COMPANIONS[e.recruit];s.companions.push({...structuredClone(t),skills:[...(t.skills||[])],hp:t.maxHp,stress:0,energy:4,level:1,xp:0,stats:initialStats(),mastery:{},status:{}});if(e.recruit==='borin')s.formation.unshift(e.recruit);else s.formation.push(e.recruit);changes.push(`${t.name} 동행 시작`);}
+ if(e.stat&&Object.hasOwn(STAT_NAMES,e.stat)){s.hero.stats[e.stat]++;if(e.stat==='constitution'){s.hero.maxHp+=2;s.hero.hp+=2;}changes.push(`${STAT_NAMES[e.stat]} +1`);}
  if(e.xp){s.hero.xp+=e.xp;changes.push(`경험 +${e.xp}`);while(s.hero.xp>=s.hero.level*45){s.hero.xp-=s.hero.level*45;s.hero.level++;s.hero.maxHp+=4;s.hero.hp=Math.min(s.hero.maxHp,s.hero.hp+8);s.hero.power++;changes.push(`성장 단계 ${s.hero.level}`);}}
  if(e.fullHeal||e.heal){for(const a of party(s))a.hp=e.fullHeal||e.heal>=99?a.maxHp:clamp(a.hp+e.heal,0,a.maxHp);changes.push(e.fullHeal||e.heal>=99?'일행 완전 회복':`일행 체력 +${e.heal}`);}
  if(e.stress){for(const a of party(s))a.stress=clamp(a.stress+e.stress,0,100);changes.push(`긴장 ${e.stress>0?'+':''}${e.stress}`);}
@@ -93,7 +94,7 @@ export function camp(s){
  if(!s.rations&&s.gold<8)return {ok:false,reason:'야영에는 식량 1개 또는 8골드가 필요합니다.'};
  const cost=s.rations?'식량 1':'8골드';if(s.rations)s.rations--;else s.gold-=8;
  if(!advanceTime(s,1))return {ok:true};
- healParty(s,Math.ceil(s.hero.maxHp*.45));for(const a of party(s))a.stress=Math.max(0,a.stress-20);
+ healParty(s,Math.ceil(s.hero.maxHp*.45));s.hero.hp=clamp(s.hero.hp+Math.max(0,s.hero.stats.constitution-4),0,s.hero.maxHp);for(const a of party(s))a.stress=Math.max(0,a.stress-20);
  record(s,'불가의 작은 쉼',`${cost}를 쓰고 1주 동안 쉬었다. 일행의 상처와 긴장이 가라앉았다.`,'camp');
  return {ok:true,reason:'1주 경과 · 일행 체력 회복 · 긴장 -20'};
 }
@@ -185,7 +186,7 @@ function resolveAction(s,skillId,targetId){
   if(random(s)*100>sk.accuracy){log(s,`${a.name} · ${sk.name} → ${t.name} 빗나감`);}
   else{
    const mastery=a.id==='hero'?Math.min(3,Math.floor((a.mastery[a.weapon]||0)/8)):0;
-   const stat=a.id==='hero'?Math.floor(a.stats[sk.magic?'wit':['bow','dagger'].includes(a.weapon)?'agility':'strength']/3):0;
+   const stat=a.id==='hero'?Math.floor(a.stats[sk.magic?'intelligence':['bow','dagger'].includes(a.weapon)?'agility':'strength']/3):0;
    const crit=random(s)<.08;
    const base=(WEAPONS[a.weapon].power+a.power+mastery+stat+roll(s,-1,2))*sk.power;
    const damage=Math.max(1,Math.round((base-(sk.magic?0:t.armor||0))*(crit?1.6:1)*(t.status.guard ? .35 : 1)));
@@ -213,6 +214,17 @@ export function serialize(s){return JSON.stringify(s);}
 export function deserialize(raw){
  try{
   const s=JSON.parse(raw);if(!s)return null;
+  if(s.version===1){
+   const legacyKeys=['strength','agility','wit','will'];
+   if(!s.hero?.stats||!legacyKeys.every(k=>Number.isFinite(s.hero.stats[k])))return null;
+   for(const a of [s.hero,...(s.companions||[])]){
+    const old=a.stats||{};
+    a.stats={strength:old.strength??4,agility:old.agility??4,intelligence:old.wit??4,wisdom:old.will??4,charisma:4,constitution:4};
+   }
+   // A saved combat reward may still contain one of the retired stat keys.
+   for(const o of [s.outcome,s.combat?.pending])if(o?.effects?.stat)o.effects.stat=({wit:'intelligence',will:'wisdom'})[o.effects.stat]||o.effects.stat;
+   s.version=VERSION;
+  }
   const counter=v=>Array.isArray(v)?Object.fromEntries(v.map(x=>[x.id,x.value])):v;
   if(Array.isArray(s.flags))s.flags=Object.fromEntries(s.flags.map(id=>[id,true]));
   s.seen=counter(s.seen);s.flagWeeks=counter(s.flagWeeks)||{};if(s.hero)s.hero.mastery=counter(s.hero.mastery);
@@ -228,7 +240,7 @@ export function deserialize(raw){
   if(!s.hero||!Number.isFinite(s.hero.hp)||!Number.isInteger(s.weeks)||s.weeks<0||!Number.isInteger(s.rng)||s.rng<=0||s.rng>4294967295||!Number.isFinite(s.vitality)||s.vitality<=0)return null;
   if(!Array.isArray(s.formation)||!Array.isArray(s.companions)||!Array.isArray(s.inventory)||!Array.isArray(s.journal)||!Array.isArray(s.fallen)||!s.flags||!s.seen||!Array.isArray(s.recent))return null;
   if(!WEAPONS[s.hero.weapon]||!s.hero.stats||!s.hero.mastery||!Array.isArray(s.hero.skills))return null;
-  if(s.hero.id!=='hero'||!['strength','agility','wit','will'].every(k=>Number.isFinite(s.hero.stats[k])))return null;
+  if(s.hero.id!=='hero'||!Object.keys(STAT_NAMES).every(k=>Number.isFinite(s.hero.stats[k])&&s.hero.stats[k]>=0))return null;
   if(!['gold','rations','potions','rep','bond','events','victories'].every(k=>Number.isFinite(s[k])&&s[k]>=0))return null;
   const actors=[s.hero,...s.companions];
   if(actors.some(a=>!Number.isFinite(a.maxHp)||a.maxHp<=0||!Number.isFinite(a.hp)||a.hp<0||a.hp>a.maxHp||!Number.isFinite(a.stress)||a.stress<0||a.stress>100))return null;

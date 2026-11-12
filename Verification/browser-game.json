@@ -1,14 +1,14 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "date": "2026-11-12",
   "production_url": "https://arvito-travelers-book.choibumsoo.chatgpt.site",
   "audience": "owner-private",
   "project_id": "appgprj_6af512d40a3c8191a956b1bacdf241be",
-  "deployment_id": "appgdep_6af51500fbdc8191b613f1a3ad2f029b",
-  "site_source_commit": "5dda9ffd82ba0876baf3c5b9ab183094f39367d8",
+  "deployment_id": "appgdep_6af51b32e4f08191974e6a43d5fd2019",
+  "site_source_commit": "83b2f32e4f0efc2fe0844ce28904faa7f08eb225",
   "deployment_status": "succeeded",
   "node_tests": {
-    "passed": 13,
+    "passed": 17,
     "failed": 0,
     "coverage": [
       "500 event illustrations and all event choices",
@@ -16,7 +16,10 @@
       "stage/region/flag event eligibility",
       "save round trips and combat RNG",
       "storage backup recovery and quota errors",
-      "travel costs and appearance variants"
+      "travel costs and appearance variants",
+      "v1 to v2 six-stat save migration including combat rewards",
+      "all six stats have checks and growth",
+      "health growth, camping recovery, wisdom resistance, intelligence magic damage"
     ]
   },
   "build": "passed",
@@ -27,7 +30,7 @@
   "browser_qa": {
     "status": "blocked",
     "managed_preview": "relay could not open browser port 4173: timed out waiting for relay readiness",
-    "production_browser": "Browser Use could not read requirements",
-    "limitation": "Production deployment confirmed by Sites; visual rendering and browser interaction have not been verified."
-  }
+    "limitation": "Deployment and logic verified; browser rendering/interaction unverified."
+  },
+  "font_coverage": "All Korean syllables used by UI and catalog are covered by YiSunShin; one font family used throughout."
 }
