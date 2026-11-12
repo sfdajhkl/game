@@ -3,25 +3,37 @@
 const pageMemory = new Map();
 const structural = '.event-grid,.event-grid>section,.item-list,.item-list>article,.companion-list,.companion-list>article,.journal,.journal>article,.ending,.choices,.battle-bottom,.battle-bottom>section,.skills,.mobile-actions';
 
+// Cover the illustration frame without stretching pixels or leaving letterbox space.
+// Center offsets are snapped too, including fractional browser zoom/DPR values.
+export function illustrationCover(width, height, dpr = 1) {
+  const scale = Math.max(1, Math.ceil(Math.max(width / 192, height / 128) * dpr));
+  const w = 192 * scale / dpr, h = 128 * scale / dpr;
+  return {width:w, height:h, left:Math.floor((width-w)*dpr/2)/dpr, top:Math.floor((height-h)*dpr/2)/dpr};
+}
+
 export function fitPages(view, controls, key) {
   const template = [...view.children].map(node => node.cloneNode(true));
+  const sourceArt = template[0]?.matches('.event-grid') && template[0].querySelector('.event-art');
+  const backdrop = sourceArt ? sourceArt.cloneNode(true) : null;
+  if (backdrop) { backdrop.className = 'event-backdrop'; sourceArt.remove(); }
+  view.classList.toggle('illustrated', !!backdrop);
+  // Art is a persistent frame, never a paginated story block.
+  const replaceContent = (...nodes) => view.replaceChildren(...(backdrop ? [backdrop] : []), ...nodes);
   let disposed = false, scheduled = 0, pages = [], page = pageMemory.get(key) || 0;
   let lastSize = '';
   const fits = () => {
-    // Each illustration pixel occupies an integer number of physical pixels.
     const dpr = window.devicePixelRatio || 1;
+    view.style.setProperty('--illustration-height', `${Math.floor(view.clientHeight * .46)}px`);
     for (const picture of view.querySelectorAll('.picture')) {
       const img = picture.querySelector('img');
-      const grid = picture.closest('.event-grid');
-      const style = grid && window.getComputedStyle?.(grid);
-      const stacked = !style || style.display !== 'grid' || style.gridTemplateColumns.trim().split(/\s+/).length < 2;
-      const choices = grid?.querySelector('.event-choices');
-      const reserved = choices?.getBoundingClientRect().height || 0;
-      // Side-by-side art can use the entire story row, with room for actions.
-      // Stacked/paginated views reserve reading space instead of making art a full page.
-      const cap = stacked ? view.clientHeight * .45 : Math.max(128, view.clientHeight - reserved - 24);
-      const n = Math.max(1, Math.floor(Math.min(picture.clientWidth / 192, cap / 128) * dpr));
-      img.style.width = `${192 * n / dpr}px`; img.style.height = `${128 * n / dpr}px`;
+      if (picture.closest('.event-backdrop')) {
+        const box = illustrationCover(picture.clientWidth || 192, picture.clientHeight || 128, dpr);
+        for (const [property,value] of Object.entries(box)) img.style[property] = `${value}px`;
+      } else {
+        const cap = view.clientHeight * .45;
+        const n = Math.max(1, Math.floor(Math.min((picture.clientWidth || 192) / 192, cap / 128) * dpr));
+        img.style.width = `${192*n/dpr}px`; img.style.height = `${128*n/dpr}px`;
+      }
     }
     return view.scrollHeight <= view.clientHeight + 1 && view.scrollWidth <= view.clientWidth + 1;
   };
@@ -30,7 +42,7 @@ export function fitPages(view, controls, key) {
     page = Math.max(0, Math.min(index, pages.length - 1));
     pageMemory.set(key, page);
     if (pageMemory.size > 64) pageMemory.delete(pageMemory.keys().next().value);
-    view.replaceChildren(...clone(pages[page] || []));
+    replaceContent(...clone(pages[page] || []));
     fits();
     controls.replaceChildren();
     controls.hidden = pages.length < 2;
@@ -61,7 +73,7 @@ export function fitPages(view, controls, key) {
       return wrapper;
     }));
   }
-  function measure(node) { view.replaceChildren(node); return fits(); }
+  function measure(node) { replaceContent(node); return fits(); }
   function splitOversized(node) {
     if (measure(node.cloneNode(true))) return [node];
     // Unwrap an oversized group while preserving its styling context.
@@ -103,18 +115,18 @@ export function fitPages(view, controls, key) {
     if (disposed || !view.isConnected) return;
     controls.hidden = true;
     view.classList.remove('paged');
-    view.replaceChildren(...clone(template));
+    replaceContent(...clone(template));
     if (fits()) { pages = [clone(template)]; page = 0; show(0); lastSize = `${view.clientWidth}:${view.clientHeight}`; return; }
     controls.hidden = false;
     view.classList.add('paged');
     const blocks = template.flatMap(flatten).flatMap(splitOversized);
     pages = []; let current = [];
-    view.replaceChildren();
+    replaceContent();
     for (const block of blocks) {
       view.append(block.cloneNode(true));
       if (!fits() && current.length) {
         pages.push(current); current = [];
-        view.replaceChildren(block.cloneNode(true));
+        replaceContent(block.cloneNode(true));
       }
       current.push(block);
     }

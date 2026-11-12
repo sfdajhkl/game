@@ -1,11 +1,11 @@
 {
-  "version": "1.3.0",
+  "version": "1.3.1",
   "date": "2026-11-12",
   "production_url": "https://arvito-travelers-book.choibumsoo.chatgpt.site",
   "audience": "owner-private",
   "project_id": "appgprj_6af512d40a3c8191a956b1bacdf241be",
-  "deployment_id": "appgdep_6af53f06a1c08191b1246af45a24f7b5",
-  "site_source_commit": "09d34e954986a22f7a108b05e28bd75736111ab1",
+  "deployment_id": "appgdep_6af540e3c20c8191815a5e45976cca01",
+  "site_source_commit": "cd0e120712941678ac5518459c47e2f59b089f5e",
   "deployment_status": "succeeded",
   "node_tests": {
     "passed": 25,
@@ -44,6 +44,22 @@
     "UnifrakturCook Bold ARVITO glyphs verified; SIL OFL bundled",
     "all 100 event DOM templates retain narrative, choices, confirm button and 6 attributes",
     "synthetic-size pagination preserves every prose character and interactive choice",
-    "short content does not add unnecessary page controls"
-  ]
+    "short content does not add unnecessary page controls",
+    "event illustration fills approximately 64% of desktop reading area for its full height",
+    "narrative and choices paginate independently of persistent illustration",
+    "small screens use top 46% for illustration and remaining height for reading pages"
+  ],
+  "viewport_tests": {
+    "version": "1.3.1",
+    "passed": 5,
+    "failed": 0,
+    "checks": [
+      "100 event DOM templates retain all narrative, choices and attributes",
+      "long prose and choices preserved across pages",
+      "short content stays on a single page",
+      "cover geometry has no empty borders and preserves integer physical pixels at DPR 1/1.25/1.5/2/3",
+      "same illustration persists on every page; choices are not duplicated"
+    ],
+    "limitation": "Synthetic DOM and geometry tests, not browser rendering."
+  }
 }
