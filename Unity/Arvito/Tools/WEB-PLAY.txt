@@ -1,0 +1,41 @@
+아르비토 웹 실행 (Unity 프로젝트 0.4.0)
+
+현재 상태
+웹 빌드 메뉴, 로딩 화면, 브라우저 저장 지원을 준비했습니다.
+이 파일과 프로젝트 ZIP은 웹 실행 파일이 아닙니다.
+클라우드 Unity 라이선스 부재(exit 198)로 실제 WebGL 빌드/실행은 아직 확인하지 못했습니다.
+
+내 PC에서 실행
+1. Unity 재생을 멈추고 GitHub Desktop에서 main의 Pull origin을 누릅니다.
+2. Unity Hub > Installs에서 사용하는 Editor 옆 톱니바퀴/메뉴 > Add modules로 갑니다.
+   Web Build Support(버전에 따라 WebGL Build Support)를 설치합니다. 이미 설치되어 있으면 건너뜁니다.
+3. 프로젝트가 열리고 컴파일이 끝나면 상단 Arvito > Web > Build and Run in Browser를 누릅니다.
+4. 처음 빌드는 오래 걸릴 수 있습니다. 끝나면 브라우저가 열립니다.
+   주소가 localhost인 것은 정상입니다. 그 주소는 다른 사람에게 공유하는 공개 링크가 아닙니다.
+
+웹 파일만 만들기 / 공유 준비
+- Arvito > Web > Build Web Folder: 저장소의 dist/Arvito-Web에 웹 빌드를 만듭니다.
+- index.html을 더블클릭하면 실행되지 않습니다. HTTP/HTTPS 서버가 필요합니다.
+- 같은 PC에서 다시 열 때: Python이 있으면 저장소 루트에서
+    python -m http.server 8080 --directory dist/Arvito-Web
+  를 실행하고 http://localhost:8080을 엽니다.
+- 공유용으로는 dist/Arvito-Web 폴더의 내용 전체(index.html, Build, Licenses 등)를 정적 웹 호스팅에 올립니다.
+  압축해서 올릴 경우 ZIP 최상위에 index.html이 있어야 합니다.
+- Gzip + Decompression Fallback을 사용하므로 .unityweb 파일에 별도 Content-Encoding 헤더를 붙일 필요가 없습니다.
+- 개발 서버의 localhost 주소는 공유 링크가 아닙니다. 실제 배포 URL은 업로드 후 생깁니다.
+
+저장
+- 같은 주소(호스트/포트), 같은 브라우저의 localStorage에 자동 저장합니다.
+- 현재 기록과 유효한 이전 백업을 보관합니다. 새 삶을 시작할 때 직전 삶 한 개도 별도 보관합니다.
+- Windows판과 JSON 구조는 같지만 기기 간 자동 동기화 기능은 없습니다.
+- 비공개 모드 종료, 브라우저 데이터 삭제, 주소 변경 시 기존 기록을 읽지 못할 수 있습니다.
+- 기록은 각 행동 후 즉시 저장합니다. 페이지 종료 이벤트에 의존하지 않습니다.
+- 저장 오류가 표시되면 새로고침하지 말고 브라우저 저장 권한/남은 공간을 먼저 확인하세요.
+
+빌드 후 확인
+- 시작 화면의 삽화와 이순신체가 보이는지 확인합니다.
+- 새 삶 > 이벤트 선택 > 다음 페이지 > 전투 진행이 되는지 확인합니다.
+- 같은 URL에서 새로고침하고 이어서 읽기를 눌러 인물/시간/전투 상태가 유지되는지 확인합니다.
+- 전체 화면 버튼과 작은 창의 본문 스크롤/선택지를 확인합니다.
+- Chrome/Edge에서 먼저 확인하고, Safari와 실제 모바일 기기는 별도로 확인합니다.
+- 처음 받는 용량, 로딩 시간, 모바일 메모리 사용량은 실제 빌드 후 측정해야 합니다.

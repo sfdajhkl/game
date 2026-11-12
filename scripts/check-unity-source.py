@@ -22,8 +22,8 @@ for name in ['UnityEngine.UI.dll', 'Unity.TextMeshPro.dll', 'Unity.InputSystem.d
     refs.append(matches[0])
 sources = list((root / 'Unity/Arvito/Assets/Arvito').rglob('*.cs'))
 sources += list((root / 'Unity/Arvito/Tools').glob('PackageRepair.cs'))
-for mode in ['player', 'editor']:
-    defines = 'UNITY_STANDALONE_WIN,ENABLE_INPUT_SYSTEM,UNITY_6000_0_OR_NEWER'
+for mode in ['player', 'web', 'editor']:
+    defines = ('UNITY_WEBGL' if mode == 'web' else 'UNITY_STANDALONE_WIN') + ',ENABLE_INPUT_SYSTEM,UNITY_6000_0_OR_NEWER'
     if mode == 'editor': defines += ',UNITY_EDITOR'
     result = subprocess.run([str(a.dotnet), str(csc), '-nologo', '-nostdlib', '-langversion:9', '-target:library',
         '-define:' + defines, '-out:' + str(a.output / ('Arvito-' + mode + '.dll'))] + ['-r:' + str(f) for f in refs] + list(map(str, sources)), capture_output=True, text=True)

@@ -15,7 +15,7 @@ namespace Arvito.Runtime
     {
         Game game;
         Catalog data;
-        SaveStore saves;
+        IGameSaveStore saves;
         RectTransform canvas, page, main, aside, dialog, toast;
         TMP_InputField nameInput;
         string tab = "journey", selectedSkill, selectedTarget, lastActor, notice = "";
@@ -32,7 +32,12 @@ namespace Arvito.Runtime
 
         void Awake()
         {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            Application.targetFrameRate = -1;
+            QualitySettings.vSyncCount = 0;
+#else
             Application.targetFrameRate = 60;
+#endif
             data = JsonUtility.FromJson<Catalog>(Resources.Load<TextAsset>("Arvito/catalog").text);
             data.Normalize();
             Ui.Font = Resources.Load<TMP_FontAsset>("Arvito/Fonts/Arvito-Korean");
@@ -55,7 +60,11 @@ namespace Arvito.Runtime
             }
             Ui.TextScale = UiScale;
             foreach (string id in new[] { "village", "forest", "ruins", "camp", "battle" }) art[id] = Resources.Load<Texture2D>("Arvito/Art/" + id);
+#if UNITY_WEBGL && !UNITY_EDITOR
+            saves = new BrowserSaveStore(BrowserStorage.Read, BrowserStorage.Write, s => JsonUtility.ToJson(s, true), json => JsonUtility.FromJson<GameState>(json), s => Game.Valid(s, data));
+#else
             saves = new SaveStore(Path.Combine(Application.persistentDataPath, "arvito-save.json"), s => JsonUtility.ToJson(s, true), json => JsonUtility.FromJson<GameState>(json), s => Game.Valid(s, data));
+#endif
             var state = saves.Load(out notice); if (state != null) game = new Game(data, state);
             canvas = Ui.Node("Arvito Canvas", transform); var c = canvas.gameObject.AddComponent<Canvas>(); c.renderMode = RenderMode.ScreenSpaceOverlay;
             var scaler = canvas.gameObject.AddComponent<UnityEngine.UI.CanvasScaler>(); scaler.uiScaleMode = UnityEngine.UI.CanvasScaler.ScaleMode.ScaleWithScreenSize; scaler.referenceResolution = new Vector2(1440, 900); scaler.matchWidthOrHeight = .5f;
@@ -243,7 +252,7 @@ namespace Arvito.Runtime
             bool eventArt = game == null || EventArt.Load(game.Event.id) != null;
             bool font = Resources.Load<TMP_FontAsset>("Arvito/Fonts/Arvito-Korean") != null;
             bool narrativeFont = Resources.Load<TMP_FontAsset>("Arvito/Fonts/Arvito-YiSunShin") != null;
-            var stack = Dialog("게임 자료 확인", "양피지 UI 0.3.2\n\n배경: " + (missing == 0 ? "정상" : missing + "개 누락") +
+            var stack = Dialog("게임 자료 확인", "양피지 UI 0.4.0\n\n배경: " + (missing == 0 ? "정상" : missing + "개 누락") +
                 "\n캐릭터: " + (characters ? "정상" : "누락") + "\n현재 삽화: " + (game == null ? "시작 전" : eventArt ? "정상" : "누락") + "\n정보 글꼴: " + (font ? "정상" : "준비 필요") + "\n이순신체: " + (narrativeFont ? "정상" : "준비 필요"));
             Ui.Text(stack, "글꼴 준비가 필요하면 재생을 멈추고 Arvito → Prepare Project를 실행해 주세요.\n그림 자료가 누락되면 Unity 재생을 멈추고 상단 Arvito → Repair Art Imports를 실행해 주세요.\n\n프로젝트 위치\n" + Application.dataPath, 16, Ui.Muted);
             Ui.Button(stack, "닫기", CloseDialog);
@@ -254,9 +263,13 @@ namespace Arvito.Runtime
             Ui.Button(stack, Screen.fullScreen ? "창 모드로 전환" : "전체 화면으로 전환", () => { Screen.fullScreenMode = Screen.fullScreen ? FullScreenMode.Windowed : FullScreenMode.FullScreenWindow; CloseDialog(); });
             Ui.Button(stack, Ui.TextScale > 1 ? "글자 크기: 크게 → 기본" : "글자 크기: 기본 → 크게", () => { Ui.TextScale = Ui.TextScale > 1 ? 1 : 1.12f; PlayerPrefs.SetFloat("textScale", Ui.TextScale); PlayerPrefs.Save(); CloseDialog(); Render(); });
             if (!title) Ui.Button(stack, "저장하고 시작 화면으로", () => { Save(); CloseDialog(); title = true; Render(); });
+#if UNITY_WEBGL && !UNITY_EDITOR
+            Ui.Text(stack, "기록은 이 브라우저에 저장됩니다. 브라우저 데이터를 지우면 기록도 사라집니다.\n플레이를 마치면 이 탭을 닫아 주세요.", 14, Ui.Muted);
+#else
             Ui.Button(stack, "게임 종료", () => { Save(); Application.Quit(); });
+#endif
             Ui.Button(stack, "그림·글꼴 자료 확인", AssetStatus, 48);
-            Ui.Text(stack, "아르비토 0.3.2 · 양피지 수첩\n제목·본문: 이순신체 · 아산시\n정보·숫자: Noto Serif KR · SIL OFL 1.1", 14, Ui.Muted);
+            Ui.Text(stack, "아르비토 0.4.0 · 양피지 수첩\n제목·본문: 이순신체 · 아산시\n정보·숫자: Noto Serif KR · SIL OFL 1.1", 14, Ui.Muted);
             Ui.Button(stack, "계속하기", CloseDialog, 50, true, true);
         }
     }

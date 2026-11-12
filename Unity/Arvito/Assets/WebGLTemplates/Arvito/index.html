@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>아르비토 · 웹</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#3b2a20;color:#e1cdab;font:15px/1.6 system-ui,sans-serif}
+    header{min-height:48px;padding:8px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}header strong{letter-spacing:.18em}button{font:inherit;background:#d5be96;color:#3b2a20;border:0;padding:5px 14px;cursor:pointer}button:disabled{opacity:.5;cursor:wait}
+    #game{position:relative;background:#3b2a20;height:calc(100dvh - 100px);min-height:360px}canvas{display:block;width:100%;height:100%;outline:none;touch-action:none}#loading{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:28px;text-align:center;background:#3b2a20}#loading[hidden]{display:none}progress{width:min(320px,80vw);accent-color:#d5be96}#message{max-width:600px;white-space:pre-line}footer{padding:8px 18px;font-size:12px;color:#d5be96}a{color:inherit}#fullscreen{margin-left:auto}#game:fullscreen{height:100vh;width:100vw}
+  </style>
+</head>
+<body>
+<header><strong>아르비토</strong><span>한 모험가의 일대기</span><button id="fullscreen" disabled>전체 화면</button></header>
+<main id="game"><canvas id="unity-canvas" tabindex="0" aria-label="아르비토 게임"></canvas><section id="loading" role="status"><h1>책을 펼치는 중</h1><progress id="progress" max="1" value="0"></progress><p id="message">처음에는 게임 자료를 내려받는 데 시간이 걸립니다.</p><button id="retry" hidden>다시 불러오기</button></section></main>
+<footer>기록은 현재 브라우저에 저장됩니다. 다른 기기와 자동 공유되지 않으며, 브라우저 데이터를 지우면 사라집니다. <a href="Licenses/LICENSE-YiSunShin.txt">이순신체</a> · <a href="Licenses/OFL-NotoSerifKR.txt">Noto Serif KR</a></footer>
+<script>
+  const canvas=document.getElementById('unity-canvas'),loading=document.getElementById('loading'),progress=document.getElementById('progress'),message=document.getElementById('message'),retry=document.getElementById('retry'),fullscreen=document.getElementById('fullscreen');
+  function failed(detail){loading.hidden=false;loading.querySelector('h1').textContent='게임을 열지 못했습니다';message.textContent=detail;progress.hidden=true;retry.hidden=false;fullscreen.disabled=true;}
+  retry.onclick=()=>location.reload();
+  const config={
+    dataUrl:'Build/{{{ DATA_FILENAME }}}',frameworkUrl:'Build/{{{ FRAMEWORK_FILENAME }}}',codeUrl:'Build/{{{ CODE_FILENAME }}}',
+    streamingAssetsUrl:'StreamingAssets',companyName:{{{ JSON.stringify(COMPANY_NAME) }}},productName:{{{ JSON.stringify(PRODUCT_NAME) }}},productVersion:{{{ JSON.stringify(PRODUCT_VERSION) }}},
+    devicePixelRatio:Math.min(window.devicePixelRatio||1,1.5),autoSyncPersistentDataPath:true,
+    showBanner:(text,type)=>{if(type==='error')failed(text);else console.warn(text);}
+  };
+  if(location.protocol==='file:'){failed('Unity에서 Arvito → Web → Build and Run in Browser를 눌러 실행해 주세요. 이 파일을 더블클릭해서는 실행할 수 없습니다.');}
+  else {
+    const script=document.createElement('script');script.src='Build/{{{ LOADER_FILENAME }}}';
+    script.onerror=()=>failed('게임 파일을 내려받지 못했습니다. 연결을 확인한 뒤 다시 불러와 주세요.');
+    script.onload=()=>{
+      if(typeof createUnityInstance!=='function'){failed('게임 로더가 올바르지 않습니다. 웹 빌드 폴더 전체를 업로드해 주세요.');return;}
+      createUnityInstance(canvas,config,value=>{progress.value=value;}).then(instance=>{
+        loading.hidden=true;fullscreen.disabled=false;canvas.focus();
+        fullscreen.onclick=()=>instance.SetFullscreen(1);
+      }).catch(error=>failed(String(error)));
+    };
+    document.body.appendChild(script);
+  }
+</script>
+</body>
+</html>

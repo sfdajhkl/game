@@ -29,14 +29,17 @@ namespace Arvito.Runtime
             if (game != null) Ui.Button(stack, game.State.mode == "ended" ? "지난 삶의 마지막 장" : "이어서 읽기  ·  " + game.AgeLabel, () => { title = false; tab = "journey"; Render(); }, 58, true, true);
             Ui.Button(stack, "새로운 삶을 시작하다", NewLifeDialog, 58, true, game == null);
             Ui.Button(stack, "설정", Settings, 48);
-            Ui.Text(stack, notice + "\n0.3.2 · 양피지 수첩", 12, Ui.Muted);
+            Ui.Text(stack, notice + "\n0.4.0 · 양피지 수첩", 12, Ui.Muted);
             if (Compact) return;
             var caption = Ui.Narrative(page, "아직 쓰이지 않은\n당신의 이야기", 19, Ui.Raised, TextAlignmentOptions.BottomRight); Ui.Fill(caption.rectTransform, 700, 44, 44, 48);
         }
         void NewLifeDialog()
         {
             newLifeFemale=false;
-            var stack = Dialog("새로운 이름, 새로운 길", game == null ? "당신은 열여섯 살입니다.\n어떤 이름으로 첫 페이지를 열까요?" : "현재 삶은 별도 기록 파일로 보관합니다.\n새 인물은 열여섯 살부터 시작합니다.");
+            string previousLife = Application.platform == RuntimePlatform.WebGLPlayer
+                ? "이전 삶 한 개를 이 브라우저에 보관합니다.\n새 인물은 열여섯 살부터 시작합니다."
+                : "현재 삶은 별도 기록 파일로 보관합니다.\n새 인물은 열여섯 살부터 시작합니다.";
+            var stack = Dialog("새로운 이름, 새로운 길", game == null ? "당신은 열여섯 살입니다.\n어떤 이름으로 첫 페이지를 열까요?" : previousLife);
             var field = Ui.Card(stack, "Name input", Ui.Raised); Ui.Height(field, 64); Ui.Border(field);
             nameInput = field.gameObject.AddComponent<TMP_InputField>(); nameInput.targetGraphic = field.GetComponent<UnityEngine.UI.Image>(); nameInput.characterLimit = 12;
             var area = Ui.Node("Text area", field); Ui.Fill(area, 15, 15, 8, 8); area.gameObject.AddComponent<UnityEngine.UI.RectMask2D>();
@@ -64,8 +67,12 @@ namespace Arvito.Runtime
             {
                 if (game != null)
                 {
+#if UNITY_WEBGL && !UNITY_EDITOR
+                    BrowserStorage.Write(BrowserSaveStore.PreviousLifeKey, JsonUtility.ToJson(game.State, true));
+#else
                     string folder = Path.Combine(Application.persistentDataPath, "Lives"); Directory.CreateDirectory(folder);
                     File.WriteAllText(Path.Combine(folder, DateTime.UtcNow.ToString("yyyyMMdd-HHmmss-fff") + ".json"), JsonUtility.ToJson(game.State, true));
+#endif
                 }
             }
             catch (IOException) { Notify("이전 기록을 보관하지 못했습니다. 저장 공간을 확인해 주세요."); return; }

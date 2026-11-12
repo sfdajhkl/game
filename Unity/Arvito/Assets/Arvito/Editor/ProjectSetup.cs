@@ -46,7 +46,7 @@ namespace Arvito.Editor
             ValidateArtImports();
             PlayerSettings.companyName = "Arvito";
             PlayerSettings.productName = "아르비토";
-            PlayerSettings.bundleVersion = "0.3.2";
+            PlayerSettings.bundleVersion = "0.4.0";
             PlayerSettings.SetApplicationIdentifier(UnityEditor.Build.NamedBuildTarget.Standalone, "games.arvito.pc");
             PlayerSettings.defaultScreenWidth = 1440; PlayerSettings.defaultScreenHeight = 900;
             PlayerSettings.resizableWindow = true; PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
@@ -181,7 +181,7 @@ namespace Arvito.Editor
                 count++;
             }
             if (count < 506) throw new InvalidDataException("Art files are missing (" + count + "/506). Pull the latest repository. Project: " + Application.dataPath);
-            Debug.Log("Arvito 0.3.2: " + count + " textures verified via Resources.Load. Project: " + Application.dataPath);
+            Debug.Log("Arvito 0.4.0: " + count + " textures verified via Resources.Load. Project: " + Application.dataPath);
         }
         [MenuItem("Arvito/Open Game Scene")]
         public static void OpenScene() { if (!File.Exists(ScenePath)) Prepare(); else if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) EditorSceneManager.OpenScene(ScenePath); }
