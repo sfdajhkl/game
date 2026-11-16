@@ -1,14 +1,12 @@
 import * as G from './engine.mjs';
 import {WEAPONS,SKILLS,COMPANIONS,ENEMIES,STAT_NAMES} from './content.mjs';
 import {DEFAULT_SETUP,PRESETS,LAB_KEY,normalizeSetup,createLabBattle,serializeSetup,parseSetup,runBatch} from './combat-lab-model.mjs';
-import {RULE_LIMITS,physicalDamage,signed} from './combat-rules.mjs';
+import {RULE_LIMITS} from './combat-rules.mjs';
+import {combatSelection, chooseCombatCommand, combatAttributes, renderCombat, fitCombatSprites, renderCombatLog} from './combat-view.mjs';
 const $=s=>document.querySelector(s),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let config=structuredClone(DEFAULT_SETUP),run=null,skill='',target='',storage;
+let config=structuredClone(DEFAULT_SETUP),run=null,combatChoice={},storage,fitCleanup;
 function message(text,error=false){$('#lab-message').textContent=text;$('#lab-message').classList.toggle('error',error);}
 try{storage=localStorage;const raw=storage.getItem(LAB_KEY);if(raw)config=parseSetup(raw);}catch{message('저장된 전투 설정을 읽지 못했습니다. 기본 설정으로 시작합니다.',true);}
-const slots={hero:0,mira:1,elian:2,borin:3,bandit:4,archer:5,skeleton:6,cultist:7,wolf:8,slime:9,boar:10,spider:11,wisp:12,warden:13,dragon:14,hero_female:16,elian_female:17,borin_female:18,bandit_female:19,archer_female:20,cultist_female:21};
-const sprite=a=>{const n=slots[G.spriteId(a)]??0;return `<span class="sprite" style="--col:${n%4};--row:${Math.floor(n/4)}" role="img" aria-label="${esc(a.name)}"></span>`;};
-const bar=a=>`<span class="lab-hp"><i style="width:${Math.max(0,a.hp/a.maxHp*100)}%"></i></span>`;
 const field=(label,path,value,min,max,step=1)=>`<label>${esc(label)}<input data-field="${path}" type="number" value="${value}" min="${min}" max="${max}" step="${step}"></label>`;
 const options=(table,value,empty=false)=>(empty?'<option value="">배치 안 함</option>':'')+Object.entries(table).map(([id,item])=>`<option value="${id}" ${value===id?'selected':''}>${esc(item.name)}</option>`).join('');
 function renderSetup(){const preset=Object.keys(PRESETS).find(k=>JSON.stringify(PRESETS[k].enemies)===JSON.stringify(config.enemies));
@@ -16,28 +14,44 @@ function renderSetup(){const preset=Object.keys(PRESETS).find(k=>JSON.stringify(
 }
 function readSetup(){const next={stats:{},rules:{},enemies:[...document.querySelectorAll('[data-enemy]')].map(e=>e.value).filter(Boolean),companions:[...document.querySelectorAll('[data-companion]:checked')].map(e=>e.dataset.companion)};for(const el of document.querySelectorAll('[data-field]')){const [group,key]=el.dataset.field.split('.'),value=el.type==='number'?Number(el.value):el.value;if(key)next[group][key]=value;else next[group]=value;}return normalizeSetup(next);}
 function saveSetup(){try{storage?.setItem(LAB_KEY,serializeSetup(config));if(!storage)throw Error();}catch{message('설정 자동 저장을 사용할 수 없습니다. 설정 내보내기로 보관하세요.',true);}}
-function start(){config=readSetup();saveSetup();run=createLabBattle(config);skill='';target='';render();}
-function render(){if(!run){$('#arena').innerHTML='<div class="battle-ended"><h2>전투를 구성하세요</h2><p>적과 동료를 고르고 시작하면 주사위 판정과 행동을 확인할 수 있습니다.</p></div>';$('#actions').innerHTML='';$('#combat-log').innerHTML='';return;}
- const s=run.state,c=run.combat,rules=c.rules,inCombat=s.mode==='combat';
- if(inCombat){const legal=G.availableSkills(s,s.hero).filter(k=>!G.skillLock(s,k));if(!legal.includes(skill))skill=legal.find(k=>SKILLS[k].power)||legal[0]||'';const targets=skill?G.validTargets(s,skill):[];if(!targets.some(a=>a.id===target))target=targets[0]?.id||'';}
- const targets=inCombat&&skill?G.validTargets(s,skill):[],canTarget=id=>targets.some(a=>a.id===id);
- $('#arena').innerHTML=`<div class="arena-heading"><h2>${inCombat?`${c.round}라운드 · ${esc(s.hero.name)}의 차례`:s.outcome?.combatWin?'승리':s.mode==='ended'?'패배':'퇴각'}</h2><small>d20 · 시드 ${run.config.seed}</small></div><div class="enemy-row">${c.enemies.map(e=>{const preview=inCombat&&skill&&SKILLS[skill].power&&canTarget(e.id)?G.attackPreview(s.hero,e,SKILLS[skill],rules):null;return `<button data-action="target" data-id="${e.id}" class="combatant ${e.hp<=0?'defeated':''} ${target===e.id&&inCombat?'selected':''}" ${!inCombat||!canTarget(e.id)?'disabled':''}>${sprite(e)}<strong>${esc(e.name)}</strong>${bar(e)}<small>체력 ${e.hp}/${e.maxHp} · ${preview&&SKILLS[skill].magic?'정신 방어':'방어도'} ${preview?.defense??G.defenseValue(e,{},rules)}</small>${inCombat?`<small class="intent">${esc(G.enemyIntent(s,e))}</small>`:''}${preview?`<small>명중 ${preview.chance}%</small>`:''}</button>`;}).join('')}</div><div class="allies">${G.party(s).map((a,i)=>`<button class="combatant ${target===a.id&&inCombat?'selected':''}" data-action="target" data-id="${a.id}" ${!inCombat||!canTarget(a.id)?'disabled':''}>${sprite(a)}<strong>${esc(a.name)}</strong><small>${i+1}열 · ${a.id==='hero'?'직접 조작':'자동 행동'}</small>${bar(a)}<small>체력 ${a.hp}/${a.maxHp} · 기력 ${a.energy}/5</small></button>`).join('')}</div>${inCombat?`<p class="order">남은 순서: ${c.queue.map(id=>G.actorById(s,id)).filter(a=>a?.hp>0).map(a=>esc(a.name)).join(' → ')||'다음 라운드'}</p>`:''}`;
- if(!inCombat){$('#actions').innerHTML=`<div class="battle-ended"><h2>${s.outcome?.combatWin?'모든 적을 물리쳤어.':s.mode==='ended'?'주인공이 쓰러졌어.':'전투에서 물러났어.'}</h2><p>주인공 남은 체력 ${s.hero.hp}/${s.hero.maxHp} · ${c.round}라운드</p><button class="primary" data-action="restart">같은 설정과 시드로 다시</button></div>`;}
- else{
- const selected=targets.find(a=>a.id===target),preview=selected&&SKILLS[skill]?.power?G.attackPreview(s.hero,selected,SKILLS[skill],rules):null;
- $('#actions').innerHTML=`<h2>행동 선택 · 기력 ${s.hero.energy}/5 · 회복약 ${s.potions}</h2><div class="skill-grid">${G.availableSkills(s,s.hero).map(k=>{const lock=G.skillLock(s,k);return `<button data-action="skill" data-id="${k}" class="${skill===k?'selected':''}" ${lock?'disabled':''}>${esc(SKILLS[k].name)}<small>${esc(lock||'기력 '+SKILLS[k].cost)}</small></button>`;}).join('')}</div><p class="action-desc">${skill?esc(G.skillDescription(s,skill)):''}</p><div class="target-buttons">${targets.map(a=>`<button data-action="target" data-id="${a.id}" class="${target===a.id?'selected':''}">${esc(a.name)}</button>`).join('')}</div>${preview?`<div class="target-preview"><strong>명중 ${preview.chance}%</strong> · d20 ${signed(preview.bonus)} ≥ 방어 ${preview.defense}<br>${esc(STAT_NAMES[preview.stat])} 보정 ${signed(G.abilityModifier(s.hero.stats[preview.stat]))} · 일반 피해 ${physicalDamage(s.hero,SKILLS[skill],-1)}~${physicalDamage(s.hero,SKILLS[skill],2)}</div>`:''}<div class="action-buttons"><button class="primary" data-action="act" ${!skill||!target?'disabled':''}>${selected?'이 행동 실행':'대상을 선택하세요'}</button><button data-action="flee">퇴각</button></div>`;
+function start(){config=readSetup();saveSetup();run=createLabBattle(config);combatChoice={};document.body.classList.remove('is-preparing');render();}
+function render(){
+ fitCleanup?.();
+ const active=document.activeElement?.dataset,focus=active?.action?{...active}:null;
+ const inCombat=run?.state.mode==='combat';
+ $('#actions').hidden=!!inCombat;
+ if(!run){$('#arena').innerHTML='<div class="battle-ended"><h2>전투를 구성하세요</h2><p>적과 동료를 고른 뒤 시작하세요.</p></div>';$('#actions').innerHTML='';$('#combat-log').innerHTML='';return;}
+ const s=run.state,c=run.combat;
+ if(inCombat){
+  combatChoice=combatSelection(s,combatChoice);
+  $('#arena').innerHTML=combatAttributes(s)+renderCombat(s,combatChoice);
+  fitCleanup=fitCombatSprites(document.querySelector('.parchment-combat'));
+  if(focus){const next=[...document.querySelectorAll('#arena [data-action]')].find(e=>e.dataset.action===focus.action&&e.dataset.id===focus.id&&e.dataset.category===focus.category);if(next&&!next.disabled)next.focus({preventScroll:true});}
+ }else{
+  $('#arena').innerHTML=`<div class="battle-ended"><h2>${s.outcome?.combatWin?'승리':s.mode==='ended'?'패배':'퇴각'}</h2><p>주인공 남은 체력 ${s.hero.hp}/${s.hero.maxHp} · ${c.round}라운드</p></div>`;
+  $('#actions').innerHTML='<button class="primary" data-action="restart">같은 설정과 시드로 다시</button><button data-action="toggle-setup">전투 준비</button>';
  }
- $('#combat-log').innerHTML=c.log.map(line=>`<p class="${line.includes('d20 ')?'dice-line':''}">${esc(line)}</p>`).join('');$('#combat-log').scrollTop=$('#combat-log').scrollHeight;
+ $('#combat-log').innerHTML=c.log.map(line=>`<p>${esc(line)}</p>`).join('');
 }
+function showDialog(title,body){const dialog=$('#lab-dialog');dialog.innerHTML=`<h2>${title}</h2><div class="combat-log-content">${body}</div><button data-action="close-dialog">돌아가기</button>`;if(!dialog.open)dialog.showModal();}
+
 document.addEventListener('change',ev=>{try{if(ev.target.id==='scenario'&&PRESETS[ev.target.value]){config={...config,enemies:[...PRESETS[ev.target.value].enemies]};renderSetup();saveSetup();message('다음 전투에 적용됩니다.');}else if(ev.target.closest('#setup')){config=readSetup();saveSetup();message('설정을 저장했습니다. 다음 전투에 적용됩니다.');}}catch(error){message(error.message,true);}});
 document.addEventListener('click',async ev=>{const button=ev.target.closest('[data-action]');if(!button||button.disabled)return;const action=button.dataset.action;try{
  if(action==='start'){start();message('시험 전투를 시작했습니다.');}
  else if(action==='restart'){if(run){config=structuredClone(run.config);renderSetup();}start();message('같은 설정과 시드로 다시 시작했습니다.');}
  else if(action==='new-seed'){config=readSetup();config.seed=(Date.now()>>>0)||1;renderSetup();start();message('새 시드로 시작했습니다.');}
- else if(action==='skill'){skill=button.dataset.id;target='';render();}
- else if(action==='target'){target=button.dataset.id;render();}
- else if(action==='act'&&run?.state.mode==='combat'){G.act(run.state,skill,target);render();}
- else if(action==='flee'&&run?.state.mode==='combat'){G.flee(run.state);render();}
+ else if(action==='toggle-setup'){document.body.classList.toggle('is-preparing');}
+ else if(action==='combat-command'&&run?.state.mode==='combat'){combatChoice=chooseCombatCommand(run.state,combatChoice,button.dataset.category);render();}
+ else if(action==='combat-skill-page'){combatChoice.page=Number(button.dataset.page);render();}
+ else if(action==='skill'){combatChoice={...combatChoice,skill:button.dataset.id,category:'skills'};render();}
+ else if(action==='target'){combatChoice.target=button.dataset.id;render();}
+ else if(action==='act'&&run?.state.mode==='combat'){G.act(run.state,combatChoice.skill,combatChoice.target);combatChoice={};render();}
+ else if(action==='flee'&&run?.state.mode==='combat'){showDialog('퇴각','<p>이 시험 전투에서 물러날까요?</p><button data-action="confirm-retreat">퇴각한다</button>');}
+ else if(action==='confirm-retreat'&&run?.state.mode==='combat'){G.flee(run.state);$('#lab-dialog').close();render();}
+ else if(action==='combat-help'){showDialog(esc(SKILLS[button.dataset.id].name),`<p>${esc(G.skillDescription(run.state,button.dataset.id))}</p>`);}
+ else if(action==='combat-log'||action==='combat-log-page'){showDialog('전투 기록',renderCombatLog(run.combat.log,button.dataset.page===undefined?undefined:Number(button.dataset.page)));}
+ else if(action==='stat-info'){const key=button.dataset.stat;showDialog(STAT_NAMES[key],`<p>현재 능력치 ${run.state.hero.stats[key]} · 보정 ${G.abilityModifier(run.state.hero.stats[key])}</p>`);}
+ else if(action==='close-dialog')$('#lab-dialog').close();
  else if(action==='batch'){const setup=readSetup();button.disabled=true;$('#batch-result').textContent='30회 시험 중…';await new Promise(resolve=>setTimeout(resolve,0));const result=runBatch(setup,30);$('#batch-result').textContent=`승리 ${result.wins} · 패배 ${result.losses} · 시간 초과 ${result.timeouts}\n승률 ${result.winRate}% · 평균 ${result.averageRounds}라운드\n평균 남은 체력 ${result.averageHp}`;button.disabled=false;}
  else if(action==='export'){const blob=new Blob([serializeSetup(readSetup())],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='arvito-combat-setup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
  else if(action==='import')$('#setup-file').click();
