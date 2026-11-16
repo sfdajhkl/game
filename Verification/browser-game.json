@@ -1,14 +1,14 @@
 {
-  "version": "1.6.0",
+  "version": "1.6.1",
   "date": "2026-11-16",
   "production_url": "https://arvito-travelers-book.choibumsoo.chatgpt.site",
   "audience": "owner-private",
   "project_id": "appgprj_6af512d40a3c8191a956b1bacdf241be",
-  "deployment_id": "appgdep_6afaee8f2e548191aa85b290df6f9f07",
-  "site_source_commit": "163e36d8a12bd0f584e45d1147602e5df344482e",
+  "deployment_id": "appgdep_6afaf0d21ca48191996aafd573464b5c",
+  "site_source_commit": "52911624627ed65233cdc0d8b4189a56f998b729",
   "deployment_status": "succeeded",
   "node_tests": {
-    "passed": 52,
+    "passed": 56,
     "failed": 0,
     "coverage": [
       "100 authored events, 207 choices, 64 checks with both success and failure exercised",
@@ -31,9 +31,12 @@
       "Parchment combat UI preserves enemies, six stats and automatic companions without changing state",
       "Hero command grouping, skill lock reasons, ally targeting, paginated skills and combat records",
       "Main app combat integration executes selected action without story pagination",
-      "Enemy sprite enlargement uses integer physical texels at DPR 1/1.25/1.5/2/3"
+      "Enemy sprite enlargement uses integer physical texels at DPR 1/1.25/1.5/2/3",
+      "4096 sampled RGB colors map to exactly two flat colors in each material family",
+      "Native pixel positions, opaque/transparent masks, deterministic edge cases",
+      "Shared art renderer is loaded by game, lab and event workshop"
     ],
-    "last_run_version": "1.6.0 (all Web/tests/*.test.mjs)"
+    "last_run_version": "1.6.1 (all Web/tests/*.test.mjs)"
   },
   "build": "passed",
   "syntax_checks": [
@@ -47,7 +50,10 @@
     "combat-rules.mjs",
     "combat-lab-model.mjs",
     "combat-lab.mjs",
-    "combat-view.mjs"
+    "combat-view.mjs",
+    "art-shading.mjs",
+    "art-renderer.mjs",
+    "art-worker.mjs"
   ],
   "browser_qa": {
     "status": "blocked",
@@ -116,5 +122,17 @@
       "failed": 0
     },
     "rules": "Existing d20 rules and ongoing legacy combat unchanged"
+  },
+  "art_style": {
+    "rule": "One base and one shadow color per material family, no dithering or extra highlight values",
+    "palette": "Six muted material families, at most 12 opaque output colors",
+    "coverage": "All illustrated img sources under art/, character atlas, and battle scenery; UI paper textures excluded",
+    "pipeline": "Runtime worker-backed canvas conversion, cached object URLs; original assets retained; conversion failures display original",
+    "source_background": "Simplified with image generation to match the two-step art direction",
+    "tests": {
+      "passed": 4,
+      "failed": 0
+    },
+    "browser_visual_verification": "Blocked by the same preview/browser infrastructure errors as 1.6.0"
   }
 }
