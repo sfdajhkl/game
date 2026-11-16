@@ -1,14 +1,14 @@
 {
-  "version": "1.5.0",
-  "date": "2026-11-12",
+  "version": "1.6.0",
+  "date": "2026-11-16",
   "production_url": "https://arvito-travelers-book.choibumsoo.chatgpt.site",
   "audience": "owner-private",
   "project_id": "appgprj_6af512d40a3c8191a956b1bacdf241be",
-  "deployment_id": "appgdep_6af569bca9bc8191babcb1bd067b8853",
-  "site_source_commit": "1cf3d7c45262d757078a6a472c3b312e998a850a",
+  "deployment_id": "appgdep_6afaee8f2e548191aa85b290df6f9f07",
+  "site_source_commit": "163e36d8a12bd0f584e45d1147602e5df344482e",
   "deployment_status": "succeeded",
   "node_tests": {
-    "passed": 46,
+    "passed": 52,
     "failed": 0,
     "coverage": [
       "100 authored events, 207 choices, 64 checks with both success and failure exercised",
@@ -27,9 +27,13 @@
       "new d20 and legacy ongoing combat save replay",
       "enemy intents and automatic companion actions",
       "deterministic batch simulation and bounded setup import",
-      "combat laboratory DOM actions and isolation from play/draft storage"
+      "combat laboratory DOM actions and isolation from play/draft storage",
+      "Parchment combat UI preserves enemies, six stats and automatic companions without changing state",
+      "Hero command grouping, skill lock reasons, ally targeting, paginated skills and combat records",
+      "Main app combat integration executes selected action without story pagination",
+      "Enemy sprite enlargement uses integer physical texels at DPR 1/1.25/1.5/2/3"
     ],
-    "last_run_version": "1.5.0 (all Web/tests/*.test.mjs)"
+    "last_run_version": "1.6.0 (all Web/tests/*.test.mjs)"
   },
   "build": "passed",
   "syntax_checks": [
@@ -42,12 +46,14 @@
     "editor-test.mjs",
     "combat-rules.mjs",
     "combat-lab-model.mjs",
-    "combat-lab.mjs"
+    "combat-lab.mjs",
+    "combat-view.mjs"
   ],
   "browser_qa": {
     "status": "blocked",
+    "managed_preview": "sites-preview: relay could not open browser port 4173: timed out waiting for relay readiness",
     "production_browser": "Browser Use could not read requirements",
-    "limitation": "No actual browser rendering/viewport or native file-dialog verification; DOM behavior and data/engine tests passed."
+    "limitation": "No actual browser rendering/viewport verification. All engine, DOM integration and sprite geometry tests passed; production deployment succeeded."
   },
   "font_coverage": "Noto Sans KR UI font includes all 11,172 modern Hangul syllables; variable weights 100–900. YiSunShin is explicitly scoped to event titles and story prose, not controls or status.",
   "ui_checks": [
@@ -99,5 +105,16 @@
     "storage": "arvito.combat-lab.v1, separate from play saves and event drafts",
     "compatibility": "Existing ongoing combats retain legacy rules; newly started combats use d20.",
     "balance": "First experimental rules; batch policy is a simple benchmark, not a player win-rate prediction."
+  },
+  "combat_ui": {
+    "approved_design": "02 — 양피지 기록장",
+    "main_and_lab": "Shared combat-view.mjs and combat.css",
+    "layout": "Large left battlefield, right target/commands, bottom automatic party, top six-stat strip",
+    "background": "art/combat-parchment.png, generated from the approved mockup, displayed without cropping",
+    "tests": {
+      "passed": 6,
+      "failed": 0
+    },
+    "rules": "Existing d20 rules and ongoing legacy combat unchanged"
   }
 }
