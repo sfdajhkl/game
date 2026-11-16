@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ARVITO · 이벤트 작업장</title><link rel="stylesheet" href="editor.css"></head>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ARVITO · 이벤트 작업장</title><link rel="stylesheet" href="editor.css"><link rel="stylesheet" href="art-style.css"></head>
 <body>
 <header class="toolbar"><a class="wordmark" href="index.html">ARVITO</a><h1>이벤트 작업장</h1><span id="save-state" role="status">초안 불러오는 중</span><div class="tools"><a class="lab-link" href="combat-lab.html">전투 실험실 ↗</a><button data-action="save">초안 저장</button><button data-action="export-draft">백업 JSON</button><button data-action="import">불러오기</button><button data-action="export-ready" class="primary">완성본 내보내기</button></div></header>
 <div class="storage-note">초안은 이 브라우저에 자동 저장됩니다. 다른 기기와 공유되거나 실제 게임에 자동 적용되지는 않습니다.</div>
@@ -12,4 +12,4 @@
 <dialog id="library"><div class="dialog-heading"><h2>기존 사건 참고</h2><button data-action="close-library" aria-label="닫기">닫기</button></div><p>선택한 사건만 새 초안으로 복사합니다.</p><label>검색<input id="library-search" type="search" placeholder="제목·본문 검색"></label><div id="library-list"></div></dialog>
 <input id="import-file" type="file" accept=".json,application/json" hidden>
 <script type="module" src="editor.mjs"></script>
-</body></html>
+<script type="module" src="art-renderer.mjs"></script></body></html>
