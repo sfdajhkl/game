@@ -1,7 +1,0 @@
-/* Art has base + shadow only; UI color coding and natural paper remain legible. */
-.art-pending{visibility:hidden}
-.sprite,.combat-sprite{background-image:var(--character-art,none)!important;image-rendering:pixelated;image-rendering:crisp-edges}
-.combat-stage::before{background-image:var(--combat-scenery,none);opacity:1}
-.combat-stage::after{display:none}
-.combat-stage{box-shadow:none}
-img[data-shading="two-step"]{image-rendering:pixelated;image-rendering:crisp-edges}

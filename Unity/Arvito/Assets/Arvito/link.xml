@@ -1,4 +1,0 @@
-<linker>
-  <!-- Catalog and saved state are populated by JsonUtility in the IL2CPP player. -->
-  <assembly fullname="Arvito.Core" preserve="all" />
-</linker>

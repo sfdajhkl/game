@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: db8405352911579fb890e69c3016f057
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 24
+  forceTextureCase: -2
+  fontRenderingMode: 0
+  includeFontData: 1
+  fontNames:
+  - Noto Sans KR
+  fallbackFontReferences: []
+  customCharacters:
+  characterSpacing: 0
+  characterPadding: 1
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
